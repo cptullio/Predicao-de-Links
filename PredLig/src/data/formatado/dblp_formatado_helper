@@ -1,0 +1,12 @@
+Arquivo sobre artigo
+id;artigo;anoPublicacao
+
+Arquivo sobre autores;
+id;nome
+
+Arquivo sobre autores que publicaram artigos
+autorid;artigoid
+
+
+
+
