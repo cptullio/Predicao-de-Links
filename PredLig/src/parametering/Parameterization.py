@@ -20,8 +20,8 @@ class Parameterization(object):
         for line in self.content:
             line = line.strip()
             col = line.split(';')
-            node1_id = int(col[0])
-            node2_id = int(col[1])
+            node1_id = "Article_%s" %(int(col[0]))
+            node2_id = "Author_%s" %(int(col[1]))
             attribute_id = int(col[2])
             self.graph.add_edge(node1_id, node2_id, {'time': attribute_id})
         
