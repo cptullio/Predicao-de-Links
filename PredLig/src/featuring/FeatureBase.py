@@ -24,3 +24,22 @@ class FeatureBase(object):
             neighbors.add(neighbor)
         return neighbors - set([node])
     
+    def has_link(self, neighbor_node1, neighbor_node2):
+        neighbors = self.all_neighbors(neighbor_node1)
+        for n in neighbors:
+            if neighbor_node2 in self.all_neighbors(n):
+                return True
+                break
+        return False
+    
+    def others(self, node):
+        edges = self.all_neighbors(node)
+        others_nodes = []
+        for n in edges:
+            list = self.all_neighbors(n)
+            list.remove(node)
+            for other in list:
+                others_nodes.append(other)
+        return others_nodes
+        
+    

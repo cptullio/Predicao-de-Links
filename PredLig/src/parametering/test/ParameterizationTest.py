@@ -4,7 +4,9 @@ Created on Jun 15, 2015
 @author: cptullio
 '''
 import unittest
-import networkx
+ 
+import matplotlib.pyplot as plt
+import networkx as networkx
 
 from parametering.Parameterization import Parameterization
 from featuring.AASFeature import AASFeature
@@ -13,9 +15,10 @@ from featuring.PAFeature import PAFeature
 from calculating.Result import Result
 from calculating.Calculate import Calculate
 from networkx.classes.graph import Graph
-import matplotlib
+
 from featuring.FeatureBase import FeatureBase
 from featuring.CNFeature import CNFeature
+import matplotlib
 
 class Test(unittest.TestCase):
 
@@ -54,28 +57,50 @@ class Test(unittest.TestCase):
         neighbors_node1 = aas.all_neighbors(myedge)
         print neighbors_node1
     
-    def testGraphCreating(self):
+    def creategraph(self):
         graph = Graph()
         a1 = 'author_1'
         a2 = 'author_2'
-        a3 = 'autor_3'
-        p1 = 1
-        p2 = 2
-        p3 = 3
-        graph.add_node(a1, {'time': 0})
-        graph.add_node(a2, {'time': 0})
-        graph.add_node(a3, {'time': 0})
-        graph.add_node(p1, {'time': 1994})
-        graph.add_node(p2, {'time': 1996})
-        graph.add_node(p3, {'time': 1994})
+        a3 = 'author_3'
+        a4 = 'author_4'
+        p1 = 'paper_1'
+        p2 = 'paper_2'
+        p3 = 'paper_3'
+        
+        graph.add_node(a1, {'node_type': 'N' })
+        graph.add_node(a2, {'node_type': 'N' })
+        graph.add_node(a3, {'node_type': 'N' })
+        graph.add_node(a4, {'node_type': 'N' })
+        graph.add_node(p1, {'node_type': 'E', 'time': 1994})
+        graph.add_node(p2, {'node_type': 'E', 'time': 1995})
+        graph.add_node(p3, {'node_type': 'E', 'time': 1996})
         
         graph.add_edge(p1,a1)
         graph.add_edge(p1,a2)
         graph.add_edge(p2,a2)
+        graph.add_edge(p2,a4)
         graph.add_edge(p3,a3)
+        return graph
+    
+    
+    def testGraphCreating(self):
+        graph = self.creategraph()
         
-        nodes = set(n for n,d in graph.nodes(data=True) if d['time'] == 0)
-        print nodes
+        all_Authors = set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        cn= CNFeature()
+        cn.graph = graph
+        for author in all_Authors:
+
+            for other_author in cn.others(author):
+                if cn.has_link(author, other_author):
+                    print author
+                    print other_author
+
+            
+        
+        
+        networkx.draw_networkx(graph)  # networkx draw()
+        plt.show()  # pyplot draw()
         
         
         
