@@ -41,5 +41,15 @@ class FeatureBase(object):
             for other in list:
                 others_nodes.append(other)
         return others_nodes
+    
+    def othersWithoutLink(self, node):
+        edges = self.all_neighbors(node)
+        others_nodes = []
+        for n in edges:
+            list = self.all_neighbors(n)
+            list.remove(node)
+            for other in list:
+                others_nodes.append(other)
+        return others_nodes
         
     

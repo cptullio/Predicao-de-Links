@@ -90,14 +90,14 @@ class Test(unittest.TestCase):
         cn= CNFeature()
         cn.graph = graph
         for author in all_Authors:
-
-            for other_author in cn.others(author):
-                if cn.has_link(author, other_author):
-                    print author
-                    print other_author
-
-            
-        
+                papers =   cn.all_neighbors(author)
+                withoutAuthor = set(all_Authors) 
+                withoutAuthor.remove(author) 
+                for other_author in withoutAuthor:
+                    other_papers = cn.all_neighbors(other_author)
+                    if not papers.issubset(other_papers) and not other_papers.issubset(papers) :
+                        print str(author) + "\t" + str(other_author)
+                
         
         networkx.draw_networkx(graph)  # networkx draw()
         plt.show()  # pyplot draw()
