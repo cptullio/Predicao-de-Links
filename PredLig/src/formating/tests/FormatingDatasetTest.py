@@ -5,6 +5,8 @@ Created on Jun 14, 2015
 '''
 import unittest
 from formating.DBLPFormatingDataSets import DBLPFormatingDataSets
+import networkx
+
 
 
 class TestFormatting(unittest.TestCase):
@@ -19,6 +21,15 @@ class TestFormatting(unittest.TestCase):
                                       
                                       )
         teste.readingOrginalDataset()
+     
+    def test_another_graph_format(self):
+        my_full_graph = networkx.read_graphml('/Users/cptullio/ai_graph.txt')
+        e = my_full_graph.edges()[0]
+        graph = networkx.Graph()
+        print networkx.all_pairs_node_connectivity(my_full_graph)
+        
+            
+        
         
         
         

@@ -62,8 +62,16 @@ class Test(unittest.TestCase):
     
     def test_readGraph(self):
         graph = networkx.read_graphml( '/Users/cptullio/mygraph.gml')
-        
     
+    def test_somethingnew(self): 
+        graph =  graph = networkx.read_graphml( '/Users/cptullio/ai_graph.txt')
+        all_Authors = set(n for n,d in graph.nodes(data=True) if d['type'] == 'N')
+        all_Papers = set(n for n,d in graph.nodes(data=True) if d['type'] == 'E')
+        fb = FeatureBase()
+        fb.graph = graph
+        print len(all_Authors)
+        print len(fb.get_pair_node_not_linked(all_Authors))
+        
     def testGraphCreating(self):
         graph = self.creategraph()
         
