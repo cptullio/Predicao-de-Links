@@ -16,11 +16,14 @@ class Calculate(object):
         self.preparedParameter = preparedParameter
         
         self.results = []
-        for current_edge in self.preparedParameter.graph.edges():
-            neighbors_node1 = self.preparedParameter.featuresChoice[0].all_neighbors(current_edge[0])
-            neighbors_node2 = self.preparedParameter.featuresChoice[0].all_neighbors(current_edge[1])
-            result = Result(current_edge[0], current_edge[1], neighbors_node1, neighbors_node2 , [])
+        type_nodes = set(n for n,d in self.preparedParameter.graph.nodes(data=True) if d['type'] == 'N')
+        missing_nodes = self.preparedParameter.featuresChoice[0].get_pair_node_not_linked(type_nodes)
+        print missing_nodes
+        for missing_node in missing_nodes:
+            result = Result(missing_node.first_node, missing_node.second_node,
+                            self.preparedParameter.featuresChoice[0].all_node_neighbors(missing_node.first_node),
+                            self.preparedParameter.featuresChoice[0].all_node_neighbors(missing_node.second_node), [])
             for item_feature in self.preparedParameter.featuresChoice:
-                result.calcs.append(item_feature.execute(neighbors_node1,neighbors_node2))
+                result.calcs.append(item_feature.execute(result.current_neighbor_node1,result.current_neighbor_node2))
             self.results.append(result)
         

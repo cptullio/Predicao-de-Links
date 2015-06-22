@@ -4,6 +4,7 @@ Created on Jun 14, 2015
 @author: cptullio
 '''
 from formating.FormatingDataSets import FormatingDataSets
+import networkx
 
 class Article(object):
     
@@ -20,6 +21,9 @@ class AuthorArticle(object):
         self.time = 0
 
 class DBLPFormatingDataSets(FormatingDataSets):
+
+
+
     
     def readingOrginalDataset(self):
         with open(self.OriginalDataSet) as f:
@@ -28,10 +32,9 @@ class DBLPFormatingDataSets(FormatingDataSets):
         articles = []
         authors = []
         authorofArticles = []
-        teste = []
         articlename = ''
-        time = 0
         for line in self.OrignalContent:
+            line = line.strip()
             if line.startswith('#*'):
                 articleid = articleid+1
                 articlename = line.replace('#*','').replace('\r\n','')
@@ -47,38 +50,23 @@ class DBLPFormatingDataSets(FormatingDataSets):
                         authors.append(autor)
                     articleauthor = AuthorArticle(articleid, authors.index(autor)+1)
                     authorofArticles.append(articleauthor)
-                
-                    
-            if line.startswith('#!'):
-                matches = (x for x in authorofArticles if x.articleid == articleid)
-                for x in matches:
-                    x.time = time      
-                        
-                        
-        
-        
-            
-            
-        
+                  
         authorid = 0
-        with open(self.filepathAuthorFormatted, 'w') as fautor:
-            for x in authors:
-                authorid = authorid + 1;
-                fautor.write(str(authorid) + ';' + x + '\r\n')
-            
-        with open(self.filepathArticleFormatted, 'w') as fout:
-            for article in articles:
-                fout.write(str(article.articleid) + ';' + article.articlename + ';' + article.time + '\r\n')
-            
-        with open(self.filepathArticleAuthorFormatted, 'w') as fauthorarticleout:
-            for author in authorofArticles:
-                fauthorarticleout.write(str(author.articleid) + ';' + str(author.authorid)+ ';' + str(author.time) + '\r\n')
-            
+        self.graph = networkx.Graph()
+        for author in authors:
+            authorid = authorid+1
+            self.graph.add_node(authorid, {'name' : author.decode("latin-1"), 'type' : 'N' })
+        
+        for article in articles:
+            self.graph.add_node(article.articleid, {'name' : article.articlename.decode("latin-1"), 'time' : article.time, 'type': 'E' })
+        
+        for item in authorofArticles:
+            self.graph.add_edge(item.articleid, item.authorid)
+        
+        networkx.write_graphml(self.graph, self.filepathGraph)     
             
         
-    def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted):
+    def __init__(self, filepathOriginalDataSet, filepathGraph):
         super(DBLPFormatingDataSets, self).__init__(filepathOriginalDataSet)
-        self.filepathAuthorFormatted = filepathAuthorFormatted
-        self.filepathArticleFormatted = filepathArticleFormatted
-        self.filepathArticleAuthorFormatted = filepathArticleAuthorFormatted
+        self.filepathGraph = filepathGraph
         
