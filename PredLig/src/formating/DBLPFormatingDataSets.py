@@ -12,13 +12,14 @@ class Article(object):
         self.articleid = articleid
         self.articlename = name
         self.time = time
+        self.authors = set()
 
-class AuthorArticle(object):
+class Author(object):
     
-    def __init__(self, articleid, authorid):
+    def __init__(self, authorid, name):
         self.authorid = authorid
-        self.articleid = articleid
-        self.time = 0
+        self.name = name
+      
 
 class DBLPFormatingDataSets(FormatingDataSets):
 
@@ -28,40 +29,36 @@ class DBLPFormatingDataSets(FormatingDataSets):
     def readingOrginalDataset(self):
         with open(self.OriginalDataSet) as f:
             self.OrignalContent = f.readlines()
-        articleid = 0
+        articleid = 0    
         articles = []
-        authors = []
-        authorofArticles = []
-        articlename = ''
+        article = None
+        authors = set()
         for line in self.OrignalContent:
             line = line.strip()
             if line.startswith('#*'):
                 articleid = articleid+1
-                articlename = line.replace('#*','').replace('\r\n','')
+                articlename = line.replace('#*','').replace('\r\n','').decode("latin-1")
             if line.startswith('#t'):
                 time = line.replace('#t','').replace('\r\n','')
                 article = Article(articleid, articlename, time)
-                articles.append(article)
                 
             if line.startswith('#@'):
                 authorsdesorder = line.replace('#@','').replace('\r\n','').split(',')
-                for autor in authorsdesorder:
-                    if not autor in authors:
-                        authors.append(autor)
-                    articleauthor = AuthorArticle(articleid, authors.index(autor)+1)
-                    authorofArticles.append(articleauthor)
-                  
-        authorid = 0
+                for author in authorsdesorder:
+                    authors.add(author)
+                    
+                    article.authors.add(autor)
+            if line.startswith('#!'):
+                articles.append(article)     
+
+                
         self.graph = networkx.Graph()
-        for author in authors:
-            authorid = authorid+1
-            self.graph.add_node(authorid, {'name' : author.decode("latin-1"), 'type' : 'N' })
-        
         for article in articles:
-            self.graph.add_node(article.articleid, {'name' : article.articlename.decode("latin-1"), 'time' : article.time, 'type': 'E' })
+            for author in article.authors:
+                others = article.authors - set(author)
+                for other in others:
+                    self.graph.add_edge(autor, other, {'time': article.time})
         
-        for item in authorofArticles:
-            self.graph.add_edge(item.articleid, item.authorid)
         
         networkx.write_graphml(self.graph, self.filepathGraph)     
             

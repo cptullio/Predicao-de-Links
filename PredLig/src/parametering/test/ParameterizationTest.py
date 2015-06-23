@@ -16,7 +16,7 @@ from calculating.Result import Result
 from calculating.Calculate import Calculate
 from networkx.classes.graph import Graph
 
-from featuring.FeatureBase import FeatureBase
+from featuring.FeatureBase import FeatureBase, NoLinkedNodes
 from featuring.CNFeature import CNFeature
 import matplotlib
 
@@ -56,6 +56,45 @@ class Test(unittest.TestCase):
         
         return graph
     
+    def createbestgraph(self):
+        graph = Graph()
+        a1 = 'author_1'
+        a2 = 'author_2'
+        a3 = 'author_3'
+        a4 = 'author_4'
+        a5 = 'author_5'
+        
+        
+        graph.add_edge(a1,a2, {'paper':1, 'time':1950})
+        graph.add_edge(a1,a5, {'paper':2, 'time':1980})
+        graph.add_edge(a5,a4, {'paper':3, 'time':1990})
+        graph.add_edge(a3,a3, {'paper':5, 'time':1990})
+            
+        return graph
+    
+    def test_usingbestGraph(self):
+        graph = self.createbestgraph()
+        feature = CNFeature()
+        feature.graph = graph
+        result = set()
+        for no in graph.nodes():
+            vizinhos = feature.all_neighbors(no)
+            vizinhos = set(graph.nodes()) - vizinhos
+            vizinhos.remove(no)
+            for other in vizinhos:
+                isAlreadyThere = set(n for n in result if (n.first_node == no or n.first_node == other) and (n.second_node == no or n.second_node == no))
+                if len(isAlreadyThere) == 0:
+                        result.add(NoLinkedNodes(no, other))
+        
+                
+        for item in result:
+            print  feature.execute(feature.all_neighbors(item.first_node), feature.all_neighbors(item.second_node))
+                
+            
+        #networkx.draw_networkx(graph)
+        #plt.show()
+    
+    
     def test_writeGraph(self):
         graph = self.creategraph()
         networkx.write_graphml(graph, '/Users/cptullio/mygraph.gml')
@@ -83,8 +122,8 @@ class Test(unittest.TestCase):
             
             print str(result.first_node) + ";" + str(result.second_node) + ";" + str(cn.execute(cn.all_node_neighbors(result.first_node), cn.all_node_neighbors(result.second_node)))
             
-        networkx.draw_networkx(graph)
-        plt.show()
+        #networkx.draw_networkx(graph)
+        #plt.show()
             
    
     def testCalculating(self):

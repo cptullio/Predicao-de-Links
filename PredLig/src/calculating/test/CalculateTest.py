@@ -17,7 +17,7 @@ class Test(unittest.TestCase):
         fb = []
         cn = CNFeature();
         fb.append(cn)
-        current_parametration = Parameterization(0, 0, fb, '/Users/cptullio/ai_graph.txt')
+        current_parametration = Parameterization(0, 0, fb, '/Users/cptullio/is_graph.txt')
         print 'Graph ready!'
         calculating = Calculate(current_parametration)
         print 'Graph calculated!'

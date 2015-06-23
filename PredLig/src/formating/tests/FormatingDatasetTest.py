@@ -12,6 +12,16 @@ import networkx
 class TestFormatting(unittest.TestCase):
     
     
+    def test_dblp_is(self):
+        
+        
+        teste = DBLPFormatingDataSets(
+                                      '/Users/cptullio/predLig-carlospedro/Predicao-de-Links/PredLig/src/data/original/DBLP_Citation_2014_May/domains/Information security.txt',
+                                      '/Users/cptullio/is_graph.txt'
+                                      
+                                      )
+        teste.readingOrginalDataset()
+    
     def test_dblp_ai(self):
         
         
@@ -21,6 +31,7 @@ class TestFormatting(unittest.TestCase):
                                       
                                       )
         teste.readingOrginalDataset()
+    
      
     def test_another_graph_format(self):
         my_full_graph = networkx.read_graphml('/Users/cptullio/ai_graph.txt')
