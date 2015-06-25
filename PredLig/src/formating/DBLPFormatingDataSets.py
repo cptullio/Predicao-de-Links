@@ -4,66 +4,64 @@ Created on Jun 14, 2015
 @author: cptullio
 '''
 from formating.FormatingDataSets import FormatingDataSets
-import networkx
 
-class Article(object):
-    
-    def __init__(self, articleid, name, time):
-        self.articleid = articleid
-        self.articlename = name
-        self.time = time
-        self.authors = set()
-
-class Author(object):
-    
-    def __init__(self, authorid, name):
-        self.authorid = authorid
-        self.name = name
-      
-
-class DBLPFormatingDataSets(FormatingDataSets):
 
 
 
+class DBLPFormatingDataSets(FormatingDataSets):
     
     def readingOrginalDataset(self):
         with open(self.OriginalDataSet) as f:
             self.OrignalContent = f.readlines()
-        articleid = 0    
+        articleid = 0
         articles = []
-        article = None
-        authors = set()
+        authors = []
+        authorofArticles = []
+        teste = []
+        articlename = ''
+        time = 0
         for line in self.OrignalContent:
-            line = line.strip()
             if line.startswith('#*'):
                 articleid = articleid+1
-                articlename = line.replace('#*','').replace('\r\n','').decode("latin-1")
+                articlename = line.replace('#*','').replace('\r\n','')
             if line.startswith('#t'):
                 time = line.replace('#t','').replace('\r\n','')
                 article = Article(articleid, articlename, time)
+                articles.append(article)
                 
             if line.startswith('#@'):
                 authorsdesorder = line.replace('#@','').replace('\r\n','').split(',')
-                for author in authorsdesorder:
-                    authors.add(author)
-                    
-                    article.authors.add(autor)
-            if line.startswith('#!'):
-                articles.append(article)     
-
+                for autor in authorsdesorder:
+                    if not autor in authors:
+                        authors.append(autor)
+                    articleauthor = AuthorArticle(articleid, authors.index(autor)+1)
+                    authorofArticles.append(articleauthor)
                 
-        self.graph = networkx.Graph()
-        for article in articles:
-            for author in article.authors:
-                others = article.authors - set(author)
-                for other in others:
-                    self.graph.add_edge(autor, other, {'time': article.time})
+                    
+            if line.startswith('#!'):
+                matches = (x for x in authorofArticles if x.articleid == articleid)
+                for x in matches:
+                    x.time = time      
         
-        
-        networkx.write_graphml(self.graph, self.filepathGraph)     
+        authorid = 0
+        with open(self.filepathAuthorFormatted, 'w') as fautor:
+            for x in authors:
+                authorid = authorid + 1;
+                fautor.write(str(authorid) + ';' + x + '\r\n')
+            
+        with open(self.filepathArticleFormatted, 'w') as fout:
+            for article in articles:
+                fout.write(str(article.articleid) + ';' + article.articlename + ';' + article.time + '\r\n')
+            
+        with open(self.filepathArticleAuthorFormatted, 'w') as fauthorarticleout:
+            for author in authorofArticles:
+                fauthorarticleout.write(str(author.articleid) + ';' + str(author.authorid)+ ';' + str(author.time) + '\r\n')
+            
             
         
-    def __init__(self, filepathOriginalDataSet, filepathGraph):
+    def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted):
         super(DBLPFormatingDataSets, self).__init__(filepathOriginalDataSet)
-        self.filepathGraph = filepathGraph
+        self.filepathAuthorFormatted = filepathAuthorFormatted
+        self.filepathArticleFormatted = filepathArticleFormatted
+        self.filepathArticleAuthorFormatted = filepathArticleAuthorFormatted
         
