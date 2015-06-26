@@ -16,6 +16,9 @@ class TestDBLP(unittest.TestCase):
                                       'D:/mestrado_git/dblp_ai_article.txt',
                                       'D:/mestrado_git/dblp_ai_author.txt',
                                       'D:/mestrado_git/dblp_ai_articlearthor.txt'
+			
+		vamos =mudar
+			dfdf
                                       
                                       
                                       )
