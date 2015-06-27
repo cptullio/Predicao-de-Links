@@ -58,26 +58,23 @@ class Formating(FormatingDataSets):
         
         with open(self.filepathAuthorFormatted, 'w') as fautor:
             for x in authors:
-                fautor.write(str(x.authorid) + ';' + x.name + '\r\n')
+                if x.name == '':
+                    x.name = 'Nothing Recorded'
+                fautor.write(str(x.authorid) + '\t' + x.name + '\r\n')
             
         with open(self.filepathArticleFormatted, 'w') as farticle:
             for article in articles:
-                farticle.write(str(article.articleid) + ';' + article.articlename + ';' + article.time + '\r\n')
+                farticle.write(str(article.articleid) + '\t' + article.articlename + '\t' + article.time + '\r\n')
             
         with open(self.filepathArticleAuthorFormatted, 'w') as fauthorarticleout:
             for author in authorofArticles:
-                fauthorarticleout.write(str(author.articleid) + ';' + str(author.authorid) + '\r\n')
+                fauthorarticleout.write(str(author.articleid) + '\t' + str(author.authorid) + '\r\n')
         
         
-            
-        
-        
-        
-
 
     def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted):
         super(Formating, self).__init__(filepathOriginalDataSet)
-        self.filepathAuthorFormatted = filepathAuthorFormatted
-        self.filepathArticleFormatted = filepathArticleFormatted
-        self.filepathArticleAuthorFormatted = filepathArticleAuthorFormatted
+        self.filepathAuthorFormatted = self.get_abs_file_path(filepathAuthorFormatted)
+        self.filepathArticleFormatted = self.get_abs_file_path(filepathArticleFormatted)
+        self.filepathArticleAuthorFormatted = self.get_abs_file_path(filepathArticleAuthorFormatted)
         
