@@ -1,8 +1,9 @@
 import unittest
-
+import sys
 import networkx
 from formating.dblp.Formating import Formating
 
+#export PYTHONPATH=/home/cabox/workspace/PredLig/src
 #python -m unittest GeneralTestings
 
 class GeneralTest(unittest.TestCase):
