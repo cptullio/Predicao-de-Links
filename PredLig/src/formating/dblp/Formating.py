@@ -64,11 +64,11 @@ class Formating(FormatingDataSets):
             
         with open(self.filepathArticleFormatted, 'w') as farticle:
             for article in articles:
-                farticle.write(str(article.articleid) + '\t' + article.articlename + '\t' + article.time + '\r\n')
+                farticle.write('p_' + str(article.articleid) + '\t' + article.articlename + '\t' + article.time + '\r\n')
             
         with open(self.filepathArticleAuthorFormatted, 'w') as fauthorarticleout:
             for author in authorofArticles:
-                fauthorarticleout.write(str(author.articleid) + '\t' + str(author.authorid) + '\r\n')
+                fauthorarticleout.write('p_' + str(author.articleid) + '\t' + str(author.authorid) + '\r\n')
         
         
 
