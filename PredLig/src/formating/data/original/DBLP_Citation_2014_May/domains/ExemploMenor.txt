@@ -1,0 +1,47 @@
+#*Artigo sobre a natureza
+#@Carlos Pedro, Bianca
+#t2003
+#cProceedings of the IEEE
+#index1037489
+#% 
+#!
+  
+#*Artigo Sobre Filhos
+#@Bianca, Ana Clara
+#t2003
+#cProceedings of the IEEE
+#index1037490
+#% 
+#!
+  
+#*Artigo Sobre Boneca
+#@Mariana, Ana Clara
+#t2003
+#cProceedings of the IEEE
+#index1037491
+#% 
+#!
+  
+#*Artigo sobre Canetas
+#@Ana Clara
+#t2003
+#cProceedings of the IEEE
+#index1037492
+#% 
+#!
+  
+#*Artigo sobre Fralda
+#@Bianca, Carlos Pedro
+#t2003
+#cProceedings of the IEEE
+#index1037493
+#% 
+#!
+  
+#*Artigo sobre Computadores
+#@Carlos Pedro
+#t2003
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!

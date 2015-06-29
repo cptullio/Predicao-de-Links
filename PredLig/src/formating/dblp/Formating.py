@@ -7,9 +7,34 @@ from formating.FormatingDataSets import FormatingDataSets
 from formating.dblp.Article import Article
 from formating.dblp.Author import Author
 from formating.dblp.AuthorInArticle import AuthorInArticle
+import networkx
 
 
 class Formating(FormatingDataSets):
+    
+    def generating_full_graph(self):
+        
+        f_article_content = self.reading_file(self.filepathArticleFormatted)
+        f_author_content = self.reading_file(self.filepathAuthorFormatted)
+        f_edge_content = self.reading_file(self.filepathArticleAuthorFormatted)
+        graph = networkx.Graph()
+
+        for article_line in f_article_content:
+            article_line = article_line.strip()
+            cols = article_line.split("\t")
+            graph.add_node(cols[0], {'node_type' : 'E', 'title' : cols[1].decode("latin_1"), 'time' : int(cols[2]) })
+        
+        for author_line in f_author_content:
+            author_line = author_line.strip()
+            cols = author_line.split("\t")
+            graph.add_node(cols[0], {'node_type' : 'N', 'name' : cols[1] })
+      
+        for edge_line in f_edge_content:
+            edge_line = edge_line.strip()
+            cols = edge_line.split("\t")
+            graph.add_edge(cols[0], cols[1] )
+        return graph
+
   
     def readingOrginalDataset(self):
         with open(self.OriginalDataSet) as f:
@@ -39,7 +64,8 @@ class Formating(FormatingDataSets):
                 #rescue all authors of that article
                 authorsofArticle = line.replace('#@','').replace('\r\n','').split(',')
                 for author in authorsofArticle:
-                    #check if that author is already in array of authors  
+                    #check if that author is already in array of authors 
+                    author = author.strip() 
                     if not author in authornames:
                         authornames.append(author)
                     articleauthor = AuthorInArticle(articleid, authornames.index(author)+1)
@@ -72,9 +98,12 @@ class Formating(FormatingDataSets):
         
         
 
-    def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted):
+    def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted, graphfile = ''):
         super(Formating, self).__init__(filepathOriginalDataSet)
         self.filepathAuthorFormatted = self.get_abs_file_path(filepathAuthorFormatted)
         self.filepathArticleFormatted = self.get_abs_file_path(filepathArticleFormatted)
         self.filepathArticleAuthorFormatted = self.get_abs_file_path(filepathArticleAuthorFormatted)
-        
+        self.readingOrginalDataset()
+        self.fullGraph = self.generating_full_graph()
+        if graphfile != '':
+            networkx.write_gml(self.fullGraph, self.get_abs_file_path(graphfile))

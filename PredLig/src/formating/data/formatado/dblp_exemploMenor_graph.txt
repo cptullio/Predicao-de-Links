@@ -1,0 +1,108 @@
+graph [
+  node [
+    id 0
+    label "1"
+    node_type "N"
+    name "Carlos Pedro"
+  ]
+  node [
+    id 1
+    label "3"
+    node_type "N"
+    name "Ana Clara"
+  ]
+  node [
+    id 2
+    label "2"
+    node_type "N"
+    name "Bianca"
+  ]
+  node [
+    id 3
+    label "4"
+    node_type "N"
+    name "Mariana"
+  ]
+  node [
+    id 4
+    label "p_6"
+    node_type "E"
+    time 2003
+    title "Artigo sobre Computadores"
+  ]
+  node [
+    id 5
+    label "p_4"
+    node_type "E"
+    time 2003
+    title "Artigo sobre Canetas"
+  ]
+  node [
+    id 6
+    label "p_5"
+    node_type "E"
+    time 2003
+    title "Artigo sobre Fralda"
+  ]
+  node [
+    id 7
+    label "p_2"
+    node_type "E"
+    time 2003
+    title "Artigo Sobre Filhos"
+  ]
+  node [
+    id 8
+    label "p_3"
+    node_type "E"
+    time 2003
+    title "Artigo Sobre Boneca"
+  ]
+  node [
+    id 9
+    label "p_1"
+    node_type "E"
+    time 2003
+    title "Artigo sobre a natureza"
+  ]
+  edge [
+    source 0
+    target 4
+  ]
+  edge [
+    source 0
+    target 6
+  ]
+  edge [
+    source 0
+    target 9
+  ]
+  edge [
+    source 1
+    target 5
+  ]
+  edge [
+    source 1
+    target 7
+  ]
+  edge [
+    source 1
+    target 8
+  ]
+  edge [
+    source 2
+    target 6
+  ]
+  edge [
+    source 2
+    target 7
+  ]
+  edge [
+    source 2
+    target 9
+  ]
+  edge [
+    source 3
+    target 8
+  ]
+]
