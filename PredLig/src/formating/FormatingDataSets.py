@@ -18,9 +18,9 @@ class FormatingDataSets(object):
     @staticmethod
     def reading_graph(relativepath):
         abs_path = FormatingDataSets.get_abs_file_path(relativepath)
-        return networkx.read_gml(abs_path)
+        return networkx.read_graphml(abs_path)
+    
         
-
     
     @staticmethod
     def reading_file(abs_file):

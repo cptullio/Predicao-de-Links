@@ -96,6 +96,27 @@ class Formating(FormatingDataSets):
             for author in authorofArticles:
                 fauthorarticleout.write('p_' + str(author.articleid) + '\t' + str(author.authorid) + '\r\n')
         
+    @staticmethod      
+    def get_media_year_papers(graph):
+        all_papers = list(d['time'] for n,d in graph.nodes(data=True) if d['node_type'] == 'E')
+        sum_of_year_papers = 0;
+        for year in all_papers:
+            sum_of_year_papers = sum_of_year_papers + int(year);
+        return sum_of_year_papers / len(all_papers);
+    
+    @staticmethod      
+    def get_graph_without_paper_nodes(graph):
+        all_authors = set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        graph_clean = networkx.Graph()
+        for author in all_authors:
+            for intermediate_node in list(networkx.all_neighbors(graph, author)):
+                time = int(list(d['time'] for n,d in graph.nodes(data=True) if n == intermediate_node)[0])
+                for second_author in list( n for n in  networkx.all_neighbors(graph, intermediate_node) if n != author):
+                    graph_clean.add_edge(author, second_author, {'time' : time})
+        
+        return graph_clean
+    
+        
         
 
     def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted, graphfile = ''):
