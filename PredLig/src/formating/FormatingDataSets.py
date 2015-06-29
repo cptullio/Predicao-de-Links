@@ -5,6 +5,7 @@ Created on Jun 14, 2015
 '''
 from abc import abstractmethod
 from os import path
+import networkx
 
 class FormatingDataSets(object):
     
@@ -13,6 +14,13 @@ class FormatingDataSets(object):
         script_path = path.abspath(__file__) 
         script_dir = path.split(script_path)[0]
         return path.join(script_dir, relativepath)
+
+    @staticmethod
+    def reading_graph(relativepath):
+        abs_path = FormatingDataSets.get_abs_file_path(relativepath)
+        return networkx.read_gml(abs_path)
+        
+
     
     @staticmethod
     def reading_file(abs_file):

@@ -1,6 +1,6 @@
 p_1	Artigo sobre a natureza	2003
-p_2	Artigo Sobre Filhos	2003
+p_2	Artigo Sobre Filhos	2005
 p_3	Artigo Sobre Boneca	2003
-p_4	Artigo sobre Canetas	2003
-p_5	Artigo sobre Fralda	2003
-p_6	Artigo sobre Computadores	2003
+p_4	Artigo sobre Canetas	2006
+p_5	Artigo sobre Fralda	2006
+p_6	Artigo sobre Computadores	2006

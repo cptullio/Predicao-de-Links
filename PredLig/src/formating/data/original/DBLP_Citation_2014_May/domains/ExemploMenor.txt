@@ -8,7 +8,7 @@
   
 #*Artigo Sobre Filhos
 #@Bianca, Ana Clara
-#t2003
+#t2005
 #cProceedings of the IEEE
 #index1037490
 #% 
@@ -24,15 +24,15 @@
   
 #*Artigo sobre Canetas
 #@Ana Clara
-#t2003
+#t2006
 #cProceedings of the IEEE
 #index1037492
 #% 
 #!
   
 #*Artigo sobre Fralda
-#@Bianca, Carlos Pedro
-#t2003
+#@Bianca, Mariana
+#t2006
 #cProceedings of the IEEE
 #index1037493
 #% 
@@ -40,7 +40,7 @@
   
 #*Artigo sobre Computadores
 #@Carlos Pedro
-#t2003
+#t2006
 #cProceedings of the IEEE
 #index1037494
 #% 

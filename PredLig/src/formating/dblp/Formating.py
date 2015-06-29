@@ -27,12 +27,12 @@ class Formating(FormatingDataSets):
         for author_line in f_author_content:
             author_line = author_line.strip()
             cols = author_line.split("\t")
-            graph.add_node(cols[0], {'node_type' : 'N', 'name' : cols[1] })
+            graph.add_node(int(cols[0]), {'node_type' : 'N', 'name' : cols[1].decode("latin_1") })
       
         for edge_line in f_edge_content:
             edge_line = edge_line.strip()
             cols = edge_line.split("\t")
-            graph.add_edge(cols[0], cols[1] )
+            graph.add_edge(cols[0], int(cols[1]) )
         return graph
 
   
@@ -106,4 +106,4 @@ class Formating(FormatingDataSets):
         self.readingOrginalDataset()
         self.fullGraph = self.generating_full_graph()
         if graphfile != '':
-            networkx.write_gml(self.fullGraph, self.get_abs_file_path(graphfile))
+            networkx.write_graphml(self.fullGraph, self.get_abs_file_path(graphfile))
