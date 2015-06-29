@@ -3,7 +3,7 @@ import unittest
 import networkx
 from formating.dblp.Formating import Formating
 
-#python -m unittest GeneralTestings
+#python -m unittest generalTest
 #export PYTHONPATH="$PYTHONPATH://home/cabox/workspace/PredLig/src/"
 
 class GeneralTest(unittest.TestCase):
