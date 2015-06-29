@@ -19,8 +19,8 @@ class GeneralTest(unittest.TestCase):
         edge_file = 'data/formatado/dblp_exemploMenor_articlearthor.txt'
         graph_file = 'data/formatado/dblp_exemploMenor_graph.txt'
         
-        format = Formating(original, article, author, edge_file, graph_file)
-        networkx.draw_networkx(format.fullGraph)
+        myformat = Formating(original, article, author, edge_file, graph_file)
+        networkx.draw_networkx(myformat.fullGraph)
         plt.show()
         
     def test_reading_graph(self):
