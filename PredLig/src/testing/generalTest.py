@@ -20,6 +20,7 @@ class GeneralTest(unittest.TestCase):
         networkx.write_graphml(new_graph, Formating.get_abs_file_path('data/formatado/dblp_exemploMenor_new_graph.txt'))
     
     def test_separating_graph(self):
+
         graph_file = 'data/formatado/dblp_exemploMenor_graph.txt'
         simple_graph_file = 'data/formatado/dblp_exemploMenor_new_graph.txt'
         

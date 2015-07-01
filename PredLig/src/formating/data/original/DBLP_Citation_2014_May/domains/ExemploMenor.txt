@@ -45,3 +45,43 @@
 #index1037494
 #% 
 #!
+
+#*Artigo sobre Google
+#@Carlos Pedro, Mariana
+#t2007
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Chupeta
+#@Daniel, Mariana
+#t2005
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Salarios
+#@Ana Maria, Carlos Pedro
+#t2008
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Corrupçao
+#@Ana Maria, Sandra Tullio
+#t2006
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Irmao
+#@Paulo Renato
+#t2006
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
