@@ -12,7 +12,7 @@ import networkx
 
 class Formating(FormatingDataSets):
     
-    def generating_full_graph(self):
+    def generating_graph(self):
         
         f_article_content = self.reading_file(self.filepathArticleFormatted)
         f_author_content = self.reading_file(self.filepathAuthorFormatted)
@@ -116,7 +116,14 @@ class Formating(FormatingDataSets):
         
         return graph_clean
     
-        
+    @staticmethod      
+    def get_graph_from_period(graph, t0,t0_):
+        edges_found = list([n,d,f] for n,d,f in graph.edges(data=True) if f['time'] >= t0 and f['time'] <= t0_ )
+        new_graph = networkx.Graph()
+        for curr_edge in edges_found:
+            new_graph.add_edge(curr_edge[0], curr_edge[1], curr_edge[2])
+        return new_graph
+            
         
 
     def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted, graphfile = ''):
@@ -125,6 +132,7 @@ class Formating(FormatingDataSets):
         self.filepathArticleFormatted = self.get_abs_file_path(filepathArticleFormatted)
         self.filepathArticleAuthorFormatted = self.get_abs_file_path(filepathArticleAuthorFormatted)
         self.readingOrginalDataset()
-        self.fullGraph = self.generating_full_graph()
+        self.graph = self.generating_graph()
+        self.simple_graph = self.get_graph_without_paper_nodes(self.graph)
         if graphfile != '':
-            networkx.write_graphml(self.fullGraph, self.get_abs_file_path(graphfile))
+            networkx.write_graphml(self.simple_graph, self.get_abs_file_path(graphfile))

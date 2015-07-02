@@ -29,7 +29,7 @@ class FeatureBase(object):
             neighbors.add(neighbor)
         return neighbors - set([node])
     
-    
+    #from graph where the edge is define by other type of node
     def all_node_neighbors(self, node):
         neighbors = set()
         for node_edge in list(networkx.all_neighbors(self.graph, node)):
@@ -37,17 +37,6 @@ class FeatureBase(object):
                 neighbors.add(neighbor)
         return neighbors - set([node])
     
-    def get_pair_node_not_linked(self, group_nodes):
-        result = set()
-        for node in group_nodes:
-            others =   group_nodes - self.all_node_neighbors(node)
-            others.remove(node)
-            for other_node in others:
-                isAlreadyThere = set(n for n in result if (n.first_node == node or n.first_node == other_node) and (n.second_node == node or n.second_node == other_node))
-                if len(isAlreadyThere) == 0:
-                        result.add(NoLinkedNodes(node, other_node))
-        
-        return result
          
         
     

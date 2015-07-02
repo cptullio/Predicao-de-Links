@@ -16,7 +16,7 @@
   
 #*Artigo Sobre Boneca
 #@Mariana, Ana Clara
-#t2003
+#t2007
 #cProceedings of the IEEE
 #index1037491
 #% 
@@ -85,3 +85,45 @@
 #index1037494
 #% 
 #!
+
+#*Artigo sobre Irmas
+#@Sandra Tullio, Paulo Renato
+#t2006
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Graph
+#@Carlos Pedro, Paulo Renato
+#t2005
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Manicure
+#@Carlos Pedro, Sandra Tullio
+#t2007
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Testes
+#@Ana Maria, Paulo Renato
+#t2009
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+#*Artigo sobre Filhos e Netos
+#@Ana Maria, Mariana
+#t2002
+#cProceedings of the IEEE
+#index1037494
+#% 
+#!
+
+

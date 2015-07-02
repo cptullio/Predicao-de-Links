@@ -10,6 +10,9 @@ class PAFeature(FeatureBase):
     Preference Attachment
     '''
 
+    def __repr__(self):
+        return 'pa'
+    
     def __init__(self):
         super(PAFeature, self).__init__()
 

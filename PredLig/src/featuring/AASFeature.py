@@ -11,6 +11,9 @@ class AASFeature(FeatureBase):
     '''
     adamic adar similarity
     '''
+    def __repr__(self):
+        return 'aas'
+    
 
     def __init__(self):
         super(AASFeature, self).__init__()

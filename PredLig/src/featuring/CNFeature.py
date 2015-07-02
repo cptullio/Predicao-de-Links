@@ -15,4 +15,6 @@ class CNFeature(FeatureBase):
     def execute(self, neighbor_node1, neighbor_node2):
         return len(neighbor_node1.intersection(neighbor_node2))
 
+    def __repr__(self):
+        return 'cn'
             

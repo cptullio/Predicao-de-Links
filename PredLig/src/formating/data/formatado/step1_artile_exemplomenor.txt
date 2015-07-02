@@ -1,0 +1,16 @@
+p_1	Artigo sobre a natureza	2003
+p_2	Artigo Sobre Filhos	2005
+p_3	Artigo Sobre Boneca	2007
+p_4	Artigo sobre Canetas	2006
+p_5	Artigo sobre Fralda	2006
+p_6	Artigo sobre Computadores	2006
+p_7	Artigo sobre Google	2007
+p_8	Artigo sobre Chupeta	2005
+p_9	Artigo sobre Salarios	2008
+p_10	Artigo sobre Corrupçao	2006
+p_11	Artigo sobre Irmao	2006
+p_12	Artigo sobre Irmas	2006
+p_13	Artigo sobre Graph	2005
+p_14	Artigo sobre Manicure	2007
+p_15	Artigo sobre Testes	2009
+p_16	Artigo sobre Filhos e Netos	2002
