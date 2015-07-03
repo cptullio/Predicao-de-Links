@@ -2,7 +2,7 @@ import unittest
 
 import networkx
 from formating.dblp.Formating import Formating
-import matplotlib
+#import matplotlib
 from featuring.CNFeature import CNFeature
 from featuring.JCFeature import JCFeature
 from parametering.Parameterization import Parameterization
@@ -28,8 +28,8 @@ class GeneralTest(unittest.TestCase):
         jc = JCFeature()
         pa = PAFeature()
     
-        featuresChoice.append([cn,2])
-        featuresChoice.append([jc,1])
+        featuresChoice.append([cn,1])
+        featuresChoice.append([jc,4])
         featuresChoice.append([pa,1])
         top_rank = 4
         distanceNeighbors = 0
