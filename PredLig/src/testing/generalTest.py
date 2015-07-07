@@ -41,11 +41,8 @@ class GeneralTest(unittest.TestCase):
     #First Step of the prcessing:  Formating
 	def test_formating(self):
 		filepathOriginalDataSet = 'data/original/DBLP_Citation_2014_May/domains/ExemploMenor.txt'
-		filepathArticleFormatted = 'data/formatado/step1_artile_exemplomenor.txt'
-		filepathAuthorFormatted = 'data/formatado/step1_author_exemplomenor.txt'
-		filepathArticleAuthorFormatted = 'data/formatado/step1_edge_exemplomenor.txt'
 		graphfile = 'data/formatado/step1_graph_exemplomenor.txt'
-		myDblpFormating = Formating(filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted, graphfile)
+		myDblpFormating = Formating(filepathOriginalDataSet,  graphfile)
         #networkx.draw_networkx(myDblpFormating.graph)
         #matplotlib.pyplot.show()
     

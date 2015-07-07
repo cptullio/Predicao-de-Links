@@ -11,13 +11,12 @@ import networkx
 
 
 class Formating(FormatingDataSets):
-    
-    def generating_graph(self):
-        
-        f_article_content = self.reading_file(self.filepathArticleFormatted)
-        f_author_content = self.reading_file(self.filepathAuthorFormatted)
-        f_edge_content = self.reading_file(self.filepathArticleAuthorFormatted)
-        graph = networkx.Graph()
+	
+	def generating_graph(self):
+		f_article_content = self.reading_file(self.filepathArticleFormatted)
+		f_author_content = self.reading_file(self.filepathAuthorFormatted)
+		f_edge_content = self.reading_file(self.filepathArticleAuthorFormatted)
+		graph = networkx.Graph()
 
         for article_line in f_article_content:
             article_line = article_line.strip()
@@ -95,7 +94,9 @@ class Formating(FormatingDataSets):
         with open(self.filepathArticleAuthorFormatted, 'w') as fauthorarticleout:
             for author in authorofArticles:
                 fauthorarticleout.write('p_' + str(author.articleid) + '\t' + str(author.authorid) + '\r\n')
-        
+
+				
+				
     @staticmethod      
     def get_media_year_papers(graph):
         all_papers = list(d['time'] for n,d in graph.nodes(data=True) if d['node_type'] == 'E')
@@ -126,11 +127,8 @@ class Formating(FormatingDataSets):
             
         
 
-    def __init__(self, filepathOriginalDataSet, filepathArticleFormatted, filepathAuthorFormatted, filepathArticleAuthorFormatted, graphfile = ''):
+    def __init__(self, filepathOriginalDataSet,  graphfile = ''):
         super(Formating, self).__init__(filepathOriginalDataSet)
-        self.filepathAuthorFormatted = self.get_abs_file_path(filepathAuthorFormatted)
-        self.filepathArticleFormatted = self.get_abs_file_path(filepathArticleFormatted)
-        self.filepathArticleAuthorFormatted = self.get_abs_file_path(filepathArticleAuthorFormatted)
         self.readingOrginalDataset()
         self.graph = self.generating_graph()
         self.simple_graph = self.get_graph_without_paper_nodes(self.graph)
