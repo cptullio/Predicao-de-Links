@@ -30,7 +30,7 @@ class Calculate(object):
 			item_result = []
 			for calc in featuresOrderedbyScalar:
 				item_result.append(calc[0].execute(neighbors_node1,neighbors_node2) * calc[1])
-			normalize_result = self.normalize(item_result)
+			normalize_result = item_result #self.normalize(item_result)
 			final_result = []
 			for indice in range(len(featuresOrderedbyScalar)):
 				final_result.append({str(featuresOrderedbyScalar[indice]):normalize_result[indice]} )

@@ -9,5 +9,5 @@ class Article(object):
         self.articleid = articleid
         self.articlename = None
         self.time = 0
-        self.authors = []
+        
         
