@@ -14,7 +14,7 @@ class ParameterUtil(object):
 
 
     def __init__(self, parameter_file):
-        parameterFile = Formating.get_abs_file_path('data/parameter.txt')
+        parameterFile = Formating.get_abs_file_path(parameter_file)
         
         AllFeatures = []
         AllFeatures.append(AASFeature())
