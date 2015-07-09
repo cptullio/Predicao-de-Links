@@ -4,7 +4,8 @@ trainnig_graph_file	data/formatado/step2_Traininggraph_exemplomenor.txt
 test_graph_file	data/formatado/step2_Testinggraph_exemplomenor.txt
 nodes_notlinked_file	data/formatado/step3_nodesnotlinked_exemplomenor.txt
 calculated_file	data/formatado/step3_calculated_exemplomenor.txt
-analysed_file	data/formatado/step3_analysed_exemplomenor.txt
+ordered_file	data/formatado/step3_ordered_exemplomenor.txt
+analysed_file	data/formatado/step4_analysed_exemplomenor.txt
 t0	2000
 t0_	2006
 t1	2007
@@ -12,4 +13,4 @@ t1_	2010
 top_rank	4
 distanceNeighbors	0
 lengthVertex	0
-features	1:2
+features	1:1;0:1

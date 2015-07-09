@@ -17,6 +17,8 @@ from formating.dblp.Formating import Formating
 class Test(unittest.TestCase):
 
 
+    
+    
     def test_default(self):
         util = ParameterUtil(parameter_file = 'data/parameter.txt')
         print "Formating Graph"
@@ -24,7 +26,7 @@ class Test(unittest.TestCase):
         print "Generating Traning and Testing graphs"
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file)
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        calc = Calculate(myparams, selecting, util.calculated_file)
+        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
         analyse = Analyse(myparams, util.calculated_file, util.analysed_file)
 
     def test_oficial(self):
@@ -37,7 +39,7 @@ class Test(unittest.TestCase):
         print "Selecting Nodes not linked"
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
         print "Calculating Nodes not linked"
-        calc = Calculate(myparams, selecting, util.calculated_file)
+        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
         print "Analysing results"
         analyse = Analyse(myparams, util.calculated_file, util.analysed_file)
 
