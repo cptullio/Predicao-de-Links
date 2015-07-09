@@ -53,7 +53,14 @@ class Calculate(object):
 		
 				
 		
-		
+	def get_all_author_neighbors(self, graph, current_node):
+		authors = set()
+		papers = set(networkx.all_neighbors(graph, current_node))
+		for paper in papers:
+			other_authors =  set(networkx.all_neighbors(graph, paper)) - set(current_node)
+			for other in other_authors:
+				authors.add(other)
+		return authors
 	
 	
 	def __init__(self, preparedParameter, selecting, filepathResult, filePathOrdered):
@@ -62,8 +69,8 @@ class Calculate(object):
 		featuresOrderedbyScalar = sorted(self.preparedParameter.featuresChoice, key=lambda weigth_value: weigth_value[1], reverse=True)
 		self.calculateResults = []
 		for item in selecting.results:
-			neighbors_node1 = set(networkx.all_neighbors(self.preparedParameter.trainnigGraph, item[0]))
-			neighbors_node2 = set(networkx.all_neighbors(self.preparedParameter.trainnigGraph, item[1]))
+			neighbors_node1 = set(self.get_all_author_neighbors(self.preparedParameter.trainnigGraph, item[0]))
+			neighbors_node2 = set(self.get_all_author_neighbors(self.preparedParameter.trainnigGraph, item[1]))
 			item_result = []
 			for calc in featuresOrderedbyScalar:
 				item_result.append(calc[0].execute(neighbors_node1,neighbors_node2) * calc[1])

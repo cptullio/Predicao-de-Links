@@ -9,7 +9,7 @@ from parametering.ParameterUtil import ParameterUtil
 import networkx
 import matplotlib
 import numpy
-from sklearn.preprocessing import normalize
+
 
 
 #python -m unittest GeneralTestings
@@ -18,35 +18,52 @@ from sklearn.preprocessing import normalize
 class GeneralTest(unittest.TestCase):
 	
 	
+	def test_getnolinknodes(self):
+		results = []
+		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file)
+		authors =set(n for n,d in myparams.trainnigGraph.nodes(data=True) if d['node_type'] == 'N')
+		for author in authors:
+			others =  authors - set(author)
+			for other_author in others:
+				if len(set(networkx.common_neighbors(myparams.trainnigGraph, author, other_author))) == 0:
+					isAlreadyThere = 0
+					for n in results:
+						if n[0] == author and n[1] == other_author:
+							isAlreadyThere = isAlreadyThere + 1
+						if n[1] == author and n[0] == other_author:
+							isAlreadyThere = isAlreadyThere + 1
+					if isAlreadyThere == 0:
+						results.append([author, other_author ]) 
+					
+		print results
 	
 	
-	def test_readCalculate(self):
-		util = ParameterUtil('data/parameter.txt')
-		f = self.reading_calculateFile(util.calculated_file)
-		result = []
-		result2 = []
-		for line in f:
-			result2.append(line[0])
-		media = numpy.mean(result2)
-		desvio = numpy.std(result2)
-		mycalcs = []
-		for i in result2:
-			mycalcs.append([ (i[0] - media )  / desvio, (i[1] - media )  / desvio ])
-		result3 = normalize(result2)
-		
-		for indice in range(len(f)):
-			calcs = normalize(f[indice][0])
-			result.append( [ numpy.sum(calcs), numpy.sum(result3[indice]),numpy.sum(mycalcs[indice]), result3[indice], mycalcs[indice] , calcs, f[indice][0], f[indice][1], f[indice][2]  ] )
-		
-		orderedResult = sorted(result, key=lambda sum_value: sum_value[2], reverse=True)
-		
-		for myitem in orderedResult:
-			print myitem[0], myitem[1], myitem[2], myitem[3], myitem[4], myitem[5], myitem[6], myitem[7], myitem[8]
-		
-		
-		
+	def test_generateTimeScore(self):
+		results = []
+		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
+		myDblpFormating = Formating(util.original_file, util.graph_file)
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file)
+		authors =list([n,d] for n,d in myparams.trainnigGraph.nodes(data=True) if d['node_type'] == 'N')
+		for author in authors:
+			papers_of_author = set(networkx.all_neighbors(myparams.trainnigGraph, author[0]))
+			for paper in papers_of_author:
+				coAuthors = set(networkx.all_neighbors(myparams.trainnigGraph,paper)) - set(author[0])
+				for coAuthor in coAuthors:
+					print author[0], coAuthor
+					isAlreadyThere = 0
+					for n in results:
+						if n[0] == author[0] and n[1] == coAuthor:
+							isAlreadyThere = isAlreadyThere + 1
+						if n[1] == author[0] and n[0] == coAuthor:
+							isAlreadyThere = isAlreadyThere + 1
+					if isAlreadyThere == 0:
+						results.append([author[0], coAuthor ])
+		print results    
+			
 	def test_viewgraph(self):
-		util = ParameterUtil('data/parameter.txt')
+		
+		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
 		networkx.draw_networkx(networkx.read_graphml(Formating.get_abs_file_path(util.graph_file)))
 		matplotlib.pyplot.savefig(Formating.get_abs_file_path(util.graph_file) + ".png", format="PNG")
 		matplotlib.pyplot.close()

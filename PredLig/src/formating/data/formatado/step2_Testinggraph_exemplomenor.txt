@@ -1,26 +1,67 @@
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-  <key attr.name="time" attr.type="int" for="edge" id="d0" />
+  <key attr.name="name" attr.type="string" for="node" id="d3" />
+  <key attr.name="time" attr.type="int" for="node" id="d2" />
+  <key attr.name="title" attr.type="string" for="node" id="d1" />
+  <key attr.name="node_type" attr.type="string" for="node" id="d0" />
   <graph edgedefault="undirected">
-    <node id="1" />
-    <node id="3" />
-    <node id="4" />
-    <node id="7" />
-    <node id="6" />
-    <node id="8" />
-    <edge source="1" target="4">
-      <data key="d0">2007</data>
-    </edge>
-    <edge source="1" target="7">
-      <data key="d0">2007</data>
-    </edge>
-    <edge source="1" target="6">
-      <data key="d0">2008</data>
-    </edge>
-    <edge source="3" target="4">
-      <data key="d0">2007</data>
-    </edge>
-    <edge source="6" target="8">
-      <data key="d0">2009</data>
-    </edge>
+    <node id="p_14">
+      <data key="d0">E</data>
+      <data key="d1">Artigo sobre Manicure</data>
+      <data key="d2">2007</data>
+    </node>
+    <node id="p_15">
+      <data key="d0">E</data>
+      <data key="d1">Artigo sobre Testes</data>
+      <data key="d2">2009</data>
+    </node>
+    <node id="6">
+      <data key="d0">N</data>
+      <data key="d3">Ana Maria</data>
+    </node>
+    <node id="1">
+      <data key="d0">N</data>
+      <data key="d3">Carlos Pedro</data>
+    </node>
+    <node id="3">
+      <data key="d0">N</data>
+      <data key="d3">Ana Clara</data>
+    </node>
+    <node id="8">
+      <data key="d0">N</data>
+      <data key="d3">Paulo Renato</data>
+    </node>
+    <node id="7">
+      <data key="d0">N</data>
+      <data key="d3">Sandra Tullio</data>
+    </node>
+    <node id="p_9">
+      <data key="d0">E</data>
+      <data key="d1">Artigo sobre Salarios</data>
+      <data key="d2">2008</data>
+    </node>
+    <node id="p_7">
+      <data key="d0">E</data>
+      <data key="d1">Artigo sobre Google</data>
+      <data key="d2">2007</data>
+    </node>
+    <node id="p_3">
+      <data key="d0">E</data>
+      <data key="d1">Artigo Sobre Boneca</data>
+      <data key="d2">2007</data>
+    </node>
+    <node id="4">
+      <data key="d0">N</data>
+      <data key="d3">Mariana</data>
+    </node>
+    <edge source="p_14" target="1" />
+    <edge source="p_14" target="7" />
+    <edge source="p_15" target="8" />
+    <edge source="p_15" target="6" />
+    <edge source="6" target="p_9" />
+    <edge source="1" target="p_7" />
+    <edge source="1" target="p_9" />
+    <edge source="3" target="p_3" />
+    <edge source="p_7" target="4" />
+    <edge source="p_3" target="4" />
   </graph>
 </graphml>

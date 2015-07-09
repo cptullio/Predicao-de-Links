@@ -1,5 +1,0 @@
-6	8	SUCCESS 
-5	6	FAILED 
-4	7	FAILED 
-3	4	SUCCESS 
-Final Result: 	50.0%

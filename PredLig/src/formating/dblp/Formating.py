@@ -58,22 +58,17 @@ class Formating(FormatingDataSets):
 	
 	@staticmethod
 	def get_graph_from_period(graph, t0,t0_):
-		edges_found = list([n,d,f] for n,d,f in graph.edges(data=True) if f['time'] >= t0 and f['time'] <= t0_ )
+		papers = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and d['time'] >= t0 and d['time'] <= t0_)
 		new_graph = networkx.Graph()
-		for curr_edge in edges_found:
-			new_graph.add_edge(curr_edge[0], curr_edge[1], curr_edge[2])
+		new_graph.add_nodes_from(papers)
+		for paper in papers:
+			authors = networkx.all_neighbors(graph, paper[0])
+			for author in authors:
+				author_withData = list([n,d] for n,d in graph.nodes(data=True) if n == author)
+				new_graph.add_nodes_from(author_withData)
+				new_graph.add_edge(paper[0], author)
 		return new_graph
 	
-	@staticmethod
-	def get_graph_without_paper_nodes(graph):
-		all_authors = set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
-		graph_clean = networkx.Graph()
-		for author in all_authors:
-			for intermediate_node in list(networkx.all_neighbors(graph, author)):
-				time = int(list(d['time'] for n,d in graph.nodes(data=True) if n == intermediate_node)[0])
-				for second_author in list( n for n in  networkx.all_neighbors(graph, intermediate_node) if n != author):
-					graph_clean.add_edge(author, second_author, {'time' : time})
-		return graph_clean
 					
 
 	def __init__(self, filepathOriginalDataSet, graphfile):
@@ -81,10 +76,8 @@ class Formating(FormatingDataSets):
 		super(Formating, self).__init__(filepathOriginalDataSet)
 	
 		graph = self.readingOrginalDataset()
-	
-		s_graph = Formating.get_graph_without_paper_nodes(graph)
-	
-		networkx.write_graphml(s_graph, self.get_abs_file_path(graphfile)) 
+
+		networkx.write_graphml(graph, self.get_abs_file_path(graphfile)) 
 			
 			
 			
