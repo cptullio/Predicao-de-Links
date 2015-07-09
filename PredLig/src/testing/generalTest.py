@@ -9,6 +9,8 @@ from parametering.ParameterUtil import ParameterUtil
 import networkx
 import matplotlib
 import numpy
+from datetime import datetime
+
 
 
 
@@ -17,6 +19,9 @@ import numpy
 
 class GeneralTest(unittest.TestCase):
 	
+	
+	def test_data(self):
+		print datetime.today()
 	
 	def test_getnolinknodes(self):
 		results = []
