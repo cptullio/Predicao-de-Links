@@ -9,7 +9,7 @@ analysed_file	data/formatado/step4_analysed_exemplomenor.txt
 t0	2000
 t0_	2006
 t1	2007
-t1_	2010
+t1_	2013
 top_rank	4
 distanceNeighbors	0
 lengthVertex	0

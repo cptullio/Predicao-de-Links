@@ -18,11 +18,11 @@ class Analyse(object):
             for i in range(preparedParameters.top_rank):
                 clean_line = lines[i].strip().replace('\r\n','')
                 cols = clean_line.split('\t')
-                if preparedParameters.testGraph.has_edge(cols[len(preparedParameters.featuresChoice)],cols[len(preparedParameters.featuresChoice)+1] ):
+                if preparedParameters.testGraph.has_edge(cols[len(cols)-2],cols[len(cols)-1] ):
                     success = success + 1
-                    fnodes.write(cols[len(preparedParameters.featuresChoice)]  + '\t' + cols[len(preparedParameters.featuresChoice)+1] + '\t' +  'SUCCESS \r\n')
+                    fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'SUCCESS \r\n')
                 else:
-                    fnodes.write(cols[len(preparedParameters.featuresChoice)]  + '\t' + cols[len(preparedParameters.featuresChoice)+1] + '\t' +  'FAILED \r\n')
+                    fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'FAILED \r\n')
             
             result =  float(success) / float(preparedParameters.top_rank) *100
             strResult = 'Final Result: \t' + str(result) + '%'

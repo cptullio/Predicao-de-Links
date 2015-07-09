@@ -17,33 +17,31 @@ from sklearn.preprocessing import normalize
 
 class GeneralTest(unittest.TestCase):
 	
-	def reading_calculateFile(self, calculated_file):
-		myfile = Formating.get_abs_file_path(calculated_file)
-		line_values = []
-		with open(myfile) as f:
-			content = f.readlines()
-			f.close()
-		for line in content:
-			calcs = []
-			cols = line.split('\t')
-			for indice in range(len(cols) -2 ):
-				calcs.append(float(line.split('\t')[indice].split(':')[1].replace('}','').strip()) )
-			line_values.append([calcs, cols[len(cols)-2], cols[len(cols)-1].replace('\r\n', '')  ] )
-		return line_values
+	
 	
 	
 	def test_readCalculate(self):
 		util = ParameterUtil('data/parameter.txt')
+		f = self.reading_calculateFile(util.calculated_file)
 		result = []
-		for line in self.reading_calculateFile(util.calculated_file):
-			calcs = normalize(line[0])
-			result.append( [numpy.sum(calcs), calcs, line[0], line[1], line[2]  ] )
+		result2 = []
+		for line in f:
+			result2.append(line[0])
+		media = numpy.mean(result2)
+		desvio = numpy.std(result2)
+		mycalcs = []
+		for i in result2:
+			mycalcs.append([ (i[0] - media )  / desvio, (i[1] - media )  / desvio ])
+		result3 = normalize(result2)
 		
-		orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
+		for indice in range(len(f)):
+			calcs = normalize(f[indice][0])
+			result.append( [ numpy.sum(calcs), numpy.sum(result3[indice]),numpy.sum(mycalcs[indice]), result3[indice], mycalcs[indice] , calcs, f[indice][0], f[indice][1], f[indice][2]  ] )
+		
+		orderedResult = sorted(result, key=lambda sum_value: sum_value[2], reverse=True)
 		
 		for myitem in orderedResult:
-			print myitem[0], myitem[1], myitem[2], myitem[3], myitem[4]
-		
+			print myitem[0], myitem[1], myitem[2], myitem[3], myitem[4], myitem[5], myitem[6], myitem[7], myitem[8]
 		
 		
 		

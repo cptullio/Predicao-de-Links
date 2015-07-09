@@ -27,7 +27,9 @@ class Test(unittest.TestCase):
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file)
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
         calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        analyse = Analyse(myparams, util.calculated_file, util.analysed_file)
+        calc.orderingCalculate()
+        
+        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
 
     def test_oficial(self):
         util = ParameterUtil('data/pdblp.txt')
