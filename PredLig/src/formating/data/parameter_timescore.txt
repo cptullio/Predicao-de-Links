@@ -8,8 +8,9 @@ ordered_file	data/formatado/step3_ordered_TimeScore.txt
 analysed_file	data/formatado/step4_analysed_TimeScore.txt
 t0	2000
 t0_	2008
-t1	2009
+t1	2000
 t1_	2013
+decay	0.5
 top_rank	1
 distanceNeighbors	0
 lengthVertex	0

@@ -10,6 +10,7 @@ import networkx
 import matplotlib
 import numpy
 from datetime import datetime
+from featuring.FeatureBase import FeatureBase
 
 
 
@@ -19,11 +20,53 @@ from datetime import datetime
 
 class GeneralTest(unittest.TestCase):
 	
+	def get_YearsofArticles(self, graph, node1, node2):
+		result = []
+		for node in networkx.common_neighbors(graph, node1, node2):
+			for n,d in graph.nodes(data=True):
+				if n == node:
+					result.append(d['time'])
+		result.sort(reverse=True)
+		return result
+	
+	
+	def test_viewingexemplomenor(self):
+		util = ParameterUtil(parameter_file = 'data/parameter.txt')
+		graph = networkx.read_graphml(Formating.get_abs_file_path(util.graph_file))
+		networkx.draw_networkx(graph)
+		matplotlib.pyplot.show()
+		
 	
 	def test_creating_TimeScoreOriginal(self):
 		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
 		graph = networkx.read_graphml(Formating.get_abs_file_path(util.trainnig_graph_file))
-		
+		pair_nodes_not_linked = VariableSelection(graph, util.nodes_notlinked_file)
+		justOneFeature = FeatureBase()
+		justOneFeature.graph = graph
+		for pair in pair_nodes_not_linked.results:
+			pair_common_neighbors  = justOneFeature.get_common_neighbors(pair[0], pair[1])
+			articles = []
+			for pair_common_neighbor in pair_common_neighbors:
+				articles.append(self.get_YearsofArticles(graph, pair[0], pair_common_neighbor))
+				articles.append(self.get_YearsofArticles(graph, pair[1], pair_common_neighbor))
+			print articles
+			#Harmonic Mean of Publications
+			total = float(0)
+			for years in articles:
+				total = total + 1/float(len(years))
+			hm = len(pair) / total
+			print hm
+			#Decay Function
+			k =  int(datetime.today().year)  - int(max(list(articles))[0])
+			decayfunction = (1 - util.decay) ** k
+			print decayfunction
+			timescore = (hm * decayfunction) / (abs( max(list(articles[0])) - max(list(articles[1])))  + 1)
+			print timescore
+			
+			
+		#networkx.draw_networkx(graph)
+		#matplotlib.pyplot.show()
+	
 		
 	
 	def test_getnolinknodes(self):

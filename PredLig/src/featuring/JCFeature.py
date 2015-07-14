@@ -16,7 +16,9 @@ class JCFeature(FeatureBase):
     def __init__(self):
         super(JCFeature, self).__init__()
 
-    def execute(self, neighbor_node1, neighbor_node2):
-        f = (float)(len(neighbor_node1.intersection(neighbor_node2)))
-        x = (float)(len(neighbor_node1.union(neighbor_node2)))
+    def execute(self, node1, node2):
+        neighbors_node1 = self.generate_all_node_neighborsfromNode1(node1)
+        neighbors_node2 = self.generate_all_node_neighborsfromNode2(node2)
+        f = (float)(len(neighbors_node1.intersection(neighbors_node2)))
+        x = (float)(len(neighbors_node1.union(neighbors_node2)))
         return f/x

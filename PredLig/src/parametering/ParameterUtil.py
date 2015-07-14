@@ -59,6 +59,8 @@ class ParameterUtil(object):
                 self.t1 = int(cols[1])
             if cols[0] == 't1_':
                 self.t1_ = int(cols[1])
+            if cols[0] == 'decay':
+                self.decay = float(cols[1])
             if cols[0] == 'top_rank':
                 self.top_rank = int(cols[1])
             if cols[0] == 'features':

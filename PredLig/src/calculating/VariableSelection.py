@@ -60,6 +60,7 @@ class VariableSelection(object):
                 lines = f.readlines()
                 f.close()
             for line in lines:
+                line = line.replace('\r\n','')
                 line = line.strip()
                 cols = line.split('\t')
                 self.results.append([cols[0], cols[1]])

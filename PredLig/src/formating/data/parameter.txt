@@ -8,9 +8,10 @@ ordered_file	data/formatado/step3_ordered_exemplomenor.txt
 analysed_file	data/formatado/step4_analysed_exemplomenor.txt
 t0	2000
 t0_	2006
-t1	2007
+t1	2000
 t1_	2013
-top_rank	4
+decay	0.5
+top_rank	7
 distanceNeighbors	0
 lengthVertex	0
-features	1:1;0:1
+features	1:1;0:1;2:1
