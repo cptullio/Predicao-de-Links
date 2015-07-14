@@ -20,8 +20,11 @@ from datetime import datetime
 class GeneralTest(unittest.TestCase):
 	
 	
-	def test_data(self):
-		print datetime.today()
+	def test_creating_TimeScoreOriginal(self):
+		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
+		graph = networkx.read_graphml(Formating.get_abs_file_path(util.trainnig_graph_file))
+		
+		
 	
 	def test_getnolinknodes(self):
 		results = []
