@@ -8,6 +8,7 @@ from featuring.CNFeature import CNFeature
 from featuring.JCFeature import JCFeature
 from featuring.PAFeature import PAFeature
 from formating.dblp.Formating import Formating
+from featuring.TimeScore import TimeScore
 
 class ParameterUtil(object):
     
@@ -21,6 +22,7 @@ class ParameterUtil(object):
         AllFeatures.append(CNFeature())
         AllFeatures.append(JCFeature())
         AllFeatures.append(PAFeature())
+        AllFeatures.append(TimeScore())
         
         self.FeaturesChoiced = []
         

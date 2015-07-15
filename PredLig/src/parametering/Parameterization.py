@@ -10,13 +10,13 @@ import os.path
 
 class Parameterization(object):
     
-    def __init__(self, top_rank, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph):
+    def __init__(self, top_rank, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay):
         self.distanceNeighbors = distanceNeighbors
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
         self.top_rank = top_rank
         self.graph = Formating.reading_graph(filePathGraph)
-        
+        self.decay = decay
         if not os.path.exists(Formating.get_abs_file_path(filePathTestGraph)):
             self.testGraph = Formating.get_graph_from_period(self.graph, t1, t1_)
             networkx.write_graphml(self.testGraph, Formating.get_abs_file_path(filePathTestGraph))

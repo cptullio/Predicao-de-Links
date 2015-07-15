@@ -111,10 +111,16 @@ class GeneralTest(unittest.TestCase):
 					if isAlreadyThere == 0:
 						results.append([author[0], coAuthor ])
 		print results    
-			
+	
+	
+	def test_analysing(self):
+		util = ParameterUtil(parameter_file = 'data/parameter.txt')
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+		analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+				
 	def test_viewgraph(self):
 		
-		util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
+		util = ParameterUtil(parameter_file = 'data/parameter.txt')
 		networkx.draw_networkx(networkx.read_graphml(Formating.get_abs_file_path(util.graph_file)))
 		matplotlib.pyplot.savefig(Formating.get_abs_file_path(util.graph_file) + ".png", format="PNG")
 		matplotlib.pyplot.close()

@@ -14,6 +14,7 @@ class FeatureBase(object):
         self.graph = None
         self.neighbors_node1 = None
         self.neighbors_node2 = None
+        self.parameter = None
     
     def generate_all_node_neighborsfromNode1(self, node1):
         self.neighbors_node1 = set(self.all_node_neighbors(node1))

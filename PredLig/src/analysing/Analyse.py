@@ -18,7 +18,7 @@ class Analyse(object):
             for i in range(preparedParameters.top_rank):
                 clean_line = lines[i].strip().replace('\r\n','')
                 cols = clean_line.split('\t')
-                if networkx.common_neighbors(preparedParameters.testGraph, cols[len(cols)-2] ,  cols[len(cols)-1] ) != 0:
+                if len(list(networkx.common_neighbors(preparedParameters.testGraph, cols[len(cols)-2] ,  cols[len(cols)-1] ))) != 0:
                     success = success + 1
                     fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'SUCCESS \r\n')
                 else:

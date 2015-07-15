@@ -65,6 +65,7 @@ class Calculate(object):
 		for item in selecting.results:
 			item_result = []
 			for calc in featuresOrderedbyScalar:
+				calc[0].parameter = preparedParameter
 				item_result.append(calc[0].execute(item[0],item[1]) * calc[1])
 			
 			final_result = []
