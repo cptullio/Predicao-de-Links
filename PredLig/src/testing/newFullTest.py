@@ -17,7 +17,19 @@ from datetime import datetime
 class Test(unittest.TestCase):
 
 
-    
+    def test_duarte(self):
+        util = ParameterUtil(parameter_file = 'data/parameterDuarte.txt')
+        print "Generating Traning and Testing graphs", datetime.today()
+        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+        #print "Selecting Nodes", datetime.today()
+        #selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+        #print "Caculating", datetime.today()
+        #calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+        #print "Ordering", datetime.today()
+        #calc.orderingCalculate()
+        #print "Analysing", datetime.today()
+        #analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+        
     
     def test_default(self):
         util = ParameterUtil(parameter_file = 'data/parameter.txt')

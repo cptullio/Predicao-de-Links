@@ -11,6 +11,7 @@ import matplotlib
 import numpy
 from datetime import datetime
 from featuring.FeatureBase import FeatureBase
+from formating.duarte.DuarteFormatting import DuarteFormatting
 
 
 
@@ -30,6 +31,16 @@ class GeneralTest(unittest.TestCase):
 		return result
 	
 	
+	def test_DataSetofDuarte(self):
+		#teste = DuarteFormatting('data/formatado/step1_graph_Duarte.txt')
+		#teste.saveGraph()
+		
+		util = ParameterUtil(parameter_file = 'data/parameterDuarte.txt')
+		graph = networkx.read_graphml(Formating.get_abs_file_path(util.graph_file))
+		autor = list(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+		print len(autor)
+		
+
 	def test_viewingexemplomenor(self):
 		util = ParameterUtil(parameter_file = 'data/parameter.txt')
 		graph = networkx.read_graphml(Formating.get_abs_file_path(util.graph_file))
