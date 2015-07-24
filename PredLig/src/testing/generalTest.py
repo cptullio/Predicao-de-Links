@@ -32,13 +32,14 @@ class GeneralTest(unittest.TestCase):
 	
 	
 	def test_DataSetofDuarte(self):
-		#teste = DuarteFormatting('data/formatado/step1_graph_Duarte.txt')
-		#teste.saveGraph()
-		
+		print "Getting Graph", datetime.today()
 		util = ParameterUtil(parameter_file = 'data/parameterDuarte.txt')
-		graph = networkx.read_graphml(Formating.get_abs_file_path(util.graph_file))
-		autor = list(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
-		print len(autor)
+		duarte = DuarteFormatting(util.graph_file)
+		print "Generating Traning and Testing graphs", datetime.today()
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay, duarte.Graph)
+		print "Selecting Nodes", datetime.today()
+		selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+		
 		
 
 	def test_viewingexemplomenor(self):

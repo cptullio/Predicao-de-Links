@@ -8,6 +8,7 @@ from formating.dblp.Article import Article
 from formating.dblp.Author import Author
 from formating.dblp.AuthorInArticle import AuthorInArticle
 import networkx
+from datetime import datetime
 
 class Formating(FormatingDataSets):
 	
@@ -58,7 +59,10 @@ class Formating(FormatingDataSets):
 	
 	@staticmethod
 	def get_graph_from_period(graph, t0,t0_):
+		
+		print "Getting Papers", datetime.today()
 		papers = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and d['time'] >= t0 and d['time'] <= t0_)
+		print "Total Papers: ",  len(papers),  datetime.today()
 		new_graph = networkx.Graph()
 		new_graph.add_nodes_from(papers)
 		for paper in papers:

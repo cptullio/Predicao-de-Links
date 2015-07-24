@@ -6,13 +6,13 @@ nodes_notlinked_file	data/formatado/step3_nodesnotlinked_Duarte.txt
 calculated_file	data/formatado/step3_calculated_Duarte.txt
 ordered_file	data/formatado/step3_ordered_Duarte.txt
 analysed_file	data/formatado/step4_analysed_Duarte.txt
-t0	2000
-t0_	2006
-t1	2000
-t1_	2013
+t0	2004
+t0_	2004
+t1	2004
+t1_	2005
 decay	0.5
 top_rank	7
 distanceNeighbors	0
 lengthVertex	0
-features	1:1;0:1;2:1;4:1
+features	1:1
 
