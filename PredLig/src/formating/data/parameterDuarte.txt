@@ -1,18 +1,18 @@
 original_file	None
-graph_file	data/formatado/step1_graph_Duarte.txt
+graph_file	data/formatado/step1_graph_Duarte_definido.txt
 trainnig_graph_file	data/formatado/step2_Traininggraph_Duarte.txt
 test_graph_file	data/formatado/step2_Testinggraph_Duarte.txt
 nodes_notlinked_file	data/formatado/step3_nodesnotlinked_Duarte.txt
 calculated_file	data/formatado/step3_calculated_Duarte.txt
 ordered_file	data/formatado/step3_ordered_Duarte.txt
 analysed_file	data/formatado/step4_analysed_Duarte.txt
-t0	2004
-t0_	2004
-t1	2004
-t1_	2005
+t0	2000
+t0_	2010
+t1	2000
+t1_	2015
 decay	0.5
-top_rank	7
+top_rank	1
 distanceNeighbors	0
 lengthVertex	0
-features	1:1
+features	4:1;7:1;8:1;5:1;6:1
 

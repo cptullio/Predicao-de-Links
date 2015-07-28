@@ -9,6 +9,10 @@ from featuring.JCFeature import JCFeature
 from featuring.PAFeature import PAFeature
 from formating.dblp.Formating import Formating
 from featuring.TimeScore import TimeScore
+from featuring.TimeScoreCR import TimeScoreCR
+from featuring.TimeScoreCRWithDecay import TimeScoreCRWithDecay
+from featuring.TimeScoreCRWithHm import TimeScoreCRWithHm
+from featuring.TimeScoreCRWithHmandDecay import TimeScoreCRWithHmandDecay
 
 class ParameterUtil(object):
     
@@ -23,6 +27,13 @@ class ParameterUtil(object):
         AllFeatures.append(JCFeature())
         AllFeatures.append(PAFeature())
         AllFeatures.append(TimeScore())
+        AllFeatures.append(TimeScoreCR())
+        AllFeatures.append(TimeScoreCRWithDecay())
+        AllFeatures.append(TimeScoreCRWithHm())
+        AllFeatures.append(TimeScoreCRWithHmandDecay())
+        
+        
+        
         
         self.FeaturesChoiced = []
         
