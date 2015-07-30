@@ -21,6 +21,7 @@ class Parameterization(object):
         else:
             self.graph = FullGraph
         self.decay = decay
+        self.t0_ = t0_
         if not os.path.exists(Formating.get_abs_file_path(filePathTrainingGraph)):
             print "Generating Trainnig graphs", datetime.today()
        

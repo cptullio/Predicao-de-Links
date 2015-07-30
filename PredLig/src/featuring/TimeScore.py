@@ -29,22 +29,32 @@ class TimeScore(FeatureBase):
 
     
     def execute(self, node1, node2):
+        
         pair_common_neighbors  = self.get_common_neighbors(node1, node2)
-        timesofLinks = []
-        timescoreValue = 0
+        if len(pair_common_neighbors) == 0:
+            return 0
+        print node1, node2, pair_common_neighbors
+        timescoreValue = float(0)
         for pair_common_neighbor in pair_common_neighbors:
-            timesofLinks.append(self.get_TimeofLinks(self.graph, node1, pair_common_neighbor))
-            timesofLinks.append(self.get_TimeofLinks(self.graph, node2, pair_common_neighbor))
+            timesofLinks = []
+            timesofLinksNode1 = self.get_TimeofLinks(self.graph, node1, pair_common_neighbor)
+            timesofLinksNode2 = self.get_TimeofLinks(self.graph, node2, pair_common_neighbor)
+            
+            timesofLinks.append(timesofLinksNode1)
+            timesofLinks.append(timesofLinksNode2)
+            print node1, pair_common_neighbor, timesofLinksNode1
+            print node2, pair_common_neighbor, timesofLinksNode2
+            
+        
             #Harmonic Mean of Publications
             total = float(0)
             for publications in timesofLinks:
                 total = total + 1/float(len(publications))
             hm = 2 / total
             
-            k =  int(datetime.today().year)  - int(max(list(timesofLinks))[0])
+            k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
-            print decayfunction
-            timescoreValue = timescoreValue + ( (hm * decayfunction) / (abs( max(list(timesofLinks[0])) - max(list(timesofLinks[1])))  + 1))
+            timescoreValue = timescoreValue + ( (hm * decayfunction) / (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1))
         return timescoreValue    
             
         

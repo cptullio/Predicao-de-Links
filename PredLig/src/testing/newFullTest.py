@@ -10,6 +10,8 @@ from calculating.VariableSelection import VariableSelection
 from calculating.Calculate import Calculate
 from analysing.Analyse import Analyse
 from formating.dblp.Formating import Formating
+from formating.duarte.DuarteFormatting import DuarteFormatting
+
 from datetime import datetime
 
 
@@ -17,20 +19,59 @@ from datetime import datetime
 class Test(unittest.TestCase):
 
 
-    def test_duarte(self):
-        util = ParameterUtil(parameter_file = 'data/parameterDuarte.txt')
+    def executar_munasing(self):
+        
+        print "Executing TS features", datetime.today()
+     
+        util = ParameterUtil(parameter_file = 'data/parameterDuarteTSC.txt')
+        #print "Formating Graph", datetime.today()
+        #duarte = DuarteFormatting(util.graph_file)
+        #duarte.Graph = duarte.generatingGraph(200)
+        #duarte.saveGraph()
         print "Generating Traning and Testing graphs", datetime.today()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         print "Selecting Nodes", datetime.today()
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+        print "Caculating", datetime.today()
+        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+        print "Ordering", datetime.today()
+        calc.orderingCalculate()
+        print "Analysing", datetime.today()
+        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+    
+    def executar_baseline(self):
+        print "Executing BaseLine features", datetime.today()
         
-        #print "Caculating", datetime.today()
-        #calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        #print "Ordering", datetime.today()
-        #calc.orderingCalculate()
-        #print "Analysing", datetime.today()
-        #analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+        util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
+        #print "Formating Graph", datetime.today()
+        #duarte = DuarteFormatting(util.graph_file)
+        #duarte.Graph = duarte.generatingGraph(200)
+        #duarte.saveGraph()
+        print "Generating Traning and Testing graphs", datetime.today()
+        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+        print "Selecting Nodes", datetime.today()
+        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+        print "Caculating", datetime.today()
+        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+        print "Ordering", datetime.today()
+        calc.orderingCalculate()
+        print "Analysing", datetime.today()
+        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+    
+    
+    def test_gerardadosDuarte(self):
+        util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
+        print util.graph_file
+        duarte = DuarteFormatting(util.graph_file)
+        duarte.Graph = duarte.generatingGraph(200)
+        duarte.saveGraph()
         
+    
+    def test_duarte(self):
+        self.executar_baseline()
+        self.executar_munasing()
+    
+    
     
     def test_default(self):
         util = ParameterUtil(parameter_file = 'data/parameter.txt')

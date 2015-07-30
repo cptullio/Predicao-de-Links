@@ -25,13 +25,17 @@ class DuarteFormatting(FormatingDataSets):
         networkx.write_graphml(self.Graph, self.get_abs_file_path(self.GraphFile)) 
         
     
-    def generatingGraph(self):
+    def generatingGraph(self, qtyPublications):
         con = None
         try:
             con = psycopg2.connect(database='projetomestrado', user='postgres', password='123456')
             
             curPublicacao = con.cursor()
-            curPublicacao.execute("select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano > 2000 limit 3")
+            curPublicacao.execute("(select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2006 limit " + str(qtyPublications)  + 
+                                  ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2007 limit " + str(qtyPublications)  +
+                                  ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2008 limit " + str(qtyPublications)  +
+                                  ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2009 limit " + str(qtyPublications)  +
+                                  ")")
             for linha in curPublicacao.fetchall():
                 idpublicacao = linha[0]
                 curPublicacaoPalavras = con.cursor()
