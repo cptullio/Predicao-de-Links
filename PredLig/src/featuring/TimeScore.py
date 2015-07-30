@@ -33,7 +33,7 @@ class TimeScore(FeatureBase):
         pair_common_neighbors  = self.get_common_neighbors(node1, node2)
         if len(pair_common_neighbors) == 0:
             return 0
-        print node1, node2, pair_common_neighbors
+        #print node1, node2, pair_common_neighbors
         timescoreValue = float(0)
         for pair_common_neighbor in pair_common_neighbors:
             timesofLinks = []
@@ -42,8 +42,8 @@ class TimeScore(FeatureBase):
             
             timesofLinks.append(timesofLinksNode1)
             timesofLinks.append(timesofLinksNode2)
-            print node1, pair_common_neighbor, timesofLinksNode1
-            print node2, pair_common_neighbor, timesofLinksNode2
+            #print node1, pair_common_neighbor, timesofLinksNode1
+            #print node2, pair_common_neighbor, timesofLinksNode2
             
         
             #Harmonic Mean of Publications
