@@ -7,17 +7,47 @@ from calculating.Calculate import Calculate
 from analysing.Analyse import Analyse
 from parametering.ParameterUtil import ParameterUtil
 import networkx
-import matplotlib
+
 import numpy
 from datetime import datetime
 from featuring.FeatureBase import FeatureBase
 from formating.duarte.DuarteFormatting import DuarteFormatting
+from multiprocessing import Pool
+import time
+import multiprocessing
 
 
 #python -m unittest GeneralTestings
 #export PYTHONPATH="$PYTHONPATH://home/cabox/workspace/PredLig/src/"
 
 class GeneralTest(unittest.TestCase):
+	
+	def meuMetodo(self, valor, output):
+		valor2 = 0;
+		for x in range(valor):
+			valor2 = valor + (x*2)
+		output.put(valor2)
+		
+		
+	
+	def teste_multiprocess(self):
+		out_q = multiprocessing.Queue()
+		p = multiprocessing.Process(target=self.meuMetodo, args=(100000,out_q))
+		p.start()
+		
+		p.join()
+		print out_q.get()
+	
+	
+	
+	def teste_newselecting(self):
+		util = ParameterUtil(parameter_file = 'data/parameter.txt')
+		graph = networkx.read_graphml(Formating.get_abs_file_path(util.graph_file))
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay, graph)
+		selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+		
+		
+		
 	
 	def get_YearsofArticles(self, graph, node1, node2):
 		result = []

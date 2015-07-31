@@ -24,10 +24,7 @@ class Test(unittest.TestCase):
         print "Executing TS features", datetime.today()
      
         util = ParameterUtil(parameter_file = 'data/parameterDuarteTSC.txt')
-        #print "Formating Graph", datetime.today()
-        #duarte = DuarteFormatting(util.graph_file)
-        #duarte.Graph = duarte.generatingGraph(200)
-        #duarte.saveGraph()
+       
         print "Generating Traning and Testing graphs", datetime.today()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         print "Selecting Nodes", datetime.today()
@@ -41,12 +38,7 @@ class Test(unittest.TestCase):
     
     def executar_baseline(self):
         print "Executing BaseLine features", datetime.today()
-        
         util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
-        #print "Formating Graph", datetime.today()
-        #duarte = DuarteFormatting(util.graph_file)
-        #duarte.Graph = duarte.generatingGraph(200)
-        #duarte.saveGraph()
         print "Generating Traning and Testing graphs", datetime.today()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         print "Selecting Nodes", datetime.today()
@@ -63,11 +55,15 @@ class Test(unittest.TestCase):
         util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
         print util.graph_file
         duarte = DuarteFormatting(util.graph_file)
-        duarte.Graph = duarte.generatingGraph(200)
+        duarte.Graph = duarte.generatingGraph(200000)
         duarte.saveGraph()
+        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+        print "Selecting Nodes", datetime.today()
+        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
         
     
     def test_duarte(self):
+        
         self.executar_baseline()
         self.executar_munasing()
     

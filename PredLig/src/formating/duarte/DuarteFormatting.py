@@ -31,7 +31,9 @@ class DuarteFormatting(FormatingDataSets):
             con = psycopg2.connect(database='projetomestrado', user='postgres', password='123456')
             
             curPublicacao = con.cursor()
-            curPublicacao.execute("(select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2006 limit " + str(qtyPublications)  + 
+            curPublicacao.execute("(select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2004 limit " + str(qtyPublications)  + 
+                                  ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2005 limit " + str(qtyPublications)  +
+                                  ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2006 limit " + str(qtyPublications)  +
                                   ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2007 limit " + str(qtyPublications)  +
                                   ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2008 limit " + str(qtyPublications)  +
                                   ") UNION (select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano = 2009 limit " + str(qtyPublications)  +
