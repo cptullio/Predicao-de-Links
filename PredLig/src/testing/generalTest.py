@@ -22,6 +22,17 @@ import multiprocessing
 
 class GeneralTest(unittest.TestCase):
 	
+	
+	
+	def test_maxandminValue(self):
+		util = ParameterUtil(parameter_file = 'data/parameter.txt')
+		myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+		selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+		calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+		calc.orderingCalculate()
+		analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+		
+	
 	def meuMetodo(self, valor, output):
 		valor2 = 0;
 		for x in range(valor):

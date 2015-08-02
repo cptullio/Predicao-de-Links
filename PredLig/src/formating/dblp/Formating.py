@@ -13,7 +13,7 @@ from datetime import datetime
 class Formating(FormatingDataSets):
 	
 	def readingOrginalDataset(self):
-		
+		print "Starting Reading Original Dataset", datetime.today()
 		with open(self.OriginalDataSet) as f:
 			self.OrignalContent = f.readlines()
 			f.close()
@@ -24,8 +24,10 @@ class Formating(FormatingDataSets):
 		authorofArticles = []
 		authors = []
 		article = None
-		
+		element = 0
 		for line in self.OrignalContent:
+			element = element+1
+			FormatingDataSets.printProgressofEvents(element, len(self.OrignalContent), "Reading File Content to Generate Graph: ")
 			line = line.strip()
 			if line.startswith('#*'):
 				articleid = articleid+1
@@ -55,34 +57,18 @@ class Formating(FormatingDataSets):
 		for item_edge in authorofArticles:
 			graph.add_edge(item_edge.articleid, int(item_edge.authorid) )
 		
+		print "Reading Original Dataset finished", datetime.today()
+		
 		return graph
 	
-	@staticmethod
-	def get_graph_from_period(graph, t0,t0_):
-		
-		print "Getting Papers", datetime.today()
-		papers = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and d['time'] >= t0 and d['time'] <= t0_)
-		print "Total Papers: ",  len(papers),  datetime.today()
-		new_graph = networkx.Graph()
-		new_graph.add_nodes_from(papers)
-		for paper in papers:
-			authors = networkx.all_neighbors(graph, paper[0])
-			for author in authors:
-				author_withData = list([n,d] for n,d in graph.nodes(data=True) if n == author)
-				new_graph.add_nodes_from(author_withData)
-				new_graph.add_edge(paper[0], author)
-		return new_graph
+	
 	
 					
 
 	def __init__(self, filepathOriginalDataSet, graphfile):
 	
-		super(Formating, self).__init__(filepathOriginalDataSet)
+		super(Formating, self).__init__(filepathOriginalDataSet,graphfile)
 	
-		graph = self.readingOrginalDataset()
-
-		networkx.write_graphml(graph, self.get_abs_file_path(graphfile)) 
-			
 			
 			
 		

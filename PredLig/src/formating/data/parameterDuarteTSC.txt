@@ -1,8 +1,8 @@
 original_file	None
-graph_file	data/formatado/base_full_2004_2009/step1_graph_Duarte_ts.txt
-trainnig_graph_file	data/formatado/base_full_2004_2009/step2_Traininggraph_Duarte_ts.txt
-test_graph_file	data/formatado/base_full_2004_2009/step2_Testinggraph_Duarte_ts.txt
-nodes_notlinked_file	data/formatado/base_full_2004_2009/step3_nodesnotlinked_Duarte_ts.txt
+graph_file	data/formatado/base_test_duarte/step1_graph_Duarte_ts.txt
+trainnig_graph_file	data/formatado/base_test_duarte/step2_Traininggraph_Duarte_ts.txt
+test_graph_file	data/formatado/base_test_duarte/step2_Testinggraph_Duarte_ts.txt
+nodes_notlinked_file	data/formatado/base_test_duarte/step3_nodesnotlinked_Duarte_ts.txt
 calculated_file	data/formatado/tsc/step3_calculated_Duarte_ts.txt
 ordered_file	data/formatado/tsc/step3_ordered_Duarte_ts.txt
 analysed_file	data/formatado/tsc/step4_analysed_Duarte_ts.txt

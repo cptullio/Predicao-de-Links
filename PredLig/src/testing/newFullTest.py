@@ -18,102 +18,52 @@ from datetime import datetime
 
 class Test(unittest.TestCase):
 
+    #all type of formatting files will pass through this part of code
+    def execute(self, parameter_file):
+        util = ParameterUtil(parameter_file = parameter_file)
+        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+        calc.orderingCalculate()
+        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
 
-    def executar_munasing(self):
-        
-        print "Executing TS features", datetime.today()
-     
-        util = ParameterUtil(parameter_file = 'data/parameterDuarteTSC.txt')
-       
-        print "Generating Traning and Testing graphs", datetime.today()
-        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-        print "Selecting Nodes", datetime.today()
-        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        print "Caculating", datetime.today()
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        print "Ordering", datetime.today()
-        calc.orderingCalculate()
-        print "Analysing", datetime.today()
-        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
     
-    def executar_baseline(self):
-        print "Executing BaseLine features", datetime.today()
+    def generate_duarteGeneralData(self):
         util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
-        print "Generating Traning and Testing graphs", datetime.today()
-        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-        print "Selecting Nodes", datetime.today()
-        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        print "Caculating", datetime.today()
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        print "Ordering", datetime.today()
-        calc.orderingCalculate()
-        print "Analysing", datetime.today()
-        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
-    
-    
-    def test_gerardadosDuarte(self):
-        util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
-        print util.graph_file
         duarte = DuarteFormatting(util.graph_file)
-        duarte.Graph = duarte.generatingGraph(200000)
+        duarte.Graph = duarte.readingOrginalDataset(50)
         duarte.saveGraph()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         print "Selecting Nodes", datetime.today()
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        
     
-    def test_duarte(self):
-        
-        self.executar_baseline()
-        self.executar_munasing()
-    
-    
-    
-    def test_default(self):
-        util = ParameterUtil(parameter_file = 'data/parameter.txt')
-        print "Formating Graph", datetime.today()
-        myDblpFormating = Formating(util.original_file, util.graph_file)
-        print "Generating Traning and Testing graphs", datetime.today()
+    def generate_dblpGeneralData(self, parameter_file):
+        util = ParameterUtil(parameter_file)
+        format = Formating(util.original_file, util.graph_file)
+        format.Graph = format.readingOrginalDataset()
+        format.saveGraph()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-        print "Selecting Nodes", datetime.today()
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        print "Caculating", datetime.today()
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        print "Ordering", datetime.today()
-        calc.orderingCalculate()
-        print "Analysing", datetime.today()
-        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
     
-    def test_timescore(self):
-        util = ParameterUtil(parameter_file = 'data/parameter_timescore.txt')
-        print "Formating Graph",datetime.today()
-        myDblpFormating = Formating(util.original_file, util.graph_file)
-        print "Generating Traning and Testing graphs",datetime.today()
-        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-        print "Selecting Nodes", datetime.today()
-        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        print "Caculating", datetime.today()
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        print "Ordering", datetime.today()
-        calc.orderingCalculate()
-        print "Analysing", datetime.today()
-        analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
-    
-    def test_oficial(self):
-        util = ParameterUtil('data/pdblp.txt')
-        print "Formating Graph", datetime.today()
-        myDblpFormating = Formating(util.original_file, util.graph_file)
-        print "Generating Traning and Testing graphs", datetime.today()
-        myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file)
-        print "Selecting Nodes not linked", datetime.today()
-        selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        print "Calculating Nodes not linked", datetime.today()
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
-        print "Analysing results", datetime.today()
-        analyse = Analyse(myparams, util.calculated_file, util.analysed_file)
-
         
-
+    #do not recomended to run everything direct.  Because the generate take to long time.
+    #strong recommended that you comment the lines to run the test step by step
+    def test_fullDuarteTest(self):
+        self.generate_duarteGeneralData()
+        self.execute('data/parameterDuarteTSC.txt')
+        self.execute('data/parameterDuarteBC.txt')
+    
+    def test_fullExemploMenor(self):
+        self.generate_dblpGeneralData('data/parameter.txt')
+        self.execute('data/parameter.txt')
+        self.execute('data/parameter_bc.txt')
+    
+    def test_dblp(self):
+        self.generate_dblpGeneralData('data/pdblp.txt')
+        self.execute('data/pdblp.txt')
+        self.execute('data/pdblp_bc.txt')
+    
+  
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testRunning']
     unittest.main()

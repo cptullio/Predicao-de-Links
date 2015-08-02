@@ -1,0 +1,149 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="title" attr.type="string" for="node" id="d3" />
+  <key attr.name="time" attr.type="int" for="node" id="d2" />
+  <key attr.name="name" attr.type="string" for="node" id="d1" />
+  <key attr.name="node_type" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="1">
+      <data key="d0">N</data>
+      <data key="d1">Carlos Pedro</data>
+    </node>
+    <node id="2">
+      <data key="d0">N</data>
+      <data key="d1">Bianca</data>
+    </node>
+    <node id="3">
+      <data key="d0">N</data>
+      <data key="d1">Ana Clara</data>
+    </node>
+    <node id="4">
+      <data key="d0">N</data>
+      <data key="d1">Mariana</data>
+    </node>
+    <node id="5">
+      <data key="d0">N</data>
+      <data key="d1">Daniel</data>
+    </node>
+    <node id="6">
+      <data key="d0">N</data>
+      <data key="d1">Ana Maria</data>
+    </node>
+    <node id="7">
+      <data key="d0">N</data>
+      <data key="d1">Sandra Tullio</data>
+    </node>
+    <node id="8">
+      <data key="d0">N</data>
+      <data key="d1">Paulo Renato</data>
+    </node>
+    <node id="p_10">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre CorrupÃ§ao</data>
+    </node>
+    <node id="p_11">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre Irmao</data>
+    </node>
+    <node id="p_12">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre Irmas</data>
+    </node>
+    <node id="p_13">
+      <data key="d0">E</data>
+      <data key="d2">2005</data>
+      <data key="d3">Artigo sobre Graph</data>
+    </node>
+    <node id="p_14">
+      <data key="d0">E</data>
+      <data key="d2">2007</data>
+      <data key="d3">Artigo sobre Manicure</data>
+    </node>
+    <node id="p_15">
+      <data key="d0">E</data>
+      <data key="d2">2009</data>
+      <data key="d3">Artigo sobre Testes</data>
+    </node>
+    <node id="p_16">
+      <data key="d0">E</data>
+      <data key="d2">2002</data>
+      <data key="d3">Artigo sobre Filhos e Netos</data>
+    </node>
+    <node id="p_8">
+      <data key="d0">E</data>
+      <data key="d2">2005</data>
+      <data key="d3">Artigo sobre Chupeta</data>
+    </node>
+    <node id="p_9">
+      <data key="d0">E</data>
+      <data key="d2">2008</data>
+      <data key="d3">Artigo sobre Salarios</data>
+    </node>
+    <node id="p_6">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre Computadores</data>
+    </node>
+    <node id="p_7">
+      <data key="d0">E</data>
+      <data key="d2">2007</data>
+      <data key="d3">Artigo sobre Google</data>
+    </node>
+    <node id="p_4">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre Canetas</data>
+    </node>
+    <node id="p_5">
+      <data key="d0">E</data>
+      <data key="d2">2006</data>
+      <data key="d3">Artigo sobre Fralda</data>
+    </node>
+    <node id="p_2">
+      <data key="d0">E</data>
+      <data key="d2">2005</data>
+      <data key="d3">Artigo Sobre Filhos</data>
+    </node>
+    <node id="p_3">
+      <data key="d0">E</data>
+      <data key="d2">2007</data>
+      <data key="d3">Artigo Sobre Boneca</data>
+    </node>
+    <node id="p_1">
+      <data key="d0">E</data>
+      <data key="d2">2003</data>
+      <data key="d3">Artigo sobre a natureza</data>
+    </node>
+    <edge source="1" target="p_13" />
+    <edge source="1" target="p_14" />
+    <edge source="1" target="p_9" />
+    <edge source="1" target="p_6" />
+    <edge source="1" target="p_7" />
+    <edge source="1" target="p_1" />
+    <edge source="2" target="p_5" />
+    <edge source="2" target="p_2" />
+    <edge source="2" target="p_1" />
+    <edge source="3" target="p_4" />
+    <edge source="3" target="p_2" />
+    <edge source="3" target="p_3" />
+    <edge source="4" target="p_7" />
+    <edge source="4" target="p_5" />
+    <edge source="4" target="p_3" />
+    <edge source="4" target="p_8" />
+    <edge source="4" target="p_16" />
+    <edge source="5" target="p_8" />
+    <edge source="6" target="p_10" />
+    <edge source="6" target="p_15" />
+    <edge source="6" target="p_16" />
+    <edge source="6" target="p_9" />
+    <edge source="7" target="p_10" />
+    <edge source="7" target="p_12" />
+    <edge source="7" target="p_14" />
+    <edge source="8" target="p_11" />
+    <edge source="8" target="p_12" />
+    <edge source="8" target="p_13" />
+    <edge source="8" target="p_15" />
+  </graph>
+</graphml>
