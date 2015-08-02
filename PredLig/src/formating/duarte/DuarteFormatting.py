@@ -54,18 +54,18 @@ class DuarteFormatting(FormatingDataSets):
                     
                 self.Publications.append([idpublicacao, linha[1], linha[2], palavras, autores ])
             
-            graph = networkx.Graph()
+            self.Graph = networkx.Graph()
             
             
             for item_article in self.Publications:
-                graph.add_node('P_' + str(item_article[0]), {'node_type' : 'E', 'title' : item_article[1].decode("latin_1"), 'time' : int(item_article[2]), 'keywords': str(item_article[3]) })
+                self.Graph.add_node('P_' + str(item_article[0]), {'node_type' : 'E', 'title' : item_article[1].decode("latin_1"), 'time' : int(item_article[2]), 'keywords': str(item_article[3]) })
                 for item_autor in item_article[4]:
-                    graph.add_node(int(item_autor[0]), {'node_type' : 'N', 'name' : item_autor[1].decode("latin_1") })
-                    graph.add_edge('P_' + str(item_article[0]), int(item_autor[0]) )
+                    self.Graph.add_node(int(item_autor[0]), {'node_type' : 'N', 'name' : item_autor[1].decode("latin_1") })
+                    self.Graph.add_edge('P_' + str(item_article[0]), int(item_autor[0]) )
             
             print "Reading Original Dataset finished", datetime.today()
             
-            return graph
+            
     
             
             

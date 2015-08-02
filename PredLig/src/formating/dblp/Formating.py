@@ -49,18 +49,17 @@ class Formating(FormatingDataSets):
 		for index in range(len(authornames)):
 			author = Author(index+1, authornames[index])
 			authors.append(author)
-		graph = networkx.Graph()
+		self.Graph = networkx.Graph()
 		for item_article in articles:
-			graph.add_node(item_article.articleid, {'node_type' : 'E', 'title' : item_article.articlename.decode("latin_1"), 'time' : int(item_article.time) })
+			self.Graph.add_node(item_article.articleid, {'node_type' : 'E', 'title' : item_article.articlename.decode("latin_1"), 'time' : int(item_article.time) })
 		for item_author in authors:
-			graph.add_node(int(item_author.authorid), {'node_type' : 'N', 'name' : item_author.name.decode("latin_1") })
+			self.Graph.add_node(int(item_author.authorid), {'node_type' : 'N', 'name' : item_author.name.decode("latin_1") })
 		for item_edge in authorofArticles:
-			graph.add_edge(item_edge.articleid, int(item_edge.authorid) )
+			self.Graph.add_edge(item_edge.articleid, int(item_edge.authorid) )
 		
 		print "Reading Original Dataset finished", datetime.today()
 		
-		return graph
-	
+		
 	
 	
 					

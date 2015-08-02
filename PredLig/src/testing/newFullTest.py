@@ -31,7 +31,7 @@ class Test(unittest.TestCase):
     def generate_duarteGeneralData(self):
         util = ParameterUtil(parameter_file = 'data/parameterDuarteBC.txt')
         duarte = DuarteFormatting(util.graph_file)
-        duarte.Graph = duarte.readingOrginalDataset(50)
+        duarte.readingOrginalDataset(50)
         duarte.saveGraph()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         print "Selecting Nodes", datetime.today()
@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
     def generate_dblpGeneralData(self, parameter_file):
         util = ParameterUtil(parameter_file)
         format = Formating(util.original_file, util.graph_file)
-        format.Graph = format.readingOrginalDataset()
+        format.readingOrginalDataset()
         format.saveGraph()
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
