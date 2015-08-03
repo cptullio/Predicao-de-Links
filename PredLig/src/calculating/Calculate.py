@@ -36,18 +36,25 @@ class Calculate(object):
 			justCalculations = []
 			for line in all_data_calculated:
 				justCalculations.append(line[0])
-			
-			maxvalueofCalculate = max(max(justCalculations))
-			minvalueofCalculate = min(min(justCalculations))	
+			inlineArray = set()
+			for i in justCalculations:
+				for j in i:
+					inlineArray.add(j)
+			print inlineArray
+			maxvalueofCalculate = max(inlineArray)
+			print justCalculations
+			minvalueofCalculate = min(inlineArray)
 			mynormalization = []
 			result = []
 			element = 0
 			for itemcalculations in justCalculations:
-				element = element+1
-				self.printProgressofEvents(element, len(justCalculations), "Normalizing Calculations: ")
+				#element = element+1
+				#self.printProgressofEvents(element, len(justCalculations), "Normalizing Calculations: ")
 				newValues = []
 				for item in itemcalculations:
 					xnormalize = (item - minvalueofCalculate)/(maxvalueofCalculate - minvalueofCalculate)
+					print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
+					
 					newValues.append(xnormalize)
 				mynormalization.append(newValues)
 			
