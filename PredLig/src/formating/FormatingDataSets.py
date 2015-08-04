@@ -11,6 +11,16 @@ from datetime import datetime
 class FormatingDataSets(object):
     
     @staticmethod
+    def getTotalLineNumbers(filepath):
+        linenumber = 0
+        with open(filepath,'r') as f:
+            for line in f:
+                linenumber = linenumber + 1
+            f.close()
+        return linenumber
+        
+    
+    @staticmethod
     def get_abs_file_path(relativepath):
         script_path = path.abspath(__file__) 
         script_dir = path.split(script_path)[0]
