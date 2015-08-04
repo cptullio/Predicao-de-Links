@@ -15,7 +15,7 @@ class VariableSelection(object):
     
     def get_pair_nodes_not_linked(self, graph):
         print "Starting getting pair of nodes that is not liked", datetime.today()
-        results = []
+        results = set()
         currentNodes =set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
         nodesOrdered = sorted(currentNodes)
         element = 0
@@ -24,9 +24,12 @@ class VariableSelection(object):
             FormatingDataSets.printProgressofEvents(element, len(nodesOrdered), "Checking Node not liked: ")
             
             others =  set(n for n in nodesOrdered if n > node1)
+            
+            notLinked = set()
             for other_node in others:
                 if len(set(networkx.common_neighbors(graph, node1, other_node))) == 0:
-                    results.append([node1, other_node ])
+                    notLinked.add(other_node)
+            results.add([node1, notLinked])
         print "getting pair of nodes that is not liked finished", datetime.today()
         
         return results
@@ -38,18 +41,14 @@ class VariableSelection(object):
             self.results = self.get_pair_nodes_not_linked(graph)
             with open(myfile, 'w') as fnodes:
                 for item in self.results:
-                    fnodes.write(str(item[0]) + '\t' +  str(item[1]) + '\r\n')
+                    fnodes.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')
         else:
-            self.results = []
+            self.results = set()
             lines = None
             with open(myfile) as f:
-                lines = f.readlines()
-                f.close()
-            for line in lines:
-                line = line.replace('\r\n','')
-                line = line.strip()
-                cols = line.split('\t')
-                self.results.append([cols[0], cols[1]])
+                for line in f:
+                    cols = line.strip().replace('\n','').split('\t')
+                    self.results.append([cols[0], eval(cols[1])])
              
             
         

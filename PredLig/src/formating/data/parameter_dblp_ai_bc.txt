@@ -7,9 +7,9 @@ calculated_file	data/formatado/dblp_ai/bc/step3_calculated.txt
 ordered_file	data/formatado/dblp_ai/bc/step3_ordered.txt
 analysed_file	data/formatado/dblp_ai/bc/step4_analysed.txt
 t0	2000
-t0_	2006
+t0_	2008
 t1	2000
-t1_	2013
+t1_	2014
 decay	0.5
 top_rank	10
 distanceNeighbors	0
