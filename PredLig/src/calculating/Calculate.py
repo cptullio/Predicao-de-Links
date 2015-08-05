@@ -23,7 +23,7 @@ class Calculate(object):
 			cols = line.split('\t')
 			for indice in range(len(cols) -2 ):
 				calcs.append(float(line.split('\t')[indice].split(':')[1].replace('}','').strip()) )
-			line_values.append([calcs, cols[len(cols)-2], cols[len(cols)-1].replace('\r\n', '')  ] )
+			line_values.append([calcs, cols[len(cols)-2], cols[len(cols)-1].replace('\n', '')  ] )
 		return line_values
 	
 	
@@ -63,10 +63,11 @@ class Calculate(object):
 			
 			#the result will be the sum of normalizations done, values of each normalization, values before calculate and the pair of nodes.
 			element = 0
+			qtyCalculatedData = len(all_data_calculated)
 			for indice in range(len(all_data_calculated)):
 				element = element+1
 			
-				self.printProgressofEvents(element, len(all_data_calculated), "Sum Normalized Calculations: ")
+				self.printProgressofEvents(element, qtyCalculatedData , "Sum Normalized Calculations: ")
 				result.append( [ numpy.sum(mynormalization[indice]), mynormalization[indice],  all_data_calculated[indice][0], all_data_calculated[indice][1], all_data_calculated[indice][2]  ] )
 				
 			orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
@@ -75,17 +76,17 @@ class Calculate(object):
 				element = 0
 				for item in orderedResult:
 					element = element + 1
-					self.printProgressofEvents(element, len(orderedResult), "Saving data ordered: ")
+					self.printProgressofEvents(element, qtyCalculatedData, "Saving data ordered: ")
 					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\t' +str(item[3]) + '\t' +str(item[4]) +'\r\n')
 			
 		else:
 			orderedResult = sorted(all_data_calculated, key=lambda sum_value: sum_value[0], reverse=True)
-			
+			total = len(orderedResult)
 			with open(self.filePathOrdered, 'w') as myfile:
 				element = 0
 				for item in orderedResult:
 					element = element + 1
-					self.printProgressofEvents(element, len(orderedResult), "Saving data ordered: ")
+					self.printProgressofEvents(element, total, "Saving data ordered: ")
 					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\r\n')
 		
 		print "Ordering the Calculating File finished", datetime.today()
