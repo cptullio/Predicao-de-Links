@@ -48,6 +48,8 @@ class ParameterUtil(object):
                 self.original_file = cols[1]
             if cols[0] == 'graph_file':
                 self.graph_file = cols[1]
+            if cols[0] == 'maxmincalculated_file':
+                self.maxmincalculated_file = cols[1]
             if cols[0] == 'trainnig_graph_file':
                 self.trainnig_graph_file = cols[1]
             if cols[0] == 'test_graph_file':
