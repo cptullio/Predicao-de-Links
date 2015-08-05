@@ -12,6 +12,10 @@ from formating.FormatingDataSets import FormatingDataSets
 
 class VariableSelection(object):
 
+    @staticmethod
+    def getItemFromLine(lineofFile):
+        cols = lineofFile.strip().replace('\n','').split('\t')
+        return [cols[0], eval(cols[1])]
     
     def get_pair_nodes_not_linked(self, graph):
         print "Starting getting pair of nodes that is not liked", datetime.today()
@@ -52,8 +56,8 @@ class VariableSelection(object):
                 for line in f:
                     element = element+1
                     FormatingDataSets.printProgressofEvents(element, qtyNumberLines, "Getting Nodes not linked from File: ")
-                    cols = line.strip().replace('\n','').split('\t')
-                    self.results.append([cols[0], eval(cols[1])])
+                    
+                    self.results.append(VariableSelection.getItemFromLine(line) )
              
             
         
