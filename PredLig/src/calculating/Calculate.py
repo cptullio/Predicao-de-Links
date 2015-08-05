@@ -99,6 +99,7 @@ class Calculate(object):
 		
 		self.preparedParameter = preparedParameter
 		self.filePathOrdered = Formating.get_abs_file_path(filePathOrdered)
+		self.filepathResult = Formating.get_abs_file_path(filepathResult)
 		self.filepathNodesNotLinked = Formating.get_abs_file_path(filepathNodesNotLinked)
 		#ordering the features by the weight.  Which means that the feature with more weight will appear first.
 		featuresOrderedbyScalar = sorted(self.preparedParameter.featuresChoice, key=lambda weigth_value: weigth_value[1], reverse=True)
