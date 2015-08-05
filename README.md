@@ -22,7 +22,7 @@ executando no codeanywhere:
 
 1 - Crio um servidor apontando para https://github.com/cptullio/Predicao-de-Links.git
 ==============
-2 - executo o comando: export PYTHONPATH="$PYTHONPATH://home/cabox/workspace/PredLig/src/
+2 - executo o comando: export PYTHONPATH="$PYTHONPATH://home/cabox/workspace/PredLig/src/" 
 ==============
 3 - sudo pip install networkx
 ==============
