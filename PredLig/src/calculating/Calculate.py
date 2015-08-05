@@ -6,6 +6,7 @@ Created on Jun 16, 2015
 import numpy
 from formating.dblp.Formating import Formating
 from datetime import datetime
+from networkx.classes.function import neighbors
 
 class Calculate(object):
 	
@@ -101,22 +102,23 @@ class Calculate(object):
 		self.calculateResults = []
 		#for each links that is not linked all the calculates is done.
 		element = 0
+		qtyofResults = len(selecting.results)
 		for item in selecting.results:
 			element = element+1
-			self.printProgressofEvents(element, len(selecting.results), "Calculating features for nodes not liked: ")
-					
-			item_result = []
-			#executing the calculation for each features chosen at parameter
-			for calc in featuresOrderedbyScalar:
-				calc[0].parameter = preparedParameter
-				item_result.append(calc[0].execute(item[0],item[1]) * calc[1])
+			self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
+			for neighbor_node in item[1]:
+				item_result = []
+				#executing the calculation for each features chosen at parameter
+				for calc in featuresOrderedbyScalar:
+					calc[0].parameter = preparedParameter
+					item_result.append(calc[0].execute(item[0],neighbor_node) * calc[1])
 			
-			final_result = []
-			#generating a vetor with the name of the feature and the result of the calculate
-			for indice in range(len(featuresOrderedbyScalar)):
-				final_result.append({str(featuresOrderedbyScalar[indice]):item_result[indice]} )
+				final_result = []
+				#generating a vetor with the name of the feature and the result of the calculate
+				for indice in range(len(featuresOrderedbyScalar)):
+					final_result.append({str(featuresOrderedbyScalar[indice]):item_result[indice]} )
 			
-			self.calculateResults.append([final_result, item[0], item[1]])
+				self.calculateResults.append([final_result, item[0], neighbor_node])
 		self.filepathResult = Formating.get_abs_file_path(filepathResult)
 		with open(self.filepathResult, 'w') as fnodes:
 			element = 0

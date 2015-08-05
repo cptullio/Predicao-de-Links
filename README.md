@@ -29,3 +29,4 @@ executando no codeanywhere:
 4 - sudo pip install numpy
 ==============
 5 - python exemplomenor.py
+==============
