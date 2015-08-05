@@ -41,9 +41,9 @@ class Calculate(object):
 			for i in justCalculations:
 				for j in i:
 					inlineArray.add(j)
-			print inlineArray
+			#print inlineArray
 			maxvalueofCalculate = max(inlineArray)
-			print justCalculations
+			#print justCalculations
 			minvalueofCalculate = min(inlineArray)
 			mynormalization = []
 			result = []
@@ -54,7 +54,7 @@ class Calculate(object):
 				newValues = []
 				for item in itemcalculations:
 					xnormalize = (item - minvalueofCalculate)/(maxvalueofCalculate - minvalueofCalculate)
-					print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
+					#print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
 					
 					newValues.append(xnormalize)
 				mynormalization.append(newValues)
