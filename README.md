@@ -15,7 +15,7 @@ Networkx
 Numpy
 ==============
 
-psycopg2
+psycopg2 - Para executar a base do Duarte.
 ==============
 executando no codeanywhere:
 ==============

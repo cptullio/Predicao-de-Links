@@ -46,7 +46,8 @@ class VariableSelection(object):
             self.results = self.get_pair_nodes_not_linked(graph)
             with open(myfile, 'w') as fnodes:
                 for item in self.results:
-                    fnodes.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')
+                    if len(item[1]) > 0:
+                        fnodes.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')
         else:
             self.results = []
             lines = None

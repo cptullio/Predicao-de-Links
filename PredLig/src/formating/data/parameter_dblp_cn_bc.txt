@@ -1,0 +1,17 @@
+original_file	data/original/DBLP_Citation_2014_May/domains/Artificial intelligence.txt
+graph_file	data/formatado/dblp_ai/step1_graph.txt
+trainnig_graph_file	data/formatado/dblp_ai/step2_Traininggraph.txt
+test_graph_file	data/formatado/dblp_ai/step2_Testinggraph.txt
+nodes_notlinked_file	data/formatado/dblp_ai/step3_nodesnotlinked.txt
+calculated_file	data/formatado/dblp_ai/bc/step3_calculated.txt
+ordered_file	data/formatado/dblp_ai/bc/step3_ordered.txt
+analysed_file	data/formatado/dblp_ai/bc/step4_analysed.txt
+t0	2000
+t0_	2008
+t1	2000
+t1_	2014
+decay	0.5
+top_rank	10
+distanceNeighbors	0
+lengthVertex	0
+features	1:1;0:1;2:1;3:1
