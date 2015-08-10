@@ -9,6 +9,7 @@ from datetime import datetime
 from networkx.classes.function import neighbors
 from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
+import os
 
 class Calculate(object):
 	
@@ -18,9 +19,74 @@ class Calculate(object):
 		cols = line.split('\t')
 		for indice in range(len(cols) -2 ):
 			calcs.append(float(line.split('\t')[indice].split(':')[1].replace('}','').strip()) )
-		return [calcs, cols[len(cols)-2], cols[len(cols)-1].replace('\n', '')  ] 
-		
+		return [calcs, cols[len(cols)-2], cols[len(cols)-1]  ] 
 	
+	def normalize(self, data, indice):
+		xnormalize = (data - self.minValueCalculated[indice])/(self.maxValueCalculated[indice] - self.minValueCalculated[indice])
+		return xnormalize			
+		
+	def Separating_calculateFile(self):
+		self.reading_Max_min_file()
+		
+		f =  open(self.filepathResult)
+		fF = []
+		for i in self.preparedParameter.featuresChoice:
+			fF.append(open(self.filepathResult +  '.' +str(i) + '.txt', 'w'))
+		for line in f:
+			calcs = []
+			cols = line.split('\t')
+			for indice in range(len(cols) -2 ):
+				data = float(line.split('\t')[indice].split(':')[1].replace('}','').strip())
+				xdata = self.normalize(data, indice)
+				fF[indice].write( str(xdata) + ':' + cols[len(cols)-2]  + ':' +  cols[len(cols)-1] )
+		f.close()
+		for ffF in fF:
+			ffF.close()
+	
+	def reading_Max_min_file(self):
+		fcontentMaxMin = open(self.filepathMaxMinCalculated, 'r')
+		line = fcontentMaxMin.readline().replace('\n', '')
+		data = line.split('\t')
+		self.qtyDataCalculated = int(data[0])
+		self.minValueCalculated = eval(data[1])
+		self.maxValueCalculated = eval(data[2])
+		fcontentMaxMin.close()
+	
+	def getfilePathOrdered_separeted(self):
+		data = []
+		for indice in range(len(self.preparedParameter.featuresChoice)):
+			data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt')
+		return data
+	
+	def Ordering_separating_File(self):
+		print "Starting Ordering the Calculating  in Separating File", datetime.today()
+		
+		for indice in range(len(self.preparedParameter.featuresChoice)):
+			
+			fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+			
+			fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
+			data = []
+			element = 0
+			
+			for line in fr:
+				element = element + 1
+				self.printProgressofEvents(element, self.qtyDataCalculated, "Buffering Calculations to ordering: ")
+				
+				cols = line.split(':')
+				data.append([float(cols[0]), cols[1], cols[2]])
+			orderData = sorted(data, key=lambda value: value[0], reverse=True)
+			element = 0
+			
+			for item in orderData:
+				element = element + 1
+				self.printProgressofEvents(element, self.qtyDataCalculated, "Saving Data Ordered: ")
+
+				fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
+			fw.close()
+			fr.close()
+			print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
+			
 	
 	
 	def printProgressofEvents(self, element, length, message):
@@ -31,28 +97,23 @@ class Calculate(object):
 		print "Starting Ordering the Calculating File", datetime.today()
 		
 		fResult = open(self.filepathResult, 'r')
-		fcontentMaxMin = open(self.filepathMaxMinCalculated, 'r')
-		line = fcontentMaxMin.readline().replace('\n', '')
-		data = line.split('\t')
-		qtyDataCalculated = int(data[0])
-		minValuesCalculated = eval(data[1])
-		maxValuesCalculated = eval(data[2])
-		fcontentMaxMin.close()
+		self.reading_Max_min_file()
 		result = []
 		orderedResult = None
 		if len(self.preparedParameter.featuresChoice) > 1:
 			element = 0
 			for resultLine in fResult:
 				element = element+1
-				self.printProgressofEvents(element, qtyDataCalculated, "Normalizing Calculations: ")
+				self.printProgressofEvents(element, self.qtyDataCalculated, "Normalizing Calculations: ")
 				itemcalculations = self.reading_calculateLine(resultLine)
 				
 				newValues = []
 				for indice in range(len(itemcalculations[0])):
-					xnormalize = (itemcalculations[0][indice] - minValuesCalculated[indice])/(maxValuesCalculated[indice] - minValuesCalculated[indice])
+					xnormalize =self.normalize(itemcalculations[0][indice], indice)
 					#print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
 					newValues.append(xnormalize)
-				result.append( [numpy.sum(newValues), newValues, itemcalculations[0], itemcalculations[1],itemcalculations[2]  ] )
+				
+				result.append( [numpy.sum(newValues), newValues, itemcalculations[1],itemcalculations[2]  ] )
 				
 			orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
 			
@@ -60,14 +121,14 @@ class Calculate(object):
 				element = 0
 				for item in orderedResult:
 					element = element + 1
-					self.printProgressofEvents(element, qtyDataCalculated, "Saving data ordered: ")
-					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\t' +str(item[3]) + '\t' +str(item[4]) +'\n')
+					self.printProgressofEvents(element, self.qtyDataCalculated, "Saving data ordered: ")
+					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\t' +str(item[3]) )
 			
 		else:
 			element = 0
 			for resultLine in fResult:
 				element = element+1
-				self.printProgressofEvents(element, qtyDataCalculated, "Reading Calculations: ")
+				self.printProgressofEvents(element, self.qtyDataCalculated, "Reading Calculations: ")
 				itemcalculations = self.reading_calculateLine(resultLine)
 				result.append( [itemcalculations[0][0], itemcalculations[1],itemcalculations[2]  ] )
 			orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
@@ -76,8 +137,8 @@ class Calculate(object):
 				element = 0
 				for item in orderedResult:
 					element = element + 1
-					self.printProgressofEvents(element, qtyDataCalculated, "Saving data ordered: ")
-					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\r\n')
+					self.printProgressofEvents(element, self.qtyDataCalculated, "Saving data ordered: ")
+					myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) )
 		
 		print "Ordering the Calculating File finished", datetime.today()
 				
@@ -97,6 +158,10 @@ class Calculate(object):
 		element = 0
 		qtyofResults = FormatingDataSets.getTotalLineNumbers(self.filepathNodesNotLinked)
 		fcontentNodesNotLinked = open(self.filepathNodesNotLinked, 'r')
+		if os.path.exists(self.filepathResult):
+			print "Calculate already done for this file, please delete if you want a new one.", datetime.today()
+			return
+		
 		fcontentCalcResult = open(self.filepathResult, 'w')
 		
 		self.minValueCalculated = list(99999 for x in self.preparedParameter.featuresChoice)

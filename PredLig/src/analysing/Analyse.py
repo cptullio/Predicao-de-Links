@@ -13,8 +13,8 @@ class Analyse(object):
     def __init__(self, preparedParameters, filePathResults, filePathAnalyseResult):
         print "Starting Analysing the results", datetime.today()
         
-        absFilePath = FormatingDataSets.get_abs_file_path(filePathResults)
-        absfilePathAnalyseResult = FormatingDataSets.get_abs_file_path(filePathAnalyseResult)
+        absFilePath = filePathResults
+        absfilePathAnalyseResult = filePathAnalyseResult #FormatingDataSets.get_abs_file_path(filePathAnalyseResult)
         fResult = open(absFilePath, 'r')
         with open(absfilePathAnalyseResult, 'w') as fnodes:
             success = 0
@@ -22,7 +22,7 @@ class Analyse(object):
             for line in fResult:
                 element = element+1
                 FormatingDataSets.printProgressofEvents(element, preparedParameters.top_rank, "Analysing the results: ")
-                cols = line.strip().replace('\r\n','').split('\t')
+                cols = line.strip().replace('\n','').split('\t')
                 if len(list(networkx.common_neighbors(preparedParameters.testGraph, cols[len(cols)-2] ,  cols[len(cols)-1] ))) != 0:
                     success = success + 1
                     fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'SUCCESS \r\n')

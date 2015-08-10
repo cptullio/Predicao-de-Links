@@ -48,16 +48,7 @@ class VariableSelection(object):
                 for item in self.results:
                     fnodes.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')
         else:
-            self.results = []
-            lines = None
-            element = 0
-            qtyNumberLines = FormatingDataSets.getTotalLineNumbers(myfile)
-            with open(myfile) as f:
-                for line in f:
-                    element = element+1
-                    FormatingDataSets.printProgressofEvents(element, qtyNumberLines, "Getting Nodes not linked from File: ")
-                    
-                    self.results.append(VariableSelection.getItemFromLine(line) )
-             
+            print "Nodes not linked file already generated. please delete if you want a new one.", datetime.today()
+                 
             
         
