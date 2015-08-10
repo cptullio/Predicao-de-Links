@@ -47,6 +47,9 @@ class FormatingDataSets(object):
         print "Total Papers: ",  len(papers),  datetime.today()
         new_graph = networkx.Graph()
         new_graph.add_nodes_from(papers)
+        autores = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        new_graph.add_nodes_from(autores)
+                
         element = 0
         for paper in papers:
             element = element+1
@@ -54,10 +57,22 @@ class FormatingDataSets(object):
             
             authors = networkx.all_neighbors(graph, paper[0])
             for author in authors:
-                author_withData = list([n,d] for n,d in graph.nodes(data=True) if n == author)
-                new_graph.add_nodes_from(author_withData)
                 new_graph.add_edge(paper[0], author)
+        
+        
+        element = 0
+        qtyautors= len(autores)
+        for autor in autores:
+            element = element+1
+            FormatingDataSets.printProgressofEvents(element,qtyautors, "Cleaning authors from new graph: ")
+            if len(list(networkx.all_neighbors(new_graph,autor[0]))) == 0:
+                new_graph.remove_node(autor[0])
+          
+            
+        
+        
         print "Generating graph from period finished", datetime.today()
+        
         return new_graph    
     
     @staticmethod
