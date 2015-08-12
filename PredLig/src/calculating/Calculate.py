@@ -10,6 +10,7 @@ from networkx.classes.function import neighbors
 from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
 import os
+import multiprocessing
 
 class Calculate(object):
 	
@@ -57,6 +58,9 @@ class Calculate(object):
 		for indice in range(len(self.preparedParameter.featuresChoice)):
 			data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt')
 		return data
+	
+	
+	
 	
 	def Ordering_separating_File(self):
 		print "Starting Ordering the Calculating  in Separating File", datetime.today()
@@ -143,7 +147,36 @@ class Calculate(object):
 		print "Ordering the Calculating File finished", datetime.today()
 				
 		
-
+	def calculating_features(self, lineofFile, element, qtyofResults,  preparedParameter, qtyFeatures ,  minValueCalculated, maxValueCalculated ,  dados_saida  ):
+		self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
+		item = VariableSelection.getItemFromLine(lineofFile)
+		resultLinestring = ""
+		min = minValueCalculated
+		max = maxValueCalculated	
+		for neighbor_node in item[1]:
+			self.qtyDataCalculated = self.qtyDataCalculated + 1
+			item_result = []
+			#executing the calculation for each features chosen at parameter
+			for index_features in range(qtyFeatures):
+				preparedParameter.featuresChoice[index_features][0].parameter = preparedParameter
+				valueCalculated = preparedParameter.featuresChoice[index_features][0].execute(item[0],neighbor_node) * preparedParameter.featuresChoice[index_features][1]
+				if valueCalculated < min[index_features]:
+					min[index_features] = valueCalculated
+				if valueCalculated > max[index_features]:
+					max[index_features] = valueCalculated
+						
+				item_result.append(valueCalculated)
+					
+			#generating a vetor with the name of the feature and the result of the calculate
+			
+			for indice in range(qtyFeatures):
+				resultLinestring = resultLinestring + str({str(preparedParameter.featuresChoice[indice]):item_result[indice]})  + '\t'
+			resultLinestring = resultLinestring + str(item[0]) + '\t' + str(neighbor_node)  + '\n'  
+		dados_saida.put(min)
+		dados_saida.put(max)
+		dados_saida.put(self.qtyDataCalculated)
+		dados_saida.put(resultLinestring)
+	
 	
 	
 	def __init__(self, preparedParameter, filepathNodesNotLinked, filepathResult, filePathOrdered, filepathMaxMinCalculated):
@@ -168,37 +201,54 @@ class Calculate(object):
 		self.maxValueCalculated = list(0 for x in self.preparedParameter.featuresChoice)
 		
 		qtyFeatures = len(self.preparedParameter.featuresChoice)
-		qtyNodesCalculated = 0
+		self.qtyDataCalculated = 0
+		
+		out_q = multiprocessing.Queue()
+		procs = []
+		nprocs = 400
 		for lineofFile in fcontentNodesNotLinked:
 			element = element+1
-			self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
-			item = VariableSelection.getItemFromLine(lineofFile)
+			p = multiprocessing.Process(target=self.calculating_features, args=(lineofFile,element,qtyofResults  , preparedParameter, qtyFeatures , self.minValueCalculated, self.maxValueCalculated,  out_q))
+			procs.append(p)
+			p.start()
 			
-			for neighbor_node in item[1]:
-				qtyNodesCalculated = qtyNodesCalculated + 1
-				item_result = []
-				#executing the calculation for each features chosen at parameter
-				for index_features in range(qtyFeatures):
-					self.preparedParameter.featuresChoice[index_features][0].parameter = preparedParameter
-					valueCalculated = self.preparedParameter.featuresChoice[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.featuresChoice[index_features][1]
-					if valueCalculated < self.minValueCalculated[index_features]:
-						self.minValueCalculated[index_features] = valueCalculated
-					if valueCalculated > self.maxValueCalculated[index_features]:
-						self.maxValueCalculated[index_features] = valueCalculated
-						
-					item_result.append(valueCalculated)
-					
-				#generating a vetor with the name of the feature and the result of the calculate
-				for indice in range(qtyFeatures):
-					fcontentCalcResult.write( str({str(self.preparedParameter.featuresChoice[indice]):item_result[indice]}) )
-					fcontentCalcResult.write('\t')
-				fcontentCalcResult.write(str(item[0]) + '\t' + str(neighbor_node)  + '\n'  )
+			
+			if len(procs) >= nprocs:
+				for i in range(len(procs)):
+					mini = out_q.get()
+					maxi = out_q.get()
+					self.qtyDataCalculated = self.qtyDataCalculated + out_q.get()
+					fcontentCalcResult.write(out_q.get())
+					for index_features in range(qtyFeatures):
+						if   mini[index_features] < self.minValueCalculated[index_features]:
+							self.minValueCalculated[index_features] = mini[index_features]
+						if maxi[index_features] > self.maxValueCalculated[index_features]:
+							self.maxValueCalculated[index_features] = maxi[index_features]
+							
+				for p in procs:
+					p.join()
+				procs = []
+		
+		for i in range(len(procs)):
+			mini = out_q.get()
+			maxi = out_q.get()
+			self.qtyDataCalculated = self.qtyDataCalculated + out_q.get()
+			fcontentCalcResult.write(out_q.get())
+			
+			for index_features in range(qtyFeatures):
+				if   mini[index_features] < self.minValueCalculated[index_features]:
+					self.minValueCalculated[index_features] = mini[index_features]
+				if maxi[index_features] > self.maxValueCalculated[index_features]:
+					self.maxValueCalculated[index_features] = maxi[index_features]
+			
+		for p in procs:
+			p.join()
 				
 		fcontentCalcResult.flush()
 		fcontentCalcResult.close()
 		fcontentNodesNotLinked.close()
 		fcontentMaxMin = open(self.filepathMaxMinCalculated, 'w')
-		fcontentMaxMin.write(str(qtyNodesCalculated) + '\t' + repr(self.minValueCalculated) + '\t' + repr(self.maxValueCalculated) )
+		fcontentMaxMin.write(str(self.qtyDataCalculated) + '\t' + repr(self.minValueCalculated) + '\t' + repr(self.maxValueCalculated) )
 		fcontentMaxMin.close()
 		print "Calculating Nodes not linked finished", datetime.today()
 		

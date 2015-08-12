@@ -24,6 +24,5 @@ if __name__ == '__main__':
     calc.Ordering_separating_File()
     for OrderingFilePath in calc.getfilePathOrdered_separeted():
         analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
-    #calc.Ordering_separating_File()
     
     
