@@ -148,7 +148,8 @@ class Calculate(object):
 				
 		
 	def calculating_features(self, lineofFile, element, qtyofResults,  preparedParameter, qtyFeatures ,  minValueCalculated, maxValueCalculated ,  dados_saida  ):
-		self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
+		if element % 100  == 0:
+			self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
 		item = VariableSelection.getItemFromLine(lineofFile)
 		resultLinestring = ""
 		min = minValueCalculated
@@ -172,10 +173,9 @@ class Calculate(object):
 			for indice in range(qtyFeatures):
 				resultLinestring = resultLinestring + str({str(preparedParameter.featuresChoice[indice]):item_result[indice]})  + '\t'
 			resultLinestring = resultLinestring + str(item[0]) + '\t' + str(neighbor_node)  + '\n'  
-		dados_saida.put(min)
-		dados_saida.put(max)
-		dados_saida.put(self.qtyDataCalculated)
-		dados_saida.put(resultLinestring)
+		finalresult =  repr(min) + '|' + repr(max) + '|' + str(self.qtyDataCalculated) + '|' + resultLinestring
+		
+		dados_saida.put(finalresult)
 	
 	
 	
@@ -205,9 +205,10 @@ class Calculate(object):
 		
 		out_q = multiprocessing.Queue()
 		procs = []
-		nprocs = 400
+		nprocs = 8
 		for lineofFile in fcontentNodesNotLinked:
 			element = element+1
+			
 			p = multiprocessing.Process(target=self.calculating_features, args=(lineofFile,element,qtyofResults  , preparedParameter, qtyFeatures , self.minValueCalculated, self.maxValueCalculated,  out_q))
 			procs.append(p)
 			p.start()
@@ -215,10 +216,14 @@ class Calculate(object):
 			
 			if len(procs) >= nprocs:
 				for i in range(len(procs)):
-					mini = out_q.get()
-					maxi = out_q.get()
-					self.qtyDataCalculated = self.qtyDataCalculated + out_q.get()
-					fcontentCalcResult.write(out_q.get())
+					result  = out_q.get()
+					result = result.split('|')
+					
+					mini = eval(result[0])
+					maxi = eval(result[1])
+					
+					self.qtyDataCalculated = self.qtyDataCalculated + int(result[2])
+					fcontentCalcResult.write(result[3])
 					for index_features in range(qtyFeatures):
 						if   mini[index_features] < self.minValueCalculated[index_features]:
 							self.minValueCalculated[index_features] = mini[index_features]
@@ -230,10 +235,13 @@ class Calculate(object):
 				procs = []
 		
 		for i in range(len(procs)):
-			mini = out_q.get()
-			maxi = out_q.get()
-			self.qtyDataCalculated = self.qtyDataCalculated + out_q.get()
-			fcontentCalcResult.write(out_q.get())
+			result  = out_q.get()
+			result = result.split('|')
+					
+			mini = eval(result[0])
+			maxi = eval(result[1])
+			self.qtyDataCalculated = self.qtyDataCalculated + int(result[2])
+			fcontentCalcResult.write(result[3])
 			
 			for index_features in range(qtyFeatures):
 				if   mini[index_features] < self.minValueCalculated[index_features]:

@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
   <key attr.name="title" attr.type="string" for="node" id="d3" />
   <key attr.name="time" attr.type="int" for="node" id="d2" />
@@ -590,10 +591,9 @@
       <data key="d2">1995</data>
       <data key="d3">Using Information Murals in Visualization Applications.</data>
     </node>
-    <node id="p_4941">
-      <data key="d0">E</data>
-      <data key="d2">1998</data>
-      <data key="d3">Graphical Query Specification and Dynamic Result Previews for a Digital Library.</data>
+    <node id="145">
+      <data key="d0">N</data>
+      <data key="d1">Michael Davis</data>
     </node>
     <node id="p_4942">
       <data key="d0">E</data>
@@ -1010,9 +1010,10 @@
       <data key="d0">N</data>
       <data key="d1">Manoel G. MendonÃ§a</data>
     </node>
-    <node id="241">
-      <data key="d0">N</data>
-      <data key="d1">Sandra Camargo Pinto Ferraz Fabbri</data>
+    <node id="p_4364">
+      <data key="d0">E</data>
+      <data key="d2">2012</data>
+      <data key="d3">Service Orientation and the Smart Grid state and trends.</data>
     </node>
     <node id="242">
       <data key="d0">N</data>
@@ -1034,9 +1035,10 @@
       <data key="d0">N</data>
       <data key="d1">Toufic Mehzer</data>
     </node>
-    <node id="247">
-      <data key="d0">N</data>
-      <data key="d1">Susan Elliott Sim</data>
+    <node id="p_4365">
+      <data key="d0">E</data>
+      <data key="d2">2012</data>
+      <data key="d3">A formal model for the interoperability of service clouds.</data>
     </node>
     <node id="248">
       <data key="d0">N</data>
@@ -1132,10 +1134,9 @@
       <data key="d0">N</data>
       <data key="d1">Jon D. Valett</data>
     </node>
-    <node id="p_4361">
-      <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Combining horizontal and vertical composition of services.</data>
+    <node id="45">
+      <data key="d0">N</data>
+      <data key="d1">James D. Kiper</data>
     </node>
     <node id="p_787">
       <data key="d0">E</data>
@@ -5445,10 +5446,9 @@
       <data key="d2">1994</data>
       <data key="d3">Skyblue: A Multi-way Local Propagation Constraint Solver for User Interface Construction.</data>
     </node>
-    <node id="p_5034">
-      <data key="d0">E</data>
-      <data key="d2">1998</data>
-      <data key="d3">A Multiple Timeline Editor for Developing Multi-Threaded Animated Interfaces.</data>
+    <node id="219">
+      <data key="d0">N</data>
+      <data key="d1">Philip M. Johnson</data>
     </node>
     <node id="p_5033">
       <data key="d0">E</data>
@@ -5619,9 +5619,9 @@
       <data key="d0">N</data>
       <data key="d1">Jyrki Akkanen</data>
     </node>
-    <node id="45">
+    <node id="1357">
       <data key="d0">N</data>
-      <data key="d1">James D. Kiper</data>
+      <data key="d1">Jukka K. Nurminen</data>
     </node>
     <node id="1358">
       <data key="d0">N</data>
@@ -5989,9 +5989,9 @@
       <data key="d0">N</data>
       <data key="d1">Hans van Vliet</data>
     </node>
-    <node id="1447">
+    <node id="241">
       <data key="d0">N</data>
-      <data key="d1">Carel A. van den Berg</data>
+      <data key="d1">Sandra Camargo Pinto Ferraz Fabbri</data>
     </node>
     <node id="1448">
       <data key="d0">N</data>
@@ -6145,9 +6145,9 @@
       <data key="d0">N</data>
       <data key="d1">Eddy Fromentin</data>
     </node>
-    <node id="1483">
+    <node id="247">
       <data key="d0">N</data>
-      <data key="d1">Michel Raynal</data>
+      <data key="d1">Susan Elliott Sim</data>
     </node>
     <node id="1484">
       <data key="d0">N</data>
@@ -10133,10 +10133,10 @@
       <data key="d0">N</data>
       <data key="d1">Allan Rossman</data>
     </node>
-    <node id="p_3202">
+    <node id="p_3970">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">The effects of request formats on judgment-based effort estimation.</data>
+      <data key="d2">2002</data>
+      <data key="d3">On the interpretation of binary associations in the Unified Modelling Language.</data>
     </node>
     <node id="2442">
       <data key="d0">N</data>
@@ -10160,10 +10160,10 @@
       <data key="d0">N</data>
       <data key="d1">K. Todd Stevens</data>
     </node>
-    <node id="p_4523">
+    <node id="p_3971">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">Editorial.</data>
+      <data key="d2">2002</data>
+      <data key="d3">Growing the UML.</data>
     </node>
     <node id="2448">
       <data key="d0">N</data>
@@ -12470,15 +12470,15 @@
       <data key="d2">2005</data>
       <data key="d3">Early Estimation of Users' Perception of Software Quality.</data>
     </node>
-    <node id="p_3904">
+    <node id="p_4224">
       <data key="d0">E</data>
-      <data key="d2">1993</data>
-      <data key="d3">Prototyping, Erkenntnis, RealitÃ¤tskonstruktion.</data>
+      <data key="d2">2012</data>
+      <data key="d3">MOOGLE: a metamodel-based model search engine.</data>
     </node>
-    <node id="p_3907">
+    <node id="p_4227">
       <data key="d0">E</data>
-      <data key="d2">1991</data>
-      <data key="d3">Die Methode der Strukturierten Analyse mit Petri-Netzen (SA/PN) als Echtzeiterweiterung.</data>
+      <data key="d2">2012</data>
+      <data key="d3">Search-based model transformation by example.</data>
     </node>
     <node id="p_3906">
       <data key="d0">E</data>
@@ -13211,10 +13211,9 @@
       <data key="d0">N</data>
       <data key="d1">Jonathan K. Millen</data>
     </node>
-    <node id="p_4537">
-      <data key="d0">E</data>
-      <data key="d2">1997</data>
-      <data key="d3">Iterative design and testing within the software development life cycle.</data>
+    <node id="3182">
+      <data key="d0">N</data>
+      <data key="d1">David L. Drake</data>
     </node>
     <node id="3183">
       <data key="d0">N</data>
@@ -17146,10 +17145,10 @@
       <data key="d2">2011</data>
       <data key="d3">A framework to support alignment of secure software engineering with legal regulations.</data>
     </node>
-    <node id="p_3925">
+    <node id="p_4205">
       <data key="d0">E</data>
-      <data key="d2">1983</data>
-      <data key="d3">Requirements Engineering in S/E/TEC.</data>
+      <data key="d2">2011</data>
+      <data key="d3">UML formal semantics: lessons learned.</data>
     </node>
     <node id="p_3924">
       <data key="d0">E</data>
@@ -21102,10 +21101,9 @@
       <data key="d0">N</data>
       <data key="d1">Walter B. Ligon III</data>
     </node>
-    <node id="p_3960">
-      <data key="d0">E</data>
-      <data key="d2">2006</data>
-      <data key="d3">Partitioning of perfect synchroneous reactive specifications to distributed processors using Âµ-charts.</data>
+    <node id="5081">
+      <data key="d0">N</data>
+      <data key="d1">Sang-Uk Jeon</data>
     </node>
     <node id="5082">
       <data key="d0">N</data>
@@ -22757,9 +22755,10 @@
       <data key="d0">N</data>
       <data key="d1">Valeria Seidita</data>
     </node>
-    <node id="5476">
-      <data key="d0">N</data>
-      <data key="d1">Rossella Fortuna</data>
+    <node id="p_4240">
+      <data key="d0">E</data>
+      <data key="d2">2012</data>
+      <data key="d3">What makes a good process model? - Lessons learned from process mining.</data>
     </node>
     <node id="5477">
       <data key="d0">N</data>
@@ -24466,10 +24465,10 @@
       <data key="d0">N</data>
       <data key="d1">Anil S. Jadhav</data>
     </node>
-    <node id="p_4536">
+    <node id="p_3960">
       <data key="d0">E</data>
-      <data key="d2">2001</data>
-      <data key="d3">Product Focused Software Process Improvement: Concepts and Experiences from Industry.</data>
+      <data key="d2">2006</data>
+      <data key="d3">Partitioning of perfect synchroneous reactive specifications to distributed processors using Âµ-charts.</data>
     </node>
     <node id="5892">
       <data key="d0">N</data>
@@ -24516,10 +24515,10 @@
       <data key="d0">N</data>
       <data key="d1">Jing Wang</data>
     </node>
-    <node id="p_4530">
+    <node id="p_4246">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">Software Quality Management from a Cross-Cultural Viewpoint.</data>
+      <data key="d2">2012</data>
+      <data key="d3">The hidden models of model checking.</data>
     </node>
     <node id="5904">
       <data key="d0">N</data>
@@ -26783,20 +26782,20 @@
       <data key="d2">2005</data>
       <data key="d3">Model-based a-posteriori integration of engineering tools for incremental development processes.</data>
     </node>
-    <node id="p_4240">
+    <node id="p_4536">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">What makes a good process model? - Lessons learned from process mining.</data>
+      <data key="d2">2001</data>
+      <data key="d3">Product Focused Software Process Improvement: Concepts and Experiences from Industry.</data>
     </node>
     <node id="p_4531">
       <data key="d0">E</data>
       <data key="d2">1999</data>
       <data key="d3">Mutation Testing Applied to Estelle Specifications.</data>
     </node>
-    <node id="p_4246">
+    <node id="p_4530">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">The hidden models of model checking.</data>
+      <data key="d2">1999</data>
+      <data key="d3">Software Quality Management from a Cross-Cultural Viewpoint.</data>
     </node>
     <node id="p_3965">
       <data key="d0">E</data>
@@ -27349,9 +27348,9 @@
       <data key="d0">N</data>
       <data key="d1">Christoph Miksovic</data>
     </node>
-    <node id="219">
+    <node id="6582">
       <data key="d0">N</data>
-      <data key="d1">Philip M. Johnson</data>
+      <data key="d1">Jochen Malte KÃ¼ster</data>
     </node>
     <node id="6583">
       <data key="d0">N</data>
@@ -27933,9 +27932,9 @@
       <data key="d0">N</data>
       <data key="d1">Tzai-Hung Wen</data>
     </node>
-    <node id="6582">
+    <node id="6725">
       <data key="d0">N</data>
-      <data key="d1">Jochen Malte KÃ¼ster</data>
+      <data key="d1">Chuen-Tsai Sun</data>
     </node>
     <node id="6726">
       <data key="d0">N</data>
@@ -27949,9 +27948,9 @@
       <data key="d0">N</data>
       <data key="d1">Christian Lahanier</data>
     </node>
-    <node id="5282">
+    <node id="1315">
       <data key="d0">N</data>
-      <data key="d1">ElÃ­as Palacios-GonzÃ¡lez</data>
+      <data key="d1">Emily Oh Navarro</data>
     </node>
     <node id="6730">
       <data key="d0">N</data>
@@ -29748,10 +29747,10 @@
       <data key="d2">1995</data>
       <data key="d3">Test criteria and coverage measures for software integration testing.</data>
     </node>
-    <node id="p_4984">
+    <node id="p_4768">
       <data key="d0">E</data>
-      <data key="d2">1998</data>
-      <data key="d3">Spatial Interpretation of Domain Objects Integrated into a Freeform Electronic Whiteboard.</data>
+      <data key="d2">1995</data>
+      <data key="d3">Book reviews.</data>
     </node>
     <node id="p_4985">
       <data key="d0">E</data>
@@ -31096,10 +31095,9 @@
       <data key="d0">N</data>
       <data key="d1">Jameela Al-Jaroodi</data>
     </node>
-    <node id="p_261">
-      <data key="d0">E</data>
-      <data key="d2">2008</data>
-      <data key="d3">Tests for consistent measurement of external subjective software quality attributes.</data>
+    <node id="7487">
+      <data key="d0">N</data>
+      <data key="d1">Michele Barletta</data>
     </node>
     <node id="7488">
       <data key="d0">N</data>
@@ -31446,10 +31444,10 @@
       <data key="d2">2004</data>
       <data key="d3">The W-Process for Software Product Evaluation: A Method for Goal-Oriented Implementation of the ISO 14598 Standard.</data>
     </node>
-    <node id="p_3234">
+    <node id="p_4514">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">DOM tree browsing of a very large XML document: Design and implementation.</data>
+      <data key="d2">2001</data>
+      <data key="d3">Table Oriented Metrics for Relational Databases.</data>
     </node>
     <node id="p_4513">
       <data key="d0">E</data>
@@ -31500,10 +31498,10 @@
       <data key="d2">2003</data>
       <data key="d3">Software Quality Evaluation Based on Expert Judgement.</data>
     </node>
-    <node id="p_4518">
+    <node id="p_3238">
       <data key="d0">E</data>
-      <data key="d2">2002</data>
-      <data key="d3">SPI Models: What Characteristics are Required for Small Software Development Companies?</data>
+      <data key="d2">2010</data>
+      <data key="d3">From integration to composition: On the impact of software product lines, global development and ecosystems.</data>
     </node>
     <node id="7584">
       <data key="d0">N</data>
@@ -32106,10 +32104,9 @@
       <data key="d0">N</data>
       <data key="d1">Udo Kelter</data>
     </node>
-    <node id="p_4438">
-      <data key="d0">E</data>
-      <data key="d2">2004</data>
-      <data key="d3">In This Issue.</data>
+    <node id="7734">
+      <data key="d0">N</data>
+      <data key="d1">Romana Vajde Horvat</data>
     </node>
     <node id="7735">
       <data key="d0">N</data>
@@ -32760,9 +32757,10 @@
       <data key="d0">N</data>
       <data key="d1">Yogesh Singh</data>
     </node>
-    <node id="1315">
-      <data key="d0">N</data>
-      <data key="d1">Emily Oh Navarro</data>
+    <node id="p_5034">
+      <data key="d0">E</data>
+      <data key="d2">1998</data>
+      <data key="d3">A Multiple Timeline Editor for Developing Multi-Threaded Animated Interfaces.</data>
     </node>
     <node id="p_3439">
       <data key="d0">E</data>
@@ -33466,10 +33464,10 @@
       <data key="d0">N</data>
       <data key="d1">M. Pfeiffer</data>
     </node>
-    <node id="p_3327">
+    <node id="p_4111">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">Analyzing architectural styles.</data>
+      <data key="d2">2008</data>
+      <data key="d3">Automatic maintenance of association invariants.</data>
     </node>
     <node id="8062">
       <data key="d0">N</data>
@@ -33493,10 +33491,10 @@
       <data key="d0">N</data>
       <data key="d1">Norbert Siegmund</data>
     </node>
-    <node id="p_3326">
+    <node id="p_4446">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">A differential cryptanalysis of Yen-Chen-Wu multimedia cryptography system.</data>
+      <data key="d2">2005</data>
+      <data key="d3">In This Issue.</data>
     </node>
     <node id="8068">
       <data key="d0">N</data>
@@ -33815,9 +33813,9 @@
       <data key="d0">N</data>
       <data key="d1">Richard Chimera</data>
     </node>
-    <node id="1357">
+    <node id="8143">
       <data key="d0">N</data>
-      <data key="d1">Jukka K. Nurminen</data>
+      <data key="d1">Jeff Barr</data>
     </node>
     <node id="8144">
       <data key="d0">N</data>
@@ -35741,6 +35739,10 @@
       <data key="d0">N</data>
       <data key="d1">Isaac Woungang</data>
     </node>
+    <node id="1447">
+      <data key="d0">N</data>
+      <data key="d1">Carel A. van den Berg</data>
+    </node>
     <node id="p_3251">
       <data key="d0">E</data>
       <data key="d2">2010</data>
@@ -35942,6 +35944,10 @@
     <node id="6944">
       <data key="d0">N</data>
       <data key="d1">Charalampos C. Alevizos</data>
+    </node>
+    <node id="1483">
+      <data key="d0">N</data>
+      <data key="d1">Michel Raynal</data>
     </node>
     <node id="p_3815">
       <data key="d0">E</data>
@@ -36429,6 +36435,11 @@
     <node id="7039">
       <data key="d0">N</data>
       <data key="d1">Simone RÃ¶ttger</data>
+    </node>
+    <node id="p_4941">
+      <data key="d0">E</data>
+      <data key="d2">1998</data>
+      <data key="d3">Graphical Query Specification and Dynamic Result Previews for a Digital Library.</data>
     </node>
     <node id="7043">
       <data key="d0">N</data>
@@ -37175,10 +37186,10 @@
       <data key="d2">2012</data>
       <data key="d3">Quality of service measure approach of web service for service selection.</data>
     </node>
-    <node id="p_4768">
+    <node id="p_4984">
       <data key="d0">E</data>
-      <data key="d2">1995</data>
-      <data key="d3">Book reviews.</data>
+      <data key="d2">1998</data>
+      <data key="d3">Spatial Interpretation of Domain Objects Integrated into a Freeform Electronic Whiteboard.</data>
     </node>
     <node id="p_4769">
       <data key="d0">E</data>
@@ -38045,10 +38056,10 @@
       <data key="d2">2009</data>
       <data key="d3">Impact of release intervals on empirical research into software evolution, with application to the maintainability of Linux.</data>
     </node>
-    <node id="p_524">
+    <node id="p_4537">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">Formal specification and validation of railway network components using Z notation.</data>
+      <data key="d2">1997</data>
+      <data key="d3">Iterative design and testing within the software development life cycle.</data>
     </node>
     <node id="7328">
       <data key="d0">N</data>
@@ -38604,6 +38615,10 @@
       <data key="d2">2010</data>
       <data key="d3">Software architecture and mobility: A roadmap.</data>
     </node>
+    <node id="6188">
+      <data key="d0">N</data>
+      <data key="d1">Xinhua Liu</data>
+    </node>
     <node id="1950">
       <data key="d0">N</data>
       <data key="d1">David L. Coleman</data>
@@ -38616,6 +38631,10 @@
       <data key="d0">E</data>
       <data key="d2">1997</data>
       <data key="d3">A Locally Adaptive Data Compression Strategy for Chinese-English Characters.</data>
+    </node>
+    <node id="5476">
+      <data key="d0">N</data>
+      <data key="d1">Rossella Fortuna</data>
     </node>
     <node id="4879">
       <data key="d0">N</data>
@@ -39084,10 +39103,6 @@
       <data key="d2">2000</data>
       <data key="d3">Replicating the CREWS Use Case Authoring Guidelines Experiment.</data>
     </node>
-    <node id="7487">
-      <data key="d0">N</data>
-      <data key="d1">Michele Barletta</data>
-    </node>
     <node id="2587">
       <data key="d0">N</data>
       <data key="d1">IstvÃ¡n ForgÃ¡cs</data>
@@ -39319,10 +39334,10 @@
       <data key="d0">N</data>
       <data key="d1">Robert D. Galliers</data>
     </node>
-    <node id="p_4304">
+    <node id="p_4876">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">POPEYE: providing collaborative services for ad hoc and spontaneous communities.</data>
+      <data key="d2">1995</data>
+      <data key="d3">Supporting Distributed, Concurrent, One-Way Constraints in User Interface Applications.</data>
     </node>
     <node id="2064">
       <data key="d0">N</data>
@@ -39592,10 +39607,10 @@
       <data key="d2">2009</data>
       <data key="d3">A practical evaluation of spectrum-based fault localization.</data>
     </node>
-    <node id="p_4514">
+    <node id="p_3234">
       <data key="d0">E</data>
-      <data key="d2">2001</data>
-      <data key="d3">Table Oriented Metrics for Relational Databases.</data>
+      <data key="d2">2009</data>
+      <data key="d3">DOM tree browsing of a very large XML document: Design and implementation.</data>
     </node>
     <node id="p_3233">
       <data key="d0">E</data>
@@ -39684,10 +39699,10 @@
       <data key="d2">2010</data>
       <data key="d3">Formal specification of the variants and behavioural features of design patterns.</data>
     </node>
-    <node id="p_3238">
+    <node id="p_4518">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">From integration to composition: On the impact of software product lines, global development and ecosystems.</data>
+      <data key="d2">2002</data>
+      <data key="d3">SPI Models: What Characteristics are Required for Small Software Development Companies?</data>
     </node>
     <node id="2129">
       <data key="d0">N</data>
@@ -40446,20 +40461,20 @@
       <data key="d2">2009</data>
       <data key="d3">Thanks to Jim Bieman, the Former Editor-in-Chief of the .</data>
     </node>
-    <node id="p_4863">
+    <node id="p_4315">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">Using Properties for Uniform Interaction in the Presto Document System.</data>
+      <data key="d2">2009</data>
+      <data key="d3">A hierarchical framework for logical composition of web services.</data>
     </node>
     <node id="p_4646">
       <data key="d0">E</data>
       <data key="d2">2009</data>
       <data key="d3">A comprehensive quality model for service-oriented systems.</data>
     </node>
-    <node id="p_4317">
+    <node id="p_4861">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">Exploring service-oriented system engineering challenges: a systematic literature review.</data>
+      <data key="d2">1998</data>
+      <data key="d3">Supporting Worker Independence in Collaboration Transparency.</data>
     </node>
     <node id="p_4644">
       <data key="d0">E</data>
@@ -40489,6 +40504,11 @@
     <node id="2262">
       <data key="d0">N</data>
       <data key="d1">Ophir Frieder</data>
+    </node>
+    <node id="p_1107">
+      <data key="d0">E</data>
+      <data key="d2">2004</data>
+      <data key="d3">FPGA based hardware acceleration for elliptic curve public key cryptosystems.</data>
     </node>
     <node id="2263">
       <data key="d0">N</data>
@@ -40526,10 +40546,6 @@
       <data key="d0">N</data>
       <data key="d1">Elizabeth L. White</data>
     </node>
-    <node id="7734">
-      <data key="d0">N</data>
-      <data key="d1">Romana Vajde Horvat</data>
-    </node>
     <node id="2273">
       <data key="d0">N</data>
       <data key="d1">Alfonso Fuggetta</data>
@@ -40549,10 +40565,10 @@
       <data key="d2">1995</data>
       <data key="d3">Systematic testing and formal verification to validate reactive programs.</data>
     </node>
-    <node id="p_4774">
+    <node id="p_4990">
       <data key="d0">E</data>
-      <data key="d2">1995</data>
-      <data key="d3">Editorial.</data>
+      <data key="d2">1992</data>
+      <data key="d3">Mapping GUIs to Auditory Interfaces.</data>
     </node>
     <node id="8093">
       <data key="d0">N</data>
@@ -41516,11 +41532,6 @@
       <data key="d2">2007</data>
       <data key="d3">Application-specific garbage collection.</data>
     </node>
-    <node id="p_4364">
-      <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Service Orientation and the Smart Grid state and trends.</data>
-    </node>
     <node id="4848">
       <data key="d0">N</data>
       <data key="d1">Yong Joon Lee</data>
@@ -41572,11 +41583,6 @@
       <data key="d2">2007</data>
       <data key="d3">Requirements change: Fears dictate the must haves; desires the won't haves.</data>
     </node>
-    <node id="p_4365">
-      <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">A formal model for the interoperability of service clouds.</data>
-    </node>
     <node id="p_4237">
       <data key="d0">E</data>
       <data key="d2">2012</data>
@@ -41621,10 +41627,10 @@
       <data key="d2">2007</data>
       <data key="d3">Efficient performance models for layered server systems with replicated servers and parallel behaviour.</data>
     </node>
-    <node id="p_4233">
+    <node id="p_3913">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Lessons learned from building model-driven development tools.</data>
+      <data key="d2">1993</data>
+      <data key="d3">Using Executable Specifications for Prototyping System Design Process.</data>
     </node>
     <node id="p_4366">
       <data key="d0">E</data>
@@ -41640,10 +41646,10 @@
       <data key="d0">N</data>
       <data key="d1">Ruchika Malhotra</data>
     </node>
-    <node id="p_4231">
+    <node id="p_3911">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Modeling to improve quality or efficiency? An automotive domain perspective.</data>
+      <data key="d2">1993</data>
+      <data key="d3">Der Prototyp als fertiges Produkt (oder der Weg ist das Ziel).</data>
     </node>
     <node id="7893">
       <data key="d0">N</data>
@@ -41812,6 +41818,11 @@
     <node id="2444">
       <data key="d0">N</data>
       <data key="d1">Yang-Sae Moon</data>
+    </node>
+    <node id="p_4361">
+      <data key="d0">E</data>
+      <data key="d2">2012</data>
+      <data key="d3">Combining horizontal and vertical composition of services.</data>
     </node>
     <node id="2445">
       <data key="d0">N</data>
@@ -42157,10 +42168,10 @@
       <data key="d0">N</data>
       <data key="d1">Rebecca Tiarks</data>
     </node>
-    <node id="p_4469">
+    <node id="p_3309">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">A Critical Analysis of Current OO Design Metrics.</data>
+      <data key="d2">2010</data>
+      <data key="d3">P/S-CoM: Building correct by design Publish/Subscribe architectural styles with safe reconfiguration.</data>
     </node>
     <node id="p_3308">
       <data key="d0">E</data>
@@ -42306,10 +42317,10 @@
       <data key="d0">N</data>
       <data key="d1">S. D. Walker</data>
     </node>
-    <node id="p_3358">
+    <node id="p_4438">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">Software process improvement through the Lean Measurement (SPI-LEAM) method.</data>
+      <data key="d2">2004</data>
+      <data key="d3">In This Issue.</data>
     </node>
     <node id="p_3359">
       <data key="d0">E</data>
@@ -42587,6 +42598,11 @@
     <node id="4877">
       <data key="d0">N</data>
       <data key="d1">Geri Georg</data>
+    </node>
+    <node id="p_4595">
+      <data key="d0">E</data>
+      <data key="d2">2007</data>
+      <data key="d3">Common coupling and pointer variables, with application to a Linux case study.</data>
     </node>
     <node id="p_1068">
       <data key="d0">E</data>
@@ -43130,10 +43146,10 @@
       <data key="d0">N</data>
       <data key="d1">Robert C. Zeleznik</data>
     </node>
-    <node id="p_4315">
+    <node id="p_4863">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">A hierarchical framework for logical composition of web services.</data>
+      <data key="d2">1999</data>
+      <data key="d3">Using Properties for Uniform Interaction in the Presto Document System.</data>
     </node>
     <node id="p_2912">
       <data key="d0">E</data>
@@ -43157,10 +43173,10 @@
       <data key="d0">N</data>
       <data key="d1">JosÃ© L. Morant</data>
     </node>
-    <node id="p_4861">
+    <node id="p_4317">
       <data key="d0">E</data>
-      <data key="d2">1998</data>
-      <data key="d3">Supporting Worker Independence in Collaboration Transparency.</data>
+      <data key="d2">2009</data>
+      <data key="d3">Exploring service-oriented system engineering challenges: a systematic literature review.</data>
     </node>
     <node id="8101">
       <data key="d0">N</data>
@@ -43458,10 +43474,6 @@
     <node id="5991">
       <data key="d0">N</data>
       <data key="d1">Mariela M. F. Sasaki</data>
-    </node>
-    <node id="8143">
-      <data key="d0">N</data>
-      <data key="d1">Jeff Barr</data>
     </node>
     <node id="p_3242">
       <data key="d0">E</data>
@@ -43982,10 +43994,15 @@
       <data key="d2">1999</data>
       <data key="d3">Editorial.</data>
     </node>
-    <node id="p_3864">
+    <node id="p_524">
       <data key="d0">E</data>
-      <data key="d2">2013</data>
-      <data key="d3">COTS integration and estimation for ERP.</data>
+      <data key="d2">2009</data>
+      <data key="d3">Formal specification and validation of railway network components using Z notation.</data>
+    </node>
+    <node id="p_4384">
+      <data key="d0">E</data>
+      <data key="d2">2004</data>
+      <data key="d3">Editorial: Aspect-Oriented Technology and Software Quality.</data>
     </node>
     <node id="p_2722">
       <data key="d0">E</data>
@@ -45385,10 +45402,10 @@
       <data key="d0">N</data>
       <data key="d1">Xinyu Deng</data>
     </node>
-    <node id="p_4224">
+    <node id="p_3904">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">MOOGLE: a metamodel-based model search engine.</data>
+      <data key="d2">1993</data>
+      <data key="d3">Prototyping, Erkenntnis, RealitÃ¤tskonstruktion.</data>
     </node>
     <node id="p_2825">
       <data key="d0">E</data>
@@ -45399,10 +45416,10 @@
       <data key="d0">N</data>
       <data key="d1">Bradley W. Halversen</data>
     </node>
-    <node id="p_4595">
+    <node id="p_3907">
       <data key="d0">E</data>
-      <data key="d2">2007</data>
-      <data key="d3">Common coupling and pointer variables, with application to a Linux case study.</data>
+      <data key="d2">1991</data>
+      <data key="d3">Die Methode der Strukturierten Analyse mit Petri-Netzen (SA/PN) als Echtzeiterweiterung.</data>
     </node>
     <node id="p_2796">
       <data key="d0">E</data>
@@ -46051,11 +46068,6 @@
       <data key="d0">N</data>
       <data key="d1">Marvin Theimer</data>
     </node>
-    <node id="p_4227">
-      <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Search-based model transformation by example.</data>
-    </node>
     <node id="6222">
       <data key="d0">N</data>
       <data key="d1">Hongxin Hu</data>
@@ -46185,20 +46197,20 @@
       <data key="d2">1991</data>
       <data key="d3">Requirements Engineering bei der Techniker Krankenkasse: Ein Erfahrungsbericht.</data>
     </node>
-    <node id="p_3913">
+    <node id="p_4233">
       <data key="d0">E</data>
-      <data key="d2">1993</data>
-      <data key="d3">Using Executable Specifications for Prototyping System Design Process.</data>
+      <data key="d2">2012</data>
+      <data key="d3">Lessons learned from building model-driven development tools.</data>
     </node>
     <node id="p_3910">
       <data key="d0">E</data>
       <data key="d2">1993</data>
       <data key="d3">Slow and Principled Prototyping of Usage Surfaces: A Mehtd For User Interface Engineering.</data>
     </node>
-    <node id="p_3911">
+    <node id="p_4231">
       <data key="d0">E</data>
-      <data key="d2">1993</data>
-      <data key="d3">Der Prototyp als fertiges Produkt (oder der Weg ist das Ziel).</data>
+      <data key="d2">2012</data>
+      <data key="d3">Modeling to improve quality or efficiency? An automotive domain perspective.</data>
     </node>
     <node id="6082">
       <data key="d0">N</data>
@@ -46441,10 +46453,6 @@
     <node id="6019">
       <data key="d0">N</data>
       <data key="d1">Tse-Yau Huang</data>
-    </node>
-    <node id="3182">
-      <data key="d0">N</data>
-      <data key="d1">David L. Drake</data>
     </node>
     <node id="p_3200">
       <data key="d0">E</data>
@@ -46704,10 +46712,10 @@
       <data key="d2">2010</data>
       <data key="d3">Modeling enterprise service-oriented architectural styles.</data>
     </node>
-    <node id="p_4325">
+    <node id="p_4637">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">Event-driven modeling and testing of real-time web services.</data>
+      <data key="d2">2009</data>
+      <data key="d3">In this issue.</data>
     </node>
     <node id="p_2924">
       <data key="d0">E</data>
@@ -47337,20 +47345,20 @@
       <data key="d2">2012</data>
       <data key="d3">The 2011 "State of the Journal" Report - Editorial for the SoSyM Issue 2012/01: Part 2.</data>
     </node>
-    <node id="p_4215">
+    <node id="p_3935">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Model interoperability in building information modelling.</data>
+      <data key="d2">1991</data>
+      <data key="d3">ZustandsÃ¼bergangsdiagramme als strukturbestimmende Sicht eines Systems.</data>
     </node>
     <node id="p_3936">
       <data key="d0">E</data>
       <data key="d2">1983</data>
       <data key="d3">Entwicklung von ProzeÃinformationssystemen - ein LernprozeÃ fÃ¼r Entwickler und Andwender.</data>
     </node>
-    <node id="p_4217">
+    <node id="p_3937">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Editorial for the theme issue on model-based interoperability.</data>
+      <data key="d2">1993</data>
+      <data key="d3">Model-driven prototyping - prototype-dirven modeling for knowledge-based systems.</data>
     </node>
     <node id="3331">
       <data key="d0">N</data>
@@ -48960,10 +48968,10 @@
       <data key="d2">1993</data>
       <data key="d3">Sechs Jahre Anwendungsentwicklung mit Prototyping.</data>
     </node>
-    <node id="p_3935">
+    <node id="p_4215">
       <data key="d0">E</data>
-      <data key="d2">1991</data>
-      <data key="d3">ZustandsÃ¼bergangsdiagramme als strukturbestimmende Sicht eines Systems.</data>
+      <data key="d2">2012</data>
+      <data key="d3">Model interoperability in building information modelling.</data>
     </node>
     <node id="p_2766">
       <data key="d0">E</data>
@@ -48980,10 +48988,10 @@
       <data key="d2">2007</data>
       <data key="d3">New results on non-perfect sharing of multiple secrets.</data>
     </node>
-    <node id="p_3937">
+    <node id="p_4217">
       <data key="d0">E</data>
-      <data key="d2">1993</data>
-      <data key="d3">Model-driven prototyping - prototype-dirven modeling for knowledge-based systems.</data>
+      <data key="d2">2012</data>
+      <data key="d3">Editorial for the theme issue on model-based interoperability.</data>
     </node>
     <node id="p_2764">
       <data key="d0">E</data>
@@ -49157,10 +49165,10 @@
       <data key="d2">2010</data>
       <data key="d3">Special issue: Performance evaluation and optimization of ubiquitous computing and networked systems.</data>
     </node>
-    <node id="p_4400">
+    <node id="p_3360">
       <data key="d0">E</data>
-      <data key="d2">2004</data>
-      <data key="d3">Six Sigma for Software Application of Hypothesis Tests to Software Data.</data>
+      <data key="d2">2010</data>
+      <data key="d3">Agile monitoring using the line of balance.</data>
     </node>
     <node id="p_3363">
       <data key="d0">E</data>
@@ -49177,10 +49185,10 @@
       <data key="d2">2010</data>
       <data key="d3">A catalogue of component connectors to support development with reuse.</data>
     </node>
-    <node id="p_4404">
+    <node id="p_3364">
       <data key="d0">E</data>
-      <data key="d2">1998</data>
-      <data key="d3">A new reusability metric for object-oriented software.</data>
+      <data key="d2">2010</data>
+      <data key="d3">Robust lossless image watermarking based on alpha-trimmed mean algorithm and support vector machine.</data>
     </node>
     <node id="p_4407">
       <data key="d0">E</data>
@@ -49241,10 +49249,6 @@
       <data key="d0">E</data>
       <data key="d2">2000</data>
       <data key="d3">Coupling and control flow measures in practice.</data>
-    </node>
-    <node id="145">
-      <data key="d0">N</data>
-      <data key="d1">Michael Davis</data>
     </node>
     <node id="p_4874">
       <data key="d0">E</data>
@@ -49442,6 +49446,10 @@
       <data key="d0">N</data>
       <data key="d1">Fangmin Li</data>
     </node>
+    <node id="5282">
+      <data key="d0">N</data>
+      <data key="d1">ElÃ­as Palacios-GonzÃ¡lez</data>
+    </node>
     <node id="3661">
       <data key="d0">N</data>
       <data key="d1">Hyoseob Kim</data>
@@ -49508,9 +49516,10 @@
       <data key="d0">N</data>
       <data key="d1">Ariadi Nugroho</data>
     </node>
-    <node id="6188">
-      <data key="d0">N</data>
-      <data key="d1">Xinhua Liu</data>
+    <node id="p_4522">
+      <data key="d0">E</data>
+      <data key="d2">2002</data>
+      <data key="d3">Quality in Web Design for Visually Impaired Users.</data>
     </node>
     <node id="3667">
       <data key="d0">N</data>
@@ -49591,19 +49600,9 @@
       <data key="d0">N</data>
       <data key="d1">Philippe Lahire</data>
     </node>
-    <node id="p_3970">
-      <data key="d0">E</data>
-      <data key="d2">2002</data>
-      <data key="d3">On the interpretation of binary associations in the Unified Modelling Language.</data>
-    </node>
     <node id="6192">
       <data key="d0">N</data>
       <data key="d1">Rafael da Silva Viterbo de CepÃªda</data>
-    </node>
-    <node id="p_3971">
-      <data key="d0">E</data>
-      <data key="d2">2002</data>
-      <data key="d3">Growing the UML.</data>
     </node>
     <node id="6193">
       <data key="d0">N</data>
@@ -49775,10 +49774,10 @@
       <data key="d2">2005</data>
       <data key="d3">Automated support for deriving test requirements from UML statecharts.</data>
     </node>
-    <node id="p_4522">
+    <node id="p_3202">
       <data key="d0">E</data>
-      <data key="d2">2002</data>
-      <data key="d3">Quality in Web Design for Visually Impaired Users.</data>
+      <data key="d2">2010</data>
+      <data key="d3">The effects of request formats on judgment-based effort estimation.</data>
     </node>
     <node id="p_3203">
       <data key="d0">E</data>
@@ -50496,10 +50495,10 @@
       <data key="d2">2008</data>
       <data key="d3">Guest editors' introduction: special issue from the 13th working conference on reverse engineering (WCRE 2006).</data>
     </node>
-    <node id="p_3262">
+    <node id="p_261">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">An architecture-driven software mobility framework.</data>
+      <data key="d2">2008</data>
+      <data key="d3">Tests for consistent measurement of external subjective software quality attributes.</data>
     </node>
     <node id="p_262">
       <data key="d0">E</data>
@@ -50511,10 +50510,10 @@
       <data key="d2">2008</data>
       <data key="d3">Theory of relative defect proneness.</data>
     </node>
-    <node id="p_3263">
+    <node id="p_4543">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">An improved impossible differential cryptanalysis of Zodiac.</data>
+      <data key="d2">1997</data>
+      <data key="d3">Software testability measurement for intelligent assertion placement.</data>
     </node>
     <node id="p_268">
       <data key="d0">E</data>
@@ -51342,10 +51341,10 @@
       <data key="d2">2001</data>
       <data key="d3">An empirical evaluation of the ISO/IEC 15504 assessment model.</data>
     </node>
-    <node id="p_1107">
+    <node id="p_4542">
       <data key="d0">E</data>
-      <data key="d2">2004</data>
-      <data key="d3">FPGA based hardware acceleration for elliptic curve public key cryptosystems.</data>
+      <data key="d2">2003</data>
+      <data key="d3">Trusted Software's Holy Grail.</data>
     </node>
     <node id="p_1106">
       <data key="d0">E</data>
@@ -51397,10 +51396,10 @@
       <data key="d2">1998</data>
       <data key="d3">Scratchpad: Mechanisms for Better Navigation in Directed Web Searching.</data>
     </node>
-    <node id="p_4990">
+    <node id="p_4774">
       <data key="d0">E</data>
-      <data key="d2">1992</data>
-      <data key="d3">Mapping GUIs to Auditory Interfaces.</data>
+      <data key="d2">1995</data>
+      <data key="d3">Editorial.</data>
     </node>
     <node id="p_4997">
       <data key="d0">E</data>
@@ -51875,10 +51874,10 @@
       <data key="d2">2013</data>
       <data key="d3">A reliability optimization method for RAID-structured storage systems based on active data migration.</data>
     </node>
-    <node id="p_4384">
+    <node id="p_3864">
       <data key="d0">E</data>
-      <data key="d2">2004</data>
-      <data key="d3">Editorial: Aspect-Oriented Technology and Software Quality.</data>
+      <data key="d2">2013</data>
+      <data key="d3">COTS integration and estimation for ERP.</data>
     </node>
     <node id="p_3865">
       <data key="d0">E</data>
@@ -51991,10 +51990,10 @@
       <data key="d2">1983</data>
       <data key="d3">Anforderungsmodellierung fÃ¼r Realzeitsysteme - AnsÃ¤tze zur BewÃ¤ltigung von KomplexitÃ¤t und von UnschÃ¤rfe.</data>
     </node>
-    <node id="p_4205">
+    <node id="p_3925">
       <data key="d0">E</data>
-      <data key="d2">2011</data>
-      <data key="d3">UML formal semantics: lessons learned.</data>
+      <data key="d2">1983</data>
+      <data key="d3">Requirements Engineering in S/E/TEC.</data>
     </node>
     <node id="p_3900">
       <data key="d0">E</data>
@@ -52924,15 +52923,15 @@
       <data key="d2">2010</data>
       <data key="d3">A comprehensive engineering framework for guaranteeing component compatibility.</data>
     </node>
-    <node id="p_4542">
+    <node id="p_3262">
       <data key="d0">E</data>
-      <data key="d2">2003</data>
-      <data key="d3">Trusted Software's Holy Grail.</data>
+      <data key="d2">2010</data>
+      <data key="d3">An architecture-driven software mobility framework.</data>
     </node>
-    <node id="p_4543">
+    <node id="p_3263">
       <data key="d0">E</data>
-      <data key="d2">1997</data>
-      <data key="d3">Software testability measurement for intelligent assertion placement.</data>
+      <data key="d2">2010</data>
+      <data key="d3">An improved impossible differential cryptanalysis of Zodiac.</data>
     </node>
     <node id="4129">
       <data key="d0">N</data>
@@ -53950,10 +53949,6 @@
       <data key="d0">N</data>
       <data key="d1">S. Linkman</data>
     </node>
-    <node id="6725">
-      <data key="d0">N</data>
-      <data key="d1">Chuen-Tsai Sun</data>
-    </node>
     <node id="p_58">
       <data key="d0">E</data>
       <data key="d2">2000</data>
@@ -54115,10 +54110,10 @@
       <data key="d2">2012</data>
       <data key="d3">An evaluation of multi-model self-managing control schemes for adaptive performance management of software systems.</data>
     </node>
-    <node id="p_4835">
+    <node id="p_3827">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">Constraint Cascading Style Sheets for the Web.</data>
+      <data key="d2">2012</data>
+      <data key="d3">Validated templates for specification of complex LTL formulas.</data>
     </node>
     <node id="p_3824">
       <data key="d0">E</data>
@@ -55070,6 +55065,11 @@
       <data key="d0">N</data>
       <data key="d1">Bingchiang Jeng</data>
     </node>
+    <node id="p_4447">
+      <data key="d0">E</data>
+      <data key="d2">1999</data>
+      <data key="d3">cSuds-SDL: A Tool for Testing Software Architecture Specifications.</data>
+    </node>
     <node id="4202">
       <data key="d0">N</data>
       <data key="d1">JosÃ© Merseguer</data>
@@ -55443,10 +55443,10 @@
       <data key="d2">2011</data>
       <data key="d3">Supporting runtime software architecture: A bidirectional-transformation-based approach.</data>
     </node>
-    <node id="p_3959">
+    <node id="p_4523">
       <data key="d0">E</data>
-      <data key="d2">2002</data>
-      <data key="d3">Extending the Unified Modeling Language for ontology development.</data>
+      <data key="d2">1999</data>
+      <data key="d3">Editorial.</data>
     </node>
     <node id="p_3470">
       <data key="d0">E</data>
@@ -55646,15 +55646,15 @@
       <data key="d2">2008</data>
       <data key="d3">A platform independent model for the electronic marketplace domain.</data>
     </node>
-    <node id="p_4447">
+    <node id="p_3327">
       <data key="d0">E</data>
-      <data key="d2">1999</data>
-      <data key="d3">cSuds-SDL: A Tool for Testing Software Architecture Specifications.</data>
+      <data key="d2">2010</data>
+      <data key="d3">Analyzing architectural styles.</data>
     </node>
-    <node id="p_4446">
+    <node id="p_3326">
       <data key="d0">E</data>
-      <data key="d2">2005</data>
-      <data key="d3">In This Issue.</data>
+      <data key="d2">2010</data>
+      <data key="d3">A differential cryptanalysis of Yen-Chen-Wu multimedia cryptography system.</data>
     </node>
     <node id="p_4441">
       <data key="d0">E</data>
@@ -56242,10 +56242,10 @@
       <data key="d2">1995</data>
       <data key="d3">Migratory Applications.</data>
     </node>
-    <node id="p_4876">
+    <node id="p_4304">
       <data key="d0">E</data>
-      <data key="d2">1995</data>
-      <data key="d3">Supporting Distributed, Concurrent, One-Way Constraints in User Interface Applications.</data>
+      <data key="d2">2009</data>
+      <data key="d3">POPEYE: providing collaborative services for ad hoc and spontaneous communities.</data>
     </node>
     <node id="p_4877">
       <data key="d0">E</data>
@@ -56604,10 +56604,10 @@
       <data key="d2">1997</data>
       <data key="d3">A basis for process improvement in application management.</data>
     </node>
-    <node id="p_3309">
+    <node id="p_4469">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">P/S-CoM: Building correct by design Publish/Subscribe architectural styles with safe reconfiguration.</data>
+      <data key="d2">1999</data>
+      <data key="d3">A Critical Analysis of Current OO Design Metrics.</data>
     </node>
     <node id="p_4468">
       <data key="d0">E</data>
@@ -57213,10 +57213,6 @@
       <data key="d2">2009</data>
       <data key="d3">Editorial.</data>
     </node>
-    <node id="5081">
-      <data key="d0">N</data>
-      <data key="d1">Sang-Uk Jeon</data>
-    </node>
     <node id="p_338">
       <data key="d0">E</data>
       <data key="d2">2011</data>
@@ -57282,10 +57278,10 @@
       <data key="d2">2009</data>
       <data key="d3">Introduction to the WCRE 2007 special issue.</data>
     </node>
-    <node id="p_4637">
+    <node id="p_4325">
       <data key="d0">E</data>
-      <data key="d2">2009</data>
-      <data key="d3">In this issue.</data>
+      <data key="d2">2010</data>
+      <data key="d3">Event-driven modeling and testing of real-time web services.</data>
     </node>
     <node id="p_4634">
       <data key="d0">E</data>
@@ -57400,10 +57396,10 @@
       <data key="d2">1998</data>
       <data key="d3">User cognitive representations: The case for an object oriented model.</data>
     </node>
-    <node id="p_3827">
+    <node id="p_4835">
       <data key="d0">E</data>
-      <data key="d2">2012</data>
-      <data key="d3">Validated templates for specification of complex LTL formulas.</data>
+      <data key="d2">1999</data>
+      <data key="d3">Constraint Cascading Style Sheets for the Web.</data>
     </node>
     <node id="p_2003">
       <data key="d0">E</data>
@@ -57591,10 +57587,10 @@
       <data key="d2">1997</data>
       <data key="d3">Introduction of modern software technology. A case from Swedish industry.</data>
     </node>
-    <node id="p_3360">
+    <node id="p_4400">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">Agile monitoring using the line of balance.</data>
+      <data key="d2">2004</data>
+      <data key="d3">Six Sigma for Software Application of Hypothesis Tests to Software Data.</data>
     </node>
     <node id="p_4403">
       <data key="d0">E</data>
@@ -57611,10 +57607,10 @@
       <data key="d2">1997</data>
       <data key="d3">Managing software requirements using quality function deployment.</data>
     </node>
-    <node id="p_3364">
+    <node id="p_4404">
       <data key="d0">E</data>
-      <data key="d2">2010</data>
-      <data key="d3">Robust lossless image watermarking based on alpha-trimmed mean algorithm and support vector machine.</data>
+      <data key="d2">1998</data>
+      <data key="d3">A new reusability metric for object-oriented software.</data>
     </node>
     <node id="p_3367">
       <data key="d0">E</data>
@@ -57635,11 +57631,6 @@
       <data key="d0">E</data>
       <data key="d2">2005</data>
       <data key="d3">Defining a Requirements Process Improvement Model.</data>
-    </node>
-    <node id="p_4111">
-      <data key="d0">E</data>
-      <data key="d2">2008</data>
-      <data key="d3">Automatic maintenance of association invariants.</data>
     </node>
     <node id="6487">
       <data key="d0">N</data>
@@ -57984,6 +57975,11 @@
       <data key="d0">E</data>
       <data key="d2">1994</data>
       <data key="d3">Editor's corner object-orientation: Theory and Practice (II).</data>
+    </node>
+    <node id="p_3358">
+      <data key="d0">E</data>
+      <data key="d2">2010</data>
+      <data key="d3">Software process improvement through the Lean Measurement (SPI-LEAM) method.</data>
     </node>
     <node id="p_1271">
       <data key="d0">E</data>
@@ -58758,6 +58754,11 @@
     <node id="6523">
       <data key="d0">N</data>
       <data key="d1">Omar Alam</data>
+    </node>
+    <node id="p_3959">
+      <data key="d0">E</data>
+      <data key="d2">2002</data>
+      <data key="d3">Extending the Unified Modeling Language for ontology development.</data>
     </node>
     <node id="p_4429">
       <data key="d0">E</data>
@@ -59764,8 +59765,8 @@
     <edge source="35" target="p_748" />
     <edge source="35" target="p_2528" />
     <edge source="35" target="p_22" />
-    <edge source="35" target="p_4603" />
     <edge source="35" target="p_746" />
+    <edge source="35" target="p_4603" />
     <edge source="p_3888" target="6734" />
     <edge source="p_3889" target="6736" />
     <edge source="p_3889" target="6735" />
@@ -60182,7 +60183,7 @@
     <edge source="143" target="p_183" />
     <edge source="p_4940" target="8376" />
     <edge source="p_4940" target="8369" />
-    <edge source="p_4941" target="8377" />
+    <edge source="145" target="p_74" />
     <edge source="p_4942" target="8378" />
     <edge source="p_4942" target="8283" />
     <edge source="147" target="p_76" />
@@ -60440,9 +60441,8 @@
     <edge source="239" target="p_230" />
     <edge source="240" target="p_145" />
     <edge source="240" target="p_230" />
-    <edge source="241" target="p_145" />
-    <edge source="241" target="p_4531" />
-    <edge source="241" target="p_230" />
+    <edge source="p_4364" target="7550" />
+    <edge source="p_4364" target="5351" />
     <edge source="242" target="p_145" />
     <edge source="242" target="p_2028" />
     <edge source="242" target="p_486" />
@@ -60453,10 +60453,10 @@
     <edge source="244" target="p_146" />
     <edge source="245" target="p_148" />
     <edge source="246" target="p_148" />
-    <edge source="247" target="p_344" />
-    <edge source="247" target="p_260" />
-    <edge source="247" target="p_182" />
-    <edge source="247" target="p_149" />
+    <edge source="p_4365" target="3058" />
+    <edge source="p_4365" target="2114" />
+    <edge source="p_4365" target="914" />
+    <edge source="p_4365" target="7415" />
     <edge source="248" target="p_182" />
     <edge source="248" target="p_164" />
     <edge source="248" target="p_149" />
@@ -60537,11 +60537,7 @@
     <edge source="270" target="p_163" />
     <edge source="270" target="p_2191" />
     <edge source="270" target="p_2405" />
-    <edge source="p_4361" target="7544" />
-    <edge source="p_4361" target="5063" />
-    <edge source="p_4361" target="7541" />
-    <edge source="p_4361" target="7542" />
-    <edge source="p_4361" target="7543" />
+    <edge source="45" target="p_25" />
     <edge source="p_787" target="1567" />
     <edge source="p_786" target="1566" />
     <edge source="p_786" target="518" />
@@ -61835,7 +61831,6 @@
     <edge source="152" target="p_210" />
     <edge source="152" target="p_213" />
     <edge source="152" target="p_212" />
-    <edge source="914" target="p_4365" />
     <edge source="914" target="p_4313" />
     <edge source="914" target="p_482" />
     <edge source="915" target="p_484" />
@@ -62529,7 +62524,8 @@
     <edge source="p_5036" target="8186" />
     <edge source="p_5036" target="8519" />
     <edge source="p_5035" target="8518" />
-    <edge source="p_5034" target="8269" />
+    <edge source="219" target="p_126" />
+    <edge source="219" target="p_124" />
     <edge source="p_5033" target="8122" />
     <edge source="p_5033" target="8292" />
     <edge source="p_5033" target="8118" />
@@ -62603,7 +62599,7 @@
     <edge source="1354" target="p_1859" />
     <edge source="1355" target="p_662" />
     <edge source="1356" target="p_663" />
-    <edge source="45" target="p_25" />
+    <edge source="1357" target="p_663" />
     <edge source="1358" target="p_664" />
     <edge source="1359" target="p_665" />
     <edge source="1359" target="p_667" />
@@ -62815,7 +62811,9 @@
     <edge source="1446" target="p_2889" />
     <edge source="1446" target="p_2873" />
     <edge source="1446" target="p_3002" />
-    <edge source="1447" target="p_714" />
+    <edge source="241" target="p_145" />
+    <edge source="241" target="p_4531" />
+    <edge source="241" target="p_230" />
     <edge source="1448" target="p_714" />
     <edge source="1449" target="p_715" />
     <edge source="1450" target="p_716" />
@@ -62877,7 +62875,10 @@
     <edge source="1480" target="p_738" />
     <edge source="1481" target="p_740" />
     <edge source="1482" target="p_740" />
-    <edge source="1483" target="p_740" />
+    <edge source="247" target="p_344" />
+    <edge source="247" target="p_260" />
+    <edge source="247" target="p_182" />
+    <edge source="247" target="p_149" />
     <edge source="1484" target="p_741" />
     <edge source="1485" target="p_2998" />
     <edge source="1485" target="p_2829" />
@@ -63964,7 +63965,6 @@
     <edge source="2112" target="p_1090" />
     <edge source="2113" target="p_1091" />
     <edge source="2114" target="p_1091" />
-    <edge source="2114" target="p_4365" />
     <edge source="2115" target="p_1092" />
     <edge source="2116" target="p_1092" />
     <edge source="2117" target="p_1093" />
@@ -64603,7 +64603,7 @@
     <edge source="p_4902" target="8301" />
     <edge source="p_2183" target="3516" />
     <edge source="2440" target="p_1447" />
-    <edge source="p_3202" target="5176" />
+    <edge source="p_3970" target="6877" />
     <edge source="2442" target="p_1448" />
     <edge source="2443" target="p_1448" />
     <edge source="2443" target="p_2044" />
@@ -64615,7 +64615,7 @@
     <edge source="p_4909" target="8313" />
     <edge source="p_4909" target="8174" />
     <edge source="2446" target="p_1449" />
-    <edge source="p_4523" target="7591" />
+    <edge source="p_3971" target="6878" />
     <edge source="2448" target="p_1451" />
     <edge source="2449" target="p_1451" />
     <edge source="2450" target="p_1451" />
@@ -64836,9 +64836,7 @@
     <edge source="2621" target="p_1560" />
     <edge source="2622" target="p_1562" />
     <edge source="2623" target="p_1563" />
-    <edge source="p_126" target="219" />
     <edge source="p_126" target="221" />
-    <edge source="p_124" target="219" />
     <edge source="p_122" target="218" />
     <edge source="p_121" target="37" />
     <edge source="p_120" target="216" />
@@ -65385,9 +65383,13 @@
     <edge source="p_4597" target="7817" />
     <edge source="p_4597" target="7818" />
     <edge source="p_4597" target="7819" />
-    <edge source="p_3904" target="6764" />
-    <edge source="p_3907" target="6769" />
-    <edge source="p_3907" target="6770" />
+    <edge source="p_4224" target="6879" />
+    <edge source="p_4224" target="4652" />
+    <edge source="p_4224" target="4647" />
+    <edge source="p_4227" target="7264" />
+    <edge source="p_4227" target="7265" />
+    <edge source="p_4227" target="7266" />
+    <edge source="p_4227" target="5815" />
     <edge source="p_3906" target="6765" />
     <edge source="p_3906" target="6766" />
     <edge source="p_3906" target="6767" />
@@ -65454,7 +65456,6 @@
     <edge source="p_4048" target="4301" />
     <edge source="p_4048" target="6990" />
     <edge source="p_4048" target="4325" />
-    <edge source="3058" target="p_4365" />
     <edge source="3058" target="p_1845" />
     <edge source="3058" target="p_2592" />
     <edge source="3059" target="p_4628" />
@@ -65653,10 +65654,7 @@
     <edge source="3179" target="p_1913" />
     <edge source="3180" target="p_1913" />
     <edge source="3181" target="p_1914" />
-    <edge source="p_4537" target="3832" />
-    <edge source="p_4537" target="7747" />
-    <edge source="p_4537" target="7748" />
-    <edge source="p_4537" target="7749" />
+    <edge source="3182" target="p_1914" />
     <edge source="3183" target="p_1918" />
     <edge source="3186" target="p_1921" />
     <edge source="3186" target="p_1920" />
@@ -66489,6 +66487,7 @@
     <edge source="3831" target="p_2433" />
     <edge source="3832" target="p_4560" />
     <edge source="3832" target="p_2434" />
+    <edge source="3832" target="p_4537" />
     <edge source="3833" target="p_2434" />
     <edge source="3834" target="p_2435" />
     <edge source="3835" target="p_2436" />
@@ -66844,7 +66843,8 @@
     <edge source="p_4206" target="6128" />
     <edge source="p_4206" target="4880" />
     <edge source="p_4206" target="7236" />
-    <edge source="p_3925" target="6798" />
+    <edge source="p_4205" target="6930" />
+    <edge source="p_4205" target="6892" />
     <edge source="p_3924" target="6797" />
     <edge source="p_3923" target="6796" />
     <edge source="p_3922" target="6793" />
@@ -67469,14 +67469,12 @@
     <edge source="4519" target="p_2877" />
     <edge source="4646" target="p_2944" />
     <edge source="4647" target="p_4805" />
-    <edge source="4647" target="p_4224" />
     <edge source="4647" target="p_2945" />
     <edge source="4648" target="p_2945" />
     <edge source="4649" target="p_2945" />
     <edge source="4650" target="p_2945" />
     <edge source="4651" target="p_4805" />
     <edge source="4651" target="p_2945" />
-    <edge source="4652" target="p_4224" />
     <edge source="4652" target="p_2945" />
     <edge source="4653" target="p_2947" />
     <edge source="4654" target="p_2947" />
@@ -67860,6 +67858,7 @@
     <edge source="5054" target="p_4552" />
     <edge source="5061" target="p_3825" />
     <edge source="5062" target="p_4164" />
+    <edge source="5063" target="p_4361" />
     <edge source="5073" target="p_3150" />
     <edge source="5074" target="p_3150" />
     <edge source="5075" target="p_3150" />
@@ -67869,7 +67868,8 @@
     <edge source="5078" target="p_3154" />
     <edge source="5079" target="p_3154" />
     <edge source="5080" target="p_3154" />
-    <edge source="p_3960" target="6864" />
+    <edge source="5081" target="p_3190" />
+    <edge source="5081" target="p_3155" />
     <edge source="5082" target="p_3155" />
     <edge source="5083" target="p_3156" />
     <edge source="5084" target="p_3156" />
@@ -67968,6 +67968,7 @@
     <edge source="5170" target="p_3199" />
     <edge source="5171" target="p_3200" />
     <edge source="5172" target="p_3200" />
+    <edge source="5176" target="p_3202" />
     <edge source="5177" target="p_3435" />
     <edge source="5177" target="p_3203" />
     <edge source="5178" target="p_3203" />
@@ -68185,7 +68186,6 @@
     <edge source="p_4089" target="7049" />
     <edge source="p_4088" target="6740" />
     <edge source="5350" target="p_3289" />
-    <edge source="5351" target="p_4364" />
     <edge source="5351" target="p_3289" />
     <edge source="p_4085" target="7046" />
     <edge source="p_4085" target="7044" />
@@ -68321,7 +68321,7 @@
     <edge source="5473" target="p_3343" />
     <edge source="5474" target="p_3343" />
     <edge source="5475" target="p_3343" />
-    <edge source="5476" target="p_3344" />
+    <edge source="p_4240" target="7111" />
     <edge source="5477" target="p_3623" />
     <edge source="5477" target="p_3344" />
     <edge source="5478" target="p_3623" />
@@ -68789,9 +68789,7 @@
     <edge source="5882" target="p_3830" />
     <edge source="p_4241" target="7059" />
     <edge source="981" target="p_511" />
-    <edge source="p_4536" target="7610" />
-    <edge source="p_4536" target="7611" />
-    <edge source="p_4536" target="7746" />
+    <edge source="p_3960" target="6864" />
     <edge source="5892" target="p_3572" />
     <edge source="982" target="p_511" />
     <edge source="5894" target="p_3572" />
@@ -68802,8 +68800,8 @@
     <edge source="5900" target="p_3538" />
     <edge source="5901" target="p_3538" />
     <edge source="5652" target="p_3421" />
-    <edge source="p_4530" target="7738" />
-    <edge source="p_4530" target="7631" />
+    <edge source="p_4246" target="7285" />
+    <edge source="p_4246" target="7286" />
     <edge source="5904" target="p_3540" />
     <edge source="984" target="p_512" />
     <edge source="5907" target="p_3541" />
@@ -69220,7 +69218,6 @@
     <edge source="6346" target="p_3716" />
     <edge source="6350" target="p_3720" />
     <edge source="6351" target="p_3720" />
-    <edge source="p_1914" target="3182" />
     <edge source="6360" target="p_3723" />
     <edge source="6361" target="p_3723" />
     <edge source="6362" target="p_3723" />
@@ -69306,10 +69303,12 @@
     <edge source="p_3961" target="6865" />
     <edge source="p_3961" target="6866" />
     <edge source="p_3961" target="6867" />
-    <edge source="p_4240" target="7111" />
+    <edge source="p_4536" target="7610" />
+    <edge source="p_4536" target="7611" />
+    <edge source="p_4536" target="7746" />
     <edge source="p_4531" target="7739" />
-    <edge source="p_4246" target="7285" />
-    <edge source="p_4246" target="7286" />
+    <edge source="p_4530" target="7738" />
+    <edge source="p_4530" target="7631" />
     <edge source="p_3965" target="6870" />
     <edge source="p_3964" target="6869" />
     <edge source="6448" target="p_3762" />
@@ -69429,6 +69428,8 @@
     <edge source="p_1557" target="2615" />
     <edge source="6580" target="p_3824" />
     <edge source="6581" target="p_3825" />
+    <edge source="6582" target="p_4153" />
+    <edge source="6582" target="p_3825" />
     <edge source="6583" target="p_3826" />
     <edge source="6584" target="p_3826" />
     <edge source="6586" target="p_3827" />
@@ -69558,9 +69559,7 @@
     <edge source="6720" target="p_4353" />
     <edge source="6720" target="p_4296" />
     <edge source="6721" target="p_4353" />
-    <edge source="6582" target="p_4153" />
-    <edge source="6582" target="p_3825" />
-    <edge source="5282" target="p_3258" />
+    <edge source="1315" target="p_640" />
     <edge source="6730" target="p_4298" />
     <edge source="6731" target="p_4272" />
     <edge source="1122" target="p_565" />
@@ -69580,6 +69579,7 @@
     <edge source="6760" target="p_3902" />
     <edge source="6761" target="p_3902" />
     <edge source="1127" target="p_566" />
+    <edge source="6764" target="p_3904" />
     <edge source="6766" target="p_4202" />
     <edge source="p_1473" target="2489" />
     <edge source="p_1477" target="2493" />
@@ -69609,6 +69609,7 @@
     <edge source="6792" target="p_3921" />
     <edge source="p_3062" target="1304" />
     <edge source="6594" target="p_3830" />
+    <edge source="6798" target="p_3925" />
     <edge source="p_3063" target="4896" />
     <edge source="6801" target="p_3930" />
     <edge source="6801" target="p_4257" />
@@ -69675,14 +69676,11 @@
     <edge source="6870" target="p_4128" />
     <edge source="6877" target="p_4157" />
     <edge source="6877" target="p_4256" />
-    <edge source="6877" target="p_3970" />
     <edge source="6877" target="p_3972" />
-    <edge source="6878" target="p_3971" />
     <edge source="6879" target="p_4118" />
     <edge source="6879" target="p_3988" />
     <edge source="6879" target="p_3972" />
     <edge source="6879" target="p_4585" />
-    <edge source="6879" target="p_4224" />
     <edge source="6879" target="p_4234" />
     <edge source="6879" target="p_4161" />
     <edge source="6880" target="p_3973" />
@@ -69704,7 +69702,6 @@
     <edge source="6889" target="p_3981" />
     <edge source="6890" target="p_3981" />
     <edge source="6891" target="p_3981" />
-    <edge source="6892" target="p_4205" />
     <edge source="6892" target="p_3983" />
     <edge source="6893" target="p_3983" />
     <edge source="6894" target="p_3984" />
@@ -69765,7 +69762,6 @@
     <edge source="6923" target="p_3999" />
     <edge source="6926" target="p_4125" />
     <edge source="6926" target="p_4171" />
-    <edge source="6930" target="p_4205" />
     <edge source="6933" target="p_4202" />
     <edge source="6940" target="p_4133" />
     <edge source="6940" target="p_4033" />
@@ -69996,9 +69992,10 @@
     <edge source="p_4765" target="8022" />
     <edge source="p_4765" target="8023" />
     <edge source="p_4767" target="8024" />
-    <edge source="p_4984" target="8147" />
-    <edge source="p_4984" target="8446" />
-    <edge source="p_4984" target="8447" />
+    <edge source="p_4768" target="8025" />
+    <edge source="p_4768" target="8026" />
+    <edge source="p_4768" target="8027" />
+    <edge source="p_4768" target="7958" />
     <edge source="p_4985" target="8448" />
     <edge source="p_4985" target="8312" />
     <edge source="p_4985" target="8444" />
@@ -70103,9 +70100,7 @@
     <edge source="7258" target="p_4219" />
     <edge source="6671" target="p_3861" />
     <edge source="7263" target="p_4223" />
-    <edge source="7264" target="p_4227" />
     <edge source="6672" target="p_3861" />
-    <edge source="7266" target="p_4227" />
     <edge source="7271" target="p_4232" />
     <edge source="7272" target="p_4251" />
     <edge source="7276" target="p_4238" />
@@ -70314,6 +70309,7 @@
     <edge source="7484" target="p_4340" />
     <edge source="7485" target="p_4341" />
     <edge source="7486" target="p_4341" />
+    <edge source="7487" target="p_4342" />
     <edge source="7488" target="p_4342" />
     <edge source="7489" target="p_4342" />
     <edge source="7490" target="p_4343" />
@@ -70351,12 +70347,15 @@
     <edge source="7530" target="p_4359" />
     <edge source="7531" target="p_4359" />
     <edge source="2433" target="p_1443" />
+    <edge source="7541" target="p_4361" />
+    <edge source="7542" target="p_4361" />
+    <edge source="7543" target="p_4361" />
+    <edge source="7544" target="p_4361" />
     <edge source="7545" target="p_4362" />
     <edge source="7546" target="p_4363" />
     <edge source="7547" target="p_4363" />
     <edge source="7548" target="p_4363" />
     <edge source="7549" target="p_4363" />
-    <edge source="7550" target="p_4364" />
     <edge source="7551" target="p_4366" />
     <edge source="7552" target="p_4366" />
     <edge source="7553" target="p_4366" />
@@ -70380,8 +70379,6 @@
     <edge source="p_4515" target="7609" />
     <edge source="p_4515" target="7610" />
     <edge source="p_4515" target="7611" />
-    <edge source="p_3234" target="5230" />
-    <edge source="p_3234" target="5231" />
     <edge source="p_4512" target="7726" />
     <edge source="p_4512" target="7727" />
     <edge source="p_4510" target="7723" />
@@ -70407,6 +70404,7 @@
     <edge source="7590" target="p_4393" />
     <edge source="7591" target="p_4714" />
     <edge source="7591" target="p_4601" />
+    <edge source="7591" target="p_4523" />
     <edge source="7591" target="p_4449" />
     <edge source="7591" target="p_4393" />
     <edge source="7591" target="p_4619" />
@@ -70582,7 +70580,7 @@
     <edge source="7722" target="p_4508" />
     <edge source="6749" target="p_3897" />
     <edge source="6750" target="p_3897" />
-    <edge source="p_4438" target="1308" />
+    <edge source="7734" target="p_4525" />
     <edge source="7735" target="p_4525" />
     <edge source="7736" target="p_4527" />
     <edge source="6751" target="p_3897" />
@@ -70693,6 +70691,7 @@
     <edge source="1308" target="p_4608" />
     <edge source="1308" target="p_3057" />
     <edge source="1308" target="p_4579" />
+    <edge source="1308" target="p_4438" />
     <edge source="1308" target="p_4576" />
     <edge source="1308" target="p_4434" />
     <edge source="1308" target="p_4436" />
@@ -70729,6 +70728,7 @@
     <edge source="7850" target="p_4630" />
     <edge source="7851" target="p_4630" />
     <edge source="7852" target="p_4632" />
+    <edge source="6770" target="p_3907" />
     <edge source="7854" target="p_4633" />
     <edge source="1309" target="p_638" />
     <edge source="1309" target="p_1701" />
@@ -70759,7 +70759,7 @@
     <edge source="7888" target="p_4662" />
     <edge source="7889" target="p_4663" />
     <edge source="7890" target="p_4664" />
-    <edge source="1315" target="p_640" />
+    <edge source="p_5034" target="8269" />
     <edge source="7894" target="p_4665" />
     <edge source="7894" target="p_4737" />
     <edge source="7895" target="p_4667" />
@@ -70810,7 +70810,6 @@
     <edge source="6787" target="p_3917" />
     <edge source="7956" target="p_4712" />
     <edge source="1326" target="p_645" />
-    <edge source="7958" target="p_4768" />
     <edge source="7958" target="p_4714" />
     <edge source="7959" target="p_4715" />
     <edge source="7960" target="p_4715" />
@@ -70873,7 +70872,6 @@
     <edge source="8017" target="p_4933" />
     <edge source="8017" target="p_4951" />
     <edge source="8019" target="p_4775" />
-    <edge source="8026" target="p_4768" />
     <edge source="6799" target="p_3927" />
     <edge source="8028" target="p_4769" />
     <edge source="8029" target="p_4770" />
@@ -70909,8 +70907,6 @@
     <edge source="8058" target="p_4787" />
     <edge source="8059" target="p_4787" />
     <edge source="6815" target="p_3940" />
-    <edge source="p_3327" target="4193" />
-    <edge source="p_3327" target="5439" />
     <edge source="8062" target="p_4791" />
     <edge source="8062" target="p_4790" />
     <edge source="p_3188" target="4316" />
@@ -70997,12 +70993,13 @@
     <edge source="8140" target="p_4826" />
     <edge source="8141" target="p_4826" />
     <edge source="8142" target="p_4827" />
-    <edge source="1357" target="p_663" />
+    <edge source="8143" target="p_4827" />
     <edge source="8144" target="p_4827" />
     <edge source="8145" target="p_4864" />
     <edge source="8145" target="p_4827" />
     <edge source="8145" target="p_4859" />
     <edge source="8146" target="p_4827" />
+    <edge source="8147" target="p_4984" />
     <edge source="8147" target="p_4828" />
     <edge source="8148" target="p_4828" />
     <edge source="8149" target="p_4831" />
@@ -71198,6 +71195,7 @@
     <edge source="8375" target="p_5026" />
     <edge source="8375" target="p_4995" />
     <edge source="8375" target="p_4994" />
+    <edge source="8377" target="p_4941" />
     <edge source="8379" target="p_4943" />
     <edge source="6859" target="p_3959" />
     <edge source="8393" target="p_4950" />
@@ -71330,6 +71328,7 @@
     <edge source="p_824" target="1633" />
     <edge source="5467" target="p_3342" />
     <edge source="5467" target="p_3766" />
+    <edge source="1447" target="p_714" />
     <edge source="p_3250" target="5263" />
     <edge source="p_3257" target="5280" />
     <edge source="p_3259" target="5283" />
@@ -71344,6 +71343,7 @@
     <edge source="p_3812" target="6552" />
     <edge source="p_3816" target="5681" />
     <edge source="6944" target="p_4010" />
+    <edge source="1483" target="p_740" />
     <edge source="p_3815" target="6561" />
     <edge source="p_3815" target="5293" />
     <edge source="6945" target="p_4012" />
@@ -71505,8 +71505,8 @@
     <edge source="339" target="p_2843" />
     <edge source="339" target="p_2203" />
     <edge source="339" target="p_2647" />
-    <edge source="p_4768" target="8025" />
-    <edge source="p_4768" target="8027" />
+    <edge source="p_4984" target="8446" />
+    <edge source="p_4984" target="8447" />
     <edge source="7162" target="p_4168" />
     <edge source="7163" target="p_4168" />
     <edge source="p_3710" target="4365" />
@@ -71537,11 +71537,9 @@
     <edge source="p_1579" target="2214" />
     <edge source="p_1572" target="2639" />
     <edge source="p_1571" target="2638" />
-    <edge source="5815" target="p_4227" />
     <edge source="5815" target="p_3502" />
     <edge source="5815" target="p_4661" />
     <edge source="5815" target="p_4611" />
-    <edge source="7265" target="p_4227" />
     <edge source="5816" target="p_3504" />
     <edge source="p_3599" target="5359" />
     <edge source="p_3593" target="6028" />
@@ -71588,12 +71586,14 @@
     <edge source="1853" target="p_948" />
     <edge source="7315" target="p_4269" />
     <edge source="p_3836" target="2273" />
+    <edge source="p_4537" target="7747" />
+    <edge source="p_4537" target="7748" />
+    <edge source="p_4537" target="7749" />
     <edge source="7328" target="p_4272" />
     <edge source="7329" target="p_4290" />
     <edge source="7329" target="p_4273" />
     <edge source="7329" target="p_4285" />
     <edge source="7329" target="p_4284" />
-    <edge source="p_4827" target="8143" />
     <edge source="p_4821" target="8136" />
     <edge source="7338" target="p_4277" />
     <edge source="7339" target="p_4277" />
@@ -71696,6 +71696,7 @@
     <edge source="p_3330" target="4135" />
     <edge source="1950" target="p_1005" />
     <edge source="1951" target="p_1006" />
+    <edge source="5476" target="p_3344" />
     <edge source="4879" target="p_3057" />
     <edge source="7427" target="p_4318" />
     <edge source="8031" target="p_4770" />
@@ -71721,7 +71722,6 @@
     <edge source="7475" target="p_4337" />
     <edge source="2585" target="p_1540" />
     <edge source="2023" target="p_1043" />
-    <edge source="7487" target="p_4342" />
     <edge source="2587" target="p_1542" />
     <edge source="2029" target="p_1047" />
     <edge source="2029" target="p_2867" />
@@ -71762,6 +71762,7 @@
     <edge source="1503" target="p_756" />
     <edge source="1503" target="p_1850" />
     <edge source="2063" target="p_1062" />
+    <edge source="p_4876" target="8255" />
     <edge source="2064" target="p_1063" />
     <edge source="2065" target="p_1063" />
     <edge source="2066" target="p_1064" />
@@ -71797,6 +71798,8 @@
     <edge source="p_3237" target="5239" />
     <edge source="p_3236" target="4545" />
     <edge source="p_3235" target="5233" />
+    <edge source="p_3234" target="5230" />
+    <edge source="p_3234" target="5231" />
     <edge source="p_3233" target="5229" />
     <edge source="p_3230" target="5228" />
     <edge source="p_2448" target="3422" />
@@ -71910,9 +71913,9 @@
     <edge source="8091" target="p_4806" />
     <edge source="4455" target="p_2848" />
     <edge source="2272" target="p_1216" />
-    <edge source="7734" target="p_4525" />
     <edge source="2273" target="p_1218" />
     <edge source="p_4775" target="8035" />
+    <edge source="p_4990" target="8248" />
     <edge source="8093" target="p_4806" />
     <edge source="5911" target="p_3543" />
     <edge source="2280" target="p_1320" />
@@ -72015,7 +72018,6 @@
     <edge source="p_2787" target="4312" />
     <edge source="p_2787" target="4313" />
     <edge source="p_2787" target="4311" />
-    <edge source="p_4365" target="7415" />
     <edge source="p_4237" target="6429" />
     <edge source="p_2836" target="4417" />
     <edge source="p_2781" target="4300" />
@@ -72065,6 +72067,8 @@
     <edge source="2472" target="p_1464" />
     <edge source="2473" target="p_1465" />
     <edge source="3769" target="p_2372" />
+    <edge source="p_3309" target="5395" />
+    <edge source="p_3309" target="5396" />
     <edge source="p_3308" target="5393" />
     <edge source="p_3308" target="5394" />
     <edge source="4861" target="p_3051" />
@@ -72110,6 +72114,9 @@
     <edge source="4877" target="p_4155" />
     <edge source="4877" target="p_4214" />
     <edge source="4877" target="p_4254" />
+    <edge source="p_4595" target="4365" />
+    <edge source="p_4595" target="4366" />
+    <edge source="p_4595" target="4367" />
     <edge source="p_1068" target="2076" />
     <edge source="p_1068" target="2077" />
     <edge source="p_1064" target="2067" />
@@ -72163,6 +72170,7 @@
     <edge source="2638" target="p_1663" />
     <edge source="2638" target="p_3281" />
     <edge source="p_4607" target="2075" />
+    <edge source="6769" target="p_3907" />
     <edge source="8105" target="p_4810" />
     <edge source="8105" target="p_4811" />
     <edge source="8106" target="p_4939" />
@@ -72237,7 +72245,6 @@
     <edge source="p_2627" target="4067" />
     <edge source="8254" target="p_4872" />
     <edge source="8255" target="p_4875" />
-    <edge source="8255" target="p_4876" />
     <edge source="8255" target="p_4965" />
     <edge source="8255" target="p_4878" />
     <edge source="8255" target="p_4873" />
@@ -72305,9 +72312,6 @@
     <edge source="p_2791" target="4317" />
     <edge source="8462" target="p_4994" />
     <edge source="8463" target="p_4995" />
-    <edge source="p_4595" target="4365" />
-    <edge source="p_4595" target="4366" />
-    <edge source="p_4595" target="4367" />
     <edge source="p_3113" target="4991" />
     <edge source="8466" target="p_4999" />
     <edge source="p_971" target="1890" />
@@ -72327,7 +72331,6 @@
     <edge source="p_2091" target="3404" />
     <edge source="p_2092" target="3405" />
     <edge source="p_2093" target="3403" />
-    <edge source="8248" target="p_4990" />
     <edge source="8248" target="p_4871" />
     <edge source="3056" target="p_3482" />
     <edge source="8249" target="p_4870" />
@@ -72376,7 +72379,6 @@
     <edge source="3212" target="p_1943" />
     <edge source="3212" target="p_1942" />
     <edge source="3213" target="p_1943" />
-    <edge source="p_4325" target="7446" />
     <edge source="p_2926" target="4611" />
     <edge source="3222" target="p_1945" />
     <edge source="p_2920" target="4599" />
@@ -72390,6 +72392,7 @@
     <edge source="p_4911" target="8319" />
     <edge source="p_4910" target="8314" />
     <edge source="p_3258" target="5281" />
+    <edge source="p_3258" target="5282" />
     <edge source="6112" target="p_3624" />
     <edge source="3321" target="p_2025" />
     <edge source="1755" target="p_893" />
@@ -72403,7 +72406,6 @@
     <edge source="3375" target="p_2060" />
     <edge source="2858" target="p_1717" />
     <edge source="6132" target="p_3631" />
-    <edge source="p_3155" target="5081" />
     <edge source="3409" target="p_2100" />
     <edge source="3410" target="p_2101" />
     <edge source="3411" target="p_2101" />
@@ -72437,11 +72439,9 @@
     <edge source="p_3016" target="4795" />
     <edge source="3598" target="p_2252" />
     <edge source="p_2949" target="3001" />
-    <edge source="p_4400" target="7603" />
     <edge source="p_3366" target="5026" />
     <edge source="p_3366" target="5029" />
     <edge source="p_3366" target="5031" />
-    <edge source="145" target="p_74" />
     <edge source="p_3789" target="4195" />
     <edge source="p_3781" target="6492" />
     <edge source="3661" target="p_2297" />
@@ -72468,7 +72468,6 @@
     <edge source="p_1462" target="2034" />
     <edge source="3768" target="p_2372" />
     <edge source="p_3193" target="5141" />
-    <edge source="p_3190" target="5081" />
     <edge source="3771" target="p_2373" />
     <edge source="3772" target="p_2374" />
     <edge source="3773" target="p_2374" />
@@ -72488,8 +72487,6 @@
     <edge source="p_1120" target="2147" />
     <edge source="5479" target="p_3344" />
     <edge source="3842" target="p_2437" />
-    <edge source="p_3262" target="5293" />
-    <edge source="p_3262" target="5299" />
     <edge source="p_2577" target="4000" />
     <edge source="p_856" target="1691" />
     <edge source="p_3228" target="5224" />
@@ -72562,6 +72559,7 @@
     <edge source="p_2777" target="4290" />
     <edge source="p_2433" target="2140" />
     <edge source="6292" target="p_3697" />
+    <edge source="4193" target="p_3327" />
     <edge source="4193" target="p_3737" />
     <edge source="p_3387" target="5239" />
     <edge source="p_3381" target="4456" />
@@ -72574,6 +72572,8 @@
     <edge source="p_3260" target="5285" />
     <edge source="p_3261" target="5287" />
     <edge source="p_3261" target="5289" />
+    <edge source="p_3262" target="5293" />
+    <edge source="p_3262" target="5299" />
     <edge source="4291" target="p_2778" />
     <edge source="4292" target="p_2778" />
     <edge source="4293" target="p_2778" />
@@ -72611,6 +72611,7 @@
     <edge source="p_2886" target="4531" />
     <edge source="p_2888" target="4537" />
     <edge source="p_3826" target="6585" />
+    <edge source="7446" target="p_4325" />
     <edge source="p_3448" target="5323" />
     <edge source="p_3441" target="5221" />
     <edge source="4552" target="p_3345" />
@@ -72641,6 +72642,7 @@
     <edge source="2039" target="p_1054" />
     <edge source="p_3329" target="5443" />
     <edge source="p_3329" target="5445" />
+    <edge source="p_3327" target="5439" />
     <edge source="p_3342" target="5140" />
     <edge source="p_3342" target="5141" />
     <edge source="p_3347" target="4901" />
@@ -72676,12 +72678,11 @@
     <edge source="6445" target="p_3759" />
     <edge source="6446" target="p_3759" />
     <edge source="p_3306" target="5392" />
-    <edge source="p_3309" target="5395" />
-    <edge source="p_3309" target="5396" />
     <edge source="p_3542" target="5909" />
     <edge source="p_4376" target="7569" />
     <edge source="p_4632" target="7853" />
     <edge source="4300" target="p_4589" />
+    <edge source="p_4400" target="7603" />
     <edge source="p_3982" target="5354" />
     <edge source="p_2802" target="4330" />
   </graph>

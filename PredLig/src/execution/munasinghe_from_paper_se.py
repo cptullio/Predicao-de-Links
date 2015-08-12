@@ -13,13 +13,14 @@ from analysing.Analyse import Analyse
 
 
 if __name__ == '__main__':
-    util = ParameterUtil('data/formatado/munasinghe/config_frompaper_cn.txt')
-    format = Formating(util.original_file, util.graph_file)
-    format.readingOrginalDataset()
-    format.saveGraph()
+    util = ParameterUtil('data/formatado/munasinghe/config_frompaper_se.txt')
+    #myformat = Formating(util.original_file, util.graph_file)
+    #myformat.readingOrginalDataset()
+    #myformat.saveGraph()
     myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-    selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
+    #selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     calc.Separating_calculateFile()
     calc.Ordering_separating_File()
-    #analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+    for OrderingFilePath in calc.getfilePathOrdered_separeted():
+        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
