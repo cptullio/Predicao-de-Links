@@ -78,12 +78,13 @@ class VariableSelection(object):
             lista_threads.append(thread)
             thread.start()
             if len(lista_threads) > ntreads:
-                print "esperando processo"
+                
                 for thread in lista_threads:
                     thread.join()
                 lista_threads = []
             
-        
+        for thread in lista_threads:
+            thread.join()
         
         print "getting pair of nodes that is not liked finished", datetime.today()
         
@@ -94,7 +95,6 @@ class VariableSelection(object):
     def __init__(self, graph,  filepathNodesToCalculate):
         myfile = Formating.get_abs_file_path(filepathNodesToCalculate)
         if not os.path.exists(myfile):
-            self.results = self.get_pair_nodes_not_linked(graph)
             with open(myfile, 'w') as fnodes:
                 self.get_pair_nodes_not_linked_saving_in_file(graph, fnodes)
                 fnodes.close()

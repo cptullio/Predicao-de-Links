@@ -41,18 +41,14 @@ contador = 1
 with open('step3_nodesnotlinked_Duarte_ts.txt', 'rb') as arquivo:
     for linha in arquivo:
         
-            linhaTexto = linha.strip()
-            lista_telefone.append(linhaTexto)
-            while threading.active_count() > MAX_CONEXOES:
-                #mostrar_msg("Esperando 2s...")
-                time.sleep(1)
-            thread = threading.Thread(target=consultar_cpf, args=(lista_telefone,))
-            lista_threads.append(thread)
-            thread.start()
-            contador =+ 1
-        elif contador == 100000:
-            contador = 1
-            
+        linhaTexto = linha.strip()
+        lista_telefone.append(linhaTexto)
+        thread = threading.Thread(target=consultar_cpf, args=(lista_telefone,))
+        lista_threads.append(thread)
+        thread.start()
+        print "oi"
+        contador =+ 1
+       
  
 mostrar_msg("Esperando threads abertas terminarem...")
 for thread in lista_threads:
