@@ -14,15 +14,15 @@ from analysing.Analyse import Analyse
 
 if __name__ == '__main__':
     util = ParameterUtil('data/formatado/exemplomenor/parameter_tsc.txt')
-    format = Formating(util.original_file, util.graph_file)
-    format.readingOrginalDataset()
-    format.saveGraph()
+    #format = Formating(util.original_file, util.graph_file)
+    #format.readingOrginalDataset()
+    #format.saveGraph()
     myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-    calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
-    calc.Separating_calculateFile()
-    calc.Ordering_separating_File()
-    for OrderingFilePath in calc.getfilePathOrdered_separeted():
-        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
+    #calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
+    #calc.Separating_calculateFile()
+    #calc.Ordering_separating_File()
+    #for OrderingFilePath in calc.getfilePathOrdered_separeted():
+    #    analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
     
     

@@ -16,18 +16,23 @@ class Parameterization(object):
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
         self.top_rank = top_rank
-        if FullGraph == None: 
-            self.graph = Formating.reading_graph(filePathGraph)
-        else:
-            self.graph = FullGraph
+        
         self.decay = decay
         self.t0_ = t0_
         if not os.path.exists(Formating.get_abs_file_path(filePathTrainingGraph)):
             print "Generating Trainnig graphs", datetime.today()
+            if FullGraph == None: 
+                print "Reading Full graphs", datetime.today()
+                self.graph = Formating.reading_graph(filePathGraph)
+            else:
+                self.graph = FullGraph
+            
+            
        
             self.trainnigGraph = Formating.get_graph_from_period(self.graph, t0, t0_)
             networkx.write_graphml(self.trainnigGraph, Formating.get_abs_file_path(filePathTrainingGraph))
         else:
+            print "Reading Trainnig graph", datetime.today()
             self.trainnigGraph = Formating.reading_graph(filePathTrainingGraph)
        
         if not os.path.exists(Formating.get_abs_file_path(filePathTestGraph)):
@@ -36,6 +41,7 @@ class Parameterization(object):
             self.testGraph = Formating.get_graph_from_period(self.graph, t1, t1_)
             networkx.write_graphml(self.testGraph, Formating.get_abs_file_path(filePathTestGraph))
         else:
+            print "Reading testing graph", datetime.today()
             self.testGraph = Formating.reading_graph(filePathTestGraph)
         
          

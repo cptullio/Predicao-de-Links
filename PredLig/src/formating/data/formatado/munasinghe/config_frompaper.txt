@@ -1,5 +1,5 @@
 original_file	data/original/DBLP_Citation_2014_May/publications.txt
-graph_file	data/formatado/munasinghe/step1_graph_complete.txt
+graph_file	data/formatado/munasinghe/dblp/step1_graph_complete.txt
 trainnig_graph_file	data/formatado/munasinghe/frompaper/step2_graph_train.txt
 test_graph_file	data/formatado/munasinghe/frompaper/step2_graph_test.txt
 nodes_notlinked_file	data/formatado/munasinghe/frompaper/step3_nodesnotlinked.txt

@@ -205,7 +205,7 @@ class Calculate(object):
 		
 		out_q = multiprocessing.Queue()
 		procs = []
-		nprocs = 8
+		nprocs = 100
 		for lineofFile in fcontentNodesNotLinked:
 			element = element+1
 			
@@ -241,6 +241,7 @@ class Calculate(object):
 			mini = eval(result[0])
 			maxi = eval(result[1])
 			self.qtyDataCalculated = self.qtyDataCalculated + int(result[2])
+			
 			fcontentCalcResult.write(result[3])
 			
 			for index_features in range(qtyFeatures):
