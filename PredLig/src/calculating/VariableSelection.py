@@ -66,12 +66,11 @@ class VariableSelection(object):
         self.graph = graph
         element = 0
         totalnodesOrdered = len(self.nodesOrdered)
-        out_q = multiprocessing.Queue()
         lista_threads = []
-        ntreads = 15
+        ntreads = 100
         for node1 in self.nodesOrdered:
             element = element+1
-            if element % 10 == 0:
+            if element % 100 == 0:
                 FormatingDataSets.printProgressofEvents(element, totalnodesOrdered, "Checking Node not liked: ")
             
             thread = threading.Thread(target=self.cheking_nodes, args=(node1, file))
