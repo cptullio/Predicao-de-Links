@@ -7,7 +7,7 @@ import unittest
 from parametering.ParameterUtil import ParameterUtil
 from parametering.Parameterization import Parameterization
 from calculating.VariableSelection import VariableSelection
-from calculating.Calculate import Calculate
+from calculating import CalculateMultiProcessing.Calculate
 from analysing.Analyse import Analyse
 from formating.dblp.Formating import Formating
 from formating.duarte.DuarteFormatting import DuarteFormatting
@@ -23,7 +23,7 @@ class Test(unittest.TestCase):
         util = ParameterUtil(parameter_file = parameter_file)
         myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
         selecting = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
-        calc = Calculate(myparams, selecting, util.calculated_file, util.ordered_file)
+        calc = CalculateMultiProcessing(myparams, selecting, util.calculated_file, util.ordered_file)
         calc.orderingCalculate()
         analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
 

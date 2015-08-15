@@ -35,15 +35,7 @@ class Parameterization(object):
             print "Reading Trainnig graph", datetime.today()
             self.trainnigGraph = Formating.reading_graph(filePathTrainingGraph)
        
-        if not os.path.exists(Formating.get_abs_file_path(filePathTestGraph)):
-            print "Generating Testing graphs", datetime.today()
-        
-            self.testGraph = Formating.get_graph_from_period(self.graph, t1, t1_)
-            networkx.write_graphml(self.testGraph, Formating.get_abs_file_path(filePathTestGraph))
-        else:
-            print "Reading testing graph", datetime.today()
-            self.testGraph = Formating.reading_graph(filePathTestGraph)
-        
+       
          
         for feature in self.featuresChoice:
             feature[0].graph = self.trainnigGraph
