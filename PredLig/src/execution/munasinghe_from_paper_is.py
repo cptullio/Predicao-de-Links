@@ -7,7 +7,7 @@ from parametering.ParameterUtil import ParameterUtil
 from formating.dblp.Formating import Formating
 from parametering.Parameterization import Parameterization
 from calculating.VariableSelection import VariableSelection
-from calculating import CalculateMultiProcessing.Calculate
+from calculating.CalculateMultiProcessing import CalculateMultiProcessing
 from analysing.Analyse import Analyse
 from datetime import datetime
 
@@ -24,6 +24,8 @@ if __name__ == '__main__':
     selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file)
     
     print "Tempo de execucao", (datetime.today() - inicio)
-    #calc = CalculateMultiProcessing(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
-    #calc.Separating_calculateFile()
-    #analyse = Analyse(myparams, util.ordered_file, util.analysed_file)
+    calc = CalculateMultiProcessing(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
+    calc.Separating_calculateFile()
+    calc.Ordering_separating_File()
+    for OrderingFilePath in calc.getfilePathOrdered_separeted():
+        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
