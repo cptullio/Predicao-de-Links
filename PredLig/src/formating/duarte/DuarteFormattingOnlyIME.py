@@ -9,14 +9,14 @@ import networkx
 from datetime import datetime
 
 
-class DuarteFormatting(FormatingDataSets):
+class DuarteFormattingOnlyIME(FormatingDataSets):
     
     
     def __init__(self, graphfile):
         self.Autors = []
         self.Publications = []
         self.AutorsPublicacao = []
-        super(DuarteFormatting, self).__init__('', graphfile)
+        super(DuarteFormattingOnlyIME, self).__init__('', graphfile)
         
     
     def readingOrginalDataset(self):
@@ -26,12 +26,14 @@ class DuarteFormatting(FormatingDataSets):
             con = psycopg2.connect(database='projetomestrado', user='postgres', password='123456')
             
             curPublicacao = con.cursor()
-            curPublicacao.execute("select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano >= 1990")
+            curPublicacao.execute("select distinct p.idpublicacao, p.titulo, p.ano from projetomestrado.publicacao p inner join projetomestrado.autorpublicacao a on a.idpublicacao = p.idpublicacao where a.idautor in (select idautor from projetomestrado.autor where afiliacao = 'Instituto Militar de Engenharia')")
             curPublicacaoData = curPublicacao.fetchall()
             element = 0
+            qty = len(curPublicacaoData)
+            print qty
             for linha in curPublicacaoData:
                 element = element+1
-                FormatingDataSets.printProgressofEvents(element, len(curPublicacaoData), "Adding paper to new graph: ")
+                FormatingDataSets.printProgressofEvents(element, qty, "Adding paper to new graph: ")
             
                 idpublicacao = linha[0]
                 curPublicacaoPalavras = con.cursor()
@@ -49,7 +51,6 @@ class DuarteFormatting(FormatingDataSets):
                 self.Publications.append([idpublicacao, linha[1], linha[2], palavras, autores ])
             
             self.Graph = networkx.Graph()
-            
             
             for item_article in self.Publications:
                 self.Graph.add_node('P_' + str(item_article[0]), {'node_type' : 'E', 'title' : item_article[1].decode("latin_1"), 'time' : int(item_article[2]), 'keywords': str(item_article[3]) })

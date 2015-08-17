@@ -11,32 +11,54 @@ from datetime import datetime
 
 class Parameterization(object):
     
+    
+    def generating_Test_Graph(self ):
+        if not os.path.exists(Formating.get_abs_file_path(self.filePathTestGraph)):
+            if self.graph == None:
+                print "Reading Full graphs", datetime.today()
+                self.graph = Formating.reading_graph(self.filePathGraph)
+            print "Generating Testing graphs", datetime.today()
+        
+            self.testGraph = Formating.get_graph_from_period(self.graph, self.t1, self.t1_)
+            networkx.write_graphml(self.testGraph, Formating.get_abs_file_path(self.filePathTestGraph))
+        else:
+            print "Reading testing graph", datetime.today()
+            self.testGraph = Formating.reading_graph(self.filePathTestGraph)
+            
+    def generating_Training_Graph(self):
+        if not os.path.exists(Formating.get_abs_file_path(self.filePathTrainingGraph)):
+            if self.graph == None:
+                print "Reading Full graphs", datetime.today()
+                self.graph = Formating.reading_graph(self.filePathGraph)
+            
+            print "Generating Trainnig graphs", datetime.today()
+           
+            self.trainnigGraph = Formating.get_graph_from_period(self.graph, self.t0, self.t0_)
+            
+            networkx.write_graphml(self.trainnigGraph, Formating.get_abs_file_path(self.filePathTrainingGraph))
+        else:
+            print "Reading Trainnig graph", datetime.today()
+            self.trainnigGraph = Formating.reading_graph(self.filePathTrainingGraph)
+        
+        for feature in self.featuresChoice:
+            feature[0].graph = self.trainnigGraph
+        
+    
     def __init__(self, top_rank, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
         self.distanceNeighbors = distanceNeighbors
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
         self.top_rank = top_rank
-        
         self.decay = decay
         self.t0_ = t0_
-        if not os.path.exists(Formating.get_abs_file_path(filePathTrainingGraph)):
-            print "Generating Trainnig graphs", datetime.today()
-            if FullGraph == None: 
-                print "Reading Full graphs", datetime.today()
-                self.graph = Formating.reading_graph(filePathGraph)
-            else:
-                self.graph = FullGraph
-            
-            
-       
-            self.trainnigGraph = Formating.get_graph_from_period(self.graph, t0, t0_)
-            networkx.write_graphml(self.trainnigGraph, Formating.get_abs_file_path(filePathTrainingGraph))
-        else:
-            print "Reading Trainnig graph", datetime.today()
-            self.trainnigGraph = Formating.reading_graph(filePathTrainingGraph)
-       
+        self.t0 = t0
+        self.t1 = t1
+        self.t1_ = t1_
+        self.graph = FullGraph
+        self.filePathGraph = filePathGraph
+        self.filePathTrainingGraph = filePathTrainingGraph
+        self.filePathTestGraph = filePathTestGraph
+        
        
          
-        for feature in self.featuresChoice:
-            feature[0].graph = self.trainnigGraph
         
