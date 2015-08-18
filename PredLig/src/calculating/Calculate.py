@@ -11,6 +11,7 @@ from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
 import os
 from _elementtree import Element
+from aifc import data
 
 class Calculate(object):
     
@@ -77,6 +78,7 @@ class Calculate(object):
                 cols = line.split(':')
                 data.append([float(cols[0]), cols[1], cols[2]])
             orderData = sorted(data, key=lambda value: value[0], reverse=True)
+            del data
             element = 0
             
             for item in orderData:
@@ -84,8 +86,10 @@ class Calculate(object):
                 self.printProgressofEvents(element, self.qtyDataCalculated, "Saving Data Ordered: ")
 
                 fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
+            del orderData
             fw.close()
             fr.close()
+            
             print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
             
 
@@ -203,6 +207,7 @@ class Calculate(object):
         fcontentNodesNotLinked = open(self.filepathNodesNotLinked, 'r')
         if os.path.exists(self.filepathResult):
             print "Calculate already done for this file, please delete if you want a new one.", datetime.today()
+            self.reading_Max_min_file()
             return
         
         fcontentCalcResult = open(self.filepathResult, 'w')
