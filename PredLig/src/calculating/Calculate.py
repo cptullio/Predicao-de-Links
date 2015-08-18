@@ -84,7 +84,8 @@ class Calculate(object):
             for item in orderData:
                 element = element + 1
                 self.printProgressofEvents(element, self.qtyDataCalculated, "Saving Data Ordered: ")
-
+                if element == 301:
+                    break
                 fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
             del orderData
             fw.close()
