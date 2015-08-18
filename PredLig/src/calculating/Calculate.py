@@ -10,6 +10,7 @@ from networkx.classes.function import neighbors
 from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
 import os
+from _elementtree import Element
 
 class Calculate(object):
     
@@ -87,10 +88,52 @@ class Calculate(object):
             fr.close()
             print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
             
+
+
+    def Ordering__using_memory_separating_File(self):
+        print "Starting Ordering the Calculating  in Separating File", datetime.today()
+        
+        for indice in range(len(self.preparedParameter.featuresChoice)):
+            
+            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            
+            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
+            print "reading file", str(self.preparedParameter.featuresChoice[indice])
+            lines = fr.readlines()
+            data = []
+            element = 0
+            qty = len(lines)
+            for line in lines:
+                element = element + 1
+                if element % 2000 == 0:
+                    self.printProgressofEvents(element, qty, "Buffering Calculations to ordering: ")
+                
+                cols = line.split(':')
+                data.append([float(cols[0]), cols[1], cols[2]])
+            del lines
+            print "ordering file", str(self.preparedParameter.featuresChoice[indice])
+            orderData = sorted(data, key=lambda value: value[0], reverse=True)
+            element = 0
+            for item in orderData:
+                element = element + 1
+                self.printProgressofEvents(element, self.qtyDataCalculated, "Saving Data Ordered: ")
+                if element == 301:
+                    break
+                fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
+            fw.close()
+            fr.close()
+            del data
+            del orderData
+            print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
+
     
     
     def printProgressofEvents(self, element, length, message):
         print message, str((float(element)/float(length))*float(100)) + '%', datetime.today()
+
+    def printProgressofEventsWihoutPercent(self, element, length, message):
+        print message, str(element) + ' of '  +  str(length) , datetime.today()
+
         
     #after calculating we making the ordering.  This work depends on the quantity of feature
     def orderingCalculate(self):
@@ -107,7 +150,7 @@ class Calculate(object):
                 self.printProgressofEvents(element, self.qtyDataCalculated, "Normalizing Calculations: ")
                 itemcalculations = self.reading_calculateLine(resultLine)
                 
-                newValues = []
+                newValues = []                
                 for indice in range(len(itemcalculations[0])):
                     xnormalize =self.normalize(itemcalculations[0][indice], indice)
                     #print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
@@ -174,9 +217,13 @@ class Calculate(object):
             element = element+1
             self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
             item = VariableSelection.getItemFromLine(lineofFile)
-            
+            qtyothernodenotlinked = len(item[1])
+            newelement = 0
             for neighbor_node in item[1]:
+                newelement = newelement +1
                 qtyNodesCalculated = qtyNodesCalculated + 1
+                self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
+            
                 item_result = []
                 #executing the calculation for each features chosen at parameter
                 for index_features in range(qtyFeatures):

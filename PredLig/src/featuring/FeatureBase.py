@@ -13,13 +13,19 @@ class FeatureBase(object):
     def __init__(self):
         self.graph = None
         self.neighbors_node1 = None
+        self.myneighbors = {}
         self.neighbors_node2 = None
         self.parameter = None
     
-    def generate_all_node_neighborsfromNode1(self, node1):
-        self.neighbors_node1 = set(self.all_node_neighbors(node1))
-            
-        return self.neighbors_node1
+    
+    
+    def generate_all_node_neighborsfromNode(self, node1):
+        if node1 in self.myneighbors:
+            return self.myneighbors[node1]
+        print "rescuing neibors from: ", str(node1)
+        self.myneighbors[node1] = set(self.all_node_neighbors(node1))
+        return self.myneighbors[node1]
+    
     
     def generate_all_node_neighborsfromNode2(self, node2):
         self.neighbors_node2 = set(self.all_node_neighbors(node2))
