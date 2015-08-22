@@ -11,7 +11,7 @@ from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
 import os
 from _elementtree import Element
-from aifc import data
+
 
 class Calculate(object):
     
@@ -221,13 +221,13 @@ class Calculate(object):
         partialResults = []
         for lineofFile in fcontentNodesNotLinked:
             element = element+1
-            self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
             item = VariableSelection.getItemFromLine(lineofFile)
             qtyothernodenotlinked = len(item[1])
             newelement = 0
             for neighbor_node in item[1]:
                 newelement = newelement +1
                 qtyNodesCalculated = qtyNodesCalculated + 1
+                self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
                 self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
             
                 item_result = []

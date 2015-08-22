@@ -25,11 +25,7 @@ class FeatureBase(object):
         print "rescuing neibors from: ", str(node1)
         self.myneighbors[node1] = set(self.all_node_neighbors(node1))
         return self.myneighbors[node1]
-    
-    
-    def generate_all_node_neighborsfromNode2(self, node2):
-        self.neighbors_node2 = set(self.all_node_neighbors(node2))
-        return self.neighbors_node2
+   
        
     @abstractmethod
     def execute(self, node1, node2):
@@ -51,8 +47,8 @@ class FeatureBase(object):
     
     
     def get_common_neighbors(self, node1, node2):
-        neighbors_node_1 = self.all_node_neighbors(node1)
-        neighbors_node_2 = self.all_node_neighbors(node2)
+        neighbors_node_1 = self.generate_all_node_neighborsfromNode(node1)
+        neighbors_node_2 = self.generate_all_node_neighborsfromNode(node2)
         return neighbors_node_1.intersection(neighbors_node_2)    
     
         

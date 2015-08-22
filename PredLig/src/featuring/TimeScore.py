@@ -17,13 +17,21 @@ class TimeScore(FeatureBase):
 
     def __init__(self):
         super(TimeScore, self).__init__()
+        self.times = {}
         
     def get_TimeofLinks(self, graph, node1, node2):
         result = []
         for node in networkx.common_neighbors(graph, node1, node2):
-            for n,d in graph.nodes(data=True):
-                if n == node:
-                    result.append(d['time'])
+            if node in self.times:
+                print "already found the time for paper ", node
+            else:
+                print "rescuing time from paper: ", str(node)
+                
+                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
+                #print paper
+                print paper[0]['time']
+                self.times[node] = paper[0]['time']
+            result.append(self.times[node])
         result.sort(reverse=True)
         return result
 
