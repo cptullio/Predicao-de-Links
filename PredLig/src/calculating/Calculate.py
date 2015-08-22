@@ -11,6 +11,7 @@ from formating.FormatingDataSets import FormatingDataSets
 from calculating.VariableSelection import VariableSelection
 import os
 from _elementtree import Element
+import gc
 
 
 class Calculate(object):
@@ -60,39 +61,87 @@ class Calculate(object):
             data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt')
         return data
     
+    
+    def generating_part_files_for_ordering_in_memory(self, file):
+        total = self.qtyDataCalculated / 4
+        fw1 = open(file.name + '.part1.txt', 'w')
+        fw2 = open(file.name + '.part2.txt','w')
+        fw3 = open(file.name + '.part3.txt','w')
+        fw4 = open(file.name + '.part4.txt','w')
+        element = 0
+        for line in file:
+            element = element+1
+            if element < total:
+                fw1.write(line)
+            elif element < (total*2):
+                fw2.write(line)
+            elif element < (total*3):
+                fw3.write(line)
+            else:
+                fw4.write(line)
+            
+        fw1.close()
+        fw2.close()
+        fw3.close()
+        fw4.close()
+        newfiles = [open(file.name + '.part1.txt', 'r'),open(file.name + '.part2.txt', 'r'),open(file.name + '.part3.txt', 'r'),open(file.name + '.part4.txt', 'r') ]
+        return newfiles
+        
+    
+    
+        
     def Ordering_separating_File(self):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
         
         for indice in range(len(self.preparedParameter.featuresChoice)):
-            
-            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
-            
+            print "Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
             fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
-            data = []
-            element = 0
-            
-            for line in fr:
-                element = element + 1
-                self.printProgressofEvents(element, self.qtyDataCalculated, "Buffering Calculations to ordering: ")
-                
-                cols = line.split(':')
-                data.append([float(cols[0]), cols[1], cols[2]])
-            orderData = sorted(data, key=lambda value: value[0], reverse=True)
-            del data
-            element = 0
-            
-            for item in orderData:
-                element = element + 1
-                self.printProgressofEvents(element, self.qtyDataCalculated, "Saving Data Ordered: ")
-                if element == 301:
-                    break
-                fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
-            del orderData
-            fw.close()
+            print "Separating File Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
+            filesPart = self.generating_part_files_for_ordering_in_memory(fr)
             fr.close()
+            itemPart = 0
+            for fp in filesPart:
+                itemPart = itemPart+1
+                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ itemPart+'.txt', 'w')
+                print "Ordering " , fw.name
+                data = []
+                for line in fp:
+                    cols = line.split(':')
+                    data.append([float(cols[0]), cols[1], cols[2]])
+                orderData = sorted(data, key=lambda value: value[0], reverse=True)
+                data = None
+                del data
+                print "Saving data Ordering " , fw.name
+                
+                for item in orderData:
+                    fw.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
+                orderData = None
+                del orderData
+                gc.collect()
+                fw.close()
+                fp.close()
             
-            print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
+            print "Now Ordering by top rank", datetime.now()
+            FinalData = []
+            for i in range(itemPart):
+                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ (i+1)+'.txt', 'r')
+                element = 0
+                for line in frPart:
+                    element = element + 1
+                    if element > self.preparedParameter.top_rank:
+                        break
+                    cols = line.split('\t')
+                    FinalData.append([float(cols[0]), cols[1], cols[2]])
+            orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=True)
+            fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            for item in orderFinalData:
+                fwFinal.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
+             
+            
+            
+            
+        print "Ordering the Calculating  in Separating File FINISHED", datetime.today()
             
 
 
