@@ -63,6 +63,7 @@ class Calculate(object):
     def Ordering_separating_File(self):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
+        
         for indice in range(len(self.preparedParameter.featuresChoice)):
             
             fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
