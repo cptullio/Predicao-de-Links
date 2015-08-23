@@ -64,26 +64,29 @@ class Calculate(object):
     
     def generating_part_files_for_ordering_in_memory(self, file):
         total = self.qtyDataCalculated / 4
-        fw1 = open(file.name + '.part1.txt', 'w')
-        fw2 = open(file.name + '.part2.txt','w')
-        fw3 = open(file.name + '.part3.txt','w')
-        fw4 = open(file.name + '.part4.txt','w')
-        element = 0
-        for line in file:
-            element = element+1
-            if element < total:
-                fw1.write(line)
-            elif element < (total*2):
-                fw2.write(line)
-            elif element < (total*3):
-                fw3.write(line)
-            else:
-                fw4.write(line)
+        if os.path.exists(file.name + '.part1.txt'):
+            print "Separated Files already done.", datetime.today()
+        else:
+            fw1 = open(file.name + '.part1.txt', 'w')
+            fw2 = open(file.name + '.part2.txt','w')
+            fw3 = open(file.name + '.part3.txt','w')
+            fw4 = open(file.name + '.part4.txt','w')
+            element = 0
+            for line in file:
+                element = element+1
+                if element < total:
+                    fw1.write(line)
+                elif element < (total*2):
+                    fw2.write(line)
+                elif element < (total*3):
+                    fw3.write(line)
+                else:
+                    fw4.write(line)
             
-        fw1.close()
-        fw2.close()
-        fw3.close()
-        fw4.close()
+            fw1.close()
+            fw2.close()
+            fw3.close()
+            fw4.close()
         newfiles = [open(file.name + '.part1.txt', 'r'),open(file.name + '.part2.txt', 'r'),open(file.name + '.part3.txt', 'r'),open(file.name + '.part4.txt', 'r') ]
         return newfiles
         
@@ -103,7 +106,7 @@ class Calculate(object):
             itemPart = 0
             for fp in filesPart:
                 itemPart = itemPart+1
-                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ itemPart+'.txt', 'w')
+                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str(itemPart)+'.txt', 'w')
                 print "Ordering " , fw.name
                 data = []
                 for line in fp:
@@ -125,7 +128,7 @@ class Calculate(object):
             print "Now Ordering by top rank", datetime.now()
             FinalData = []
             for i in range(itemPart):
-                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ (i+1)+'.txt', 'r')
+                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str((i+1))+'.txt', 'r')
                 element = 0
                 for line in frPart:
                     element = element + 1
