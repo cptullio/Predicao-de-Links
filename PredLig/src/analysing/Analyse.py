@@ -10,6 +10,16 @@ from datetime import datetime
 
 class Analyse(object):
 
+    @staticmethod
+    def getTopRank(relativeFilePathRandomAnalised):
+        absFile = FormatingDataSets.get_abs_file_path(relativeFilePathRandomAnalised)
+        f = open(absFile, 'r')
+        for last in f:
+            pass
+        return int(last.split('\t')[1])
+        
+        
+    
     def __init__(self, preparedParameters, filePathResults, filePathAnalyseResult, topRank):
         print "Starting Analysing the results", datetime.today()
         

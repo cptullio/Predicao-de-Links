@@ -14,5 +14,7 @@ if __name__ == '__main__':
     myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     myparams.generating_Test_Graph()
+    topRank = Analyse.getTopRank(util.analysed_file + '.random.analised.txt')
+    print 'Analising Files with TopRank', str(topRank)
     for OrderingFilePath in calc.getfilePathOrdered_separeted():
-        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
+        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt', topRank )
