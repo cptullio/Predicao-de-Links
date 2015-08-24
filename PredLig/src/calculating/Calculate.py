@@ -17,6 +17,8 @@ import gc
 class Calculate(object):
     
     
+    
+    
     def reading_calculateLine(self, line):
         calcs = []
         cols = line.split('\t')

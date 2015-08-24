@@ -2,7 +2,7 @@
 Created on Aug 22, 2015
 
 @author: cptullio
-Generating TopRank
+Analysing the results
 '''
 from parametering.ParameterUtil import ParameterUtil
 from parametering.Parameterization import Parameterization
@@ -14,4 +14,5 @@ if __name__ == '__main__':
     myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     myparams.generating_Test_Graph()
-    analise = Analyse(myparams, util.calculated_file, util.analysed_file + '.Random.analised.txt' )
+    for OrderingFilePath in calc.getfilePathOrdered_separeted():
+        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt' )
