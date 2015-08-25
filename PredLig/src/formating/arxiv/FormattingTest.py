@@ -9,11 +9,6 @@ Created on Aug 2, 2015
 '''
 
 import urllib
-
-
-
-
-
 import xml.dom.minidom
 import time
 import feedparser
