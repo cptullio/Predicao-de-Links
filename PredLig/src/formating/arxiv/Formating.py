@@ -55,16 +55,17 @@ class Formating(FormatingDataSets):
                 title = str(entry.title.encode("utf-8"))
                 yearPublication = int(entry.published.split('-')[0])
                 authors = set()
-                categories = ()
-                print entry.category
-                print entry.category
+                categories = set()
+                for t in entry.tags:
+                    categories.add(t.term)
+                print categories
                 
-                for c in entry.categories:
-                    print c
+                
+                
                 for a  in entry.authors:
                     authors.add(a.name.encode("utf-8"))
                 
-                data = [idpaper, title,  yearPublication,  authors ] 
+                data = [idpaper, title,  yearPublication, categories, authors ] 
                 new_article.append(data)
                
       
@@ -91,7 +92,7 @@ class Formating(FormatingDataSets):
             element = 0
             while True:
                 element = element+1
-                begin = self.get_articles(search_queryMid, 0, qty[0], 2)
+                begin = self.get_articles(search_queryMid, 0, qty[0], 2000)
                 if len(begin) == qty[0]:
                     break
                 else:
@@ -119,7 +120,7 @@ class Formating(FormatingDataSets):
             
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'w')
             for item in articles:
-                f.write(item[0] + '\t' + item[1] + '\t' + str(item[2]) + '\t' + repr(item[3] ) + '\n')
+                f.write(item[0] + '\t' + item[1] + '\t' + str(item[2]) + '\t' + repr(item[3] ) + '\t'+ repr(item[4]) + '\n')
             f.close()
             articles = None
             del articles
