@@ -9,6 +9,7 @@ import xml.dom.minidom
 import time
 import feedparser
 import networkx
+import gc
 
     
 class Formating(FormatingDataSets):
@@ -54,6 +55,12 @@ class Formating(FormatingDataSets):
                 title = str(entry.title.encode("utf-8"))
                 yearPublication = int(entry.published.split('-')[0])
                 authors = set()
+                categories = ()
+                print entry.category
+                print entry.category
+                
+                for c in entry.categories:
+                    print c
                 for a  in entry.authors:
                     authors.add(a.name.encode("utf-8"))
                 
@@ -70,12 +77,11 @@ class Formating(FormatingDataSets):
     
     
     def readingOrginalDataset(self):
-        yearstoRescue = [2005]
-        #yearstoRescue = [2005,2006,2007,2008,2009, 2010,2011]
-        articles = []
-        authornames= []
+        #yearstoRescue = [2005,]
+        yearstoRescue = [2012,2013,2014]
+        
         for year in  yearstoRescue:
-
+            articles = []
             qty = self.get_qty_records_mid_year(year);
             print qty
             search_queryMid = 'cat:astro-ph*+AND+submittedDate:['+str(year)+'01010000+TO+'+str(year)+'06312359]' # search for electron in all fields
@@ -85,7 +91,7 @@ class Formating(FormatingDataSets):
             element = 0
             while True:
                 element = element+1
-                begin = self.get_articles(search_queryMid, 0, qty[0], 1000)
+                begin = self.get_articles(search_queryMid, 0, qty[0], 2)
                 if len(begin) == qty[0]:
                     break
                 else:
@@ -100,7 +106,7 @@ class Formating(FormatingDataSets):
             final = None
             element = 0
             while True:
-                final = self.get_articles(search_queryfinal, 0, qty[1], 1000)
+                final = self.get_articles(search_queryfinal, 0, qty[1], 2000)
                 if len(final) == qty[1]:
                     break
                 else:
@@ -110,16 +116,14 @@ class Formating(FormatingDataSets):
                     exit()
             for j in final:
                 articles.append(j)
-        
-        self.Graph = networkx.Graph()
-        for item_article in articles:
-            self.Graph.add_node(item_article[0], {'node_type' : 'E', 'title' : item_article[1], 'time' : item_article[2] })
-            for item_author in item_article[3]:
-                if not item_author in authornames:
-                    authornames.append(item_author)
-                authorid = authornames.index(item_author)+1
-                self.Graph.add_node(int(authorid), {'node_type' : 'N', 'name' : item_author })
-                self.Graph.add_edge(item_article[0], int(authorid) )
+            
+            f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'w')
+            for item in articles:
+                f.write(item[0] + '\t' + item[1] + '\t' + str(item[2]) + '\t' + repr(item[3] ) + '\n')
+            f.close()
+            articles = None
+            del articles
+            
                 
                 
         
