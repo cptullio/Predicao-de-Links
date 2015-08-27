@@ -7,10 +7,10 @@ calculated_file	data/formatado/arxiv/nowell_astroph_2004_2010/Calculated.txt
 maxmincalculated_file	data/formatado/arxiv/nowell_astroph_2004_2010/MaxMinCalculated.txt
 ordered_file	data/formatado/arxiv/nowell_astroph_2004_2010/ordered.txt
 analysed_file	data/formatado/arxiv/nowell_astroph_2004_2010/analysed.txt
-t0	2000
-t0_	2003
-t1	2000
-t1_	2006
+t0	2004
+t0_	2007
+t1	2004
+t1_	2010
 decay	0.8
 top_rank	100
 distanceNeighbors	0

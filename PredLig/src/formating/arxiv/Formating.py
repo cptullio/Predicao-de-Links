@@ -85,6 +85,7 @@ class Formating(FormatingDataSets):
         begin = datetime.today()
         for year in  yearstoRescue:
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
+            print 'reading', f.name
             for line in f:
                 
                 cols = line.split('\t')
@@ -103,7 +104,9 @@ class Formating(FormatingDataSets):
             self.Graph.add_node(int(element), {'node_type' : 'N', 'name' : i.decode("latin_1") })
             
         for year in  yearstoRescue:
+            
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
+            print 'Reading', f.name
             for line in f:
                 cols = line.split('\t')
                 if len(cols) == 5:
