@@ -10,6 +10,7 @@ import time
 import feedparser
 import networkx
 import gc
+from datetime import datetime
 
     
 class Formating(FormatingDataSets):
@@ -76,6 +77,45 @@ class Formating(FormatingDataSets):
         return new_article
 
     
+    def generating_graph(self):
+        yearstoRescue = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014]
+        self.Graph = networkx.Graph()
+        
+        authors = []
+        begin = datetime.today()
+        for year in  yearstoRescue:
+            f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
+            for line in f:
+                
+                cols = line.split('\t')
+                if len(cols) == 5:
+                    keywords = eval(cols[3])
+                    self.Graph.add_node('P_' + str(cols[0]), {'node_type' : 'E', 'title' : cols[1].decode("latin_1"), 'time' : int(cols[2]), 'keywords': repr(keywords) })
+                    authors_in_file = eval(cols[4])
+                    for x in authors_in_file:
+                        if not x in authors:
+                            authors.append(x)
+            f.close()
+        
+        element = 0
+        for i in authors:
+            element = element + 1            
+            self.Graph.add_node(int(element), {'node_type' : 'N', 'name' : i.decode("latin_1") })
+            
+        for year in  yearstoRescue:
+            f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
+            for line in f:
+                cols = line.split('\t')
+                if len(cols) == 5:
+                    authors_in_file = eval(cols[4])
+                    for x in authors_in_file:
+                        self.Graph.add_edge('P_' + str(cols[0]), int(authors.index(x)+1) )
+                
+                        
+                
+           
+            
+         
     
     def readingOrginalDataset(self):
         #yearstoRescue = [2005,]

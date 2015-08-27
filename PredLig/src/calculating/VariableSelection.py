@@ -21,20 +21,27 @@ class VariableSelection(object):
         print "Starting getting pair of nodes that is not liked", datetime.today()
         results = []
         currentNodes =set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        print 'qty of authors: ', len(currentNodes)
         nodesOrdered = sorted(currentNodes)
         element = 0
         totalnodesOrdered = len(nodesOrdered)
         for node1 in nodesOrdered:
-            element = element+1
-            FormatingDataSets.printProgressofEvents(element, totalnodesOrdered, "Checking Node not liked: ")
+            if (len(set(networkx.all_neighbors(graph, node1))) < 3):
+                print "Not more them 3 articles"
+            else:
+                element = element+1
+                FormatingDataSets.printProgressofEvents(element, totalnodesOrdered, "Checking Node not liked: ")
             
-            others =  set(n for n in nodesOrdered if n > node1)
+                others =  set(n for n in nodesOrdered if n > node1)
             
-            notLinked = set()
-            for other_node in others:
-                if len(set(networkx.common_neighbors(graph, node1, other_node))) == 0:
-                    notLinked.add(other_node)
-            results.append([node1, notLinked])
+                notLinked = set()
+                for other_node in others:
+                    if (len(set(networkx.all_neighbors(graph, other_node))) < 3):
+                        pass
+                    else:
+                        if len(set(networkx.common_neighbors(graph, node1, other_node))) == 0:
+                            notLinked.add(other_node)
+                results.append([node1, notLinked])
             if element % 2000 == 0:
                 for item in results:
                     file.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')
