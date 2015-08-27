@@ -18,14 +18,22 @@ class TimeScoreCR(FeatureBase):
 
     def __init__(self):
         super(TimeScoreCR, self).__init__()
+        self.linkObjects = {}
         
-    def get_TimeofLinks(self, graph, node1, node2):
+    def get_ObjectsofLinks(self, graph, node1, node2):
         result = []
         for node in networkx.common_neighbors(graph, node1, node2):
-            for n,d in graph.nodes(data=True):
-                if n == node:
-                    result.append(d['time'])
-        result.sort(reverse=True)
+            if node in self.linkObjects:
+                print "already found the time for paper ", node
+            else:
+                print "rescuing time from paper: ", str(node)
+                
+                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
+                #print paper
+                print paper[0]['time']
+                self.linkObjects[node] = [paper[0]['time'],ast.literal_eval(paper['keywords'])]
+            result.append(self.linkObjects[node])
+        #result.sort(reverse=True)
         return result
     
     def get_BagofWords(self, graph, node1, node2):
@@ -50,12 +58,24 @@ class TimeScoreCR(FeatureBase):
         timescoreValue = 0
         for pair_common_neighbor in pair_common_neighbors:
             
-            timesNode1 = self.get_TimeofLinks(self.graph, node1, pair_common_neighbor)
-            timesNode2 = self.get_TimeofLinks(self.graph, node2, pair_common_neighbor)
+            objectsNode1 = self.get_ObjectsofLinks(self.graph, node1, pair_common_neighbor)
+            objectsNode2 = self.get_ObjectsofLinks(self.graph, node2, pair_common_neighbor)
+            print objectsNode1
+            print objectsNode2
+            
+            timesNode1 = []
+            timesNode2 = []
+            bagofWordsNode1 = set()
+            bagofWordsNode2 = set()
+            
+            for t1 in objectsNode1:
+                timesNode1.append(t1[0])
+                bagofWordsNode1.add(t1[1])
+            for t2 in objectsNode2:
+                timesNode2.append(t2[0])
+                bagofWordsNode2.add(t2[1])
             print timesNode1
             print timesNode2
-            bagofWordsNode1 = self.get_BagofWords(self.graph, node1, pair_common_neighbor)
-            bagofWordsNode2 = self.get_BagofWords(self.graph, node2, pair_common_neighbor)
             print bagofWordsNode1
             print bagofWordsNode2
             jcKeyworkds = self.get_jacard_keywords(bagofWordsNode1, bagofWordsNode2)

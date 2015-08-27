@@ -31,7 +31,7 @@ class Analyse(object):
             element = 0
             for line in fResult:
                 element = element+1
-                FormatingDataSets.printProgressofEvents(element, preparedParameters.top_rank, "Analysing the results: ")
+                FormatingDataSets.printProgressofEvents(element, topRank, "Analysing the results: ")
                 cols = line.strip().replace('\n','').split('\t')
                 if len(list(networkx.common_neighbors(preparedParameters.testGraph, cols[len(cols)-2] ,  cols[len(cols)-1] ))) != 0:
                     self.success = self.success + 1
