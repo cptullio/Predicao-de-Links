@@ -7,6 +7,7 @@ import networkx
 from formating.dblp.Formating import Formating
 import os.path
 from datetime import datetime
+import gc
 
 
 class Parameterization(object):
@@ -42,7 +43,23 @@ class Parameterization(object):
         
         for feature in self.featuresChoice:
             feature[0].graph = self.trainnigGraph
-        
+    
+    def get_edges(self, graph):
+        myedges = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E')
+        result = len(myedges)
+        del myedges
+        myedges = None
+        gc.collect()
+        return result
+    
+    def get_nodes(self, graph):
+        mynodes = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        result =  len(mynodes)
+        del mynodes
+        mynodes = None
+        gc.collect()
+        return result
+    
     
     def __init__(self, top_rank, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
         self.distanceNeighbors = distanceNeighbors

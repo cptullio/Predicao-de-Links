@@ -31,7 +31,8 @@ class TimeScoreCR(FeatureBase):
                 paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
                 #print paper
                 print paper[0]['time']
-                self.linkObjects[node] = [paper[0]['time'],ast.literal_eval(paper['keywords'])]
+                
+                self.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
             result.append(self.linkObjects[node])
         #result.sort(reverse=True)
         return result
@@ -57,7 +58,7 @@ class TimeScoreCR(FeatureBase):
         timesofLinks = []
         timescoreValue = 0
         for pair_common_neighbor in pair_common_neighbors:
-            
+            print 'olha!'
             objectsNode1 = self.get_ObjectsofLinks(self.graph, node1, pair_common_neighbor)
             objectsNode2 = self.get_ObjectsofLinks(self.graph, node2, pair_common_neighbor)
             print objectsNode1
@@ -70,10 +71,12 @@ class TimeScoreCR(FeatureBase):
             
             for t1 in objectsNode1:
                 timesNode1.append(t1[0])
-                bagofWordsNode1.add(t1[1])
+                for bt1 in t1[1]:
+                    bagofWordsNode1.add(bt1)
             for t2 in objectsNode2:
                 timesNode2.append(t2[0])
-                bagofWordsNode2.add(t2[1])
+                for bt2 in t2[1]:
+                    bagofWordsNode2.add(bt2)
             print timesNode1
             print timesNode2
             print bagofWordsNode1

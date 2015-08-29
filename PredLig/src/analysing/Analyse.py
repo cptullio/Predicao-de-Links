@@ -18,6 +18,25 @@ class Analyse(object):
             pass
         return int(last.split('\t')[1])
         
+    @staticmethod
+    def getTopRankABSPathFiles(absoluteFilePathAnalysed):
+        f = open(absoluteFilePathAnalysed, 'r')
+        for last in f:
+            pass
+        return int(last.split('\t')[1])
+    
+    @staticmethod
+    def getLastInfosofResultsABSPathFiles(absoluteFilePathAnalysed, TopRank):
+        f = open(absoluteFilePathAnalysed, 'r')
+        line = 0
+        info = []
+        for last in f:
+            line = line +1
+            if line >= TopRank:
+                info.append(last)
+            pass
+        return info
+    
         
     
     def __init__(self, preparedParameters, filePathResults, filePathAnalyseResult, topRank):
