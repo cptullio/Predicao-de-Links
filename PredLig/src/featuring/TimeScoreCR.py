@@ -93,11 +93,11 @@ class TimeScoreCR(FeatureBase):
             MaxNode1 = max(timesNode1)
             MaxNode2 = max(timesNode2)
             
-            amplitudeMaxima =  abs(min(MinNode1,MinNode2) - int(datetime.today().year))
+            amplitudeMaxima =  abs(min(MinNode1,MinNode2) - int(self.parameter.t0_))
             frequenciaNode1 = float(len(timesNode1)) / float(amplitudeMaxima)
             frequenciaNode2 = float(len(timesNode2)) / float(amplitudeMaxima)
             hm = (frequenciaNode1 + frequenciaNode2) / float(2)
-            k =  int(datetime.today().year)  - int(max(list(timesofLinks))[0])
+            k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(list(timesofLinks[0])) - max(list(timesofLinks[1])))  + 1)
             ts =  ( (hm * decayfunction) / control   )
