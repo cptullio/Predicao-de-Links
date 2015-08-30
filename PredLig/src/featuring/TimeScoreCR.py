@@ -93,7 +93,7 @@ class TimeScoreCR(FeatureBase):
             MaxNode1 = max(timesNode1)
             MaxNode2 = max(timesNode2)
             
-            amplitudeMaxima =  abs(min(MinNode1,MinNode2) - int(self.parameter.t0_))
+            amplitudeMaxima =  3
             frequenciaNode1 = float(len(timesNode1)) / float(amplitudeMaxima)
             frequenciaNode2 = float(len(timesNode2)) / float(amplitudeMaxima)
             hm = (frequenciaNode1 + frequenciaNode2) / float(2)
