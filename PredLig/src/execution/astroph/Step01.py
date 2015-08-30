@@ -14,6 +14,5 @@ from formating.arxiv.Formating import Formating
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/completo/astroph/config_nowell.txt')
     astroPh = Formating(util.graph_file)
-    #astroPh.readingOrginalDataset()
-    astroPh.generating_graph()
+    astroPh.readingOrginalDataset()
     astroPh.saveGraph()

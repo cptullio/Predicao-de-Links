@@ -26,13 +26,13 @@ if __name__ == '__main__':
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     calc.reading_Max_min_file()
     print "# pair of Authors with at least 3 articles Calculated: ", calc.qtyDataCalculated  #FormatingDataSets.getTotalLineNumbers(FormatingDataSets.get_abs_file_path(util.calculated_file))
-    print "# pair of Authors with at least 3 articles that is connected in Test Graph in a random way: ", Analyse.getTopRank(util.analysed_file+ '.random.analised.txt')
-    
+    topRank = Analyse.getTopRank(util.analysed_file+ '.random.analised.txt')
+    print "# pair of Authors with at least 3 articles that is connected in Test Graph in a random way: ", topRank
     print "Max values found in calculations: ", str(calc.maxValueCalculated)
     print "Min Values found in calculations: ", str(calc.minValueCalculated)
     for pathFile in calc.getfilePathOrdered_separeted():
-        print "File Analised: ", pathFile
-        topRank =  Analyse.getTopRankABSPathFiles(pathFile)
-        print "Top Rank: ", topRank
-        print "last informations of the file: ", Analyse.getLastInfosofResultsABSPathFiles(pathFile, topRank)
+        print "File Analised: ", pathFile +  '.analised.txt'
+        number_connected =  Analyse.getTopRankABSPathFiles(pathFile + '.analised.txt')
+        print "# pair of Authors that is connected in Test Graph: ", number_connected
+        print "%: ", Analyse.getLastInfosofResultsABSPathFiles(pathFile + '.analised.txt', topRank)
         print "---------------------------------"

@@ -95,7 +95,7 @@ class Calculate(object):
     
     
         
-    def Ordering_separating_File(self):
+    def Ordering_separating_File(self, topRank):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
         
@@ -134,7 +134,7 @@ class Calculate(object):
                 element = 0
                 for line in frPart:
                     element = element + 1
-                    if element > self.preparedParameter.top_rank:
+                    if element > topRank:
                         break
                     cols = line.split('\t')
                     FinalData.append([float(cols[0]), cols[1], cols[2]])

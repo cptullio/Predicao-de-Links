@@ -32,10 +32,10 @@ class Analyse(object):
         info = []
         for last in f:
             line = line +1
-            if line >= TopRank:
+            if line > TopRank:
                 info.append(last)
             pass
-        return info
+        return info[0].split('\t')[1]
     
         
     
