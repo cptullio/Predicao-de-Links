@@ -58,7 +58,10 @@ class Formating(FormatingDataSets):
                 authors = set()
                 categories = set()
                 for t in entry.tags:
-                    categories.add(t.term)
+                    if ',' in t.term:
+                        print idpaper, 'with strange information at categories'
+                    else:
+                        categories.add(t.term)
                 
                 
                 
@@ -90,7 +93,13 @@ class Formating(FormatingDataSets):
                 
                 cols = line.split('\t')
                 if len(cols) == 5:
-                    keywords = eval(cols[3])
+                    keywords_not_clean = eval(cols[3])
+                    keywords = set()
+                    for k in keywords_not_clean:
+                        if ',' in k:
+                            print k, 'with strange information at categories'
+                        else:
+                            keywords.add(k)
                     self.Graph.add_node('P_' + str(cols[0]), {'node_type' : 'E', 'title' : cols[1].decode("latin_1"), 'time' : int(cols[2]), 'keywords': repr(keywords) })
                     authors_in_file = eval(cols[4])
                     for x in authors_in_file:

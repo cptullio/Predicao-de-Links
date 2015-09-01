@@ -51,6 +51,8 @@ class TimeScoreCR(FeatureBase):
     def get_jacard_keywords(self, bagofWordsNode1, bagofWordsNode2):
         f = (float)(len(bagofWordsNode1.intersection(bagofWordsNode2)))
         x = (float)(len(bagofWordsNode1.union(bagofWordsNode2)))
+        if x == 0:
+            return 0
         return f/x
     
     def execute(self, node1, node2):
