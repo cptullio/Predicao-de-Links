@@ -28,11 +28,13 @@ class TimeScoreCR(FeatureBase):
             else:
                 print "rescuing time from paper: ", str(node)
                 
+                MaxAmplitude = self.parameter.t0_ - 3
+                
                 paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
                 #print paper
                 print paper[0]['time']
-                
-                self.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
+                if paper[0]['time'] >= MaxAmplitude:
+                    self.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
             result.append(self.linkObjects[node])
         #result.sort(reverse=True)
         return result
@@ -84,8 +86,6 @@ class TimeScoreCR(FeatureBase):
             print bagofWordsNode1
             print bagofWordsNode2
             jcKeyworkds = self.get_jacard_keywords(bagofWordsNode1, bagofWordsNode2)
-            if jcKeyworkds == 0:
-                jcKeyworkds=1;
             
             timesofLinks.append(timesNode1)
             timesofLinks.append(timesNode2)
@@ -95,17 +95,16 @@ class TimeScoreCR(FeatureBase):
             MaxNode1 = max(timesNode1)
             MaxNode2 = max(timesNode2)
             
-            amplitudeMaxima =  3
-            frequenciaNode1 = float(len(timesNode1)) / float(amplitudeMaxima)
-            frequenciaNode2 = float(len(timesNode2)) / float(amplitudeMaxima)
-            hm = (frequenciaNode1 + frequenciaNode2) / float(2)
+            total = float(0)
+            for publications in timesofLinks:
+                total = total + 1/float(len(publications))
+            hm = 2 / total
+            
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(list(timesofLinks[0])) - max(list(timesofLinks[1])))  + 1)
-            ts =  ( (hm * decayfunction) / control   )
-            
-            tswithKeywords = ts * (1/jcKeyworkds)
-            timescoreValue = timescoreValue + tswithKeywords
+            ts =  ( (hm * decayfunction) / (control * self.parameter.decay ** jcKeyworkds ) )
+            timescoreValue = timescoreValue + ts
             
         return timescoreValue    
             
