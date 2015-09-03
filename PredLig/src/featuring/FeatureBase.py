@@ -22,7 +22,6 @@ class FeatureBase(object):
     def generate_all_node_neighborsfromNode(self, node1):
         if node1 in self.myneighbors:
             return self.myneighbors[node1]
-        print "rescuing neibors from: ", str(node1)
         self.myneighbors[node1] = set(self.all_node_neighbors(node1))
         return self.myneighbors[node1]
    

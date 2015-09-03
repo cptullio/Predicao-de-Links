@@ -27,6 +27,8 @@ class Calculate(object):
         return [calcs, cols[len(cols)-2], cols[len(cols)-1]  ] 
     
     def normalize(self, data, indice):
+        if self.maxValueCalculated[indice] == self.minValueCalculated[indice]:
+            return data
         xnormalize = (data - self.minValueCalculated[indice])/(self.maxValueCalculated[indice] - self.minValueCalculated[indice])
         return xnormalize            
         
@@ -195,57 +197,7 @@ class Calculate(object):
         print message, str(element) + ' of '  +  str(length) , datetime.today()
 
         
-    #after calculating we making the ordering.  This work depends on the quantity of feature
-    def orderingCalculate(self):
-        print "Starting Ordering the Calculating File", datetime.today()
-        
-        fResult = open(self.filepathResult, 'r')
-        self.reading_Max_min_file()
-        result = []
-        orderedResult = None
-        if len(self.preparedParameter.featuresChoice) > 1:
-            element = 0
-            for resultLine in fResult:
-                element = element+1
-                self.printProgressofEvents(element, self.qtyDataCalculated, "Normalizing Calculations: ")
-                itemcalculations = self.reading_calculateLine(resultLine)
-                
-                newValues = []                
-                for indice in range(len(itemcalculations[0])):
-                    xnormalize =self.normalize(itemcalculations[0][indice], indice)
-                    #print xnormalize, item, minvalueofCalculate, maxvalueofCalculate
-                    newValues.append(xnormalize)
-                
-                result.append( [numpy.sum(newValues), newValues, itemcalculations[1],itemcalculations[2]  ] )
-                
-            orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
-            
-            with open(self.filePathOrdered, 'w') as myfile:
-                element = 0
-                for item in orderedResult:
-                    element = element + 1
-                    self.printProgressofEvents(element, self.qtyDataCalculated, "Saving data ordered: ")
-                    myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) +  '\t' +str(item[3]) )
-            
-        else:
-            element = 0
-            for resultLine in fResult:
-                element = element+1
-                self.printProgressofEvents(element, self.qtyDataCalculated, "Reading Calculations: ")
-                itemcalculations = self.reading_calculateLine(resultLine)
-                result.append( [itemcalculations[0][0], itemcalculations[1],itemcalculations[2]  ] )
-            orderedResult = sorted(result, key=lambda sum_value: sum_value[0], reverse=True)
-            
-            with open(self.filePathOrdered, 'w') as myfile:
-                element = 0
-                for item in orderedResult:
-                    element = element + 1
-                    self.printProgressofEvents(element, self.qtyDataCalculated, "Saving data ordered: ")
-                    myfile.write(str(item[0]) +  '\t' + str(item[1]) +  '\t' +str(item[2]) )
-        
-        print "Ordering the Calculating File finished", datetime.today()
-                
-        
+    
 
     
     
@@ -282,8 +234,8 @@ class Calculate(object):
             for neighbor_node in item[1]:
                 newelement = newelement +1
                 qtyNodesCalculated = qtyNodesCalculated + 1
-                self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
-                self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
+                #self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
+                #self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
             
                 item_result = []
                 #executing the calculation for each features chosen at parameter

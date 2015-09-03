@@ -1,0 +1,72 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="title" attr.type="string" for="node" id="d4" />
+  <key attr.name="time" attr.type="int" for="node" id="d3" />
+  <key attr.name="keywords" attr.type="string" for="node" id="d2" />
+  <key attr.name="name" attr.type="string" for="node" id="d1" />
+  <key attr.name="node_type" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="1">
+      <data key="d0">N</data>
+      <data key="d1">A</data>
+    </node>
+    <node id="2">
+      <data key="d0">N</data>
+      <data key="d1">B</data>
+    </node>
+    <node id="3">
+      <data key="d0">N</data>
+      <data key="d1">C</data>
+    </node>
+    <node id="4">
+      <data key="d0">N</data>
+      <data key="d1">D</data>
+    </node>
+    <node id="P_cond-mat/9411007v1">
+      <data key="d2">set([u'patt-sol', u'cond-mat', u'nlin.PS'])</data>
+      <data key="d0">E</data>
+      <data key="d3">2005</data>
+      <data key="d4">Current-Loop Model for the Intermediate State of Type-I Superconductors</data>
+    </node>
+      <node id="P_hep-th/9501073v1">
+      <data key="d2">set([u'cond-mat', u'hep-th', u'gr-qc'])</data>
+      <data key="d0">E</data>
+      <data key="d3">2006</data>
+      <data key="d4">Thick domain walls in a polynomial approximation</data>
+    </node>
+    <node id="P_chao-dyn/9812023v1">
+      <data key="d2">set([u'cond-mat', u'nlin.CD', u'chao-dyn'])</data>
+      <data key="d0">E</data>
+      <data key="d3">2008</data>
+      <data key="d4">Pair correlations of quantum chaotic maps from supersymmetry</data>
+    </node>
+    <node id="P_chao-dyn/888888">
+      <data key="d2">set([u'cond-mat', u'nlin.CD', u'chao-dyn'])</data>
+      <data key="d0">E</data>
+      <data key="d3">2009</data>
+      <data key="d4">Ultimo Artigo</data>
+    </node>
+    <node id="P_chao-dyn/99999">
+      <data key="d2">set([u'cond-mat', u'nlin.CD', u'chao-dyn'])</data>
+      <data key="d0">E</data>
+      <data key="d3">2007</data>
+      <data key="d4">Meio do Artigo</data>
+    </node>
+    <edge source="1" target="P_cond-mat/9411007v1" />
+    <edge source="1" target="P_hep-th/9501073v1" />
+    <edge source="2" target="P_chao-dyn/9812023v1" />
+    <edge source="3" target="P_cond-mat/9411007v1" />
+    <edge source="3" target="P_hep-th/9501073v1" />
+    <edge source="3" target="P_chao-dyn/9812023v1" />
+    <edge source="1" target="P_chao-dyn/888888" />
+    <edge source="2" target="P_chao-dyn/888888" />
+    <edge source="1" target="P_chao-dyn/99999" />
+    <edge source="4" target="P_chao-dyn/99999" />
+    
+   
+    
+    
+    
+    
+    
+</graph>
+</graphml>
