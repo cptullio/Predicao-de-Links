@@ -17,13 +17,16 @@ class VariableSelection(object):
         cols = lineofFile.strip().replace('\n','').split('\t')
         return [cols[0], eval(cols[1])]
     
-    def get_pair_nodes_not_linked(self, graph, file):
+    def get_pair_nodes_not_linked(self, graph, file, min_papers):
         print "Starting getting pair of nodes that is not liked", datetime.today()
         results = []
         nodesinGraph =set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
         currentNodes = set()
         for n in nodesinGraph:
-            if (len(set(networkx.all_neighbors(graph, n))) < 3):
+            
+            papers = set(networkx.all_neighbors(graph, n))
+            print papers
+            if (len(papers) >= min_papers):
                 currentNodes.add(n)
         
         print 'qty of authors: ', len(currentNodes)
@@ -53,11 +56,11 @@ class VariableSelection(object):
         
     
 
-    def __init__(self, graph,  filepathNodesToCalculate):
+    def __init__(self, graph,  filepathNodesToCalculate, min_papers = 1):
         myfile = Formating.get_abs_file_path(filepathNodesToCalculate)
         if not os.path.exists(myfile):
             with open(myfile, 'w') as fnodes:
-                self.get_pair_nodes_not_linked(graph,fnodes)
+                self.get_pair_nodes_not_linked(graph,fnodes, min_papers)
                 fnodes.close()
         else:
             print "Nodes not linked file already generated. please delete if you want a new one.", datetime.today()
