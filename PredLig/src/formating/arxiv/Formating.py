@@ -21,14 +21,15 @@ class Formating(FormatingDataSets):
     def __init__(self, graphfile):
     
         super(Formating, self).__init__('',graphfile)
+        self.subject = 'cond-mat'
         
     def get_qty_records_mid_year(self,year):
-        url = 'http://export.arxiv.org/api/query?search_query=cat:cond-mat*+AND+submittedDate:[' +str(year) + '01010000+TO+' +str(year)+ '06312359]&start=0&max_results=1'
+        url = 'http://export.arxiv.org/api/query?search_query=cat:'+ self.subject+'*+AND+submittedDate:[' +str(year) + '01010000+TO+' +str(year)+ '06312359]&start=0&max_results=1'
         data = urllib.urlopen(url).read()
         xmldoc = xml.dom.minidom.parseString(data)
         qtyRecordsMid = int(xmldoc.getElementsByTagName('opensearch:totalResults')[0].childNodes[0].data)
         time.sleep(3)
-        url = 'http://export.arxiv.org/api/query?search_query=cat:cond-mat*+AND+submittedDate:[' +str(year) + '07010000+TO+' +str(year)+ '12312359]&start=0&max_results=1'
+        url = 'http://export.arxiv.org/api/query?search_query=cat:'+ self.subject+'*+AND+submittedDate:[' +str(year) + '07010000+TO+' +str(year)+ '12312359]&start=0&max_results=1'
         data = urllib.urlopen(url).read()
         xmldoc = xml.dom.minidom.parseString(data)
         qtyRecordsMidFinal = int(xmldoc.getElementsByTagName('opensearch:totalResults')[0].childNodes[0].data)
@@ -81,7 +82,7 @@ class Formating(FormatingDataSets):
 
     
     def generating_graph(self):
-        yearstoRescue = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014]
+        yearstoRescue = [1994,1995,1996,1997,1998,1999]
         self.Graph = networkx.Graph()
         
         authors = []
@@ -131,14 +132,15 @@ class Formating(FormatingDataSets):
     
     def readingOrginalDataset(self):
         #yearstoRescue = [2005,]
-        yearstoRescue = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014]
+        #yearstoRescue = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014]
+        yearstoRescue = [1994,1995,1996,1997,1998,1999]
         
         for year in  yearstoRescue:
             articles = []
             qty = self.get_qty_records_mid_year(year);
             print qty
-            search_queryMid = 'cat:cond-mat*+AND+submittedDate:['+str(year)+'01010000+TO+'+str(year)+'06312359]' # search for electron in all fields
-            search_queryfinal = 'cat:cond-mat*+AND+submittedDate:['+str(year)+'07010000+TO+'+str(year)+'12312359]' # search for electron in all fields
+            search_queryMid = 'cat:'+ self.subject+'*+AND+submittedDate:['+str(year)+'01010000+TO+'+str(year)+'06312359]' # search for electron in all fields
+            search_queryfinal = 'cat:'+ self.subject+'*+AND+submittedDate:['+str(year)+'07010000+TO+'+str(year)+'12312359]' # search for electron in all fields
             print "getting Begin"
             begin = None
             element = 0
@@ -149,7 +151,7 @@ class Formating(FormatingDataSets):
                     break
                 else:
                     print 'Did not get everything... trying again...', element, len(begin)
-                if element == 3:
+                if element == 10:
                     print 'Did not work exit everything'
                     exit()
             
@@ -164,7 +166,7 @@ class Formating(FormatingDataSets):
                     break
                 else:
                     print 'Did not get everything... trying again...', element, len(final)
-                if element == 3:
+                if element == 10:
                     print 'Did not work exit everything'
                     exit()
             for j in final:

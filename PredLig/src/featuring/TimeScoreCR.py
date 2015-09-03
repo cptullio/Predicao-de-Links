@@ -29,14 +29,17 @@ class TimeScoreCR(FeatureBase):
                 print "rescuing time from paper: ", str(node)
                 
                 MaxAmplitude = self.parameter.t0_ - 3
-                
+                print MaxAmplitude
                 paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
                 #print paper
                 print paper[0]['time']
                 if paper[0]['time'] >= MaxAmplitude:
                     self.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
+                print self.linkObjects[node]
             result.append(self.linkObjects[node])
+            
         #result.sort(reverse=True)
+        
         return result
     
     def get_BagofWords(self, graph, node1, node2):
