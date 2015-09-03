@@ -93,11 +93,7 @@ class TimeScoreCR(FeatureBase):
             timesofLinks.append(timesNode1)
             timesofLinks.append(timesNode2)
             
-            MinNode1 = min(timesNode1)
-            MinNode2 = min(timesNode2)
-            MaxNode1 = max(timesNode1)
-            MaxNode2 = max(timesNode2)
-            
+           
             total = float(0)
             for publications in timesofLinks:
                 total = total + 1/float(len(publications))
@@ -106,7 +102,7 @@ class TimeScoreCR(FeatureBase):
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(list(timesofLinks[0])) - max(list(timesofLinks[1])))  + 1)
-            ts =  ( (hm * decayfunction) / (control * self.parameter.decay ** jcKeyworkds ) )
+            ts =  ( (hm * decayfunction) / (control * (self.parameter.decay ** jcKeyworkds) ) )
             timescoreValue = timescoreValue + ts
             
         return timescoreValue    
