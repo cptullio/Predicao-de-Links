@@ -12,7 +12,7 @@ t0_	1996
 t1	1994
 t1_	1999
 decay	0.8
-top_rank	100
-distanceNeighbors	0
+keyword_decay	0.8
+min_edges	3
 lengthVertex	0
-features	5:1
+features	0:1;1:1;2:1;3:1;4:1;5:1;6:1
