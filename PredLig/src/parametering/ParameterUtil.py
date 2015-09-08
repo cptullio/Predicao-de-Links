@@ -9,10 +9,8 @@ from featuring.JCFeature import JCFeature
 from featuring.PAFeature import PAFeature
 from formating.dblp.Formating import Formating
 from featuring.TimeScore import TimeScore
-from featuring.TimeScoreCR import TimeScoreCR
-from featuring.TimeScoreCRWithDecay import TimeScoreCRWithDecay
-from featuring.TimeScoreCRWithHm import TimeScoreCRWithHm
-from featuring.TimeScoreCRWithHmandDecay import TimeScoreCRWithHmandDecay
+from featuring.DomainTimeScore import DomainTimeScore
+from featuring.DomainTimeScorevTwo import DomainTimeScorevTwo
 
 class ParameterUtil(object):
     
@@ -27,11 +25,8 @@ class ParameterUtil(object):
         AllFeatures.append(JCFeature())
         AllFeatures.append(PAFeature())
         AllFeatures.append(TimeScore())
-        AllFeatures.append(TimeScoreCR())
-        AllFeatures.append(TimeScoreCRWithDecay())
-        AllFeatures.append(TimeScoreCRWithHm())
-        AllFeatures.append(TimeScoreCRWithHmandDecay())
-        
+        AllFeatures.append(DomainTimeScore())
+        AllFeatures.append(DomainTimeScorevTwo())
         
         
         
@@ -62,8 +57,8 @@ class ParameterUtil(object):
                 self.ordered_file = cols[1]
             if cols[0] == 'analysed_file':
                 self.analysed_file = cols[1]
-            if cols[0] == 'distanceNeighbors':
-                self.distanceNeighbors = int(cols[1])
+            if cols[0] == 'min_edges':
+                self.min_edges = int(cols[1])
             if cols[0] == 'lengthVertex':
                 self.lengthVertex = int(cols[1])
             if cols[0] == 't0':
@@ -76,8 +71,8 @@ class ParameterUtil(object):
                 self.t1_ = int(cols[1])
             if cols[0] == 'decay':
                 self.decay = float(cols[1])
-            if cols[0] == 'top_rank':
-                self.top_rank = int(cols[1])
+            if cols[0] == 'keyword_decay':
+                self.keyword_decay = float(cols[1])
             if cols[0] == 'features':
                 features = cols[1].split(';')
                 for feature in features:

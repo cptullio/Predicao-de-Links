@@ -13,7 +13,7 @@ from calculating.Calculate import Calculate
 
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999.txt')
-    myparams = Parameterization(util.top_rank, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+    myparams = Parameterization(util.keyword_decay, util.distanceNeighbors,util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     myparams.generating_Training_Graph()
     myparams.generating_Test_Graph()
     print "Trainning Period:", myparams.t0, " - ", myparams.t0_
@@ -23,6 +23,7 @@ if __name__ == '__main__':
     print "# Authors in Training: ", myparams.get_nodes(myparams.trainnigGraph)
     print "# Papers in Test: ",  myparams.get_edges(myparams.testGraph)
     print "# Authors in Test", myparams.get_nodes(myparams.testGraph)
+    
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     calc.reading_Max_min_file()
     print "# pair of Authors with at least 3 articles Calculated: ", calc.qtyDataCalculated  #FormatingDataSets.getTotalLineNumbers(FormatingDataSets.get_abs_file_path(util.calculated_file))

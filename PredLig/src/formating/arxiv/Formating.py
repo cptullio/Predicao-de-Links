@@ -21,7 +21,8 @@ class Formating(FormatingDataSets):
     def __init__(self, graphfile):
     
         super(Formating, self).__init__('',graphfile)
-        self.subject = 'cond-mat'
+        self.subject = 'astro-ph'
+        self.yearstoRescue = [1994,1995,1996,1997,1998,1999]
         
     def get_qty_records_mid_year(self,year):
         url = 'http://export.arxiv.org/api/query?search_query=cat:'+ self.subject+'*+AND+submittedDate:[' +str(year) + '01010000+TO+' +str(year)+ '06312359]&start=0&max_results=1'
@@ -54,7 +55,7 @@ class Formating(FormatingDataSets):
         
             for entry in papers:
                 idpaper = str('%s' % entry.id.split('/abs/')[-1])
-                title = str(entry.title.encode("utf-8"))
+                title = str(entry.title.encode("utf-8").strip().replace('\n', ''))
                 yearPublication = int(entry.published.split('-')[0])
                 authors = set()
                 categories = set()
@@ -82,14 +83,15 @@ class Formating(FormatingDataSets):
 
     
     def generating_graph(self):
-        yearstoRescue = [1994,1995,1996,1997,1998,1999]
+        
         self.Graph = networkx.Graph()
         
         authors = []
         begin = datetime.today()
-        for year in  yearstoRescue:
+        for year in  self.yearstoRescue:
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
             print 'reading', f.name
+            y = 0
             for line in f:
                 
                 cols = line.split('\t')
@@ -98,6 +100,7 @@ class Formating(FormatingDataSets):
                     keywords = set()
                     for k in keywords_not_clean:
                         if ',' in k:
+                            #y = y +1
                             print k, 'with strange information at categories'
                         else:
                             keywords.add(k)
@@ -106,6 +109,9 @@ class Formating(FormatingDataSets):
                     for x in authors_in_file:
                         if not x in authors:
                             authors.append(x)
+                else:
+                    y = y +1
+            print 'total of articles not imported: ', y
             f.close()
         
         element = 0
@@ -113,7 +119,7 @@ class Formating(FormatingDataSets):
             element = element + 1            
             self.Graph.add_node(int(element), {'node_type' : 'N', 'name' : i.decode("latin_1") })
             
-        for year in  yearstoRescue:
+        for year in  self.yearstoRescue:
             
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
             print 'Reading', f.name
@@ -133,9 +139,9 @@ class Formating(FormatingDataSets):
     def readingOrginalDataset(self):
         #yearstoRescue = [2005,]
         #yearstoRescue = [2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014]
-        yearstoRescue = [1994,1995,1996,1997,1998,1999]
+        #yearstoRescue = [1994,1995,1996,1997,1998,1999]
         
-        for year in  yearstoRescue:
+        for year in  self.yearstoRescue:
             articles = []
             qty = self.get_qty_records_mid_year(year);
             print qty

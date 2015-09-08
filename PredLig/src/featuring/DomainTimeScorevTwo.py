@@ -8,16 +8,16 @@ import networkx
 from datetime import datetime
 import ast
 
-class TimeScoreCR(FeatureBase):
+class DomainTimeScorevTwo(FeatureBase):
     '''
     TimeScore modified by Carlos and Ronaldo
     '''
     def __repr__(self):
-        return 'tsCR'
+        return 'DTSv2'
     
 
     def __init__(self):
-        super(TimeScoreCR, self).__init__()
+        super(DomainTimeScorevTwo, self).__init__()
         self.linkObjects = {}
         self.debugar = False
         
@@ -65,10 +65,10 @@ class TimeScoreCR(FeatureBase):
     
     def execute(self, node1, node2):
         
-        if node1=='1760' and node2 =='2003':
-            self.debugar = True
-        else:
-            self.debugar = False
+        #if node1=='1760' and node2 =='2003':
+        #    self.debugar = True
+        #else:
+        #    self.debugar = False
         pair_common_neighbors  = self.get_common_neighbors(node1, node2)
         if len(pair_common_neighbors) == 0:
             return 0
@@ -121,7 +121,7 @@ class TimeScoreCR(FeatureBase):
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1)
-            ts = (hm * decayfunction) /  (control * (self.parameter.decay ** jcKeyworkds))
+            ts = (hm * decayfunction) + (jcKeyworkds * 4)  /  (control)
             timescoreValue = timescoreValue + ts 
             if self.debugar:
                 print 'TS parcial:', timescoreValue

@@ -12,7 +12,9 @@ from parametering.ParameterUtil import ParameterUtil
 from formating.arxiv.Formating import Formating
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_condmat_1994_1999.txt')
+    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999.txt')
     astroPh = Formating(util.graph_file)
+    astroPh.subject = 'astro-ph'
+    astroPh.yearstoRescue = [1994,1995,1996,1997,1998,1999]
     astroPh.readingOrginalDataset()
     astroPh.saveGraph()

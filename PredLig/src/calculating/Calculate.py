@@ -234,8 +234,8 @@ class Calculate(object):
             for neighbor_node in item[1]:
                 newelement = newelement +1
                 qtyNodesCalculated = qtyNodesCalculated + 1
-                #self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
-                #self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
+                self.printProgressofEvents(element, qtyofResults, "Calculating features for nodes not liked: ")
+                self.printProgressofEventsWihoutPercent(newelement, qtyothernodenotlinked, "Calculating nodes: " + str(item[0])  + ":" +  str(neighbor_node) )
             
                 item_result = []
                 #executing the calculation for each features chosen at parameter

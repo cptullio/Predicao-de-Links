@@ -53,7 +53,7 @@ class Parameterization(object):
         return result
     
     def get_nodes(self, graph):
-        mynodes = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        mynodes = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'N') 
         result =  len(mynodes)
         del mynodes
         mynodes = None
@@ -61,11 +61,11 @@ class Parameterization(object):
         return result
     
     
-    def __init__(self, top_rank, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
+    def __init__(self, keyword_decay, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
         self.distanceNeighbors = distanceNeighbors
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
-        self.top_rank = top_rank
+        self.keyword_decay = keyword_decay
         self.decay = decay
         self.t0_ = t0_
         self.t0 = t0
