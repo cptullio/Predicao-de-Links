@@ -61,8 +61,7 @@ class Parameterization(object):
         return result
     
     
-    def __init__(self, keyword_decay, distanceNeighbors, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
-        self.distanceNeighbors = distanceNeighbors
+    def __init__(self, keyword_decay, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None):
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
         self.keyword_decay = keyword_decay
@@ -75,6 +74,9 @@ class Parameterization(object):
         self.filePathGraph = filePathGraph
         self.filePathTrainingGraph = filePathTrainingGraph
         self.filePathTestGraph = filePathTestGraph
+        self.linkObjects = {}
+        self.debugar = False
+     
         
        
          

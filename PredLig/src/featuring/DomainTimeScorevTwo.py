@@ -18,43 +18,8 @@ class DomainTimeScorevTwo(FeatureBase):
 
     def __init__(self):
         super(DomainTimeScorevTwo, self).__init__()
-        self.linkObjects = {}
         self.debugar = False
         
-    def get_ObjectsofLinks(self, graph, node1, node2):
-        result = []
-        for node in networkx.common_neighbors(graph, node1, node2):
-            if node in self.linkObjects:
-                if self.debugar:
-                    print "already found the time for paper ", node
-            else:
-                if self.debugar:
-                    print "rescuing time from paper: ", str(node)
-                
-                MaxAmplitude = self.parameter.t0_ - 3
-                if self.debugar:
-                    print 'amplitude maxima:' , MaxAmplitude
-                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
-                if self.debugar:
-                    print 'Informacoes sobre o paper:' ,paper
-                if paper[0]['time'] >= MaxAmplitude:
-                    self.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
-            if self.debugar:
-                print 'Informacoes sobre o paper ja na memoria:' , self.linkObjects[node]
-            result.append(self.linkObjects[node])
-        
-        return result
-    
-    def get_BagofWords(self, graph, node1, node2):
-        result = set()
-        for node in networkx.common_neighbors(graph, node1, node2):
-            for n,d in graph.nodes(data=True):
-                if n == node:
-                    for keyword in  ast.literal_eval(d['keywords']):
-                        result.add(keyword)
-                   
-        
-        return result
     
     def get_jacard_keywords(self, bagofWordsNode1, bagofWordsNode2):
         f = (float)(len(bagofWordsNode1.intersection(bagofWordsNode2)))

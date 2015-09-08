@@ -16,8 +16,33 @@ class FeatureBase(object):
         self.myneighbors = {}
         self.neighbors_node2 = None
         self.parameter = None
+        self.debugar = False
     
     
+    def get_ObjectsofLinks(self, graph, node1, node2):
+        result = []
+        for node in networkx.common_neighbors(graph, node1, node2):
+            if node in self.parameter.linkObjects:
+                if self.debugar:
+                    print "already found the time for paper ", node
+            else:
+                if self.debugar:
+                    print "rescuing time from paper: ", str(node)
+                
+                MaxAmplitude = self.parameter.t0_ - 3
+                if self.debugar:
+                    print 'amplitude maxima:' , MaxAmplitude
+                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
+                if self.debugar:
+                    print 'Informacoes sobre o paper:' ,paper
+                if paper[0]['time'] >= MaxAmplitude:
+                    self.parameter.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
+            if self.debugar:
+                print 'Informacoes sobre o paper ja na memoria:' , self.parameter.linkObjects[node]
+            result.append(self.parameter.linkObjects[node])
+        
+        return result
+
     
     def generate_all_node_neighborsfromNode(self, node1):
         if node1 in self.myneighbors:
