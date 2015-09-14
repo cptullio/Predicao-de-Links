@@ -24,6 +24,6 @@ class AASFeature(FeatureBase):
         measure = 0
         for neighbor in neighbors_node1.intersection(neighbors_node2):
             secondary_neighbors = self.all_neighbors(neighbor)
-            measure += 1 / (numpy.log10(len(secondary_neighbors)))
+            measure += 1 / (numpy.log10(len(secondary_neighbors)) + 0.00001)
         return measure
             
