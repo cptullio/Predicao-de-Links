@@ -1,3 +1,58 @@
+condmat_2004_2009
+
+Trainning Period: 2004  -  2006
+Test Period: 2004  -  2009
+# Papers in Trainning:  30337
+# Authors in Training:  39806
+# Papers in Test:  63509
+# Authors in Test 69528
+Starting Calculating Nodes not linked 2015-09-13 04:42:56.845000
+Calculate already done for this file, please delete if you want a new one. 2015-09-13 04:42:57.566000
+# pair of Authors with at least 3 articles Calculated:  60211008
+# pair of Authors with at least 3 articles that is connected in Test Graph in a random way:  15083
+Max values found in calculations:  [35.90895590872911, 29, 1.0, 32025, 59.83427128427129, 245.51138272890927, 138.08427128427127, 28.5]
+Min Values found in calculations:  [0, 0, 0.0, 0, 0, 0, 0, 0]
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[aas, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  845
+%:  5.60233375323%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[cn, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  889
+%:  5.89405290725%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[jc, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  493
+%:  3.26858052112%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[pa, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  348
+%:  2.30723330902%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[ts, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  961
+%:  6.37141152291%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[DTS, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  872
+%:  5.7813432341%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[DTSv2, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  886
+%:  5.87416296493%
+
+---------------------------------
+File Analised:  D:\Mestrado\Predicao-de-Links\PredLig\src\formating\data/formatado/arxiv/nowell_condmat_2004_2009/ordered.txt.[DJC, 1].txt.analised.txt
+# pair of Authors that is connected in Test Graph:  737
+%:  4.88629582974%
+
+---------------------------------
+
 astroph_1994_1999
 Trainning Period: 1994  -  1996
 Test Period: 1994  -  1999
