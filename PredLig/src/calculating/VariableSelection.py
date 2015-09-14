@@ -17,6 +17,18 @@ class VariableSelection(object):
         cols = lineofFile.strip().replace('\n','').split('\t')
         return [cols[0], eval(cols[1])]
     
+    
+    def get_all_pair_nodes(self, graph, file):
+        
+        nodesinGraph =set(n for n,d in graph.nodes(data=True) if d['node_type'] == 'N')
+        nodesOrdered = sorted(nodesinGraph)
+        for node1 in nodesOrdered:
+            others =  set(n for n in nodesOrdered if n > node1)
+            file.write(str(node1) + '\t' +  repr(others) + '\n')
+       
+            
+        
+        
     def get_pair_nodes_not_linked(self, graph, file, min_papers):
         print "Starting getting pair of nodes that is not liked", datetime.today()
         results = []
@@ -56,11 +68,14 @@ class VariableSelection(object):
         
     
 
-    def __init__(self, graph,  filepathNodesToCalculate, min_papers = 1):
+    def __init__(self, graph,  filepathNodesToCalculate, min_papers = 1, allNodes = False):
         myfile = Formating.get_abs_file_path(filepathNodesToCalculate)
         if not os.path.exists(myfile):
             with open(myfile, 'w') as fnodes:
-                self.get_pair_nodes_not_linked(graph,fnodes, min_papers)
+                if allNodes:
+                    self.get_all_pair_nodes(graph, fnodes)
+                else:
+                    self.get_pair_nodes_not_linked(graph,fnodes, min_papers)
                 fnodes.close()
         else:
             print "Nodes not linked file already generated. please delete if you want a new one.", datetime.today()
