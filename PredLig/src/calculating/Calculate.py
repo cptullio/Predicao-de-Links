@@ -19,19 +19,15 @@ import networkx
 class Calculate(object):
     
     
-    def adding_normalize_values_tograph(self,graph):
-        wg = networkx.MultiGraph()
-        for feature in self.preparedParameter.featuresChoice:
-            print "adding calculating of ", str(feature)
-            arquivo = open(self.filepathResult +  '.' +str(feature) + '.txt', 'r')
+    def adding_normalize_values_tograph(self,graph, weighted_graph_file):
+        
+        arquivo = open(self.filepathResult, 'r')
             
-            for line in arquivo:
-                cols = line.split(':')
-                wg.add_node(int(cols[1]))
-                wg.add_node(int(cols[2]))
-                wg.add_edge(int(cols[1]), int(cols[2]), weight =  float(cols[0])  )
-                    
-        return wg
+        for line in arquivo:
+            result = self.reading_calculateLine(line)
+            graph.add_edge(int(result[1]), int(result[2]), weight =  str(result[0])  )
+        networkx.write_graphml(graph, FormatingDataSets.get_abs_file_path(weighted_graph_file ))
+    
         
     
     def reading_calculateLine(self, line):

@@ -54,6 +54,8 @@ class ParameterUtil(object):
                 self.test_graph_file = cols[1]
             if cols[0] == 'nodes_notlinked_file':
                 self.nodes_notlinked_file = cols[1]
+            if cols[0] == 'nodes_file':
+                self.nodes_file = cols[1]
             if cols[0] == 'calculated_file':
                 self.calculated_file = cols[1]
             if cols[0] == 'ordered_file':

@@ -1,0 +1,136 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="name" attr.type="string" for="node" id="d4" />
+  <key attr.name="time" attr.type="int" for="node" id="d3" />
+  <key attr.name="title" attr.type="string" for="node" id="d2" />
+  <key attr.name="node_type" attr.type="string" for="node" id="d1" />
+  <key attr.name="keywords" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="P_astro-ph/1">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Weak Lensing and the Measurement of q0 from Type Ia Supernovae</data>
+      <data key="d3">1994</data>
+    </node>
+    <node id="P_astro-ph/2">
+      <data key="d0">set([u'astro-ph', u'gr-qc', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Constraints on the Scalar-Tensor theories of gravitation from Primordial  Nucleosynthesis</data>
+      <data key="d3">1997</data>
+    </node>
+    <node id="P_astro-ph/3">
+      <data key="d0">set([u'astro-ph', u'gr-qc'])</data>
+      <data key="d1">E</data>
+      <data key="d2">"Understanding" cosmological bulk viscosity</data>
+      <data key="d3">1995</data>
+    </node>
+    <node id="P_astro-ph/4">
+      <data key="d0">set([u'astro-ph', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Light Gravitinos as Mixed Dark Matter</data>
+      <data key="d3">1995</data>
+    </node>
+    <node id="P_astro-ph/5">
+      <data key="d0">set([u'hep-th', u'astro-ph', u'quant-ph', u'gr-qc'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Semiclassicality and Decoherence of Cosmological Perturbations</data>
+      <data key="d3">1995</data>
+    </node>
+    <node id="P_astro-ph/6">
+      <data key="d0">set([u'astro-ph', u'hep-th', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Monopoles as Big as a Universe</data>
+      <data key="d3">1995</data>
+    </node>
+    <node id="P_astro-ph/7">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Effect of magnetic field on the strange star</data>
+      <data key="d3">1996</data>
+    </node>
+    <node id="P_astro-ph/8">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'gr-qc', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Constraints on the Strength of Primordial Magnetic Fields from Big Bang  Nucleosynthesis Revisited</data>
+      <data key="d3">1996</data>
+    </node>
+    <node id="P_astro-ph/9">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'gr-qc', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Nucleosynthesis Revisited</data>
+      <data key="d3">1998</data>
+    </node>
+    <node id="P_astro-ph/10">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'gr-qc', u'hep-ph'])</data>
+      <data key="d1">E</data>
+      <data key="d2">Revisited</data>
+      <data key="d3">1998</data>
+    </node>
+    <node id="1">
+      <data key="d1">N</data>
+      <data key="d4">R. J. Weymann</data>
+    </node>
+    <node id="2">
+      <data key="d1">N</data>
+      <data key="d4">B. T. Jannuzi</data>
+    </node>
+    <node id="3">
+      <data key="d1">N</data>
+      <data key="d4">V. Banchet</data>
+    </node>
+    <node id="4">
+      <data key="d1">N</data>
+      <data key="d4">JÃ¶rg P. Rachen</data>
+    </node>
+    <node id="5">
+      <data key="d1">N</data>
+      <data key="d4">D. A. Turnshek</data>
+    </node>
+    <node id="6">
+      <data key="d1">N</data>
+      <data key="d4">G. F. Hartig</data>
+    </node>
+    <node id="7">
+      <data key="d1">N</data>
+      <data key="d4">D. Katz</data>
+    </node>
+    <node id="8">
+      <data key="d1">N</data>
+      <data key="d4">J. Bednarz</data>
+    </node>
+
+    <edge source="1" target="P_astro-ph/1" />
+    <edge source="P_astro-ph/1" target="2" />
+    
+    
+    
+    <edge source="1" target="P_astro-ph/2" />
+    <edge source="P_astro-ph/2" target="3" />
+    
+    <edge source="4" target="P_astro-ph/3" />
+    <edge source="P_astro-ph/3" target="5" />
+    <edge source="6" target="P_astro-ph/3" />
+    
+    <edge source="7" target="P_astro-ph/4" />
+    <edge source="P_astro-ph/4" target="8" />
+    <edge source="P_astro-ph/4" target="3" />
+    
+    <edge source="P_astro-ph/5" target="8" />
+    <edge source="P_astro-ph/5" target="6" />
+    <edge source="1" target="P_astro-ph/6" />
+    <edge source="P_astro-ph/6" target="2" />
+    
+    <edge source="7" target="P_astro-ph/7" />
+    <edge source="P_astro-ph/7" target="8" />
+    
+    <edge source="4" target="P_astro-ph/8" />
+    <edge source="P_astro-ph/8" target="5" />
+    
+    <edge source="1" target="P_astro-ph/9" />
+    <edge source="P_astro-ph/9" target="3" />
+   
+    <edge source="7" target="P_astro-ph/10" />
+    <edge source="P_astro-ph/10" target="6" />
+   
+    
+  </graph>
+</graphml>
