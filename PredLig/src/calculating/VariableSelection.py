@@ -54,7 +54,8 @@ class VariableSelection(object):
             for other_node in others:
                 if len(set(networkx.common_neighbors(graph, node1, other_node))) == 0:
                     notLinked.add(other_node)
-            results.append([node1, notLinked])
+            if len(notLinked) > 0:
+                results.append([node1, notLinked])
             if element % 2000 == 0:
                 for item in results:
                     file.write(str(item[0]) + '\t' +  repr(item[1]) + '\n')

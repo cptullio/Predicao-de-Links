@@ -20,17 +20,16 @@ class Calculate(object):
     
     
     def adding_normalize_values_tograph(self,graph, weighted_graph_file):
-        
         arquivo = open(self.filepathResult, 'r')
             
         for line in arquivo:
-            result = self.reading_calculateLine(line)
+            result = Calculate.reading_calculateLine(line)
             graph.add_edge(int(result[1]), int(result[2]), weight =  str(result[0])  )
         networkx.write_graphml(graph, FormatingDataSets.get_abs_file_path(weighted_graph_file ))
     
         
-    
-    def reading_calculateLine(self, line):
+    @staticmethod
+    def reading_calculateLine(line):
         calcs = []
         cols = line.split('\t')
         for indice in range(len(cols) -2 ):
