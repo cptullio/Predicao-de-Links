@@ -36,9 +36,11 @@ def getPairNodes(node1, node2, calculatedFile):
 
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999.txt')
+    x = []
     calculatedFile = open(FormatingDataSets.get_abs_file_path(util.calculated_file), 'r')
-    
-    #calculatedFile.close()
+    for linha in calculatedFile:
+        x.append(Calculate.reading_calculateLine(linha))
+    calculatedFile.close()
     myparams = Parameterization(util.keyword_decay, util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     myparams.generating_Training_Graph()
     Nodes_notLinked = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file,util.min_edges)
