@@ -13,6 +13,7 @@ from featuring.DomainTimeScore import DomainTimeScore
 from featuring.DomainTimeScorevTwo import DomainTimeScorevTwo
 from featuring.DomainJC import DomainJC
 from featuring.WeightTimeScore import WeightTimeScore
+from featuring.WeightDomainScore import WeightDomainScore
 
 class ParameterUtil(object):
     
@@ -31,7 +32,7 @@ class ParameterUtil(object):
         AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
         AllFeatures.append(WeightTimeScore())
-        
+        AllFeatures.append(WeightDomainScore())
         
         
         

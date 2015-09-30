@@ -36,7 +36,6 @@ def getPairNodes(node1, node2, calculatedFile):
 
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999.txt')
-    x = []
     calculatedFile = open(FormatingDataSets.get_abs_file_path(util.calculated_file), 'r')
     for linha in calculatedFile:
         x.append(Calculate.reading_calculateLine(linha))
