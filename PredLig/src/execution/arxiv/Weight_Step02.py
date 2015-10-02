@@ -16,32 +16,15 @@ from featuring.CNFeature import CNFeature
 from Canvas import Line
 
 
-def getPairNodes(node1, node2, calculatedFile):
-    
-    result = None
-    texto = str(node1) + '\t' + str(node2)
-    textov2 = str(node2) + '\t' + str(node1)
-    
-    
-    for line in calculatedFile:
-        if texto in line:
-            result = line
-            break
-        elif textov2 in line:
-            result = line
-            break
-    calculatedFile.seek(0)
-    return result
-    
+
 
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999.txt')
-    calculatedFile = open(FormatingDataSets.get_abs_file_path(util.calculated_file), 'r')
-    for linha in calculatedFile:
-        x.append(Calculate.reading_calculateLine(linha))
-    calculatedFile.close()
     myparams = Parameterization(util.keyword_decay, util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
     myparams.generating_Training_Graph()
+    calc = Calculate(myparams, util.nodes_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
+    
+    
     Nodes_notLinked = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file,util.min_edges)
     nodes_notlinkedFile = open(FormatingDataSets.get_abs_file_path(util.nodes_notlinked_file), 'r')
     qtyLine = 0
@@ -63,7 +46,7 @@ if __name__ == '__main__':
             cn = util.FeaturesChoiced[0][0].get_common_neighbors(node1,node2)
             total = 0
             for c in cn:
-                total = total + ( Calculate.reading_calculateLine(getPairNodes(node1, c, calculatedFile))[0][0] + Calculate.reading_calculateLine(getPairNodes(node2, c, calculatedFile))[0][0])
+                total = total + (  calc.get_result(node1, c)[0]  + calc.get_result(node2, c )[0])
             
             for index_features in range(qtyFeatures):
                 if total < minValueCalculated[index_features]:
@@ -77,7 +60,7 @@ if __name__ == '__main__':
     fcontentMaxMin = open(FormatingDataSets.get_abs_file_path(util.maxmincalculated_file + '.weight.txt'), 'w')
     fcontentMaxMin.write(str(qtyCalculated) + '\t' + repr(minValueCalculated) + '\t' + repr(maxValueCalculated) )
     fcontentMaxMin.close()    
-        
+    
     #VariableSelection.getItemFromLine(util.nodes_notlinked_file)
     #f = CNFeature()
     #f.graph = myparams.trainnigGraph
