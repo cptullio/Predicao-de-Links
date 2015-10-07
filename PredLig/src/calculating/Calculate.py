@@ -207,25 +207,10 @@ class Calculate(object):
     def printProgressofEventsWihoutPercent(self, element, length, message):
         print message, str(element) + ' of '  +  str(length) , datetime.today()
 
-        
-    def get_result(self, node1, node2):
-        data = (node1, node2, node2, node1)
-        self.cursor.execute(self.query, data)
-        for resultado in self.cursor:
-            return eval(resultado[0]) 
-
-    def close_mysqlconnection(self):
-        self.cursor.close()
-        self.connection.close()
     
     def __init__(self, preparedParameter, filepathNodesNotLinked, filepathResult, filePathOrdered, filepathMaxMinCalculated):
         print "Starting Calculating Nodes not linked", datetime.today()
-        self.connection = mysql.connector.connect(user='root', password='1234',
-                              host='127.0.0.1',
-                              database='calculos')
-        self.query = ("select resultados from resultadopesos where (no1 = %s and no2 = %s) or (no1 = %s and no2 = %s) ")
-        self.cursor = self.connection.cursor()
-
+        
         self.preparedParameter = preparedParameter
         self.filePathOrdered = Formating.get_abs_file_path(filePathOrdered)
         self.filepathMaxMinCalculated = Formating.get_abs_file_path(filepathMaxMinCalculated)

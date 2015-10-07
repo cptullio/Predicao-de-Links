@@ -12,8 +12,8 @@ from featuring.TimeScore import TimeScore
 from featuring.DomainTimeScore import DomainTimeScore
 from featuring.DomainTimeScorevTwo import DomainTimeScorevTwo
 from featuring.DomainJC import DomainJC
-from featuring.WeightTimeScore import WeightTimeScore
-from featuring.WeightDomainScore import WeightDomainScore
+from featuring.forweights.WeightTimeScore import WeightTimeScore
+from featuring.forweights.WeightDomainScore import WeightDomainScore
 
 class ParameterUtil(object):
     
@@ -31,13 +31,14 @@ class ParameterUtil(object):
         AllFeatures.append(DomainTimeScore())
         AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
-        AllFeatures.append(WeightTimeScore())
-        AllFeatures.append(WeightDomainScore())
         
+        WeightedFeatures = []
+        WeightedFeatures.append(WeightTimeScore())
+        WeightedFeatures.append(WeightDomainScore())
         
         
         self.FeaturesChoiced = []
-        
+        self.WeightFeaturesChoiced = []
         with open(parameterFile) as f:
             lines = f.readlines()
             f.close()
@@ -86,6 +87,12 @@ class ParameterUtil(object):
                 for feature in features:
                     featureandweight = feature.split(':')
                     self.FeaturesChoiced.append([AllFeatures[int(featureandweight[0])], int(featureandweight[1])])
+            
+            if cols[0] == 'weightfeatures':
+                features = cols[1].split(';')
+                for feature in features:
+                    featureandweight = feature.split(':')
+                    self.WeightFeaturesChoiced.append([WeightedFeatures[int(featureandweight[0])], int(featureandweight[1])])
                 
                 
         

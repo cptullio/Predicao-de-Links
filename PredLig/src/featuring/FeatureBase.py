@@ -25,27 +25,27 @@ class FeatureBase(object):
             return 0
         return f/x
     
-    def get_ObjectsofAuthor(self, graph, node1):
+    
+    
+    '''
+    Get all informations of all neighbors of a node. 
+    '''
+    
+    def get_ObjectsofNode(self, graph, node1):
         result = []
         for node in networkx.all_neighbors(graph, node1):
-            if node in self.parameter.linkObjects:
+            if node in self.parameter.nodeObjects:
                 if self.debugar:
                     print "already found the time for paper ", node
             else:
                 if self.debugar:
                     print "rescuing time from paper: ", str(node)
                 
-                MaxAmplitude = self.parameter.t0_ - 3
-                if self.debugar:
-                    print 'amplitude maxima:' , MaxAmplitude
                 paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
-                if self.debugar:
-                    print 'Informacoes sobre o paper:' ,paper
-                if paper[0]['time'] >= MaxAmplitude:
-                    self.parameter.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
+                self.parameter.nodeObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
             if self.debugar:
-                print 'Informacoes sobre o paper ja na memoria:' , self.parameter.linkObjects[node]
-            result.append(self.parameter.linkObjects[node])
+                print 'Informacoes sobre o paper ja na memoria:' , self.parameter.nodeObjects[node]
+            result.append(self.parameter.nodeObjects[node])
         
         return result
     
@@ -60,7 +60,27 @@ class FeatureBase(object):
                 if self.debugar:
                     print "rescuing time from paper: ", str(node)
                 
-                MaxAmplitude = self.parameter.t0_ - 3
+                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
+                self.parameter.linkObjects[node] = [paper[0]['time'], eval(paper[0]['keywords'])]
+            if self.debugar:
+                print 'Informacoes sobre o paper ja na memoria:' , self.parameter.linkObjects[node]
+            result.append(self.parameter.linkObjects[node])
+        
+        return result
+    
+    
+    
+    def get_ObjectsofLinksWithMin_Edges(self, graph, node1, node2, min_edges):
+        result = []
+        for node in networkx.common_neighbors(graph, node1, node2):
+            if node in self.parameter.linkObjects:
+                if self.debugar:
+                    print "already found the time for paper ", node
+            else:
+                if self.debugar:
+                    print "rescuing time from paper: ", str(node)
+                
+                MaxAmplitude = self.parameter.t0_ - min_edges
                 if self.debugar:
                     print 'amplitude maxima:' , MaxAmplitude
                 paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )

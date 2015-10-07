@@ -14,11 +14,11 @@ if __name__ == '__main__':
                               host='127.0.0.1',
                               database='calculos')
     add_employee = ("INSERT INTO resultadopesos "
-               "(no1, no2, resultadoTempo, resultadoDominio) "
-               "VALUES (%s, %s, %s, %s)")
+               "(no1, no2, resultados) "
+               "VALUES (%s, %s, %s)")
     cursor = cnx.cursor()
-    for i in range(990000000):
-        data_employee = (1, i, 0.1, 0)
+    for i in range(200):
+        data_employee = (1, i, 0.1)
         cursor.execute(add_employee, data_employee)
     cnx.commit()
     cursor.close()
