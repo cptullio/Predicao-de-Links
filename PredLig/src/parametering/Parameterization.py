@@ -61,6 +61,13 @@ class Parameterization(object):
         gc.collect()
         return result
     
+    def clean_database(self):
+        self.cursor = self.connection.cursor()
+        clear_Table = "truncate resultadopesos"
+        self.cursor.execute(clear_Table)
+        self.connection.commit()
+        
+    
     def open_connection(self):
         self.connection = mysql.connector.connect(user='root', password='1234',
                               host='127.0.0.1',
@@ -70,10 +77,6 @@ class Parameterization(object):
         
         self.query_add_weight = ("INSERT INTO resultadopesos (no1, no2, resultados) VALUES (%s, %s, %s)")
         
-        self.cursor = self.connection.cursor()
-        clear_Table = "truncate resultadopesos"
-        self.cursor.execute(clear_Table)
-        self.connection.commit()
         
 
     def add_weight(self, node1, node2, results):
@@ -91,15 +94,16 @@ class Parameterization(object):
       
 
    
-    def close_mysqlconnection(self):
+    def close_connection(self):
         self.connection.commit()
         self.cursor.close()
         self.connection.close()
     
-    def __init__(self, keyword_decay, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None, min_edges = 1, weightFeaturesChoiced = None):
+    def __init__(self, keyword_decay, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None, min_edges = 1, weightFeaturesChoiced = None, featuresusingWeightsChoiced = None):
         self.lengthVertex = lengthVertex
         self.featuresChoice = featuresChoice
         self.WeightFeaturesChoiced = weightFeaturesChoiced
+        self.featuresusingWeightsChoiced = featuresusingWeightsChoiced
         self.min_edges = min_edges
         self.keyword_decay = keyword_decay
         self.decay = decay

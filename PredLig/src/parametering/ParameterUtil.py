@@ -14,6 +14,7 @@ from featuring.DomainTimeScorevTwo import DomainTimeScorevTwo
 from featuring.DomainJC import DomainJC
 from featuring.forweights.WeightTimeScore import WeightTimeScore
 from featuring.forweights.WeightDomainScore import WeightDomainScore
+from featuring.WCNFeature import WCNFeature
 
 class ParameterUtil(object):
     
@@ -32,13 +33,19 @@ class ParameterUtil(object):
         AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
         
+        
         WeightedFeatures = []
         WeightedFeatures.append(WeightTimeScore())
         WeightedFeatures.append(WeightDomainScore())
         
-        
+        FeaturesForWeight = []
+        FeaturesForWeight.append(WCNFeature())
+                
         self.FeaturesChoiced = []
         self.WeightFeaturesChoiced = []
+        self.FeaturesForWeightChoiced = []
+        
+        
         with open(parameterFile) as f:
             lines = f.readlines()
             f.close()
@@ -94,5 +101,17 @@ class ParameterUtil(object):
                     featureandweight = feature.split(':')
                     self.WeightFeaturesChoiced.append([WeightedFeatures[int(featureandweight[0])], int(featureandweight[1])])
                 
+            if cols[0] == 'featuresusingweight':
+                features = cols[1].split(';')
+                for feature in features:
+                    featureandweight = feature.split(':')
+                    weight = featureandweight[1].split('-')[0]
+                    weightfeatures = featureandweight[1].split('-')[1].split(',')
+                    item =  [FeaturesForWeight[int(featureandweight[0])], 
+                                                       weight, 
+                                                       weightfeatures  ]
+                    self.FeaturesForWeightChoiced.append(
+                                                       item
+                                                       )
                 
         

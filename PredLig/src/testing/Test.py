@@ -8,8 +8,7 @@ from parametering.Parameterization import Parameterization
 
 if __name__ == '__main__':
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/exemplomenorWeights/nowell_example_1994_1999.txt')
-    myparams = Parameterization(util.keyword_decay, util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
-    myparams.open_connection()
-    result = [1,3]
-    myparams.add_weight(-1 , -1, result)
-    myparams.close_mysqlconnection()
+    myparams = Parameterization(keyword_decay= util.keyword_decay, lengthVertex = util.lengthVertex, t0 = util.t0, t0_ = util.t0_ , t1 = util.t1, t1_ = util.t1_, featuresChoice = util.FeaturesChoiced, filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, FullGraph = None, min_edges = util.min_edges, weightFeaturesChoiced = util.WeightFeaturesChoiced, featuresusingWeightsChoiced= util.FeaturesForWeightChoiced)
+    
+    print len(myparams.featuresusingWeightsChoiced)
+    

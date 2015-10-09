@@ -4,10 +4,10 @@ trainnig_graph_file	data/formatado/arxiv/exemplomenor/TrainingGraph.txt
 test_graph_file	data/formatado/arxiv/exemplomenor/TestingGraph.txt
 nodes_file	data/formatado/arxiv/exemplomenor/AllNodes.txt
 nodes_notlinked_file	data/formatado/arxiv/exemplomenor/NodesNotLinked.txt
-calculated_file	data/formatado/arxiv/exemplomenor/Calculated.txt
-maxmincalculated_file	data/formatado/arxiv/exemplomenor/MaxMinCalculated.txt
-ordered_file	data/formatado/arxiv/exemplomenor/ordered.txt
-analysed_file	data/formatado/arxiv/exemplomenor/analysed.txt
+calculated_file	data/formatado/arxiv/exemplomenorWeights/Calculated.txt
+maxmincalculated_file	data/formatado/arxiv/exemplomenorWeights/MaxMinCalculated.txt
+ordered_file	data/formatado/arxiv/exemplomenorWeights/ordered.txt
+analysed_file	data/formatado/arxiv/exemplomenorWeights/analysed.txt
 t0	1994
 t0_	1996
 t1	1994
@@ -18,3 +18,4 @@ min_edges	1
 lengthVertex	0
 features	0:1;1:1;2:1;3:1;4:1;5:1;6:1;7:1
 weightfeatures	0:1;1:1
+featuresusingweight	0:1-0,1

@@ -21,13 +21,12 @@ class GenerateWeigths(object):
     
     
     
-    def __init__(self, preparedParameter, fileAllNodes, filepathMaxMinCalculated):
+    def __init__(self, preparedParameter, fileAllNodes):
         
         print "Starting Calculating Nodes not linked", datetime.today()
         
         self.preparedParameter = preparedParameter
-        
-        self.filepathMaxMinCalculated = Formating.get_abs_file_path(filepathMaxMinCalculated)
+       
         self.filepathAllNodes = Formating.get_abs_file_path(fileAllNodes)
         
         self.preparedParameter.open_connection()
@@ -37,8 +36,8 @@ class GenerateWeigths(object):
         
         fcontentAllNodes = open(self.filepathAllNodes, 'r')
         
-        self.minValueCalculated = list(99999 for x in self.preparedParameter.featuresChoice)
-        self.maxValueCalculated = list(0 for x in self.preparedParameter.featuresChoice)
+        self.minValueCalculated = list(99999 for x in self.preparedParameter.WeightFeaturesChoiced)
+        self.maxValueCalculated = list(0 for x in self.preparedParameter.WeightFeaturesChoiced)
         
         qtyFeatures = len(self.preparedParameter.WeightFeaturesChoiced)
         qtyNodesCalculated = 0
@@ -73,7 +72,7 @@ class GenerateWeigths(object):
         self.preparedParameter.add_weight(-1,-1, qtyNodesCalculated)
         self.preparedParameter.add_weight(-2,-2, repr(self.minValueCalculated))
         self.preparedParameter.add_weight(-3,-3, repr(self.maxValueCalculated))
-            
+        self.preparedParameter.close_connection()
         print "Calculating Nodes not linked finished", datetime.today()
         
         
