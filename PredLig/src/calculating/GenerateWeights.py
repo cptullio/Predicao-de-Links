@@ -23,29 +23,24 @@ class GenerateWeigths(object):
     
     def __init__(self, preparedParameter, fileAllNodes):
         
-        print "Starting Calculating Nodes not linked", datetime.today()
+        print "Starting Generating Weights for all Nodes", datetime.today()
         
         self.preparedParameter = preparedParameter
        
         self.filepathAllNodes = Formating.get_abs_file_path(fileAllNodes)
         
         self.preparedParameter.open_connection()
-        
-        element = 0
-        qtyLines = FormatingDataSets.getTotalLineNumbers(self.filepathAllNodes)
+        self.preparedParameter.clean_database()
         
         fcontentAllNodes = open(self.filepathAllNodes, 'r')
         
-        self.minValueCalculated = list(99999 for x in self.preparedParameter.WeightFeaturesChoiced)
-        self.maxValueCalculated = list(0 for x in self.preparedParameter.WeightFeaturesChoiced)
+        self.minValueCalculated = list(99999 for x in self.preparedParameter.WeightsChoiced)
+        self.maxValueCalculated = list(0 for x in self.preparedParameter.WeightsChoiced)
         
-        qtyFeatures = len(self.preparedParameter.WeightFeaturesChoiced)
+        qtyFeatures = len(self.preparedParameter.WeightsChoiced)
         qtyNodesCalculated = 0
-        partialResults = []
         for lineofFile in fcontentAllNodes:
-            element = element+1
             item = VariableSelection.getItemFromLine(lineofFile)
-            qtyothernodes = len(item[1])
             newelement = 0
             
             for neighbor_node in item[1]:
@@ -55,8 +50,8 @@ class GenerateWeigths(object):
                 item_result = []
                 #executing the calculation for each features chosen at parameter
                 for index_features in range(qtyFeatures):
-                    self.preparedParameter.WeightFeaturesChoiced[index_features][0].parameter = preparedParameter
-                    valueCalculated = self.preparedParameter.featuresChoice[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.featuresChoice[index_features][1]
+                    self.preparedParameter.WeightsChoiced[index_features][0].parameter = preparedParameter
+                    valueCalculated = self.preparedParameter.WeightsChoiced[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.WeightsChoiced[index_features][1]
                     
                     if valueCalculated < self.minValueCalculated[index_features]:
                         self.minValueCalculated[index_features] = valueCalculated
@@ -73,6 +68,6 @@ class GenerateWeigths(object):
         self.preparedParameter.add_weight(-2,-2, repr(self.minValueCalculated))
         self.preparedParameter.add_weight(-3,-3, repr(self.maxValueCalculated))
         self.preparedParameter.close_connection()
-        print "Calculating Nodes not linked finished", datetime.today()
+        print "Finishinig Generating Weights for all Nodes", datetime.today()
         
         

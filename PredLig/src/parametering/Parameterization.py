@@ -42,8 +42,12 @@ class Parameterization(object):
             print "Reading Trainnig graph", datetime.today()
             self.trainnigGraph = Formating.reading_graph(self.filePathTrainingGraph)
         
-        for feature in self.featuresChoice:
-            feature[0].graph = self.trainnigGraph
+        for w_score in self.WeightedScoresChoiced:
+            w_score[0].graph = self.trainnigGraph
+        for score in self.ScoreChoices:
+            score[0].graph = self.trainnigGraph
+        for w in self.WeightsChoiced:
+            w[0].graph = self.trainnigGraph 
     
     def get_edges(self, graph):
         myedges = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E')
@@ -62,7 +66,7 @@ class Parameterization(object):
         return result
     
     def clean_database(self):
-        self.cursor = self.connection.cursor()
+        
         clear_Table = "truncate resultadopesos"
         self.cursor.execute(clear_Table)
         self.connection.commit()
@@ -76,7 +80,7 @@ class Parameterization(object):
         self.query_get_weight = ("select resultados from resultadopesos where (no1 = %s and no2 = %s) or (no1 = %s and no2 = %s) ")
         
         self.query_add_weight = ("INSERT INTO resultadopesos (no1, no2, resultados) VALUES (%s, %s, %s)")
-        
+        self.cursor = self.connection.cursor()
         
 
     def add_weight(self, node1, node2, results):
@@ -85,7 +89,9 @@ class Parameterization(object):
 
 
     def get_weights(self, node1, node2):
+        
         data = (node1, node2, node2, node1)
+        print data
         self.cursor.execute(self.query_get_weight, data)
         for resultado in self.cursor:
             return eval(resultado[0]) 
@@ -99,13 +105,24 @@ class Parameterization(object):
         self.cursor.close()
         self.connection.close()
     
-    def __init__(self, keyword_decay, lengthVertex, t0, t0_, t1, t1_, featuresChoice, filePathGraph, filePathTrainingGraph, filePathTestGraph, decay, FullGraph = None, min_edges = 1, weightFeaturesChoiced = None, featuresusingWeightsChoiced = None):
-        self.lengthVertex = lengthVertex
-        self.featuresChoice = featuresChoice
-        self.WeightFeaturesChoiced = weightFeaturesChoiced
-        self.featuresusingWeightsChoiced = featuresusingWeightsChoiced
+    def __init__(self, 
+                 t0, t0_, t1, t1_, 
+                 filePathGraph, 
+                 filePathTrainingGraph, 
+                 filePathTestGraph, 
+                 decay,
+                 domain_decay, 
+                 min_edges = 1, 
+                 scoreChoices = None, 
+                 weightsChoiced = None, 
+                 weightedScoresChoiced = None,
+                 FullGraph = None):
+        
+        self.ScoreChoices = scoreChoices
+        self.WeightsChoiced = weightsChoiced
+        self.WeightedScoresChoiced = weightedScoresChoiced
         self.min_edges = min_edges
-        self.keyword_decay = keyword_decay
+        self.domain_decay = domain_decay
         self.decay = decay
         self.t0_ = t0_
         self.t0 = t0

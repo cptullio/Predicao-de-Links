@@ -48,7 +48,7 @@ class CalculateWeights(object):
         
         f =  open(self.filepathResult)
         fF = []
-        for i in self.preparedParameter.featuresChoice:
+        for i in self.preparedParameter.WeightedScoresChoiced:
             fF.append(open(self.filepathResult +  '.' +str(i) + '.txt', 'w'))
         for line in f:
             calcs = []
@@ -72,8 +72,8 @@ class CalculateWeights(object):
     
     def getfilePathOrdered_separeted(self):
         data = []
-        for indice in range(len(self.preparedParameter.featuresChoice)):
-            data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt')
+        for indice in range(len(self.preparedParameter.WeightedScoresChoiced)):
+            data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt')
         return data
     
     
@@ -112,16 +112,16 @@ class CalculateWeights(object):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
         
-        for indice in range(len(self.preparedParameter.featuresChoice)):
-            print "Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
-            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
-            print "Separating File Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
+        for indice in range(len(self.preparedParameter.WeightedScoresChoiced)):
+            print "Ordering feature: ", str(self.preparedParameter.WeightedScoresChoiced[indice])
+            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt', 'r')
+            print "Separating File Ordering feature: ", str(self.preparedParameter.WeightedScoresChoiced[indice])
             filesPart = self.generating_part_files_for_ordering_in_memory(fr)
             fr.close()
             itemPart = 0
             for fp in filesPart:
                 itemPart = itemPart+1
-                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str(itemPart)+'.txt', 'w')
+                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.part'+ str(itemPart)+'.txt', 'w')
                 print "Ordering " , fw.name
                 data = []
                 for line in fp:
@@ -143,7 +143,7 @@ class CalculateWeights(object):
             print "Now Ordering by top rank", datetime.now()
             FinalData = []
             for i in range(itemPart):
-                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str((i+1))+'.txt', 'r')
+                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.part'+ str((i+1))+'.txt', 'r')
                 element = 0
                 for line in frPart:
                     element = element + 1
@@ -152,7 +152,7 @@ class CalculateWeights(object):
                     cols = line.split('\t')
                     FinalData.append([float(cols[0]), cols[1], cols[2]])
             orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=True)
-            fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt', 'w')
             for item in orderFinalData:
                 fwFinal.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
              
@@ -166,12 +166,12 @@ class CalculateWeights(object):
     def Ordering__using_memory_separating_File(self):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
-        for indice in range(len(self.preparedParameter.featuresChoice)):
+        for indice in range(len(self.preparedParameter.WeightedScoresChoiced)):
             
-            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt', 'w')
             
-            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
-            print "reading file", str(self.preparedParameter.featuresChoice[indice])
+            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt', 'r')
+            print "reading file", str(self.preparedParameter.WeightedScoresChoiced[indice])
             lines = fr.readlines()
             data = []
             element = 0
@@ -184,7 +184,7 @@ class CalculateWeights(object):
                 cols = line.split(':')
                 data.append([float(cols[0]), cols[1], cols[2]])
             del lines
-            print "ordering file", str(self.preparedParameter.featuresChoice[indice])
+            print "ordering file", str(self.preparedParameter.WeightedScoresChoiced[indice])
             orderData = sorted(data, key=lambda value: value[0], reverse=True)
             element = 0
             for item in orderData:
@@ -229,10 +229,10 @@ class CalculateWeights(object):
         
         fcontentCalcResult = open(self.filepathResult, 'w')
         
-        self.minValueCalculated = list(99999 for x in self.preparedParameter.featuresusingWeightsChoiced)
-        self.maxValueCalculated = list(0 for x in self.preparedParameter.featuresusingWeightsChoiced)
+        self.minValueCalculated = list(99999 for x in self.preparedParameter.WeightedScoresChoiced)
+        self.maxValueCalculated = list(0 for x in self.preparedParameter.WeightedScoresChoiced)
         
-        qtyFeatures = len(self.preparedParameter.featuresusingWeightsChoiced)
+        qtyFeatures = len(self.preparedParameter.WeightedScoresChoiced)
         qtyNodesCalculated = 0
         partialResults = []
         for lineofFile in fcontentNodesNotLinked:
@@ -250,11 +250,11 @@ class CalculateWeights(object):
                 #executing the calculation for each features chosen at parameter
                 for index_features in range(qtyFeatures):
                     
-                    feature =self.preparedParameter.featuresusingWeightsChoiced[index_features]
+                    feature =self.preparedParameter.WeightedScoresChoiced[index_features]
                     feature[0].parameter = preparedParameter
                     print feature
                      
-                    valueCalculated = feature[0].execute(item[0],neighbor_node, feature[2]) * self.preparedParameter.featuresChoice[index_features][1]
+                    valueCalculated = feature[0].execute(item[0],neighbor_node, feature[2]) * int(feature[1])
                     if valueCalculated < self.minValueCalculated[index_features]:
                         self.minValueCalculated[index_features] = valueCalculated
                     if valueCalculated > self.maxValueCalculated[index_features]:
@@ -265,7 +265,7 @@ class CalculateWeights(object):
                 lineContent = []    
                 #generating a vetor with the name of the feature and the result of the calculate
                 for indice in range(qtyFeatures):
-                    lineContent.append(str({str(self.preparedParameter.featuresusingWeightsChoiced[indice]):item_result[indice]}) )
+                    lineContent.append(str({str(self.preparedParameter.WeightedScoresChoiced[indice]):item_result[indice]}) )
                 partialResults.append([lineContent, item[0], neighbor_node])
                 
             if element % 10 == 0:

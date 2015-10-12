@@ -20,14 +20,13 @@ class WCNFeature(FeatureBase):
     
     
     
-    def execute(self, node1, node2, weights):
-        
+    def execute(self, node1, node2, weight_index):
+        print 'indice a ser usado: ', weight_index
         cnList = self.get_common_neighbors(node1, node2)
         total = 0
         
         for cn in cnList:
-            for index in weights:
-                total = total + ( self.parameter.get_weights(node1, cn)[index]  + self.parameter.get_weights(node2, cn )[index])
+            total = total + ( float(self.parameter.get_weights(node1, cn)[int(weight_index)])  + float(self.parameter.get_weights(node2, cn )[int(weight_index)]))
             
         return total
             

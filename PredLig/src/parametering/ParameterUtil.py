@@ -40,10 +40,11 @@ class ParameterUtil(object):
         
         FeaturesForWeight = []
         FeaturesForWeight.append(WCNFeature())
+        
                 
-        self.FeaturesChoiced = []
-        self.WeightFeaturesChoiced = []
-        self.FeaturesForWeightChoiced = []
+        self.ScoresChoiced = []
+        self.WeightsChoiced = []
+        self.WeightedScoresChoiced = []
         
         
         with open(parameterFile) as f:
@@ -87,30 +88,30 @@ class ParameterUtil(object):
                 self.t1_ = int(cols[1])
             if cols[0] == 'decay':
                 self.decay = float(cols[1])
-            if cols[0] == 'keyword_decay':
-                self.keyword_decay = float(cols[1])
-            if cols[0] == 'features':
+            if cols[0] == 'domain_decay':
+                self.domain_decay = float(cols[1])
+            if cols[0] == 'scores':
                 features = cols[1].split(';')
                 for feature in features:
                     featureandweight = feature.split(':')
-                    self.FeaturesChoiced.append([AllFeatures[int(featureandweight[0])], int(featureandweight[1])])
+                    self.ScoresChoiced.append([AllFeatures[int(featureandweight[0])], int(featureandweight[1])])
             
-            if cols[0] == 'weightfeatures':
+            if cols[0] == 'weights':
                 features = cols[1].split(';')
                 for feature in features:
                     featureandweight = feature.split(':')
-                    self.WeightFeaturesChoiced.append([WeightedFeatures[int(featureandweight[0])], int(featureandweight[1])])
+                    self.WeightsChoiced.append([WeightedFeatures[int(featureandweight[0])], int(featureandweight[1])])
                 
-            if cols[0] == 'featuresusingweight':
+            if cols[0] == 'weighted_scores':
                 features = cols[1].split(';')
                 for feature in features:
                     featureandweight = feature.split(':')
                     weight = featureandweight[1].split('-')[0]
-                    weightfeatures = featureandweight[1].split('-')[1].split(',')
+                    weightfeatures = featureandweight[1].split('-')[1]
                     item =  [FeaturesForWeight[int(featureandweight[0])], 
                                                        weight, 
                                                        weightfeatures  ]
-                    self.FeaturesForWeightChoiced.append(
+                    self.WeightedScoresChoiced.append(
                                                        item
                                                        )
                 
