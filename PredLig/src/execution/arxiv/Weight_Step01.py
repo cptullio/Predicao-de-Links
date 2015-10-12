@@ -10,7 +10,7 @@ from calculating.VariableSelection import VariableSelection
 from calculating.GenerateWeights import GenerateWeigths
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/exemplomenorWeights/nowell_example_1994_1999.txt')
+    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/config/configuration.txt')
     
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, 
