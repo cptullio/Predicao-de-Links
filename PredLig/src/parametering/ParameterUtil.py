@@ -15,6 +15,7 @@ from featuring.DomainJC import DomainJC
 from featuring.forweights.WeightTimeScore import WeightTimeScore
 from featuring.forweights.WeightDomainScore import WeightDomainScore
 from featuring.WCNFeature import WCNFeature
+from featuring.WAAFeature import WAAFeature
 
 class ParameterUtil(object):
     
@@ -40,6 +41,7 @@ class ParameterUtil(object):
         
         FeaturesForWeight = []
         FeaturesForWeight.append(WCNFeature())
+        FeaturesForWeight.append(WAAFeature())
         
                 
         self.ScoresChoiced = []
