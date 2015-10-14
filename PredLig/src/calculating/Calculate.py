@@ -20,13 +20,6 @@ import mysql.connector
 class Calculate(object):
     
     
-    def adding_normalize_values_tograph(self,graph, weighted_graph_file):
-        arquivo = open(self.filepathResult, 'r')
-            
-        for line in arquivo:
-            result = Calculate.reading_calculateLine(line)
-            graph.add_edge(int(result[1]), int(result[2]), weight =  str(result[0])  )
-        networkx.write_graphml(graph, FormatingDataSets.get_abs_file_path(weighted_graph_file ))
     
         
     @staticmethod
@@ -48,7 +41,7 @@ class Calculate(object):
         
         f =  open(self.filepathResult)
         fF = []
-        for i in self.preparedParameter.featuresChoice:
+        for i in self.preparedParameter.ScoresChoiced:
             fF.append(open(self.filepathResult +  '.' +str(i) + '.txt', 'w'))
         for line in f:
             calcs = []
@@ -72,8 +65,8 @@ class Calculate(object):
     
     def getfilePathOrdered_separeted(self):
         data = []
-        for indice in range(len(self.preparedParameter.featuresChoice)):
-            data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt')
+        for indice in range(len(self.preparedParameter.ScoresChoiced)):
+            data.append(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt')
         return data
     
     
@@ -112,16 +105,16 @@ class Calculate(object):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
         
-        for indice in range(len(self.preparedParameter.featuresChoice)):
-            print "Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
-            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
-            print "Separating File Ordering feature: ", str(self.preparedParameter.featuresChoice[indice])
+        for indice in range(len(self.preparedParameter.ScoresChoiced)):
+            print "Ordering feature: ", str(self.preparedParameter.ScoresChoiced[indice])
+            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt', 'r')
+            print "Separating File Ordering feature: ", str(self.preparedParameter.ScoresChoiced[indice])
             filesPart = self.generating_part_files_for_ordering_in_memory(fr)
             fr.close()
             itemPart = 0
             for fp in filesPart:
                 itemPart = itemPart+1
-                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str(itemPart)+'.txt', 'w')
+                fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.part'+ str(itemPart)+'.txt', 'w')
                 print "Ordering " , fw.name
                 data = []
                 for line in fp:
@@ -143,7 +136,7 @@ class Calculate(object):
             print "Now Ordering by top rank", datetime.now()
             FinalData = []
             for i in range(itemPart):
-                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.part'+ str((i+1))+'.txt', 'r')
+                frPart = open(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.part'+ str((i+1))+'.txt', 'r')
                 element = 0
                 for line in frPart:
                     element = element + 1
@@ -152,7 +145,7 @@ class Calculate(object):
                     cols = line.split('\t')
                     FinalData.append([float(cols[0]), cols[1], cols[2]])
             orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=True)
-            fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt', 'w')
             for item in orderFinalData:
                 fwFinal.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )
              
@@ -166,12 +159,12 @@ class Calculate(object):
     def Ordering__using_memory_separating_File(self):
         print "Starting Ordering the Calculating  in Separating File", datetime.today()
         
-        for indice in range(len(self.preparedParameter.featuresChoice)):
+        for indice in range(len(self.preparedParameter.ScoresChoiced)):
             
-            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'w')
+            fw = open(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt', 'w')
             
-            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.featuresChoice[indice]) + '.txt', 'r')
-            print "reading file", str(self.preparedParameter.featuresChoice[indice])
+            fr = open(self.filepathResult +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt', 'r')
+            print "reading file", str(self.preparedParameter.ScoresChoiced[indice])
             lines = fr.readlines()
             data = []
             element = 0
@@ -184,7 +177,7 @@ class Calculate(object):
                 cols = line.split(':')
                 data.append([float(cols[0]), cols[1], cols[2]])
             del lines
-            print "ordering file", str(self.preparedParameter.featuresChoice[indice])
+            print "ordering file", str(self.preparedParameter.ScoresChoiced[indice])
             orderData = sorted(data, key=lambda value: value[0], reverse=True)
             element = 0
             for item in orderData:
@@ -227,10 +220,10 @@ class Calculate(object):
         
         fcontentCalcResult = open(self.filepathResult, 'w')
         
-        self.minValueCalculated = list(99999 for x in self.preparedParameter.featuresChoice)
-        self.maxValueCalculated = list(0 for x in self.preparedParameter.featuresChoice)
+        self.minValueCalculated = list(99999 for x in self.preparedParameter.ScoresChoiced)
+        self.maxValueCalculated = list(0 for x in self.preparedParameter.ScoresChoiced)
         
-        qtyFeatures = len(self.preparedParameter.featuresChoice)
+        qtyFeatures = len(self.preparedParameter.ScoresChoiced)
         qtyNodesCalculated = 0
         partialResults = []
         for lineofFile in fcontentNodesNotLinked:
@@ -247,8 +240,8 @@ class Calculate(object):
                 item_result = []
                 #executing the calculation for each features chosen at parameter
                 for index_features in range(qtyFeatures):
-                    self.preparedParameter.featuresChoice[index_features][0].parameter = preparedParameter
-                    valueCalculated = self.preparedParameter.featuresChoice[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.featuresChoice[index_features][1]
+                    self.preparedParameter.ScoresChoiced[index_features][0].parameter = preparedParameter
+                    valueCalculated = self.preparedParameter.ScoresChoiced[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.ScoresChoiced[index_features][1]
                     if valueCalculated < self.minValueCalculated[index_features]:
                         self.minValueCalculated[index_features] = valueCalculated
                     if valueCalculated > self.maxValueCalculated[index_features]:
@@ -259,7 +252,7 @@ class Calculate(object):
                 lineContent = []    
                 #generating a vetor with the name of the feature and the result of the calculate
                 for indice in range(qtyFeatures):
-                    lineContent.append(str({str(self.preparedParameter.featuresChoice[indice]):item_result[indice]}) )
+                    lineContent.append(str({str(self.preparedParameter.ScoresChoiced[indice]):item_result[indice]}) )
                 partialResults.append([lineContent, item[0], neighbor_node])
                 
             if element % 10 == 0:

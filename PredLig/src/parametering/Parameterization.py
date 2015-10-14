@@ -44,7 +44,7 @@ class Parameterization(object):
         
         for w_score in self.WeightedScoresChoiced:
             w_score[0].graph = self.trainnigGraph
-        for score in self.ScoreChoices:
+        for score in self.ScoresChoiced:
             score[0].graph = self.trainnigGraph
         for w in self.WeightsChoiced:
             w[0].graph = self.trainnigGraph 
@@ -113,12 +113,12 @@ class Parameterization(object):
                  decay,
                  domain_decay, 
                  min_edges = 1, 
-                 scoreChoices = None, 
+                 scoreChoiced = None, 
                  weightsChoiced = None, 
                  weightedScoresChoiced = None,
                  FullGraph = None):
         
-        self.ScoreChoices = scoreChoices
+        self.ScoresChoiced = scoreChoiced
         self.WeightsChoiced = weightsChoiced
         self.WeightedScoresChoiced = weightedScoresChoiced
         self.min_edges = min_edges

@@ -84,7 +84,7 @@ class DomainTimeScorevTwo(FeatureBase):
                 print 'Harmonic meam:', hm
             
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
-            decayfunction = (1 - self.parameter.decay) ** k
+            decayfunction = (1 - self.parameter.domain_decay) ** k
             control = (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1)
             ts = (hm * decayfunction) + (jcKeyworkds * 4)  /  (control)
             timescoreValue = timescoreValue + ts 
