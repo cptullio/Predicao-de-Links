@@ -4,10 +4,10 @@ trainnig_graph_file	data/formatado/arxiv/nowell_astroph_1994_1999/TrainingGraph.
 test_graph_file	data/formatado/arxiv/nowell_astroph_1994_1999/TestingGraph.txt
 nodes_file	data/formatado/arxiv/nowell_astroph_1994_1999/AllNodes.txt
 nodes_notlinked_file	data/formatado/arxiv/nowell_astroph_1994_1999/NodesNotLinked.txt
-calculated_file	data/formatado/arxiv/nowell_astroph_1994_1999/without_weigths/Calculated.txt
-maxmincalculated_file	data/formatado/arxiv/nowell_astroph_1994_1999/without_weigths/MaxMinCalculated.txt
-ordered_file	data/formatado/arxiv/nowell_astroph_1994_1999/without_weigths/ordered.txt
-analysed_file	data/formatado/arxiv/nowell_astroph_1994_1999/without_weigths/analysed.txt
+calculated_file	data/formatado/arxiv/nowell_astroph_1994_1999/Calculated.txt
+maxmincalculated_file	data/formatado/arxiv/nowell_astroph_1994_1999/MaxMinCalculated.txt
+ordered_file	data/formatado/arxiv/nowell_astroph_1994_1999/ordered.txt
+analysed_file	data/formatado/arxiv/nowell_astroph_1994_1999/analysed.txt
 t0	1994
 t0_	1996
 t1	1994
