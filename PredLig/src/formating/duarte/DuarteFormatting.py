@@ -26,7 +26,7 @@ class DuarteFormatting(FormatingDataSets):
             con = psycopg2.connect(database='projetomestrado', user='postgres', password='123456')
             
             curPublicacao = con.cursor()
-            curPublicacao.execute("select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano >= 1990")
+            curPublicacao.execute("select idpublicacao, titulo, ano from projetomestrado.publicacao  where ano >= 1993 and ano <= 2000")
             curPublicacaoData = curPublicacao.fetchall()
             element = 0
             for linha in curPublicacaoData:

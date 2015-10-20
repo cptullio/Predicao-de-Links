@@ -43,10 +43,16 @@ class Calculate(object):
         fF = []
         for i in self.preparedParameter.ScoresChoiced:
             fF.append(open(self.filepathResult +  '.' +str(i) + '.txt', 'w'))
+        element = 0
+            
         for line in f:
+            element = element + 1
+            self.printProgressofEvents(element, self.qtyDataCalculated, "separating files: ")
+                 
             calcs = []
             cols = line.split('\t')
             for indice in range(len(cols) -2 ):
+                
                 data = float(line.split('\t')[indice].split(':')[1].replace('}','').strip())
                 xdata = self.normalize(data, indice)
                 fF[indice].write( str(xdata) + ':' + cols[len(cols)-2]  + ':' +  cols[len(cols)-1] )

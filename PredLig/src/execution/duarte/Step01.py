@@ -8,12 +8,13 @@ We will need the file of parameter to indicate the place where the graph will be
 
 '''
 from parametering.ParameterUtil import ParameterUtil
+from formating.duarte.DuarteFormatting import DuarteFormatting
 
-from formating.arxiv.Formating import Formating
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/duarte/nowell_duarte_2004_2010.txt')
-    astroPh = Formating(util.graph_file)
-    #astroPh.readingOrginalDataset()
-    astroPh.generating_graph()
-    astroPh.saveGraph()
+    
+    util = ParameterUtil(parameter_file = 'data/formatado/duarte/1994_1999/config/configuration.txt')
+    
+    format = DuarteFormatting(util.graph_file)
+    format.readingOrginalDataset()
+    format.saveGraph()

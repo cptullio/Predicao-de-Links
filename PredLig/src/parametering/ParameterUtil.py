@@ -12,10 +12,15 @@ from featuring.TimeScore import TimeScore
 from featuring.DomainTimeScore import DomainTimeScore
 from featuring.DomainTimeScorevTwo import DomainTimeScorevTwo
 from featuring.DomainJC import DomainJC
-from featuring.forweights.WeightTimeScore import WeightTimeScore
-from featuring.forweights.WeightDomainScore import WeightDomainScore
+
 from featuring.WCNFeature import WCNFeature
 from featuring.WAAFeature import WAAFeature
+from featuring.AAWFeature import AAWFeature
+from featuring.CNWFeature import CNWFeature
+from featuring.PAWFeature import PAWFeature
+from featuring.forweights.WeightTimeScore import WeightTimeScore
+from featuring.forweights.WeightDomainScore import WeightDomainScore
+from featuring.SPLFeature import SPLFeature
 
 class ParameterUtil(object):
     
@@ -33,7 +38,7 @@ class ParameterUtil(object):
         AllFeatures.append(DomainTimeScore())
         AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
-        
+        AllFeatures.append(SPLFeature())
         
         WeightedFeatures = []
         WeightedFeatures.append(WeightTimeScore())
@@ -42,6 +47,9 @@ class ParameterUtil(object):
         FeaturesForWeight = []
         FeaturesForWeight.append(WCNFeature())
         FeaturesForWeight.append(WAAFeature())
+        FeaturesForWeight.append(CNWFeature())
+        FeaturesForWeight.append(AAWFeature())
+        FeaturesForWeight.append(PAWFeature())
         
                 
         self.ScoresChoiced = []
