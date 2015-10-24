@@ -126,7 +126,10 @@ class Calculate(object):
                 for line in fp:
                     cols = line.split(':')
                     data.append([float(cols[0]), cols[1], cols[2]])
-                orderData = sorted(data, key=lambda value: value[0], reverse=True)
+                orderingByDesc = True
+                if (self.preparedParameter.ScoresChoiced[indice][2] == 1):
+                    orderingByDesc = False
+                orderData = sorted(data, key=lambda value: value[0], reverse=orderingByDesc)
                 data = None
                 del data
                 print "Saving data Ordering " , fw.name
@@ -150,7 +153,10 @@ class Calculate(object):
                         break
                     cols = line.split('\t')
                     FinalData.append([float(cols[0]), cols[1], cols[2]])
-            orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=True)
+            orderingByDescFinal = True
+            if (self.preparedParameter.ScoresChoiced[indice][2] == 1):
+                orderingByDescFinal = False
+            orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=orderingByDescFinal)
             fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.ScoresChoiced[indice]) + '.txt', 'w')
             for item in orderFinalData:
                 fwFinal.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )

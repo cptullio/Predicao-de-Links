@@ -104,7 +104,9 @@ class ParameterUtil(object):
                 features = cols[1].split(';')
                 for feature in features:
                     featureandweight = feature.split(':')
-                    self.ScoresChoiced.append([AllFeatures[int(featureandweight[0])], int(featureandweight[1])])
+                    weight = int(featureandweight[1].split(',')[0])
+                    orderingType = int(featureandweight[1].split(',')[1])
+                    self.ScoresChoiced.append([AllFeatures[int(featureandweight[0])], weight, orderingType   ])
             
             if cols[0] == 'weights':
                 features = cols[1].split(';')
@@ -117,10 +119,11 @@ class ParameterUtil(object):
                 for feature in features:
                     featureandweight = feature.split(':')
                     weight = featureandweight[1].split('-')[0]
-                    weightfeatures = featureandweight[1].split('-')[1]
+                    weightfeatures = featureandweight[1].split('-')[1].split(',')[0]
+                    orderingType = int(featureandweight[1].split('-')[1].split(',')[1])
                     item =  [FeaturesForWeight[int(featureandweight[0])], 
                                                        weight, 
-                                                       weightfeatures  ]
+                                                       weightfeatures, orderingType  ]
                     self.WeightedScoresChoiced.append(
                                                        item
                                                        )

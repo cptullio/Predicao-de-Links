@@ -14,6 +14,7 @@ from _elementtree import Element
 import gc
 import networkx
 import mysql.connector
+from __builtin__ import True
 
 
 
@@ -127,7 +128,10 @@ class CalculateWeights(object):
                 for line in fp:
                     cols = line.split(':')
                     data.append([float(cols[0]), cols[1], cols[2]])
-                orderData = sorted(data, key=lambda value: value[0], reverse=True)
+                orderingDesc = True
+                if (self.preparedParameter.WeightedScoresChoiced[indice][3] == 1):
+                    orderingDesc = False
+                orderData = sorted(data, key=lambda value: value[0], reverse=orderingDesc)
                 data = None
                 del data
                 print "Saving data Ordering " , fw.name
@@ -151,7 +155,11 @@ class CalculateWeights(object):
                         break
                     cols = line.split('\t')
                     FinalData.append([float(cols[0]), cols[1], cols[2]])
-            orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=True)
+            orderingDescFinal = True
+            if (self.preparedParameter.WeightedScoresChoiced[indice][3] == 1):
+                orderingDescFinal = False
+                
+            orderFinalData = sorted(FinalData, key=lambda value: value[0], reverse=orderingDescFinal)
             fwFinal = open(self.filePathOrdered +  '.' +str(self.preparedParameter.WeightedScoresChoiced[indice]) + '.txt', 'w')
             for item in orderFinalData:
                 fwFinal.write(str(item[0]) +'\t' + item[1] + '\t' + item[2] )

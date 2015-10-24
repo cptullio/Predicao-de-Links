@@ -11,7 +11,7 @@ from calculating.Calculate import Calculate
 
 if __name__ == '__main__':
     
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_condmat_1994_1999/config/configuration.txt')
+    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/exemplomenor/config/configuration_weights.txt')
     
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, 

@@ -96,7 +96,10 @@ class Parameterization(object):
         for resultado in self.cursor:
             return eval(resultado[0]) 
 
-
+    def getQtyofEdges(self,graph):
+        if self.qtyofEdges == None:
+            self.qtyofEdges =  self.get_edges(graph)
+        return self.qtyofEdges
       
 
    
@@ -118,6 +121,7 @@ class Parameterization(object):
                  weightedScoresChoiced = None,
                  FullGraph = None):
         
+        self.qtyofEdges = None
         self.ScoresChoiced = scoreChoiced
         self.WeightsChoiced = weightsChoiced
         self.WeightedScoresChoiced = weightedScoresChoiced
