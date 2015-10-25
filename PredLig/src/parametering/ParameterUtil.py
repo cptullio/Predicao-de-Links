@@ -21,6 +21,7 @@ from featuring.PAWFeature import PAWFeature
 from featuring.forweights.WeightTimeScore import WeightTimeScore
 from featuring.forweights.WeightDomainScore import WeightDomainScore
 from featuring.SPLFeature import SPLFeature
+from featuring.WSPLFeature import WSPLFeature
 
 class ParameterUtil(object):
     
@@ -50,6 +51,7 @@ class ParameterUtil(object):
         FeaturesForWeight.append(CNWFeature())
         FeaturesForWeight.append(AAWFeature())
         FeaturesForWeight.append(PAWFeature())
+        FeaturesForWeight.append(WSPLFeature())
         
                 
         self.ScoresChoiced = []
