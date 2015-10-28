@@ -8,6 +8,8 @@ Selecting all Nodes that will be calculated.
 from parametering.ParameterUtil import ParameterUtil
 from parametering.Parameterization import Parameterization
 from calculating.Calculate import Calculate
+import networkx
+from matplotlib import pyplot
 
 if __name__ == '__main__':
     #util = ParameterUtil(parameter_file = 'data/formatado/arxiv/exemplomenor/config/configuration_weights.txt')
@@ -19,3 +21,6 @@ if __name__ == '__main__':
  
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     calc.Separating_calculateFile()
+    #networkx.networkx.draw_networkx(myparams.trainnigGraph)  # networkx draw()
+    #pyplot.draw()  # pyplot draw()
+    #pyplot.show()

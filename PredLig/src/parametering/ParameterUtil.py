@@ -21,6 +21,7 @@ from featuring.PAWFeature import PAWFeature
 from featuring.forweights.WeightTimeScore import WeightTimeScore
 from featuring.forweights.WeightDomainScore import WeightDomainScore
 from featuring.SPLFeature import SPLFeature
+from featuring.LSFeature import LSFeature
 
 class ParameterUtil(object):
     
@@ -39,6 +40,8 @@ class ParameterUtil(object):
         AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
         AllFeatures.append(SPLFeature())
+        AllFeatures.append(LSFeature())
+        
         
         WeightedFeatures = []
         WeightedFeatures.append(WeightTimeScore())
