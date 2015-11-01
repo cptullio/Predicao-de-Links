@@ -210,7 +210,7 @@ class Sample:
 		
 		
 if __name__ == "__main__":
-	sample = Sample("amazon_al.txt", 20, (0.5, 0.5))
+	sample = Sample("/Users/cptullio/git/Predicao-de-Links/PredLig/src/formating/data/amazon_al.txt", 20, (0.5, 0.5))
 	sample.set_attributes_list({"preferential_attachment":{}, "common_neighbors":{}, "sum_of_neighbors":{}})
 	sample.get_sample()
 	table = sample.set_classification_dataset()
