@@ -7,8 +7,10 @@ from parametering.ParameterUtil import ParameterUtil
 from parametering.Parameterization import Parameterization
 import networkx
 
+
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/config/configuration_forAG.txt')
+    #util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/config/configuration_forAG.txt')
+    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/pankaj_condmat_2004_2012/config/configurationG1.txt')
     
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, 
@@ -16,6 +18,26 @@ if __name__ == '__main__':
 
  
     myparams.generating_Training_Graph()
-    paths  = list(networkx.all_simple_paths(myparams.trainnigGraph, '965', '2147'))
-    print paths
     
+    #paths  = list(networkx.all_simple_paths(myparams.trainnigGraph, '1', '11542'))
+    
+    #print paths
+    paths  = list(networkx.all_shortest_paths(myparams.trainnigGraph, '1', '11542'))
+    
+    AllPaths = []
+    for OnePath in paths:
+        result = []
+        for n in OnePath:
+            if not ('P' in n):
+                result.append(n)
+        if not result in AllPaths:
+            AllPaths.append(result)
+        
+    #print AllPaths
+    
+    print len(paths)
+    print len(AllPaths)
+    print min(len(ap) for ap in AllPaths)
+    
+    print max(len(ap) for ap in AllPaths)
+        

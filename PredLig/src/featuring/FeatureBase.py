@@ -18,6 +18,22 @@ class FeatureBase(object):
         self.parameter = None
         self.debugar = False
     
+    
+    def getPathLength(self, node1, node2):
+        SPpath = networkx.shortest_path(self.graph, node1,  node2)
+        path = []
+        for n in SPpath:
+            if not ('P' in n):
+                path.append(n)
+            
+        lengthofPath = len(path)
+        final =[]
+        for index in range(lengthofPath-1):
+            final.append([path[index] , path[index+1] ] )
+        return final    
+    
+    
+    
     def get_jacard_keywords(self, bagofWordsNode1, bagofWordsNode2):
         f = (float)(len(bagofWordsNode1.intersection(bagofWordsNode2)))
         x = (float)(len(bagofWordsNode1.union(bagofWordsNode2)))

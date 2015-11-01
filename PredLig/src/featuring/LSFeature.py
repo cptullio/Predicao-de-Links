@@ -41,8 +41,13 @@ class LSFeature(FeatureBase):
     
     def execute(self, node1, node2):
         paths = None
+        
         try: 
-            paths = list(networkx.all_simple_paths(self.graph, node1, node2))
+            print "Tentando Pegar o Shotest Path", node1, node2
+            
+            uniqueShortestPath = list(networkx.shortest_path(self.graph, node1, node2))
+            print "Contem Caminho... Pegando todos os Paths", node1, node2
+            paths = list(networkx.all_shortest_paths(self.graph, node1, node2))
         except networkx.exception.NetworkXNoPath, e:
             print e
             return 0
@@ -80,7 +85,8 @@ class LSFeature(FeatureBase):
             sumofPublications = float(0)
             yearsOfPublicationLinks = []
             for pairofNodes in final:
-                objectsinLinks = self.get_ObjectsofLinks(self.graph, pairofNodes[0], pairofNodes[0])
+                objectsinLinks = self.get_ObjectsofLinks(self.graph, pairofNodes[0], pairofNodes[1])
+                #print "objetos localizados", objectsinLinks
                 yearsOfPublicationLinks.append(max(list(x[0] for x in objectsinLinks)))
                 sumofPublications = sumofPublications + (1 / len(objectsinLinks))
             hm = m / sumofPublications

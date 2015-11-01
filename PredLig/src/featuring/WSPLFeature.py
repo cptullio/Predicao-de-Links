@@ -26,10 +26,9 @@ class WSPLFeature(FeatureBase):
         total = 0
         try:
             
-            path = networkx.shortest_path(self.graph, node1,  node2)
+            path = self.getPathLength(node1, node2)
             for n in path:
-                if not (('P' in n) or (n == node1) or (n == node2)):
-                    total = total + ( float(self.parameter.get_weights(node1, n)[int(weight_index)]) +  float(self.parameter.get_weights(node2, n)[int(weight_index)]) )
+                total = total +  float(self.parameter.get_weights(n[0], n[1])[int(weight_index)]) 
                      
             return total
         except networkx.exception.NetworkXNoPath, e:

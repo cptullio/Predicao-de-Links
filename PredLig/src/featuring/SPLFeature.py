@@ -21,16 +21,11 @@ class SPLFeature(FeatureBase):
         
     
     
-    
     def execute(self, node1, node2):
-        total = 0
         try:
+            final = self.getPathLength(node1, node2)
             
-            path = networkx.shortest_path(self.graph, node1,  node2)
-            for n in path:
-                if not (('P' in n) or (n == node1) or (n == node2)):
-                    total = total + 1
-            return total
+            return len(final)
         except networkx.exception.NetworkXNoPath, e:
             print 'Error %s' % e
             return self.parameter.getQtyofEdges(self.graph)
