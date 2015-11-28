@@ -11,16 +11,48 @@ from analysing.Analyse import Analyse
 from calculating.VariableSelection import VariableSelection
 from formating.FormatingDataSets import FormatingDataSets
 import networkx
+import matplotlib
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_example_1994_1999.txt')
-    myparams = Parameterization(util.keyword_decay, util.lengthVertex, util.t0, util.t0_, util.t1, util.t1_, util.FeaturesChoiced, util.graph_file, util.trainnig_graph_file, util.test_graph_file, util.decay)
+    util = ParameterUtil(parameter_file = 'data/formatado/exemplomenor/config/config.txt')
+    myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, 
+                                filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None)
+
     myparams.generating_Training_Graph()
-    selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file,util.min_edges, True)
+    myparams.generating_Test_Graph()
+    selection = VariableSelection(myparams.trainnigGraph, util.nodes_notlinked_file,util.min_edges)
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
-    wg = calc.adding_normalize_values_tograph(myparams.trainnigGraph)
-    networkx.write_graphml(wg, FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.weighted.txt'))
-    node993 =set(n for n,d in wg.edges(data=True) if n == 993 and d == 994)
-    print node993
+    calc.Separating_calculateFile()
+    analise = Analyse(myparams, FormatingDataSets.get_abs_file_path(util.calculated_file), FormatingDataSets.get_abs_file_path(util.analysed_file) + '.random.analised.txt', calc.qtyDataCalculated)
+    topRank = (Analyse.getTopRank(util.analysed_file + '.random.analised.txt')*2)
+    calc.Ordering_separating_File(topRank)
+    for OrderingFilePath in calc.getfilePathOrdered_separeted():
+        analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt', topRank )
+    
+    
+    print "Trainning Period:", myparams.t0, " - ", myparams.t0_
+    print "Test Period:", myparams.t1, " - ", myparams.t1_
+    
+    print "# Papers in Trainning: ",  myparams.get_edges(myparams.trainnigGraph)
+    print "# Authors in Training: ", myparams.get_nodes(myparams.trainnigGraph)
+    print "# Papers in Test: ",  myparams.get_edges(myparams.testGraph)
+    print "# Authors in Test", myparams.get_nodes(myparams.testGraph)
+    
+    print "# pair of Authors with at least 3 articles Calculated: ", calc.qtyDataCalculated  #FormatingDataSets.getTotalLineNumbers(FormatingDataSets.get_abs_file_path(util.calculated_file))
+    print "# pair of Authors that is connected in Test Graph in a random way: ", topRank
+    print "Max values found in calculations: ", str(calc.maxValueCalculated)
+    print "Min Values found in calculations: ", str(calc.minValueCalculated)
+    for pathFile in calc.getfilePathOrdered_separeted():
+        print "File Analised: ", pathFile +  '.analised.txt'
+        number_connected =  Analyse.getTopRankABSPathFiles(pathFile + '.analised.txt')
+        print "# pair of Authors that is connected in Test Graph: ", number_connected
+        print "%: ", Analyse.getLastInfosofResultsABSPathFiles(pathFile + '.analised.txt', topRank)
+        print "---------------------------------"
+    
+    
+    #networkx.draw_networkx(myparams.testGraph)
+    
+    #matplotlib.pyplot.show()
+    
     
     

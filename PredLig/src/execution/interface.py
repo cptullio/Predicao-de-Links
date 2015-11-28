@@ -58,8 +58,8 @@ class Janela:
         self.frame = Frame(toplevel)
         self.frame.pack()
         
-        self.file_path = 'formating/data/formatado/arxiv/config_interface.txt'
-        self.configFile = 'data/formatado/arxiv/config_interface.txt'
+        self.file_path = 'data/formatado/arxiv/nowell_astroph_1994_1999/config/configuration_forAG.txt'
+        self.configFile = 'data/formatado/arxiv/nowell_astroph_1994_1999/config/configuration_forAG.txt'
 
         #Nao deve conter todas as features mas apenas aquelas que foram escolhidas
         self.featureValues = {}
@@ -77,9 +77,6 @@ class Janela:
         #AllFeatures.append(SPLFeature())
         #AllFeatures.append(LSFeature())
         
-        self.features=['AAS','CN', 'JC', 'Time Score', 'Domain Time Score', 'Domain Time Score V2', 'Domain JC', 'Short Path Length', 'Link Score']
-
-        self.orderby=['Ascending' ,'Descending']
 
 
         self.parameters = self.getParametersFromFile()
@@ -168,10 +165,10 @@ class Janela:
         self.labelDecay.grid(row = 5, column = 0)
         self.decay.grid(row = 5, column = 1)
     
-        self.labelKeyword_decay = Label(self.formContainer, text='Keyword_Decay: ',fg='black', font = self.myfont)
-        self.keyword_decay = Entry(self.formContainer, width = formWidth, font = self.myfont)
-        self.labelKeyword_decay.grid(row = 6, column = 0)
-        self.keyword_decay.grid(row = 6, column = 1)
+        self.labelDomain_decay = Label(self.formContainer, text='Domain Decay: ',fg='black', font = self.myfont)
+        self.domain_decay = Entry(self.formContainer, width = formWidth, font = self.myfont)
+        self.labelDomain_decay.grid(row = 6, column = 0)
+        self.domain_decay.grid(row = 6, column = 1)
     
         self.labelMin_edges = Label(self.formContainer, text='Min_Edges: ',fg='black', font = self.myfont)
         self.min_edges = Entry(self.formContainer, width = formWidth, font = self.myfont)
@@ -187,6 +184,14 @@ class Janela:
         self.neighborhood = Entry(self.formContainer, width = formWidth, font = self.myfont)
         self.labelNeighborhood.grid(row = 9, column = 0)
         self.neighborhood.grid(row = 9, column = 1)
+        
+        
+        self.labelScores= Label(self.formContainer, text='Scores: ',fg='black', font = self.myfont)
+        self.scores = Entry(self.formContainer, width = formWidth, font = self.myfont)
+        self.labelScores.grid(row = 10, column = 0)
+        self.scores.grid(row = 10, column = 1)
+        
+        
         
         # button to save the form
         self.botaoSave = Button(self.formContainer, text="Save")
@@ -205,7 +210,8 @@ class Janela:
         self.t1_.insert(0, parameters['t1_'])
         self.min_edges.insert(0, parameters['min_edges'])
         self.decay.insert(0, parameters['decay'])
-        self.keyword_decay.insert(0, parameters['keyword_decay'])
+        self.domain_decay.insert(0, parameters['domain_decay'])
+        self.scores.insert(0, parameters['scores'])
         self.lengthVertex.insert(0, parameters['lengthVertex'])
     
     def createStepButtons(self):
@@ -243,16 +249,7 @@ class Janela:
         formWidth = 20
 
 
-        self.featureVar = StringVar()
-        self.featuresOptionMenu = OptionMenu(self.optionLeftContainer, self.featureVar, *self.features)
-        self.featuresOptionMenu.pack()
-
-        self.featureEntry = Entry(self.optionRigthContainer, width = formWidth, font = self.myfont)
-        self.featureEntry.pack(side=LEFT)
-        self.featureSet = Button( self.optionRigthContainer, text="Set feature")
-        self.featureSet.bind("<Button-1>", self.featureSetClick)
-        self.featureSet.pack(side=RIGHT)
-
+        
         # nao ta funcionando
         # precisa ver como verifica quando a variavel muda
         # ve com o cara la
@@ -276,6 +273,7 @@ class Janela:
         f.write('graph_file\tdata/formatado/arxiv/' + parameters['name'] + '.txt\n')
         f.write('trainnig_graph_file\tdata/formatado/arxiv/' + parameters['name'] + '/TrainingGraph.txt\n')
         f.write('test_graph_file\tdata/formatado/arxiv/' + parameters['name'] + '/TestingGraph.txt\n')
+        f.write('nodes_file\tdata/formatado/arxiv/' + parameters['name'] + '/AllNodes.txt\n')
         f.write('nodes_notlinked_file\tdata/formatado/arxiv/' + parameters['name'] + '/NodesNotLinked.txt\n')
         f.write('calculated_file\tdata/formatado/arxiv/' + parameters['name'] + '/Calculated.txt\n')
         f.write('maxmincalculated_file\tdata/formatado/arxiv/' + parameters['name'] + '/MaxMinCalculated.txt\n')
@@ -285,21 +283,15 @@ class Janela:
         f.write('t0_\t' + parameters['t0_'] + '\n')
         f.write('t1\t' + parameters['t1'] + '\n')
         f.write('t1_\t' + parameters['t1_'] + '\n')
+        
+        
         f.write('decay\t' + parameters['decay'] + '\n')
-        f.write('keyword_decay\t' + parameters['keyword_decay'] + '\n')
+        f.write('domain_decay\t' + parameters['domain_decay'] + '\n')
         f.write('min_edges\t' + parameters['min_edges'] + '\n')
-        f.write('lengthVertex\t' + parameters['lengthVertex'] + '\n')
-        f.write('features\t')
-        i = 0
-        for feature in self.features:
-            f.write(i)
-            f.write(':')
-            f.write(self.featureValues[feature])
-            
-            f.write(',')
-            f.write(self.featureValues[feature])
-             
-            i += 1
+        f.write('scores\t' + parameters['scores'] + '\n')
+        
+        
+        
         f.write('\n')
         
         self.logText.set('Parameters saved')
@@ -318,10 +310,11 @@ class Janela:
         parameters['t1'] = self.t1.get()
         parameters['t1_'] = self.t1_.get()
         parameters['decay'] = self.decay.get()
-        parameters['keyword_decay'] = self.keyword_decay.get()
+        parameters['domain_decay'] = self.domain_decay.get()
         parameters['min_edges'] = self.min_edges.get()
         parameters['lengthVertex'] = self.lengthVertex.get()
         parameters['neighborhood'] = self.neighborhood.get()
+        parameters['scores'] = self.scores.get()
         
         return parameters
     
@@ -362,10 +355,11 @@ class Janela:
             parameters['t1_'] = "Enter final time for testing graph"
             parameters['min_edges'] = "Enter min_edges(TODO)"
             parameters['decay'] = "Enter decay(TODO)"
-            parameters['keyword_decay'] = "Enter keyword_decay(TODO)"
+            parameters['domain_decay'] = "Enter keyword_decay(TODO)"
+            parameters['scores'] = "Enter scores "
+            
             parameters['lengthVertex'] = "Enter lengthVertex(TODO)"
-            for feature in self.features:
-                self.featureValues[feature] = 1
+            
         return parameters
     
     '''
