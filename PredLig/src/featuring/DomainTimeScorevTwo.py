@@ -21,12 +21,7 @@ class DomainTimeScorevTwo(FeatureBase):
         self.debugar = False
         
     
-    def get_jacard_keywords(self, bagofWordsNode1, bagofWordsNode2):
-        f = (float)(len(bagofWordsNode1.intersection(bagofWordsNode2)))
-        x = (float)(len(bagofWordsNode1.union(bagofWordsNode2)))
-        if x == 0:
-            return 0
-        return f/x
+    
     
     def execute(self, node1, node2):
         
@@ -66,7 +61,7 @@ class DomainTimeScorevTwo(FeatureBase):
             timesofLinks.append(timesofLinksNode1)
             timesofLinks.append(timesofLinksNode2)
             
-            jcKeyworkds = self.get_jacard_keywords(bagofWordsNode1, bagofWordsNode2)
+            jcKeyworkds = self.get_jacard_domain(bagofWordsNode1, bagofWordsNode2)
             if self.debugar:
                 print 'bags node1 and node2:', bagofWordsNode1, bagofWordsNode2
                 print 'Jc keyworkds: ', jcKeyworkds

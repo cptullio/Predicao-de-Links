@@ -55,7 +55,7 @@ class FeatureBase(object):
     
     
     
-    def get_jacard_keywords(self, bagofWordsNode1, bagofWordsNode2):
+    def get_jacard_domain(self, bagofWordsNode1, bagofWordsNode2):
         f = (float)(len(bagofWordsNode1.intersection(bagofWordsNode2)))
         x = (float)(len(bagofWordsNode1.union(bagofWordsNode2)))
         if x == 0:

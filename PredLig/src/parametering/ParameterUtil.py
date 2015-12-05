@@ -23,6 +23,7 @@ from featuring.forweights.WeightDomainScore import WeightDomainScore
 from featuring.SPLFeature import SPLFeature
 from featuring.LSFeature import LSFeature
 from featuring.WSPLFeature import WSPLFeature
+from featuring.DomainLS import DomainLS
 
 class ParameterUtil(object):
     
@@ -42,6 +43,7 @@ class ParameterUtil(object):
         AllFeatures.append(DomainJC())
         AllFeatures.append(SPLFeature())
         AllFeatures.append(LSFeature())
+        AllFeatures.append(DomainLS())
         
         
         WeightedFeatures = []
