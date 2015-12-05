@@ -1,6 +1,0 @@
-6	7	SUCCESS 
-4	7	FAILED 
-5	7	FAILED 
-3	6	FAILED 
-Final Result: 	25.0%
-#	1

@@ -9,7 +9,7 @@ import networkx
 class SPLFeature(FeatureBase):
     '''
     Shortest Path Length
-    Nao possuindo path resultado igual a -1
+    Nao possuindo path resultado  retornado = a quantidade de arestas existentes no grafo
     '''
     def __repr__(self):
         return 'SPL'
@@ -22,11 +22,9 @@ class SPLFeature(FeatureBase):
     
     
     def execute(self, node1, node2):
-        try:
-            final = self.getPathLength(node1, node2)
-            
+        if networkx.has_path(self.graph, node1, node2):
+            final = self.getShortestPath(node1, node2)
             return len(final)
-        except networkx.exception.NetworkXNoPath, e:
-            print 'Error %s' % e
+        else:
             return self.parameter.getQtyofEdges(self.graph)
         

@@ -19,7 +19,28 @@ class FeatureBase(object):
         self.debugar = False
     
     
-    def getPathLength(self, node1, node2):
+    def getAllShortestPath(self, node1, node2):
+        AllDutyPaths = networkx.all_shortest_paths(self.graph, node1,  node2)
+        AllCeanPath = []
+        for dutyPath in AllDutyPaths:
+            path = []
+            for n in dutyPath:
+                if not ('P' in n):
+                    path.append(n)
+            
+            lengthofPath = len(path)
+            final = set()
+            for index in range(lengthofPath-1):
+                final.add( (path[index] , path[index+1]))
+            if final not in AllCeanPath:    
+                AllCeanPath.append(final)
+        return AllCeanPath            
+  
+    
+    
+    
+    
+    def getShortestPath(self, node1, node2):
         SPpath = networkx.shortest_path(self.graph, node1,  node2)
         path = []
         for n in SPpath:

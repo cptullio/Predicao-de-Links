@@ -24,7 +24,7 @@ if __name__ == '__main__':
     calc = Calculate(myparams, util.nodes_notlinked_file, util.calculated_file, util.ordered_file, util.maxmincalculated_file)
     calc.Separating_calculateFile()
     analise = Analyse(myparams, FormatingDataSets.get_abs_file_path(util.calculated_file), FormatingDataSets.get_abs_file_path(util.analysed_file) + '.random.analised.txt', calc.qtyDataCalculated)
-    topRank = (Analyse.getTopRank(util.analysed_file + '.random.analised.txt')*2)
+    topRank = Analyse.getTopRank(util.analysed_file + '.random.analised.txt')
     calc.Ordering_separating_File(topRank)
     for OrderingFilePath in calc.getfilePathOrdered_separeted():
         analise = Analyse(myparams, OrderingFilePath, OrderingFilePath + '.analised.txt', topRank )
@@ -50,9 +50,9 @@ if __name__ == '__main__':
         print "---------------------------------"
     
     
-    #networkx.draw_networkx(myparams.testGraph)
+    networkx.draw_networkx(myparams.testGraph)
     
-    #matplotlib.pyplot.show()
+    matplotlib.pyplot.show()
     
     
     
