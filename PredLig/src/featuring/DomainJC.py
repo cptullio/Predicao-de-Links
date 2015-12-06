@@ -46,7 +46,7 @@ class DomainJC(FeatureBase):
                     bagofWordsNode2.add(bt2)
             
             
-            jcKeyworkds = self.get_jacard_keywords(bagofWordsNode1, bagofWordsNode2)
+            jcKeyworkds = self.get_jacard_domain(bagofWordsNode1, bagofWordsNode2)
             if self.debugar:
                 print 'bags node1 and node2:', bagofWordsNode1, bagofWordsNode2
                 print 'Jc keyworkds: ', jcKeyworkds
