@@ -50,15 +50,14 @@ class Parameterization(object):
             w[0].graph = self.trainnigGraph 
     
     def get_edges(self, graph):
-        myedges = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'E')
+        myedges = set(aresta['id_edge'] for no1,no2,aresta in graph.edges(data=True) if  1==1)
         result = len(myedges)
-        del myedges
         myedges = None
         gc.collect()
         return result
     
     def get_nodes(self, graph):
-        mynodes = list([n,d] for n,d in graph.nodes(data=True) if d['node_type'] == 'N') 
+        mynodes = graph.nodes()
         result =  len(mynodes)
         del mynodes
         mynodes = None
@@ -113,13 +112,14 @@ class Parameterization(object):
                  filePathGraph, 
                  filePathTrainingGraph, 
                  filePathTestGraph, 
+                 linear_combination,
                  decay,
                  domain_decay, 
                  min_edges = 1, 
                  scoreChoiced = None, 
                  weightsChoiced = None, 
                  weightedScoresChoiced = None,
-                 FullGraph = None):
+                 FullGraph = None, result_random_file = None):
         
         self.qtyofEdges = None
         self.ScoresChoiced = scoreChoiced
@@ -127,6 +127,7 @@ class Parameterization(object):
         self.WeightedScoresChoiced = weightedScoresChoiced
         self.min_edges = min_edges
         self.domain_decay = domain_decay
+        self.linear_combination = linear_combination
         self.decay = decay
         self.t0_ = t0_
         self.t0 = t0
@@ -138,6 +139,7 @@ class Parameterization(object):
         self.filePathTestGraph = filePathTestGraph
         self.linkObjects = {}
         self.nodeObjects = {}
+        self.result_random_file = result_random_file
         self.debugar = False
      
         

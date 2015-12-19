@@ -11,7 +11,7 @@ import feedparser
 import networkx
 import gc
 from datetime import datetime
-
+import hashlib
     
 class Formating(FormatingDataSets):
     '''
@@ -79,9 +79,12 @@ class Formating(FormatingDataSets):
     
     def generating_graph(self):
         
-        self.Graph = networkx.Graph()
+        self.Graph = networkx.MultiGraph()
+        #_u = lambda t: t.decode('UTF-8', 'replace') if isinstance(t, str) else t
+        authors = set()
+        papers = set()
         
-        authors = []
+        total_papers = 0
         begin = datetime.today()
         for year in  self.yearstoRescue:
             f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
@@ -91,36 +94,40 @@ class Formating(FormatingDataSets):
                 
                 cols = line.split('\t')
                 if len(cols) == 5:
+                    
                     keywords_not_clean = eval(cols[3])
                     keywords = set()
                     for k in keywords_not_clean:
                         keywords.add(k)
-                    self.Graph.add_node('P_' + str(cols[0]), {'node_type' : 'E', 'title' : cols[1].decode("latin_1"), 'time' : int(cols[2]), 'keywords': repr(keywords) })
-                    authors_in_file = eval(cols[4])
-                    for x in authors_in_file:
-                        if not x in authors:
-                            authors.append(x)
+                    papers.add(str(cols[0]))
+                    myAresta = {'id_edge': str(cols[0]), 'title': cols[1].decode("latin_1"), 'time' : int(cols[2]), 'keywords': repr(keywords)}
+                    
+                    myVertices = sorted(eval(cols[4]))
+                    for v in myVertices:
+                        authors.add(hashlib.md5(v).hexdigest())
+                    
+                    if (len(myVertices) == 1):
+                        self.Graph.add_edge(hashlib.md5(myVertices[0]).hexdigest(),hashlib.md5(myVertices[0]).hexdigest(),  attr_dict=myAresta)
+                        
+                    else:
+                    
+                        for vertice in myVertices:
+                            otherVertices =  set(n for n in myVertices if n > vertice)
+                            for otherVertice in otherVertices:
+                                try:
+                                    self.Graph.add_edge(hashlib.md5(vertice).hexdigest(),hashlib.md5(otherVertice).hexdigest(), attr_dict=myAresta)
+                                except Exception as inst:
+                                    raise Exception(vertice + ", "  + otherVertice)
+                    
                 else:
                     y = y +1
             print 'total of articles not imported: ', y
             f.close()
-        
-        element = 0
-        for i in authors:
-            element = element + 1            
-            self.Graph.add_node(int(element), {'node_type' : 'N', 'name' : i.decode("latin_1") })
-            
-        for year in  self.yearstoRescue:
-            
-            f = open(self.get_abs_file_path(self.GraphFile) + '.' +str(year) + '.txt', 'r')
-            print 'Reading', f.name
-            for line in f:
-                cols = line.split('\t')
-                if len(cols) == 5:
-                    authors_in_file = eval(cols[4])
-                    for x in authors_in_file:
-                        self.Graph.add_edge('P_' + str(cols[0]), int(authors.index(x)+1) )
-                
+        print 'TOTAL DE PAPERS:', len(papers)
+        print 'TOTAL DE AUTORES:', len(authors)
+        #print sorted(papers)
+        #print authors
+                    
                         
                 
            

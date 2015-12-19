@@ -70,6 +70,8 @@ class ParameterUtil(object):
             line = line.strip()
             line = line.replace('\n','')
             cols = line.split('\t')
+            if cols[0] == 'linear_combination':
+                self.linear_combination = eval(cols[1])
             if cols[0] == 'original_file':
                 self.original_file = cols[1]
             if cols[0] == 'graph_file':
@@ -94,6 +96,8 @@ class ParameterUtil(object):
                 self.min_edges = int(cols[1])
             if cols[0] == 'lengthVertex':
                 self.lengthVertex = int(cols[1])
+            if cols[0] == 'result_random_file':
+                self.result_random_file = cols[1]
             if cols[0] == 't0':
                 self.t0 = int(cols[1])
             if cols[0] == 't0_':

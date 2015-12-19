@@ -13,8 +13,8 @@ class CNFeature(FeatureBase):
         super(CNFeature, self).__init__()
 
     def execute(self, node1, node2):
-        neighbors_node1 = self.generate_all_node_neighborsfromNode(node1)
-        neighbors_node2 = self.generate_all_node_neighborsfromNode(node2)
+        neighbors_node1 = self.all_neighbors(node1)
+        neighbors_node2 = self.all_neighbors(node2)
         
         return len(neighbors_node1.intersection(neighbors_node2))
 

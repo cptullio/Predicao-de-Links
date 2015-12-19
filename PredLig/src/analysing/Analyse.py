@@ -6,17 +6,57 @@ Created on Jul 2, 2015
 from formating.FormatingDataSets import FormatingDataSets
 import networkx
 from datetime import datetime
+import formating
 
 
 class Analyse(object):
 
+
+
     @staticmethod
-    def getTopRank(relativeFilePathRandomAnalised):
-        absFile = FormatingDataSets.get_abs_file_path(relativeFilePathRandomAnalised)
-        f = open(absFile, 'r')
-        for last in f:
-            pass
-        return int(last.split('\t')[1])
+    def AnalyseNodesInFuture(nodesToChecked, TestGraph):
+        result = []
+        for nodeToCheck in nodesToChecked:
+            if (TestGraph.has_edge(nodeToCheck[0],nodeToCheck[1])):
+                result.append([  nodeToCheck[0],nodeToCheck[1], 1 ])
+            else:
+                result.append([  nodeToCheck[0],nodeToCheck[1], 0 ])
+        return result
+    
+    
+    @staticmethod
+    def saving_analyseResult(AnalysedNodesnotLinkedInFuture, filepath):
+        f = open(FormatingDataSets.get_abs_file_path(filepath), 'w')
+        for item in AnalysedNodesnotLinkedInFuture:
+            value = ''
+            for item_index in range(len(item)):
+                value = value  + repr(  item[item_index]  )
+                if (item_index < len(item)):
+                    value = value + ','
+            final = value + '\n'
+            
+            f.write( final.replace(',\n', '\n')  )
+        f.close()   
+
+    @staticmethod
+    def reading_analyseResult( filepath):
+        result = []
+        f = open(FormatingDataSets.get_abs_file_path(filepath), 'r')
+        for line in f:
+            cols = line.strip().replace('\n','').split(',')
+            item_result = []
+            for col in cols:
+                try:
+                    item_result.append(eval(col))
+                except Exception:
+                    item_result.append(str(col))
+            result.append(item_result)
+        return result
+            
+    
+    @staticmethod
+    def get_topRank(AnalyseNodesnotLinkedInFuture):
+        return len(  list([n1,n2] for n1,n2,result in AnalyseNodesnotLinkedInFuture if result ==1 ) )
         
     @staticmethod
     def getTopRankABSPathFiles(absoluteFilePathAnalysed):
@@ -39,41 +79,3 @@ class Analyse(object):
     
         
     
-    def __init__(self, preparedParameters, filePathResults, filePathAnalyseResult, topRank):
-        print "Starting Analysing the results", datetime.today()
-        
-        absFilePath = filePathResults
-        absfilePathAnalyseResult = filePathAnalyseResult #FormatingDataSets.get_abs_file_path(filePathAnalyseResult)
-        fResult = open(absFilePath, 'r')
-        with open(absfilePathAnalyseResult, 'w') as fnodes:
-            self.success = 0
-            element = 0
-            for line in fResult:
-                element = element+1
-                FormatingDataSets.printProgressofEvents(element, topRank, "Analysing the results: ")
-                cols = line.strip().replace('\n','').split('\t')
-                if len(list(networkx.common_neighbors(preparedParameters.testGraph, cols[len(cols)-2] ,  cols[len(cols)-1] ))) != 0:
-                    self.success = self.success + 1
-                    fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'SUCCESS \r\n')
-                else:
-                    fnodes.write(cols[len(cols)-2]  + '\t' + cols[len(cols)-1] + '\t' +  'FAILED \r\n')
-                
-                
-                
-                if element == topRank:
-                    break 
-            
-            result =  float(self.success) / float(topRank) *100
-            strResult = 'Final Result: \t' + str(result) + '%'
-            fnodes.write(strResult)
-            fnodes.write('\n#\t'+str(self.success))
-            fnodes.close()
-        print "Analysing the results finished", datetime.today()
-      
-            
-
-
-
-
-
-

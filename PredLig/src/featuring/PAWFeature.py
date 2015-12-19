@@ -25,10 +25,10 @@ class PAWFeature(FeatureBase):
         print 'indice a ser usado: ', weight_index
         
         Total_Node1 = 0
-        for z in self.all_node_neighbors(node1):
+        for z in self.all_neighbors(node1):
             Total_Node1 = Total_Node1 + float(self.parameter.get_weights(z, node1)[int(weight_index)]) 
         Total_Node2 = 0
-        for y in self.all_node_neighbors(node2):
+        for y in self.all_neighbors(node2):
             Total_Node2 = Total_Node2 + float(self.parameter.get_weights(y, node2)[int(weight_index)]) 
         
         
