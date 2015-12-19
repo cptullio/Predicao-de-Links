@@ -1,0 +1,264 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="key" attr.type="int" for="edge" id="d4" />
+  <key attr.name="time" attr.type="int" for="edge" id="d3" />
+  <key attr.name="title" attr.type="string" for="edge" id="d2" />
+  <key attr.name="id_edge" attr.type="string" for="edge" id="d1" />
+  <key attr.name="keywords" attr.type="string" for="edge" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="0d61f8370cad1d412f80b84d143e1257" />
+    <node id="9dcc58db274c06acb7bb8981f83d2b40" />
+    <node id="289007300c0e13a12c373cbbd6c73217" />
+    <node id="6680467277b3bd058485a34aecf9b4a8" />
+    <node id="5dd3cae9cea1ae83f52cae3de3d0b4be" />
+    <node id="9d5ed678fe57bcca610140957afab571" />
+    <node id="0afa59e376529cc548be904f085bd17e" />
+    <node id="787ee09b48b6334d9d3ffa1ed0db5044" />
+    <node id="40175075a20000ad2c6002f327750372" />
+    <node id="2606e319aacf8d0d7a30028e36241c53" />
+    <node id="ec3f67ac33a8017bad088f4592487d93" />
+    <node id="a2ec659938ef93b07e1eae789041e360" />
+    <node id="7bd01fad13a9183bd9efefca1b492ad5" />
+    <node id="3a3ea00cfc35332cedf6e5e9a32e94da" />
+    <node id="3e2380ce322ace176b1eb984d7a116fe" />
+    <node id="d9e9e39332b3a47e5bd1571796e2510f" />
+    <node id="89a54ecc3191a61d72e02a48c8d0b62b" />
+    <node id="afc8a2dd556f7e0d4f39afee2db53a79" />
+    <node id="0658e105c307d64d03ef104b909fcc15" />
+    <node id="782269d1f7f1ae94cfa5f5816a513a00" />
+    <node id="04f9c2cb724cc0ed2e88ee679e8c3528" />
+    <node id="23c73a21b37ad6eaeed8e0f7bd535faa" />
+    <node id="7fc56270e7a70fa81a5935b72eacbe29" />
+    <node id="270b034a46b2b69d9fd3ebc4d84613ba" />
+    <edge source="0d61f8370cad1d412f80b84d143e1257" target="3a3ea00cfc35332cedf6e5e9a32e94da">
+      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
+      <data key="d1">solv-int/9411005v1</data>
+      <data key="d2">Limits to Extensions of Burgers Equation</data>
+      <data key="d3">1995</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="0d61f8370cad1d412f80b84d143e1257" target="9d5ed678fe57bcca610140957afab571">
+      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
+      <data key="d1">solv-int/9411005v1</data>
+      <data key="d2">Limits to Extensions of Burgers Equation</data>
+      <data key="d3">1995</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="0d61f8370cad1d412f80b84d143e1257" target="7fc56270e7a70fa81a5935b72eacbe29">
+      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
+      <data key="d1">solv-int/9411006v1</data>
+      <data key="d2">Limits to Extensions of Burgers Equation</data>
+      <data key="d3">1998</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="787ee09b48b6334d9d3ffa1ed0db5044">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="3e2380ce322ace176b1eb984d7a116fe">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="5dd3cae9cea1ae83f52cae3de3d0b4be">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="d9e9e39332b3a47e5bd1571796e2510f">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="289007300c0e13a12c373cbbd6c73217" target="289007300c0e13a12c373cbbd6c73217">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9801002v1</data>
+      <data key="d2">``Real-Time'' Evolution in Mira Variables</data>
+      <data key="d3">1998</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="6680467277b3bd058485a34aecf9b4a8" target="afc8a2dd556f7e0d4f39afee2db53a79">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901077v1</data>
+      <data key="d2">Cosmological Obscuration by Galactic Dust: Effects of Dust Evolution</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="5dd3cae9cea1ae83f52cae3de3d0b4be" target="787ee09b48b6334d9d3ffa1ed0db5044">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="5dd3cae9cea1ae83f52cae3de3d0b4be" target="3e2380ce322ace176b1eb984d7a116fe">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="5dd3cae9cea1ae83f52cae3de3d0b4be" target="d9e9e39332b3a47e5bd1571796e2510f">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9d5ed678fe57bcca610140957afab571" target="3a3ea00cfc35332cedf6e5e9a32e94da">
+      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
+      <data key="d1">solv-int/9411005v1</data>
+      <data key="d2">Limits to Extensions of Burgers Equation</data>
+      <data key="d3">1995</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="9d5ed678fe57bcca610140957afab571" target="7fc56270e7a70fa81a5935b72eacbe29">
+      <data key="d0">set([u'comp-gas', u'hep-ph', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'astro-ph', u'hep-ex'])</data>
+      <data key="d1">hep-ex/9407003v1</data>
+      <data key="d2">Unbiased Estimators for Correlation Measurements</data>
+      <data key="d3">1994</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="0afa59e376529cc548be904f085bd17e" target="0afa59e376529cc548be904f085bd17e">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9801004v1</data>
+      <data key="d2">Redshift Evolution of the Low-Column Density Lyman alpha Fores</data>
+      <data key="d3">1998</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="0afa59e376529cc548be904f085bd17e" target="0658e105c307d64d03ef104b909fcc15">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9801003v1</data>
+      <data key="d2">High-z Lyman-alpha Emitters. I. A Blank-Field Search for Objects Near  Redshift z=3.4 in and around the Hubble Deep Field and the Hawaii Deep Field  SSA22</data>
+      <data key="d3">1998</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="787ee09b48b6334d9d3ffa1ed0db5044" target="3e2380ce322ace176b1eb984d7a116fe">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="787ee09b48b6334d9d3ffa1ed0db5044" target="d9e9e39332b3a47e5bd1571796e2510f">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="40175075a20000ad2c6002f327750372" target="23c73a21b37ad6eaeed8e0f7bd535faa">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601001v1</data>
+      <data key="d2">Embedded Clusters in Giant Extragalactic HII Regions III. Extinction and  Star Formation</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="2606e319aacf8d0d7a30028e36241c53" target="ec3f67ac33a8017bad088f4592487d93">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="2606e319aacf8d0d7a30028e36241c53" target="a2ec659938ef93b07e1eae789041e360">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="2606e319aacf8d0d7a30028e36241c53" target="782269d1f7f1ae94cfa5f5816a513a00">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="2606e319aacf8d0d7a30028e36241c53" target="270b034a46b2b69d9fd3ebc4d84613ba">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="ec3f67ac33a8017bad088f4592487d93" target="a2ec659938ef93b07e1eae789041e360">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="ec3f67ac33a8017bad088f4592487d93" target="782269d1f7f1ae94cfa5f5816a513a00">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="ec3f67ac33a8017bad088f4592487d93" target="270b034a46b2b69d9fd3ebc4d84613ba">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="a2ec659938ef93b07e1eae789041e360" target="782269d1f7f1ae94cfa5f5816a513a00">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="a2ec659938ef93b07e1eae789041e360" target="270b034a46b2b69d9fd3ebc4d84613ba">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="7bd01fad13a9183bd9efefca1b492ad5" target="7bd01fad13a9183bd9efefca1b492ad5">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601002v1</data>
+      <data key="d2">Near-infrared and optical broadband surface photometry of 86 face-on  disk dominated galaxies. II. A two-dimensional method to determine bulge and  disk parameters</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="3e2380ce322ace176b1eb984d7a116fe" target="d9e9e39332b3a47e5bd1571796e2510f">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9601003v1</data>
+      <data key="d2">The Physics of Black Hole X-ray Transients</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="89a54ecc3191a61d72e02a48c8d0b62b" target="89a54ecc3191a61d72e02a48c8d0b62b">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9801005v1</data>
+      <data key="d2">Galaxy Evolution and the Cosmic Rate of Supernovae</data>
+      <data key="d3">1998</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="782269d1f7f1ae94cfa5f5816a513a00" target="270b034a46b2b69d9fd3ebc4d84613ba">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901075v1</data>
+      <data key="d2">Aql X-1 in Outburst and Quiescence</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="04f9c2cb724cc0ed2e88ee679e8c3528" target="04f9c2cb724cc0ed2e88ee679e8c3528">
+      <data key="d0">set([u'astro-ph'])</data>
+      <data key="d1">astro-ph/9901076v1</data>
+      <data key="d2">Cosmology with Clusters of Galaxies</data>
+      <data key="d3">1999</data>
+      <data key="d4">0</data>
+    </edge>
+  </graph>
+</graphml>
