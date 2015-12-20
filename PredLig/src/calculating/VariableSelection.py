@@ -8,7 +8,6 @@ import os.path
 from formating.dblp.Formating import Formating
 from datetime import datetime
 from formating.FormatingDataSets import FormatingDataSets
-from test.test_datetime import OTHERSTUFF
 
 
 class VariableSelection(object):
