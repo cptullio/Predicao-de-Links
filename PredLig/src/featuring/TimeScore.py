@@ -20,23 +20,7 @@ class TimeScore(FeatureBase):
         self.times = {}
         self.debugar = False
         
-    def get_TimeofLinks(self, graph, node1, node2):
-        result = []
-        for node in networkx.common_neighbors(graph, node1, node2):
-            if node in self.times:
-                if self.debugar:
-                    print "already found the time for paper ", node
-            else:
-                if self.debugar:
-                    print "rescuing time from paper: ", str(node)
-                
-                paper = list(d for n,d in graph.nodes(data=True) if d['node_type'] == 'E' and n == node )
-                if self.debugar:
-                    print paper[0]['time']
-                self.times[node] = paper[0]['time']
-            result.append(self.times[node])
-        result.sort(reverse=True)
-        return result
+    
 
     
     def execute(self, node1, node2):
@@ -50,19 +34,18 @@ class TimeScore(FeatureBase):
         pair_common_neighbors  = self.get_common_neighbors(node1, node2)
         if len(pair_common_neighbors) == 0:
             return 0
-        if self.debugar:
-            print node1, node2, pair_common_neighbors
+        
+        print node1, node2, pair_common_neighbors
         timescoreValue = float(0)
         for pair_common_neighbor in pair_common_neighbors:
             timesofLinks = []
-            timesofLinksNode1 = self.get_TimeofLinks(self.graph, node1, pair_common_neighbor)
-            timesofLinksNode2 = self.get_TimeofLinks(self.graph, node2, pair_common_neighbor)
+            timesofLinksNode1 = list (d['time'] for d in self.get_ObjectsofLinks(self.graph, node1, pair_common_neighbor))
+            timesofLinksNode2 = list (d['time'] for d in self.get_ObjectsofLinks(self.graph, node2, pair_common_neighbor))
+            print node1, pair_common_neighbor, timesofLinksNode1
+            print node2, pair_common_neighbor, timesofLinksNode2
             
             timesofLinks.append(timesofLinksNode1)
             timesofLinks.append(timesofLinksNode2)
-            if self.debugar:
-                print node1, pair_common_neighbor, timesofLinksNode1
-                print node2, pair_common_neighbor, timesofLinksNode2
             
             
             #Harmonic Mean of Publications

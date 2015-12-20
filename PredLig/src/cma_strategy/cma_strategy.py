@@ -25,10 +25,9 @@ def main():
     # to generate the aleatory values we need a seed
     numpy.random.seed(128)
     file1 = open('config.txt', 'r')
-    line = file.readline()
+    line = file1.readline()
     line = line.strip('\n').strip('\r').split(',')
-    pred_link_eval.top = line[2]
-    # Number of children to produce at each generation, N is the individual’s size (integer).
+    pred_link_eval.top = int(line[2])
     strategy = cma.Strategy(centroid=[5.0]*N, sigma=float(line[0]), lambda_=int(line[1]))
     toolbox.register("generate", strategy.generate, creator.Individual)
     toolbox.register("update", strategy.update)
@@ -39,10 +38,11 @@ def main():
     stats.register("std", numpy.std)
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
-    algorithms.eaGenerateUpdate(toolbox, ngen=line[3], stats=stats, halloffame=hof, verbose=True)
+    algorithms.eaGenerateUpdate(toolbox, ngen=int(line[3]), stats=stats, halloffame=hof, verbose=True)
     file1.close()
     output = open('output.txt', 'w')
-    output.write(hof[0])
+    for item in hof[0]:
+        output.write("%s," % item)
     output.close()
 if __name__ == "__main__":
     main()

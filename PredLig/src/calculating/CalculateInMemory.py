@@ -78,7 +78,7 @@ class CalculateInMemory(object):
         for itemResult in results:
             value = ''
             for index_score in range(len(self.preparedParameter.ScoresChoiced)):
-                value = value + ',' + repr(   itemResult[2][index_score], index_score   )
+                value = value + ',' + repr(   itemResult[2][index_score]  )
                 
             f.write( itemResult[0] + ',' + itemResult[1] + value + '\n')
             

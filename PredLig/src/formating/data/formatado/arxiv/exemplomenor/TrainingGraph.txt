@@ -5,19 +5,18 @@
   <key attr.name="id_edge" attr.type="string" for="edge" id="d1" />
   <key attr.name="keywords" attr.type="string" for="edge" id="d0" />
   <graph edgedefault="undirected">
-    <node id="0d61f8370cad1d412f80b84d143e1257" />
-    <node id="9dcc58db274c06acb7bb8981f83d2b40" />
-    <node id="9d5ed678fe57bcca610140957afab571" />
-    <node id="23c73a21b37ad6eaeed8e0f7bd535faa" />
-    <node id="7bd01fad13a9183bd9efefca1b492ad5" />
-    <node id="3e2380ce322ace176b1eb984d7a116fe" />
-    <node id="5dd3cae9cea1ae83f52cae3de3d0b4be" />
     <node id="3a3ea00cfc35332cedf6e5e9a32e94da" />
-    <node id="787ee09b48b6334d9d3ffa1ed0db5044" />
-    <node id="40175075a20000ad2c6002f327750372" />
+    <node id="0d61f8370cad1d412f80b84d143e1257" />
+    <node id="9d5ed678fe57bcca610140957afab571" />
     <node id="7fc56270e7a70fa81a5935b72eacbe29" />
-    <node id="d9e9e39332b3a47e5bd1571796e2510f" />
-    <edge source="0d61f8370cad1d412f80b84d143e1257" target="3a3ea00cfc35332cedf6e5e9a32e94da">
+    <edge source="3a3ea00cfc35332cedf6e5e9a32e94da" target="0d61f8370cad1d412f80b84d143e1257">
+      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
+      <data key="d1">solv-int/9411005v1</data>
+      <data key="d2">1995</data>
+      <data key="d3">Limits to Extensions of Burgers Equation</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="3a3ea00cfc35332cedf6e5e9a32e94da" target="9d5ed678fe57bcca610140957afab571">
       <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
       <data key="d1">solv-int/9411005v1</data>
       <data key="d2">1995</data>
@@ -31,102 +30,11 @@
       <data key="d3">Limits to Extensions of Burgers Equation</data>
       <data key="d4">0</data>
     </edge>
-    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="787ee09b48b6334d9d3ffa1ed0db5044">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="3e2380ce322ace176b1eb984d7a116fe">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="5dd3cae9cea1ae83f52cae3de3d0b4be">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="9dcc58db274c06acb7bb8981f83d2b40" target="d9e9e39332b3a47e5bd1571796e2510f">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="9d5ed678fe57bcca610140957afab571" target="3a3ea00cfc35332cedf6e5e9a32e94da">
-      <data key="d0">set([u'solv-int', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'nlin.SI', u'astro-ph'])</data>
-      <data key="d1">solv-int/9411005v1</data>
-      <data key="d2">1995</data>
-      <data key="d3">Limits to Extensions of Burgers Equation</data>
-      <data key="d4">0</data>
-    </edge>
     <edge source="9d5ed678fe57bcca610140957afab571" target="7fc56270e7a70fa81a5935b72eacbe29">
       <data key="d0">set([u'comp-gas', u'hep-ph', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'astro-ph', u'hep-ex'])</data>
       <data key="d1">hep-ex/9407003v1</data>
       <data key="d2">1994</data>
       <data key="d3">Unbiased Estimators for Correlation Measurements</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="23c73a21b37ad6eaeed8e0f7bd535faa" target="40175075a20000ad2c6002f327750372">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601001v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">Embedded Clusters in Giant Extragalactic HII Regions III. Extinction and  Star Formation</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="7bd01fad13a9183bd9efefca1b492ad5" target="7bd01fad13a9183bd9efefca1b492ad5">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601002v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">Near-infrared and optical broadband surface photometry of 86 face-on  disk dominated galaxies. II. A two-dimensional method to determine bulge and  disk parameters</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="3e2380ce322ace176b1eb984d7a116fe" target="787ee09b48b6334d9d3ffa1ed0db5044">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="3e2380ce322ace176b1eb984d7a116fe" target="5dd3cae9cea1ae83f52cae3de3d0b4be">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="3e2380ce322ace176b1eb984d7a116fe" target="d9e9e39332b3a47e5bd1571796e2510f">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="5dd3cae9cea1ae83f52cae3de3d0b4be" target="787ee09b48b6334d9d3ffa1ed0db5044">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="5dd3cae9cea1ae83f52cae3de3d0b4be" target="d9e9e39332b3a47e5bd1571796e2510f">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
-      <data key="d4">0</data>
-    </edge>
-    <edge source="787ee09b48b6334d9d3ffa1ed0db5044" target="d9e9e39332b3a47e5bd1571796e2510f">
-      <data key="d0">set([u'astro-ph'])</data>
-      <data key="d1">astro-ph/9601003v1</data>
-      <data key="d2">1996</data>
-      <data key="d3">The Physics of Black Hole X-ray Transients</data>
       <data key="d4">0</data>
     </edge>
   </graph>

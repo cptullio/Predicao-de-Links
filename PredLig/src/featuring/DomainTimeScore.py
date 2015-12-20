@@ -39,7 +39,8 @@ class DomainTimeScore(FeatureBase):
             timesofLinks = []
             objectsNode1 = self.get_ObjectsofLinks(self.graph, node1, pair_common_neighbor)
             objectsNode2 = self.get_ObjectsofLinks(self.graph, node2, pair_common_neighbor)
-            
+            print objectsNode1
+            print objectsNode2
             
             timesofLinksNode1 = []
             timesofLinksNode2 = []
@@ -47,12 +48,12 @@ class DomainTimeScore(FeatureBase):
             bagofWordsNode2 = set()
             
             for t1 in objectsNode1:
-                timesofLinksNode1.append(t1[0])
-                for bt1 in t1[1]:
+                timesofLinksNode1.append(t1['time'])
+                for bt1 in t1['keywords']:
                     bagofWordsNode1.add(bt1)
             for t2 in objectsNode2:
-                timesofLinksNode2.append(t2[0])
-                for bt2 in t2[1]:
+                timesofLinksNode2.append(t2['time'])
+                for bt2 in t2['keywords']:
                     bagofWordsNode2.add(bt2)
             
             timesofLinksNode1.sort(reverse=True)
