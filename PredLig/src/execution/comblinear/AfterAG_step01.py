@@ -22,7 +22,7 @@ if __name__ == '__main__':
     nodesNotLinked = selection.get_pair_nodes_not_linked()
     selection.saveResults(util.nodes_notlinked_file, nodesNotLinked)
     
-    calc = CalculateInMemory(myparams,None)
+    calc = CalculateInMemory(myparams,nodesNotLinked)
     resultsofCalculation = calc.executingCalculate()
     calc.saving_calculateResult(util.calculated_file, resultsofCalculation)
     calc.saving_calculateResult_normalized(util.calculated_file + '_normalizated.csv', resultsofCalculation)
