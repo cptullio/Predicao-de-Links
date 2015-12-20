@@ -11,8 +11,10 @@ class PAWFeature(FeatureBase):
     Weighted Preferential Attachment by Muratta
     '''
     def __repr__(self):
-        return 'PAAW'
+        return 'PAW'
     
+    def getName(self):
+        return 'PAW'
 
     def __init__(self):
         super(PAWFeature, self).__init__()

@@ -6,10 +6,11 @@ from deap import cma
 from deap import creator
 from deap import tools
 import pred_link_eval
-from scoop import futures
+#from scoop import futures
 
 # Problem size
-N=8
+#N=8
+N=len(pred_link_eval.SFrame.myparams.ScoresChoiced)
 
 # -1 means we are approaching a minimization problem
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))  # , must be used because deap is used for multi-obj optm
@@ -17,11 +18,11 @@ creator.create("Individual", list, fitness=creator.FitnessMin)
 
 toolbox = base.Toolbox()
 toolbox.register("evaluate", pred_link_eval.SFrame.evaluate)
-toolbox.register("map", futures.map)
+#toolbox.register("map", futures.map)
 
 
 def main():
-
+    
     # to generate the aleatory values we need a seed
     numpy.random.seed(128)
     file1 = open('config.txt', 'r')

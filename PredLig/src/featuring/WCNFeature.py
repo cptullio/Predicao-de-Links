@@ -12,6 +12,8 @@ class WCNFeature(FeatureBase):
     def __repr__(self):
         return 'WCN'
     
+    def getName(self):
+        return 'WCN'
 
     def __init__(self):
         super(WCNFeature, self).__init__()

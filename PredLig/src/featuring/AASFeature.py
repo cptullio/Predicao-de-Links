@@ -14,6 +14,9 @@ class AASFeature(FeatureBase):
     def __repr__(self):
         return 'aas'
     
+    def getName(self):
+        return 'aas'
+    
     def __init__(self):
         super(AASFeature, self).__init__()
 

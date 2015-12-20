@@ -27,6 +27,8 @@ class Analyse(object):
     @staticmethod
     def saving_analyseResult(AnalysedNodesnotLinkedInFuture, filepath):
         f = open(FormatingDataSets.get_abs_file_path(filepath), 'w')
+        f.write('no1,no2,result\n')
+        
         for item in AnalysedNodesnotLinkedInFuture:
             value = ''
             for item_index in range(len(item)):
@@ -41,8 +43,12 @@ class Analyse(object):
     @staticmethod
     def reading_analyseResult( filepath):
         result = []
+        firstLine = 0
         f = open(FormatingDataSets.get_abs_file_path(filepath), 'r')
         for line in f:
+            if firstLine == 0:
+                firstLine = 1
+                continue
             cols = line.strip().replace('\n','').split(',')
             item_result = []
             for col in cols:

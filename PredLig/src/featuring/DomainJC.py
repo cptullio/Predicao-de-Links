@@ -15,6 +15,8 @@ class DomainJC(FeatureBase):
     def __repr__(self):
         return 'DJC'
     
+    def getName(self):
+        return 'DJC'    
 
     def __init__(self):
         super(DomainJC, self).__init__()

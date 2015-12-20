@@ -13,6 +13,8 @@ class WAAFeature(FeatureBase):
     def __repr__(self):
         return 'WAA'
     
+    def getName(self):
+        return 'WAA'
 
     def __init__(self):
         super(WAAFeature, self).__init__()

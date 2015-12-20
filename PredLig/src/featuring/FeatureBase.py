@@ -91,6 +91,10 @@ class FeatureBase(object):
     def execute(self, node1, node2):
         raise RuntimeError('not implemented')
     
+    @abstractmethod
+    def getName(self):
+        raise RuntimeError('not implemented')
+    
     def all_neighbors(self, node):
         return set(networkx.all_neighbors(self.graph, node))
     

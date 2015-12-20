@@ -14,6 +14,8 @@ class WSPLFeature(FeatureBase):
     def __repr__(self):
         return 'SPL'
     
+    def getName(self):
+        return 'SPL'
 
     def __init__(self):
         super(WSPLFeature, self).__init__()

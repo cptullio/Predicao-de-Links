@@ -24,4 +24,6 @@ if __name__ == '__main__':
     nodesNotLinked = selection.readingResultsFile(util.nodes_notlinked_file)
     resultsRank = Analyse.AnalyseNodesInFuture(nodesNotLinked, myparams.testGraph)
     Analyse.saving_analyseResult(resultsRank, util.result_random_file)
+    print resultsRank
+    print Analyse.reading_analyseResult(util.result_random_file)
     

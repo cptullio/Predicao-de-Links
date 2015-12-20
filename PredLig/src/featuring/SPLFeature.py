@@ -14,6 +14,8 @@ class SPLFeature(FeatureBase):
     def __repr__(self):
         return 'SPL'
     
+    def getName(self):
+        return 'SPL'
 
     def __init__(self):
         super(SPLFeature, self).__init__()

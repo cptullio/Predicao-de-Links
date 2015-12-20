@@ -20,4 +20,7 @@ class CNFeature(FeatureBase):
 
     def __repr__(self):
         return 'cn'
+    def getName(self):
+        return 'cn'
+    
             

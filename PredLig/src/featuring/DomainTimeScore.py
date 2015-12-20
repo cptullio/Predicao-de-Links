@@ -15,6 +15,9 @@ class DomainTimeScore(FeatureBase):
     def __repr__(self):
         return 'DTS'
     
+    def getName(self):
+        return 'DTS' 
+    
 
     def __init__(self):
         super(DomainTimeScore, self).__init__()

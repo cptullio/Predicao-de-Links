@@ -14,6 +14,8 @@ class TimeScore(FeatureBase):
     def __repr__(self):
         return 'ts'
     
+    def getName(self):
+        return 'ts'
 
     def __init__(self):
         super(TimeScore, self).__init__()

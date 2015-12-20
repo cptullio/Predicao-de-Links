@@ -13,6 +13,9 @@ class PAFeature(FeatureBase):
     def __repr__(self):
         return 'pa'
     
+    def getName(self):
+        return 'pa' 
+    
     def __init__(self):
         super(PAFeature, self).__init__()
 

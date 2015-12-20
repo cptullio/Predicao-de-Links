@@ -5,6 +5,7 @@ Created on Jun 16, 2015
 '''
 from featuring.FeatureBase import FeatureBase
 import networkx
+from datetime import datetime
 
 
 class DomainLS(FeatureBase):
@@ -14,14 +15,17 @@ class DomainLS(FeatureBase):
     def __repr__(self):
         return 'DLS'
     
-
+    def getName(self):
+        return 'DLS' 
+     
     def __init__(self):
         super(DomainLS, self).__init__()
         
     
     
     def execute(self, node1, node2):
-        
+        datainicio = datetime.today()
+        print "executando Domainls ", node1, node2, datainicio
         if not networkx.has_path(self.graph, node1, node2):
             return 0
         total = float(0)
@@ -89,6 +93,7 @@ class DomainLS(FeatureBase):
         TPI_L = SomatorioTPI / float(len(AllPaths)) 
         LINKSCORE = TPI_L /  (len(self.getShortestPath(node1, node2)) -1)
         #print "LINK SCORE: ", LINKSCORE    
+        print "fim da executando Domain ls ", node1, node2, (datetime.today() - datainicio)
         return LINKSCORE     
             
         

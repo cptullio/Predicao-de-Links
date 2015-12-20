@@ -61,7 +61,11 @@ class CalculateInMemory(object):
      
     def saving_calculateResult_normalized(self, filepath, results):
         f = open(Formating.get_abs_file_path(filepath), 'w')
-       
+        header = 'no1,no2'
+        for index_score in range(len(self.preparedParameter.ScoresChoiced)):
+            header = header + ',' + self.preparedParameter.ScoresChoiced[index_score][0].getName()
+        f.write(header + '\n')
+        
         for itemResult in results:
             value = ''
             for index_score in range(len(self.preparedParameter.ScoresChoiced)):
@@ -74,7 +78,11 @@ class CalculateInMemory(object):
         
     def saving_calculateResult(self, filepath, results):
         f = open(Formating.get_abs_file_path(filepath), 'w')
-       
+        header = 'no1,no2'
+        for index_score in range(len(self.preparedParameter.ScoresChoiced)):
+            header = header + ',' + self.preparedParameter.ScoresChoiced[index_score][0].getName()
+        f.write(header + '\n')
+        
         for itemResult in results:
             value = ''
             for index_score in range(len(self.preparedParameter.ScoresChoiced)):
@@ -103,15 +111,20 @@ class CalculateInMemory(object):
     def reading_calculateResult_normalized(self, filepath):
         results = []
         f = open(Formating.get_abs_file_path(filepath), 'r')
-       
+        firstLine = 0
         for line in f:
+            if firstLine == 0:
+                firstLine = 1
+                continue
             cols = line.strip().replace('\n','').split(',')
+            
             item_result = []
-            for col in cols:
-                try:
-                    item_result.append(eval(col))
-                except Exception:
-                    item_result.append(str(col))
+            item_result.append(cols[0])
+            item_result.append(cols[1])
+            scores = []
+            for index_col in range(len(cols)-2):
+                scores.append(eval(cols[2+index_col]))
+            item_result.append(scores)  
             results.append(item_result)
         return results
     

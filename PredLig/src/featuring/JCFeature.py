@@ -12,6 +12,8 @@ class JCFeature(FeatureBase):
     def __repr__(self):
         return 'jc'
     
+    def getName(self):
+        return 'jc' 
 
     def __init__(self):
         super(JCFeature, self).__init__()

@@ -12,6 +12,9 @@ class CNWFeature(FeatureBase):
     def __repr__(self):
         return 'CNW'
     
+    def getName(self):
+        return 'CNW'
+    
 
     def __init__(self):
         super(CNWFeature, self).__init__()

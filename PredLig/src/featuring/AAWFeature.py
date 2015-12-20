@@ -13,6 +13,9 @@ class AAWFeature(FeatureBase):
     def __repr__(self):
         return 'AAW'
     
+    def getName(self):
+        return 'AAW'
+    
 
     def __init__(self):
         super(AAWFeature, self).__init__()

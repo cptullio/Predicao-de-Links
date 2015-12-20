@@ -31,6 +31,7 @@ if __name__ == '__main__':
     calc.saving_calculateResult(util.calculated_file, resultsofCalculation)
     
     calc.saving_calculateResult_normalized(util.calculated_file + '_normalizated.csv', resultsofCalculation)
-    
+    result2 = calc.reading_calculateResult_normalized(util.calculated_file)
     calc.save_Max_min_file(util.maxmincalculated_file, calc.qtyDataCalculated, calc.minValueCalculated, calc.maxValueCalculated)
-    
+    print resultsofCalculation
+    print result2
