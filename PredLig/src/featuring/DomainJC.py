@@ -41,10 +41,10 @@ class DomainJC(FeatureBase):
             bagofWordsNode2 = set()
             
             for t1 in objectsNode1:
-                for bt1 in t1[1]:
+                for bt1 in t1['keywords']:
                     bagofWordsNode1.add(bt1)
             for t2 in objectsNode2:
-                for bt2 in t2[1]:
+                for bt2 in t2['keywords']:
                     bagofWordsNode2.add(bt2)
             
             

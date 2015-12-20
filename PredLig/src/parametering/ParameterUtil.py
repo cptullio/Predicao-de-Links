@@ -113,8 +113,9 @@ class ParameterUtil(object):
             if cols[0] == 'scores':
                 features = cols[1].split(';')
                 for feature in features:
+                    #print feature
                     featureandweight = feature.split(':')
-                    weight = int(featureandweight[1].split(',')[0])
+                    weight = float(featureandweight[1].split(',')[0])
                     orderingType = int(featureandweight[1].split(',')[1])
                     self.ScoresChoiced.append([AllFeatures[int(featureandweight[0])], weight, orderingType   ])
             

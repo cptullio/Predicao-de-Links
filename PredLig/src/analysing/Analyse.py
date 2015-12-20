@@ -61,8 +61,13 @@ class Analyse(object):
             
     
     @staticmethod
-    def get_topRank(AnalyseNodesnotLinkedInFuture):
+    def get_TotalSucess(AnalyseNodesnotLinkedInFuture):
         return len(  list([n1,n2] for n1,n2,result in AnalyseNodesnotLinkedInFuture if result ==1 ) )
+    
+    @staticmethod
+    def get_TotalFailed(AnalyseNodesnotLinkedInFuture):
+        return len(  list([n1,n2] for n1,n2,result in AnalyseNodesnotLinkedInFuture if result ==0 ) )
+    
         
     @staticmethod
     def getTopRankABSPathFiles(absoluteFilePathAnalysed):
