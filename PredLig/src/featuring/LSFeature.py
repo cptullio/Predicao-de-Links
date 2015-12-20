@@ -21,7 +21,6 @@ class LSFeature(FeatureBase):
     
     
     def execute(self, node1, node2):
-        
         if not networkx.has_path(self.graph, node1, node2):
             return 0
         total = float(0)
@@ -41,7 +40,7 @@ class LSFeature(FeatureBase):
                 objectsinNode = self.get_ObjectsofNode(self.graph, node)
                 #print objectsinNode
                 yearActive.add(max(list(x['time'] for x in objectsinNode)))
-            print yearActive
+            #print yearActive
             mediaYear = sum(yearActive)/len(yearActive)
             k =  int(self.parameter.t1_)  - mediaYear
             decay_value = self.parameter.decay ** k
