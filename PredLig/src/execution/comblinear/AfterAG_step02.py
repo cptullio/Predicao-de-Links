@@ -17,6 +17,7 @@ if __name__ == '__main__':
                                 filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None, result_random_file=util.result_random_file)
     
     myparams.generating_Test_Graph()
+    myparams.generating_Training_Graph()
     selection = VariableSelection(myparams.trainnigGraph, util.min_edges)
     nodesNotLinked = selection.readingResultsFile(util.nodes_notlinked_file)
     calc = CalculateInMemory(myparams,nodesNotLinked)
