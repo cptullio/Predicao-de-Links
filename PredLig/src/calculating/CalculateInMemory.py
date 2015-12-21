@@ -39,7 +39,7 @@ class CalculateInMemory(object):
     
     
     def ordering(self, topRank, resultNormalized):
-        print 'a ser ordenado ', resultNormalized
+        #print 'a ser ordenado ', resultNormalized
         orderedResults = []
         for index in range(len(self.preparedParameter.ScoresChoiced)):
             scoreOrderedResult = []
@@ -48,7 +48,7 @@ class CalculateInMemory(object):
                 orderingByDesc = False
             scoreOrder = sorted(resultNormalized, key=lambda value: value[2][index], reverse=orderingByDesc)
             
-            print 'Ordenado', scoreOrder
+            #print 'Ordenado', scoreOrder
             for item in range(topRank):
                 scoreOrderedResult.append( scoreOrder[item])
             orderedResults.append(scoreOrderedResult)
@@ -90,6 +90,22 @@ class CalculateInMemory(object):
                 value = value + ',' + repr(   itemResult[2][index_score]  )
                 
             f.write( itemResult[0] + ',' + itemResult[1] + value + '\n')
+            
+            
+        f.close()   
+        
+        
+        
+        
+    def saving_orderedResult(self, filepath, results):
+        f = open(Formating.get_abs_file_path(filepath), 'w')
+        
+        for index_score in range(len(results)):
+            f.write(repr(self.preparedParameter.ScoresChoiced[index_score]) + '\n')
+            for item_result in results[index_score]:
+                f.write(repr(item_result ) + '\n')
+            f.write('-------------------------------------------------------------------------\n')
+                
             
             
         f.close()   

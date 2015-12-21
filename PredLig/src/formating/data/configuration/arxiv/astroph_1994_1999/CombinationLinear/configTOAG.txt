@@ -12,7 +12,7 @@ result_random_file	data/results/arxiv/astroph_1994_1999/CombinationLinear/ToAg/r
 t0	1994
 t0_	1995
 t1	1994
-t1_	1997
+t1_	1996
 decay	0.8
 domain_decay	0.8
 min_edges	1
