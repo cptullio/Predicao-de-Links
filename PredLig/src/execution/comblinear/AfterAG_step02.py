@@ -11,7 +11,8 @@ from analysing.Analyse import Analyse
 import datetime
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/AllExecutionScores/config.txt')
+    #util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/AllExecutionScores/config.txt')
+    util = ParameterUtil(parameter_file = 'data/configuration/arxiv/exemplo_1994_1999/CombinationLinear/config.txt')
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, linear_combination=util.linear_combination,
                                 filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None, result_random_file=util.result_random_file)
@@ -31,10 +32,12 @@ if __name__ == '__main__':
     resultCombined = calc.combinate_linear(resultsNormalized)
     print 'Ordering Results of Combinating Metrics', datetime.datetime.today()
     OrderedResult = calc.ordering_combinate_linear(topRank, resultCombined)
+    
     print 'Analysing Results of Combinating Metrics', datetime.datetime.today()
     FinalResult = Analyse.AnalyseNodesInFuture(OrderedResult, myparams.testGraph)
+    
     Analyse.saving_analyseResult(FinalResult, util.analysed_file)
-    print 'Total Success of Calculated', topRank
+    print 'Total Success of Calculated', Analyse.get_TotalSucess(FinalResult)
     print 'Total Failed of Calculated', Analyse.get_TotalFailed(FinalResult)
     
     

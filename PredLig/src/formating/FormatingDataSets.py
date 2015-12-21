@@ -5,6 +5,7 @@ Created on Jun 14, 2015
 '''
 from abc import abstractmethod
 from os import path
+import os
 import networkx
 from datetime import datetime
 
@@ -24,7 +25,13 @@ class FormatingDataSets(object):
     def get_abs_file_path(relativepath):
         script_path = path.abspath(__file__) 
         script_dir = path.split(script_path)[0]
-        return path.join(script_dir, relativepath)
+        pathFinal = path.join(script_dir, relativepath)
+    
+        dir = path.dirname(pathFinal)
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        
+        return pathFinal
     
     @staticmethod
     def printProgressofEvents(element, length, message):

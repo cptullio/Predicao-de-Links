@@ -22,7 +22,6 @@ class CalculateInMemory(object):
     def combinate_linear(self, resultsNormalized):
         result = []
         for resultNormalized in resultsNormalized:
-            print resultNormalized
             total = float(0)
             for index in range(len(self.preparedParameter.ScoresChoiced)):
                 total = total + resultNormalized[2][index]
