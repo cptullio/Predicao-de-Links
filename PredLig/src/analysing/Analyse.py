@@ -17,6 +17,7 @@ class Analyse(object):
     def AnalyseNodesInFuture(nodesToChecked, TestGraph):
         result = []
         for nodeToCheck in nodesToChecked:
+            print nodeToCheck
             if (TestGraph.has_edge(nodeToCheck[0],nodeToCheck[1])):
                 result.append([  nodeToCheck[0],nodeToCheck[1], 1 ])
             else:

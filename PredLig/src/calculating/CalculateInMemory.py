@@ -30,14 +30,12 @@ class CalculateInMemory(object):
         return result
     
     def ordering_combinate_linear(self, topRank, resultsCombinate):
-        orderedResults = []
         scoreOrderedResult = []
         orderingByDesc = True
         scoreOrder = sorted(resultsCombinate, key=lambda value: value[2], reverse=orderingByDesc)
         for item in range(topRank):
-            scoreOrderedResult.append( scoreOrder[item])
-        orderedResults.append(scoreOrderedResult)
-        return orderedResults
+            scoreOrderedResult.append( scoreOrder[item][0], scoreOrder[item][1], scoreOrder[item][2])
+        return scoreOrderedResult
     
     
     
