@@ -1,0 +1,2 @@
+hep-ph/9412233v1	Do the Age of the Universe and the Hubble Constant Depend on What Scale  One Observes Them?	1994	set([u'astro-ph', u'gr-qc', u'hep-ph'])	set(['CP'])
+astro-ph/9710029v2  Ultrahigh energy neutrino scattering onto relic light neutrinos in  galactic halo as a possible source of highest energy extragalactic cosmic  rays 1994    set([u'hep-ex', u'astro-ph', u'hep-ph'])    set(['CP', 'RONALDO'])

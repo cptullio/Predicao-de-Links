@@ -25,6 +25,21 @@ class Analyse(object):
     
     
     @staticmethod
+    def AnalyseNodesWithScoresInFuture(nodesWithLotsOfScoresToChecked, TestGraph):
+        ScoresResults = []
+        for nodesInScoreToCheck in nodesWithLotsOfScoresToChecked:
+            result = []
+            for nodeInScoreToCheck in nodesInScoreToCheck:
+                if (TestGraph.has_edge(nodeInScoreToCheck[0],nodeInScoreToCheck[1])):
+                    result.append([  nodeInScoreToCheck[0],nodeInScoreToCheck[1], 1 ])
+                else:
+                    result.append([  nodeInScoreToCheck[0],nodeInScoreToCheck[1], 0 ])
+            ScoresResults.append(result)
+        return ScoresResults
+    
+    
+    
+    @staticmethod
     def saving_analyseResult(AnalysedNodesnotLinkedInFuture, filepath):
         f = open(FormatingDataSets.get_abs_file_path(filepath), 'w')
         f.write('no1,no2,result\n')

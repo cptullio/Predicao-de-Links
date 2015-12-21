@@ -1,0 +1,3 @@
+hep-th/9510081v1	Gravitational Radiation from String Cosmology	1995	set([u'hep-th', u'astro-ph', u'gr-qc'])	set(['CP', 'RONALDO'])
+hep-th/9510082v1    Gravitational Radiation from String Cosmology   1995    set([u'hep-th', u'astro-ph', u'gr-qc']) set(['CP', 'RONALDO', 'JOAO'])
+hep-th/9510083v1    Gravitational Radiation from String Cosmology   1995    set([u'hep-th', u'astro-ph', u'gr-qc']) set(['RONALDO', 'MARCIO'])

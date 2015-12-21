@@ -1,0 +1,2 @@
+cond-mat/9808068v2	Equilibrium and dynamical properties of two dimensional self-gravitating  systems	1998	set([u'nlin.AO', u'adap-org', u'chao-dyn', u'nlin.CD', u'astro-ph', u'hep-th', u'cond-mat.stat-mech', u'cond-mat.dis-nn'])	set(['MARCIO', 'RONALDO'])
+

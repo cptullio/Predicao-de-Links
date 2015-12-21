@@ -45,7 +45,7 @@ class CalculateInMemory(object):
             orderingByDesc = True
             if (self.preparedParameter.ScoresChoiced[index][2] == 1):
                 orderingByDesc = False
-            scoreOrder = sorted(resultNormalized, key=lambda value: value[2+index], reverse=orderingByDesc)
+            scoreOrder = sorted(resultNormalized, key=lambda value: value[2][index], reverse=orderingByDesc)
             for item in range(topRank):
                 scoreOrderedResult.append( scoreOrder[item])
             orderedResults.append(scoreOrderedResult)

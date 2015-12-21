@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="key" attr.type="int" for="edge" id="d4" />
+  <key attr.name="time" attr.type="int" for="edge" id="d3" />
+  <key attr.name="title" attr.type="string" for="edge" id="d2" />
+  <key attr.name="id_edge" attr.type="string" for="edge" id="d1" />
+  <key attr.name="keywords" attr.type="string" for="edge" id="d0" />
+  <graph edgedefault="undirected">
+    <node id="97ba81591615d92c83d8cf2b6028ef4d" />
+    <node id="97d1946acc46dc58bc6f1181fa2e4bcd" />
+    <node id="39aa14c4a6c2da3870615275b6db0fbb" />
+    <node id="b78cc6909042016daaa04d83bac97e90" />
+    <node id="0fc9f62064956e8dc5b2629b653ef470" />
+    <edge source="97ba81591615d92c83d8cf2b6028ef4d" target="0fc9f62064956e8dc5b2629b653ef470">
+      <data key="d0">set([u'hep-ex', u'astro-ph', u'hep-ph'])</data>
+      <data key="d1">hep-ph/9709438v1</data>
+      <data key="d2">Up-Down Asymmetry: A Diagnostic for Neutrino Oscillations</data>
+      <data key="d3">1997</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="97ba81591615d92c83d8cf2b6028ef4d" target="97d1946acc46dc58bc6f1181fa2e4bcd">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'hep-ph'])</data>
+      <data key="d1">nucl-th/9608045v1</data>
+      <data key="d2">$^3$He Transport in the Sun and the Solar Neutrino Problem</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="97ba81591615d92c83d8cf2b6028ef4d" target="39aa14c4a6c2da3870615275b6db0fbb">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'hep-ph'])</data>
+      <data key="d1">nucl-th/9608045v1</data>
+      <data key="d2">$^3$He Transport in the Sun and the Solar Neutrino Problem</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="97ba81591615d92c83d8cf2b6028ef4d" target="39aa14c4a6c2da3870615275b6db0fbb">
+      <data key="d0">set([u'hep-ex', u'astro-ph', u'hep-ph'])</data>
+      <data key="d1">hep-ph/9709438v1</data>
+      <data key="d2">Up-Down Asymmetry: A Diagnostic for Neutrino Oscillations</data>
+      <data key="d3">1997</data>
+      <data key="d4">1</data>
+    </edge>
+    <edge source="97d1946acc46dc58bc6f1181fa2e4bcd" target="39aa14c4a6c2da3870615275b6db0fbb">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'hep-ph'])</data>
+      <data key="d1">nucl-th/9608045v1</data>
+      <data key="d2">$^3$He Transport in the Sun and the Solar Neutrino Problem</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="97d1946acc46dc58bc6f1181fa2e4bcd" target="39aa14c4a6c2da3870615275b6db0fbb">
+      <data key="d0">set([u'nlin.AO', u'adap-org', u'chao-dyn', u'nlin.CD', u'astro-ph', u'hep-th', u'cond-mat.stat-mech', u'cond-mat.dis-nn'])</data>
+      <data key="d1">cond-mat/9808068v2</data>
+      <data key="d2">Equilibrium and dynamical properties of two dimensional self-gravitating  systems</data>
+      <data key="d3">1998</data>
+      <data key="d4">1</data>
+    </edge>
+    <edge source="39aa14c4a6c2da3870615275b6db0fbb" target="0fc9f62064956e8dc5b2629b653ef470">
+      <data key="d0">set([u'astro-ph', u'nucl-th', u'hep-ph'])</data>
+      <data key="d1">nucl-th/9611023v2</data>
+      <data key="d2">Kaon Zero-Point Fluctuations in Neutron Star Matter</data>
+      <data key="d3">1996</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="39aa14c4a6c2da3870615275b6db0fbb" target="0fc9f62064956e8dc5b2629b653ef470">
+      <data key="d0">set([u'hep-ex', u'astro-ph', u'hep-ph'])</data>
+      <data key="d1">hep-ph/9709438v1</data>
+      <data key="d2">Up-Down Asymmetry: A Diagnostic for Neutrino Oscillations</data>
+      <data key="d3">1997</data>
+      <data key="d4">1</data>
+    </edge>
+    <edge source="39aa14c4a6c2da3870615275b6db0fbb" target="0fc9f62064956e8dc5b2629b653ef470">
+      <data key="d0">set([u'nucl-th', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'astro-ph', u'hep-th', u'cond-mat.stat-mech'])</data>
+      <data key="d1">cond-mat/9907412v4</data>
+      <data key="d2">The rate of entropy increase at the edge of chaos</data>
+      <data key="d3">1999</data>
+      <data key="d4">2</data>
+    </edge>
+    <edge source="39aa14c4a6c2da3870615275b6db0fbb" target="b78cc6909042016daaa04d83bac97e90">
+      <data key="d0">set([u'hep-th', u'astro-ph', u'gr-qc'])</data>
+      <data key="d1">hep-th/9510081v1</data>
+      <data key="d2">Gravitational Radiation from String Cosmology</data>
+      <data key="d3">1995</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="b78cc6909042016daaa04d83bac97e90" target="0fc9f62064956e8dc5b2629b653ef470">
+      <data key="d0">set([u'hep-ex', u'astro-ph', u'hep-ph'])</data>
+      <data key="d1">hep-ph/9709411v3</data>
+      <data key="d2">Third Generation Familons, B Factories, and Neutrino Cosmology</data>
+      <data key="d3">1997</data>
+      <data key="d4">0</data>
+    </edge>
+    <edge source="b78cc6909042016daaa04d83bac97e90" target="b78cc6909042016daaa04d83bac97e90">
+      <data key="d0">set([u'astro-ph', u'gr-qc', u'hep-ph'])</data>
+      <data key="d1">hep-ph/9412233v1</data>
+      <data key="d2">Do the Age of the Universe and the Hubble Constant Depend on What Scale  One Observes Them?</data>
+      <data key="d3">1994</data>
+      <data key="d4">0</data>
+    </edge>
+  </graph>
+</graphml>

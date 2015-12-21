@@ -1,0 +1,2 @@
+nucl-th/9608045v1	$^3$He Transport in the Sun and the Solar Neutrino Problem	1996	set([u'astro-ph', u'nucl-th', u'hep-ph'])	set(['JOAO', 'RONALDO', 'MARCIO'])
+nucl-th/9611023v2	Kaon Zero-Point Fluctuations in Neutron Star Matter	1996	set([u'astro-ph', u'nucl-th', u'hep-ph'])	set(['RONALDO', 'BIANCA'])

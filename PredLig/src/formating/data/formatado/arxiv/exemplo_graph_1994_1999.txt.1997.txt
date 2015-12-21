@@ -1,0 +1,2 @@
+hep-ph/9709411v3	Third Generation Familons, B Factories, and Neutrino Cosmology	1997	set([u'hep-ex', u'astro-ph', u'hep-ph'])	set(['CP', 'BIANCA'])
+hep-ph/9709438v1	Up-Down Asymmetry: A Diagnostic for Neutrino Oscillations	1997	set([u'hep-ex', u'astro-ph', u'hep-ph'])	set(['JOAO', 'RONALDO', 'BIANCA'])

@@ -21,10 +21,12 @@ if __name__ == '__main__':
     myparams.generating_Training_Graph()
     selection = VariableSelection(myparams.trainnigGraph, util.min_edges)
     nodesNotLinked = selection.readingResultsFile(util.nodes_notlinked_file)
+    
     calc = CalculateInMemory(myparams,nodesNotLinked)
     resultsNormalized = calc.reading_calculateResult_normalized(util.calculated_file + '_normalizated.csv')
-    AnalyseNodesnotLinkedInFuture = Analyse.reading_analyseResult( util.result_random_file)
+    AnalyseNodesnotLinkedInFuture = Analyse.reading_analyseResult(util.result_random_file)
     topRank = Analyse.get_TotalSucess(AnalyseNodesnotLinkedInFuture)
+    print 'Total Nodes Not Linked', len(nodesNotLinked)
     print 'Total Success of Nodes Not Linked', topRank
     print 'Total Failed of Nodes Not Linked', Analyse.get_TotalFailed(AnalyseNodesnotLinkedInFuture)
     
