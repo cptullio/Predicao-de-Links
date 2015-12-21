@@ -39,6 +39,7 @@ class CalculateInMemory(object):
     
     
     def ordering(self, topRank, resultNormalized):
+        print 'a ser ordenado ', resultNormalized
         orderedResults = []
         for index in range(len(self.preparedParameter.ScoresChoiced)):
             scoreOrderedResult = []
@@ -46,6 +47,8 @@ class CalculateInMemory(object):
             if (self.preparedParameter.ScoresChoiced[index][2] == 1):
                 orderingByDesc = False
             scoreOrder = sorted(resultNormalized, key=lambda value: value[2][index], reverse=orderingByDesc)
+            
+            print 'Ordenado', scoreOrder
             for item in range(topRank):
                 scoreOrderedResult.append( scoreOrder[item])
             orderedResults.append(scoreOrderedResult)

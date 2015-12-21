@@ -15,10 +15,14 @@ import os
 
             
 if __name__ == '__main__':
-    
-    
-    relativepath  = 'data/results/teste/file.txt'
-    FormatingDataSets.FormatingDataSets.get_abs_file_path(relativepath)
+    ScoreResult =[]
+    result = [ [1,2,[8,2,3,4] ], [2,3,[5,6,7,8]]  ]
+    count = len(result)
+    for index in range(4):  
+        scoreOrder = sorted(result, key=lambda value: value[2][index], reverse=False)
+        
+        ScoreResult.append(scoreOrder)
+    print ScoreResult
    
     
     
