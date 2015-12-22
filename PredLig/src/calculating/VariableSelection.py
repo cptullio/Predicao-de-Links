@@ -101,7 +101,7 @@ class VariableSelection(object):
         myfile = Formating.get_abs_file_path(filepath)
         with open(myfile, 'w') as fileNodesNotLinked:
             for nodeNotLinked in nodesNotLinked:
-                fileNodesNotLinked.write(str(nodeNotLinked[0]) + ',' +  str(nodeNotLinked[1]) + '\n')
+                fileNodesNotLinked.write(nodeNotLinked[0] + ',' +  nodeNotLinked[1] + '\n')
             fileNodesNotLinked.close()
     
     def readingResultsFile(self, filepath):

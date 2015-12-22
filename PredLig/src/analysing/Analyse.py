@@ -45,10 +45,11 @@ class Analyse(object):
         f.write('no1,no2,result\n')
         
         for item in AnalysedNodesnotLinkedInFuture:
-            value = ''
-            for item_index in range(len(item)):
-                value = value  + repr(  item[item_index]  )
-                if (item_index < len(item)):
+            value = item[0] + ',' +item[1] + ','
+            
+            for item_index in range(len(item)-2):
+                value = value  +  repr( item[item_index+2]  )
+                if (item_index < (len(item) -2) ):
                     value = value + ','
             final = value + '\n'
             

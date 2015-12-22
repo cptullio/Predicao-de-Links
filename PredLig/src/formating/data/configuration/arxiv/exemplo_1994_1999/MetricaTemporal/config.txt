@@ -1,5 +1,5 @@
 original_file	None
-graph_file	data/results/arxiv/exemplo_graph_1994_1999.txt
+graph_file	data/formatado/arxiv/exemplo_graph_1994_1999.txt
 trainnig_graph_file	data/results/arxiv/exemplo_graph_1994_1999/MetricaTemporal/TrainingGraph.txt
 test_graph_file	data/results/arxiv/exemplo_graph_1994_1999/MetricaTemporal/TestingGraph.txt
 nodes_file	data/results/arxiv/exemplo_graph_1994_1999/MetricaTemporal/AllNodes.txt

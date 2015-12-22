@@ -60,6 +60,11 @@ class CalculateInMemory(object):
         xnormalize = (data - self.minValueCalculated[indice])/(self.maxValueCalculated[indice] - self.minValueCalculated[indice])
         return xnormalize            
      
+    def normalizeResultsToCombine(self, results):
+        for itemResult in results:
+            for index_score in range(len(self.preparedParameter.ScoresChoiced)):
+                itemResult[2][index_score] = (self.normalize( itemResult[2][index_score], index_score  ) * float(self.preparedParameter.ScoresChoiced[index_score][1]))
+            
     def saving_calculateResult_normalized(self, filepath, results):
         f = open(Formating.get_abs_file_path(filepath), 'w')
         header = 'no1,no2'
@@ -162,7 +167,7 @@ class CalculateInMemory(object):
             item_result = []
             for index_features in range(qtyFeatures):
                 self.preparedParameter.ScoresChoiced[index_features][0].parameter = self.preparedParameter
-                valueCalculated = self.preparedParameter.ScoresChoiced[index_features][0].execute(nodenotLinked[0],nodenotLinked[1]) * float(self.preparedParameter.ScoresChoiced[index_features][1])
+                valueCalculated = self.preparedParameter.ScoresChoiced[index_features][0].execute(nodenotLinked[0],nodenotLinked[1]  )
                 if valueCalculated < self.minValueCalculated[index_features]:
                     self.minValueCalculated[index_features] = valueCalculated
                 if valueCalculated > self.maxValueCalculated[index_features]:

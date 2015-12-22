@@ -30,6 +30,7 @@ def main():
     line = line.strip('\n').strip('\r').split(',')
     pred_link_eval.top = int(line[2])
     strategy = cma.Strategy(centroid=[5.0]*N, sigma=float(line[0]), lambda_=int(line[1]))
+    
     toolbox.register("generate", strategy.generate, creator.Individual)
     toolbox.register("update", strategy.update)
 

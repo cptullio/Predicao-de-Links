@@ -28,7 +28,7 @@ class SFrame:
         for index_score in  range(len(cls.myparams.ScoresChoiced)):
             new_metric = new_metric + (cls.metrics[ cls.myparams.ScoresChoiced[index_score][0].getName() ] * individual[index_score] )
                
-        
+        print new_metric
         copy_metrics = cls.metrics.copy()
         copy_metrics.add_column(new_metric, name='new_metric')
         copy_metrics = copy_metrics.topk('new_metric', k=cls.top)
