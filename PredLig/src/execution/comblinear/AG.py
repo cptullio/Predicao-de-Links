@@ -18,9 +18,9 @@ import numpy
 
 class SFrame:
     
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/AllExecutionScores/configToAG.txt')
     #util = ParameterUtil(parameter_file = 'data/configuration/arxiv/exemplo_1994_1999/CombinationLinear/configToAG.txt')
     #util = ParameterUtil(parameter_file = 'data/configuration/arxiv/condmat_1994_1999/CombinationLinear/configToAG.txt')
+    util = ParameterUtil(parameter_file = 'data/configuration/arxiv/astroph_1994_1999/CombinationLinear/configToAG.txt')
     
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, linear_combination=util.linear_combination,
@@ -92,7 +92,7 @@ def main():
     file1 = open('config.txt', 'r')
     line = file1.readline()
     line = line.strip('\n').strip('\r').split(',')
-    top = int(line[2])
+    SFrame.top = int(line[2])
     strategy = cma.Strategy(centroid=[5.0]*N, sigma=float(line[0]), lambda_=int(line[1]))
     
     toolbox.register("generate", strategy.generate, creator.Individual)

@@ -34,3 +34,7 @@ if __name__ == '__main__':
     resultsRank = Analyse.AnalyseNodesInFuture(nodesNotLinked, myparams.testGraph)
     Analyse.saving_analyseResult(resultsRank, util.result_random_file)
     
+    print 'Total Nodes Not Linked in Train:', len(nodesNotLinked)
+    print 'Total Nodes Linked in Test:', Analyse.get_TotalSucess(resultsRank)
+    print 'Total Nodes Not Linked in Test: ', Analyse.get_TotalFailed(resultsRank) 
+    
