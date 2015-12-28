@@ -11,10 +11,11 @@ from analysing.Analyse import Analyse
 from datetime import datetime
 
 if __name__ == '__main__':
-    util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/AllExecutionScores/config.txt')
+    #util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_astroph_1994_1999/AllExecutionScores/config.txt')
     
     #util = ParameterUtil(parameter_file = 'data/configuration/arxiv/exemplo_1994_1999/CombinationLinear/config.txt')
     #util = ParameterUtil(parameter_file = 'data/configuration/arxiv/condmat_1994_1999/CombinationLinear/config.txt')
+    util = ParameterUtil(parameter_file = 'data/configuration/arxiv/astroph_1994_1999/CombinationLinear/config.txt')
     
     
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, linear_combination=util.linear_combination,
