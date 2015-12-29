@@ -1,12 +1,13 @@
 import oauth2 as oauth
 import urllib2 as urllib
+import json
 
 # See assignment1.html instructions or README for how to get these credentials
 
-api_key = "Y1jw2Ro1k7UJELG44PUwZDtBf"
-api_secret = "51bEMlVRPrfhsSqsILb8DuYzJ4dDzaRw2ZgFTjMUGnSxCZcNbV"
-access_token_key = "4594367655-LQjrXRUgZ5sp9NopJYOSiOSROWYoVm6j4Nn9Nc6"
-access_token_secret = "obBPAu6FIf7J8YYa66JVoqdiRlw6I4rjsKX77scfDe87x"
+api_key = "KqC6fs59CKrijQdhamLzfD6F7"
+api_secret = "mbWi4JEws2XLoMbjtJpPGoh8Ifc4rwNQdG8UainxXdtRCPTsIL"
+access_token_key = "447648646-yVsW7zqrv2w4qe0TDofiGXKGF68g4jcpuMfNUrg3"
+access_token_secret = "sEaKXx0umFLL3srbkpzvADwAGuAV9d9p6hXk4LMBJ5DLy"
 
 _debug = 0
 
@@ -55,7 +56,14 @@ def fetchsamples():
   parameters = []
   response = twitterreq(url, "GET", parameters)
   for line in response:
-    print line.strip()
+      print line.strip()
+      
+      #tweete = json.loads(line.strip())
+      #if ("created_at" in tweete.keys() and "text" in tweete.keys() and "user" in tweete.keys() and "entities" in tweete.keys()   ):
+          
+      #    print tweete["created_at"],   tweete["text"], tweete["user"]["name"]
+      
+    
 
 if __name__ == '__main__':
   fetchsamples()
