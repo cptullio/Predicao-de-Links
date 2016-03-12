@@ -1,1 +1,0 @@
-cond-mat/9907412v4	The rate of entropy increase at the edge of chaos	1999	set([u'nucl-th', u'comp-gas', u'chao-dyn', u'nlin.CD', u'nlin.CG', u'astro-ph', u'hep-th', u'cond-mat.stat-mech'])	set(['BIANCA', 'RONALDO'])
