@@ -22,7 +22,7 @@ class Formating(FormatingDataSets):
     
         super(Formating, self).__init__('',graphfile)
         self.subject = 'astro-ph'
-        self.yearstoRescue = [1994,1995,1996,1997,1998,1999]
+        self.yearstoRescue = [2009,2010,2011,2012,2013,2014]
         
     def get_qty_records_mid_year(self,year):
         url = 'http://export.arxiv.org/api/query?search_query=cat:'+ self.subject+'*+AND+submittedDate:[' +str(year) + '01010000+TO+' +str(year)+ '06312359]&start=0&max_results=1'

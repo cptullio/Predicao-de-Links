@@ -39,11 +39,7 @@ class ParameterUtil(object):
         AllFeatures.append(PAFeature())
         AllFeatures.append(TimeScore())
         AllFeatures.append(DomainTimeScore())
-        AllFeatures.append(DomainTimeScorevTwo())
         AllFeatures.append(DomainJC())
-        AllFeatures.append(SPLFeature())
-        AllFeatures.append(LSFeature())
-        AllFeatures.append(DomainLS())
         
         
         WeightedFeatures = []
