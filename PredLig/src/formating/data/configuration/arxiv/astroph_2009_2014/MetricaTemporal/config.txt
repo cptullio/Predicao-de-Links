@@ -1,5 +1,5 @@
 original_file	None
-graph_file	/results/astroph_graph_2009_2014.txt
+graph_file	/grafos/2009-2014/astroph.txt
 trainnig_graph_file	/results/astroph_2009_2014/MetricaTemporal/TrainingGraph.txt
 test_graph_file	/results/astroph_2009_2014/MetricaTemporal/TestingGraph.txt
 nodes_file	/results/astroph_2009_2014/MetricaTemporal/AllNodes.txt
