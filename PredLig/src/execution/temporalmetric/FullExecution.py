@@ -13,8 +13,10 @@ from formating.FormatingDataSets import FormatingDataSets
 if __name__ == '__main__':
     
     configFile = 'data/configuration/arxiv/csse_2009_2014/MetricaTemporal/config.txt'
-    #configFile = 'data/configuration/arxiv/astroph_1994_1999/MetricaTemporal/config.txt'
-    #configFile = 'data/configuration/arxiv/condmat_1994_1999/MetricaTemporal/config.txt'
+    #configFile = 'data/configuration/arxiv/cs_2009_2014/MetricaTemporal/config.txt'
+    #configFile = 'data/configuration/arxiv/condmat_2009_2014/MetricaTemporal/config.txt'
+    #configFile = 'data/configuration/arxiv/astroph_2009_2014/MetricaTemporal/config.txt'
+    
     
     resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.result.txt'), 'w')
     
