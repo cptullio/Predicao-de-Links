@@ -12,7 +12,7 @@ from formating.FormatingDataSets import FormatingDataSets
 
 if __name__ == '__main__':
     
-    configFile = 'data/configuration/arxiv/cs_2000_2005/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt'
     #configFile = 'data/configuration/arxiv/cs_2009_2014/MetricaTemporal/config.txt'
     #configFile = 'data/configuration/arxiv/condmat_2009_2014/MetricaTemporal/config.txt'
     #configFile = 'data/configuration/arxiv/astroph_2009_2014/MetricaTemporal/config.txt'
