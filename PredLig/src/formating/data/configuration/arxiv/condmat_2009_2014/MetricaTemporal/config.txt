@@ -1,5 +1,5 @@
 original_file	None
-graph_file	/home/cmuniz/grafos/2009-2014/condmat.txt
+graph_file	/grafos/2009-2014/condmat.txt
 trainnig_graph_file	/home/cmuniz/results/condmat_2009_2014/MetricaTemporal/TrainingGraph.txt
 test_graph_file	/home/cmuniz/results/condmat_2009_2014/MetricaTemporal/TestingGraph.txt
 nodes_file	/home/cmuniz/results/condmat_2009_2014/MetricaTemporal/AllNodes.txt
