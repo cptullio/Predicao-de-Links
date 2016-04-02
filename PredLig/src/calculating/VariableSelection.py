@@ -42,21 +42,28 @@ class VariableSelection(object):
         for node in nodesOrdered:
             element = element+1
             FormatingDataSets.printProgressofEvents(element, totalnodesOrdered, "Checking Node not liked: ")
-            others =  set(n for n in nodesOrdered if n > node)
-            for otherNode in others:
-                if (not self.graph.has_edge(node, otherNode)):
-                    if self.USE_MAX_NUMBER_OF_PEOPLE_BETWEEN == True:
-                        if networkx.has_path(self.graph, node, otherNode):
-                            shortestPathResult = networkx.shortest_path(self.graph, node, otherNode)
-                            print shortestPathResult
-                            tamanho_caminho = len(shortestPathResult) - 1
-                            #print "%s ate %s: %s" %(node1, other_node,tamanho_caminho)
-                            #print repr(networkx.shortest_path(graph, node1, other_node));
-                            if ( tamanho_caminho > 0 ) and (tamanho_caminho <= self.MAX_NUMBER_OF_PEOPLE_BETWEEN ): # -2 porque inclui o inicio e fim
-                                print "adicionando %s - %s" %(node, otherNode)
+            publicacoes = self.graph.edges(node,data=False)
+            qtdepublicacoes = len(publicacoes)
+            #print "O autor e seus papers ",node,qtdepublicacoes ,publicacoes 
+            if (qtdepublicacoes >= self.min_papers):
+                others =  set(n for n in nodesOrdered if n > node)
+                for otherNode in others:
+                    other_publicacoes = self.graph.edges(otherNode,data=False)
+                    other_qtdepublicacoes = len(other_publicacoes)
+                    if (other_qtdepublicacoes >= self.min_papers):
+                        if (not self.graph.has_edge(node, otherNode)):
+                            if self.USE_MAX_NUMBER_OF_PEOPLE_BETWEEN == True:
+                                if networkx.has_path(self.graph, node, otherNode):
+                                    shortestPathResult = networkx.shortest_path(self.graph, node, otherNode)
+                                    #print shortestPathResult
+                                    tamanho_caminho = len(shortestPathResult) - 1
+                                    #print "%s ate %s: %s" %(node1, other_node,tamanho_caminho)
+                                    #print repr(networkx.shortest_path(graph, node1, other_node));
+                                    if ( tamanho_caminho > 0 ) and (tamanho_caminho <= self.MAX_NUMBER_OF_PEOPLE_BETWEEN ): # -2 porque inclui o inicio e fim
+                                        #print "adicionando %s - %s" %(node, otherNode)
+                                        results.append([node, otherNode])
+                            else:
                                 results.append([node, otherNode])
-                    else:
-                        results.append([node, otherNode])
                 
         print "getting pair of nodes that is not liked finished", datetime.today()
         return results

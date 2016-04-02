@@ -64,6 +64,21 @@ class Parameterization(object):
         gc.collect()
         return result
     
+    def get_nodesWithPaperControl(self, graph):
+        mynodes = graph.nodes()
+        total = 0
+        for node in mynodes:
+            qtde = len(graph.edges(node))
+            if qtde >= self.min_edges:
+                total = total + 1
+        #result =  len(mynodes)
+        del mynodes
+        mynodes = None
+        gc.collect()
+        return total
+    
+    
+    
     def clean_database(self):
         
         clear_Table = "truncate resultadopesos"

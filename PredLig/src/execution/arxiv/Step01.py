@@ -14,16 +14,21 @@ from formating.arxiv.Formating import Formating
 def step01( paramFile):
     util = ParameterUtil(parameter_file = paramFile)
     astroPh = Formating(util.graph_file)
-    astroPh.subject = 'exemplo'
-    astroPh.yearstoRescue = [2000,2001,2002,2003,2004,2005]
-    #astroPh.subject = 'cond-mat'
+    #astroPh.subject = 'exemplo'
+    astroPh.yearstoRescue = [2009,2010,2011,2012,2013,2014]
+    astroPh.subject = 'cond-mat'
     #astroPh.yearstoRescue = [1994,1995,1996,1997,1998,1999]
-    #astroPh.readingOrginalDataset()
+    astroPh.readingOrginalDataset()
     astroPh.generating_graph()
     astroPh.saveGraph()
 
 if __name__ == '__main__':
-    step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
+    step01('data/configuration/arxiv/condmat_2009_2014/MetricaTemporal/config.txt')
+    #step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
+    #step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
+    #step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
+    #step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
+    #step01('data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt')
     '''
     util = ParameterUtil(parameter_file = 'data/formatado/arxiv/nowell_condmat_1994_1999.txt')
     astroPh = Formating(util.graph_file)
