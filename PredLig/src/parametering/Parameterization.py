@@ -56,6 +56,63 @@ class Parameterization(object):
         gc.collect()
         return result
     
+    def get_new_edges(self, tranningGraph, testGraph):
+        myedgestestGraph = set(aresta['id_edge'] for no1,no2,aresta in testGraph.edges(data=True) if  1==1)
+        myedgestranningGraph = set(aresta['id_edge'] for no1,no2,aresta in tranningGraph.edges(data=True) if  1==1)
+        diference = myedgestestGraph.difference(myedgestranningGraph)
+        newEdges = 0
+        for edge in diference:
+            pair = list(list({no1,no2} for no1,no2,aresta in 
+                             testGraph.edges(data=True) if aresta['id_edge'] == edge)[0])
+            #print pair
+            if len(pair) == 1:
+                if not tranningGraph.has_node(pair[0]):
+                    if len(testGraph.edges(pair[0])) >= 3:
+                        newEdges = newEdges + 1
+            else:
+                if len(tranningGraph.edges(pair[0])) >= 3 and len(tranningGraph.edges(pair[1])) >= 3 and len(testGraph.edges(pair[0])) >= 3 and  len(testGraph.edges(pair[1])) >= 3:
+                    if tranningGraph.has_node(pair[0]) and tranningGraph.has_node(pair[1]):
+                        if not tranningGraph.has_edge(pair[0], pair[1]):
+                            newEdges = newEdges + 1
+                    else:
+                        newEdges = newEdges + 1
+            
+            
+        myedgestestGraph = None
+        myedgestranningGraph = None
+        gc.collect()
+        return newEdges
+    
+    
+    def get_NowellCore(self, tranningGraph, testGraph):
+        mynodestestGraph = set(testGraph.nodes())
+        mynodestranningGraph = set(tranningGraph.nodes())
+        total = mynodestestGraph.intersection(mynodestranningGraph)
+        
+        result = 0
+        for node in total:
+            test = set(aresta['id_edge'] for no1,no2,aresta in testGraph.edges(node, data=True) if  1==1)
+            train = set(aresta['id_edge'] for no1,no2,aresta in tranningGraph.edges(node, data=True) if  1==1)
+            
+            #test = testGraph.edges(node, data=True)
+            #train = tranningGraph.edges(node, data=True)
+            if len(test) >= 3 and len(train) >=3:
+                print test
+                print train
+                result = result + 1
+        
+        
+        del mynodestestGraph
+        del mynodestranningGraph
+        del total
+        total = None
+        mynodestestGraph = None
+        mynodestranningGraph = None
+        gc.collect()
+        return result
+    
+    
+    
     def get_nodes(self, graph):
         mynodes = graph.nodes()
         result =  len(mynodes)

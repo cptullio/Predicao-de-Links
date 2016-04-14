@@ -3,41 +3,42 @@ Created on 21 de dez de 2015
 
 @author: CarlosPM
 '''
-from parametering.ParameterUtil import ParameterUtil
-from parametering.Parameterization import Parameterization
-from calculating.VariableSelection import VariableSelection
-from calculating.CalculateInMemory import CalculateInMemory
-from analysing.Analyse import Analyse
-from formating.FormatingDataSets import FormatingDataSets
-import matplotlib.pyplot as plt
-import networkx as nx
+import networkx
+import matplotlib
 
 
 if __name__ == '__main__':
+    #arquivoPath = '/grafos/teste.txt'
+    arquivoPath = '/grafos/nowell/gr-qc.txt'
     
-    configFile = 'data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt'
-    #configFile = 'data/configuration/arxiv/cs_2009_2014/MetricaTemporal/config.txt'
-    #configFile = 'data/configuration/arxiv/condmat_2009_2014/MetricaTemporal/config.txt'
-    #configFile = 'data/configuration/arxiv/astroph_2009_2014/MetricaTemporal/config.txt'
+    graph = networkx.MultiGraph()
+        
+    arquivo = open(arquivoPath, 'r')
+    id_edge = 0
+    for line in arquivo:
+        id_edge = id_edge + 1
+        cols = line.strip().split('\t')
+        myAresta = { 'id_edge': int(id_edge),  'time' : int(cols[0])}
+        autores = cols[1].split('&')
+        if len(autores) == 1:
+            graph.add_edge(autores[0].strip(), autores[0].strip(),attr_dict=myAresta)
+            
+        for autor in autores:
+            outrosAutores =  set(n for n in autores if n > autor)
+            if (len(outrosAutores) == 0):
+                graph.add_edge(autor.strip(), autor.strip(),attr_dict=myAresta)
+                
+            for outro in outrosAutores:
+                #print autor, outro
+                graph.add_edge(autor.strip(), outro.strip(),attr_dict=myAresta)
+                
+    #networkx.write_graphml(graph, '/grafos/teste-graph.txt') 
+    networkx.write_graphml(graph, '/grafos/gr-qc-graph.txt') 
     
     
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.result.txt'), 'w')
+    #matplotlib.pyplot.show()
+        
     
-    util = ParameterUtil(parameter_file = configFile)
-    myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, linear_combination=util.linear_combination,
-                                filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None, result_random_file=util.result_random_file)
-    
-    
-    #
-    myparams.generating_Training_Graph()
-    myparams.generating_Test_Graph()
-    
-    
-    nx.draw_networkx(myparams.trainnigGraph )  # networkx draw()
-    plt.draw()  # pyplot draw()
-    plt.show()
-    
-    nx.draw_networkx(myparams.testGraph)  # networkx draw()
-    plt.draw()  # pyplot draw()
-    plt.show()
+            
+   
     

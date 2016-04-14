@@ -13,7 +13,10 @@ from formating.FormatingDataSets import FormatingDataSets
 if __name__ == '__main__':
     
     #configFile = 'data/configuration/arxiv/exemplo_2000_2005/MetricaTemporal/config.txt'
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/config.txt'
+    #configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/grqc_1994_1999/MetricaTemporal/config.txt'
+    #configFile = 'data/configuration/arxiv/exemplo_1994_1999/MetricaTemporal/config.txt'
+    
     #configFile = 'data/configuration/arxiv/condmat_2009_2014/MetricaTemporal/config.txt'
     #configFile = 'data/configuration/arxiv/astroph_2009_2014/MetricaTemporal/config.txt'
     
@@ -27,61 +30,72 @@ if __name__ == '__main__':
     
     #
     myparams.generating_Training_Graph()
+    
+    #lista = set(aresta['id_edge'] for no1,no2,aresta in myparams.trainnigGraph.edges(data=True) if  1==1)
+    #for l in lista:
+    #    resultFile.write(str(l))
+    #    resultFile.write('\n')
+        
+    
     resultFile.write("TOTAL PAPERS IN TRAINNING: " + str(myparams.get_edges(myparams.trainnigGraph)))
     resultFile.write("\n")
     
     resultFile.write("TOTAL AUTHORS IN TRAINNING: " + str(myparams.get_nodes(myparams.trainnigGraph)))
     resultFile.write("\n")
     
-    resultFile.write("TOTAL AUTHORS WITH PAPER CONTROL IN TRAINNING: " + str(myparams.get_nodesWithPaperControl(myparams.trainnigGraph)))
-    resultFile.write("\n")
+    #resultFile.write("TOTAL AUTHORS WITH PAPER CONTROL IN TRAINNING: " + str(myparams.get_nodesWithPaperControl(myparams.trainnigGraph)))
+    #resultFile.write("\n")
     
     
     
-    selection = VariableSelection(myparams.trainnigGraph, util.min_edges)
-    #nodesNotLinked = selection.readingResultsFile(util.nodes_notlinked_file)
-    nodesNotLinked = selection.get_pair_nodes_not_linked()
-    resultFile.write("TOTAL NODES NOT LINKED: " + str(len(nodesNotLinked) ))
-    resultFile.write("\n")
-    print("TOTAL NODES NOT LINKED: " + str(len(nodesNotLinked) ))
-    
-    selection.saveResults(util.nodes_notlinked_file, nodesNotLinked)
-    
-    calc = CalculateInMemory(myparams,nodesNotLinked)
-    resultsofCalculation = calc.executingCalculate()
-    calc.saving_calculateResult(util.calculated_file, resultsofCalculation)
+    #===========================================================================
+    # selection = VariableSelection(myparams.trainnigGraph, util.min_edges)
+    # #nodesNotLinked = selection.readingResultsFile(util.nodes_notlinked_file)
+    # nodesNotLinked = selection.get_pair_nodes_not_linked()
+    # resultFile.write("TOTAL NODES NOT LINKED: " + str(len(nodesNotLinked) ))
+    # resultFile.write("\n")
+    # print("TOTAL NODES NOT LINKED: " + str(len(nodesNotLinked) ))
+    #  
+    # selection.saveResults(util.nodes_notlinked_file, nodesNotLinked)
+    #  
+    # calc = CalculateInMemory(myparams,nodesNotLinked)
+    # resultsofCalculation = calc.executingCalculate()
+    # calc.saving_calculateResult(util.calculated_file, resultsofCalculation)
+    #===========================================================================
     myparams.generating_Test_Graph()
-    resultFile.write("TOTAL PAPERS IN TEST: " + str(myparams.get_edges(myparams.testGraph)))
+    #resultFile.write("TOTAL NEW PAPERS: " + str(myparams.get_new_edges(myparams.trainnigGraph, myparams.testGraph)))
+    #resultFile.write("\n")
+     
+    resultFile.write("CORE AUTHORS: " + str(myparams.get_NowellCore(myparams.trainnigGraph, myparams.testGraph)))
     resultFile.write("\n")
+     
+    #resultFile.write("TOTAL AUTHORS WITH PAPER CONTROL IN TEST: " + str(myparams.get_nodesWithPaperControl(myparams.testGraph)))
+    #resultFile.write("\n")
     
-    resultFile.write("TOTAL AUTHORS IN TEST: " + str(myparams.get_nodes(myparams.testGraph)))
-    resultFile.write("\n")
     
-    resultFile.write("TOTAL AUTHORS WITH PAPER CONTROL IN TEST: " + str(myparams.get_nodesWithPaperControl(myparams.testGraph)))
-    resultFile.write("\n")
-   
-   
-    AnalyseNodesnotLinkedInFuture = Analyse.AnalyseNodesInFuture(nodesNotLinked, myparams.testGraph)
-    topRank = Analyse.get_TotalSucess(AnalyseNodesnotLinkedInFuture)
-    resultFile.write("TOTAL NODES EFECTIVED LINKED: " + str(topRank) )
-    resultFile.write("\n")
-    print("TOTAL NODES EFECTIVED LINKED: " + str(topRank) )
-    
-    Analyse.saving_analyseResult(AnalyseNodesnotLinkedInFuture, util.result_random_file)
-    orderingResults = calc.ordering(topRank, resultsofCalculation)
-    calc.saving_orderedResult(util.ordered_file, orderingResults)
-    ScoresResults = Analyse.AnalyseNodesWithScoresInFuture(orderingResults, myparams.testGraph)
-    for index in range(len(ScoresResults)):
-        print 'Salving Analysis of ' + str(myparams.ScoresChoiced[index][0] )
-        Analyse.saving_analyseResult(ScoresResults[index], util.analysed_file + str(myparams.ScoresChoiced[index][0] ) + '.txt')
-        
-        resultFile.write("TOTAL OF SUCESSS USING METRIC "  + str(myparams.ScoresChoiced[index][0])  + " = " +  str(Analyse.get_TotalSucess(ScoresResults[index]) ))
-                         
-        resultFile.write("\n")
-        resultFile.write("TOTAL OF FAILED USING METRIC "  + 
-                         str(myparams.ScoresChoiced[index][0])  + " = " +  
-                         str(Analyse.get_TotalFailed(ScoresResults[index])))  
-        resultFile.write("\n")
+    #===========================================================================
+    # AnalyseNodesnotLinkedInFuture = Analyse.AnalyseNodesInFuture(nodesNotLinked, myparams.testGraph)
+    # topRank = Analyse.get_TotalSucess(AnalyseNodesnotLinkedInFuture)
+    # resultFile.write("TOTAL NODES EFECTIVED LINKED: " + str(topRank) )
+    # resultFile.write("\n")
+    # print("TOTAL NODES EFECTIVED LINKED: " + str(topRank) )
+    #  
+    # Analyse.saving_analyseResult(AnalyseNodesnotLinkedInFuture, util.result_random_file)
+    # orderingResults = calc.ordering(topRank, resultsofCalculation)
+    # calc.saving_orderedResult(util.ordered_file, orderingResults)
+    # ScoresResults = Analyse.AnalyseNodesWithScoresInFuture(orderingResults, myparams.testGraph)
+    # for index in range(len(ScoresResults)):
+    #     print 'Salving Analysis of ' + str(myparams.ScoresChoiced[index][0] )
+    #     Analyse.saving_analyseResult(ScoresResults[index], util.analysed_file + str(myparams.ScoresChoiced[index][0] ) + '.txt')
+    #      
+    #     resultFile.write("TOTAL OF SUCESSS USING METRIC "  + str(myparams.ScoresChoiced[index][0])  + " = " +  str(Analyse.get_TotalSucess(ScoresResults[index]) ))
+    #                       
+    #     resultFile.write("\n")
+    #     resultFile.write("TOTAL OF FAILED USING METRIC "  + 
+    #                      str(myparams.ScoresChoiced[index][0])  + " = " +  
+    #                      str(Analyse.get_TotalFailed(ScoresResults[index])))  
+    #     resultFile.write("\n")
+    #===========================================================================
     resultFile.close()
         
         
