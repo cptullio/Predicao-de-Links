@@ -84,22 +84,18 @@ class Parameterization(object):
         return newEdges
     
     
-    def get_NowellCore(self, tranningGraph, testGraph):
-        mynodestestGraph = set(testGraph.nodes())
-        mynodestranningGraph = set(tranningGraph.nodes())
+    def get_NowellAuthorsCore(self):
+        mynodestestGraph = set(self.testGraph.nodes())
+        mynodestranningGraph = set(self.trainnigGraph.nodes())
         total = mynodestestGraph.intersection(mynodestranningGraph)
         
-        result = 0
+        result = set()
         for node in total:
-            test = set(aresta['id_edge'] for no1,no2,aresta in testGraph.edges(node, data=True) if  1==1)
-            train = set(aresta['id_edge'] for no1,no2,aresta in tranningGraph.edges(node, data=True) if  1==1)
+            test = set(aresta['id_edge'] for no1,no2,aresta in self.testGraph.edges(node, data=True) if  1==1)
+            train = set(aresta['id_edge'] for no1,no2,aresta in self.trainnigGraph.edges(node, data=True) if  1==1)
             
-            #test = testGraph.edges(node, data=True)
-            #train = tranningGraph.edges(node, data=True)
             if len(test) >= 3 and len(train) >=3:
-                print test
-                print train
-                result = result + 1
+                result.add(node)
         
         
         del mynodestestGraph
@@ -111,6 +107,66 @@ class Parameterization(object):
         gc.collect()
         return result
     
+    def get_NowellColaboration_old(self):
+        result = []
+        #get all unique ordened nodes from trainning
+        mynodestranningGraph = sorted(set(self.trainnigGraph.nodes()))
+        for node in mynodestranningGraph:
+            othernodes = set(n for n in mynodestranningGraph if n > node)
+            for other in othernodes:
+                if self.trainnigGraph.has_edge(node, other):
+                    result.append({node, other})
+                    
+        return result
+    
+    
+    def get_NowellColaboration(self):
+        result = set()
+        total = 0
+        #get all unique ordened nodes from trainning
+        mynodestranningGraph = sorted(set(self.trainnigGraph.nodes()))
+        for node in mynodestranningGraph:
+            othernodes = set(n for n in mynodestranningGraph if n > node)
+            for other in othernodes:
+                if self.trainnigGraph.has_edge(node, other):
+                    print self.trainnigGraph.edges(node,other)
+                    total = total +1
+        print total
+        return result
+    
+    def get_NowellE(self, CoreAuthors, graph):
+        result = []
+        
+       
+        for node in sorted(CoreAuthors):
+            othernodes = set(n for n in CoreAuthors if n > node)
+            for other in othernodes:
+                if graph.has_edge(node, other):
+                    result.append({node, other})
+                    
+        return result
+    
+    
+    def existInTranning(self, node, other, trainningData):
+        for data in trainningData:
+            v = list(data)
+            if (node == v[0] and other == v[1]) or (node == v[1] and other == v[0]):
+                return True
+        return False
+        
+    
+    def get_NowellE2(self, CoreAuthors, trainningData, graph):
+        result = []
+        
+       
+        for node in sorted(CoreAuthors):
+            othernodes = set(n for n in CoreAuthors if n > node)
+            for other in othernodes:
+                if graph.has_edge(node, other):
+                    if not self.existInTranning(node, other, trainningData):
+                        result.append({node, other})
+                    
+        return result
     
     
     def get_nodes(self, graph):
