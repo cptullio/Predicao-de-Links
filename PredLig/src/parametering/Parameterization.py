@@ -84,6 +84,8 @@ class Parameterization(object):
         return newEdges
     
     
+    
+    
     def get_NowellAuthorsCore(self):
         mynodestestGraph = set(self.testGraph.nodes())
         mynodestranningGraph = set(self.trainnigGraph.nodes())
@@ -107,9 +109,8 @@ class Parameterization(object):
         gc.collect()
         return result
     
-    def get_NowellColaboration_old(self):
+    def get_NowellColaboration(self):
         result = []
-        #get all unique ordened nodes from trainning
         mynodestranningGraph = sorted(set(self.trainnigGraph.nodes()))
         for node in mynodestranningGraph:
             othernodes = set(n for n in mynodestranningGraph if n > node)
@@ -119,31 +120,34 @@ class Parameterization(object):
                     
         return result
     
-    
-    def get_NowellColaboration(self):
+    def get_NowellColaboration_old(self):
         result = set()
-        total = 0
-        #get all unique ordened nodes from trainning
-        mynodestranningGraph = sorted(set(self.trainnigGraph.nodes()))
-        for node in mynodestranningGraph:
-            othernodes = set(n for n in mynodestranningGraph if n > node)
-            for other in othernodes:
-                if self.trainnigGraph.has_edge(node, other):
-                    print self.trainnigGraph.edges(node,other)
-                    total = total +1
+        edges = self.trainnigGraph.edges()
+        for edge in edges:
+            result.add(edge[0])
+            result.add(edge[1])
+        return result  
+    
+    def get_PairsofNodesNotinEold(self,  nodes):
+        pares = []
+        total= 0
+        for pair in sorted(nodes):
+            others = set(n for n in nodes if n > pair)
+            for other in others:
+                if not self.trainnigGraph.has_edge(pair, other):
+                    pares.append([pair,other])
+                    total = total + 1
+                  
         print total
-        return result
+        return pares
     
     def get_NowellE(self, CoreAuthors, graph):
         result = []
-        
-       
         for node in sorted(CoreAuthors):
             othernodes = set(n for n in CoreAuthors if n > node)
             for other in othernodes:
                 if graph.has_edge(node, other):
                     result.append({node, other})
-                    
         return result
     
     

@@ -9,9 +9,11 @@ import matplotlib
 
 if __name__ == '__main__':
     #arquivoPath = '/grafos/teste.txt'
-    arquivoPath = '/grafos/nowell/gr-qc.txt'
+    #arquivoPath = '/grafos/nowell/gr-qc.txt'
     #arquivoPath = '/grafos/nowell/astro-ph.txt'
-    
+    #arquivoPath = '/grafos/nowell/hep-th.txt'
+    #arquivoPath = '/grafos/nowell/hep-ph.txt'
+    arquivoPath = '/grafos/nowell/cond-mat.txt'
     graph = networkx.MultiGraph()
         
     arquivo = open(arquivoPath, 'r')
@@ -32,8 +34,11 @@ if __name__ == '__main__':
                     graph.add_edge(autor.strip(), outro.strip(),attr_dict=myAresta)
                 
     #networkx.write_graphml(graph, '/grafos/teste-graph.txt') 
-    networkx.write_graphml(graph, '/grafos/gr-qc-graph.txt') 
+    #networkx.write_graphml(graph, '/grafos/gr-qc-graph.txt') 
     #networkx.write_graphml(graph, '/grafos/astroph-graph.txt')
+    #networkx.write_graphml(graph, '/grafos/hep-th-graph.txt')
+    #networkx.write_graphml(graph, '/grafos/hep-ph-graph.txt')
+    networkx.write_graphml(graph, '/grafos/cond-mat-graph.txt')
     
     
     #matplotlib.pyplot.show()
