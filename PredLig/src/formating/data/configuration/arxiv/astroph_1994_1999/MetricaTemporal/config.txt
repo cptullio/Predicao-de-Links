@@ -1,5 +1,5 @@
 original_file	None
-graph_file	/grafos/1994-1999/astroph.txt
+graph_file	/grafos/astroph-graph.txt
 trainnig_graph_file	/results/astroph_1994_1999/MetricaTemporal/TrainingGraph.txt
 test_graph_file	/results/astroph_1994_1999/MetricaTemporal/TestingGraph.txt
 nodes_file	/results/astroph_1994_1999/MetricaTemporal/AllNodes.txt
@@ -11,10 +11,10 @@ analysed_file	/results/astroph_1994_1999/MetricaTemporal/analysed.txt
 result_random_file	/results/astroph_1994_1999/MetricaTemporal/result.csv
 t0	1994
 t0_	1996
-t1	1994
+t1	1997
 t1_	1999
 decay	0.8
 domain_decay	0.8
 min_edges	1
-scores	0:1,0;1:1,0;2:1,0;3:1,0;4:1,0;5:1,0;6:1,0
+scores	1:1,0
 linear_combination	False
