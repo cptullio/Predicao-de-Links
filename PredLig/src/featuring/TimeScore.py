@@ -58,7 +58,7 @@ class TimeScore(FeatureBase):
             if self.debugar:
                 print 'Harmonic meam:', hm
                 
-            k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
+            k =  int(self.parameter.t1_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1)
             ts = (hm * decayfunction) /control

@@ -96,7 +96,7 @@ class Parameterization(object):
             test = set(aresta['id_edge'] for no1,no2,aresta in self.testGraph.edges(node, data=True) if  1==1)
             train = set(aresta['id_edge'] for no1,no2,aresta in self.trainnigGraph.edges(node, data=True) if  1==1)
             
-            if len(test) >= 3 and len(train) >=3:
+            if len(test) >= self.min_edges and len(train) >=self.min_edges:
                 result.add(node)
         
         
