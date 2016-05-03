@@ -123,7 +123,7 @@ class ParameterUtil(object):
                 
             if cols[0] == 'weighted_scores':
                 features = cols[1].split(';')
-                for feature in features:
+                for feature in features:#0:1-1,0;
                     featureandweight = feature.split(':')
                     weight = featureandweight[1].split('-')[0]
                     weightfeatures = featureandweight[1].split('-')[1].split(',')[0]

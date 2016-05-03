@@ -30,7 +30,7 @@ class WeightTimeScore(FeatureBase):
         
         timesofLinks = []
         for info in informations:
-            timesofLinks.append(int(info[0]))
+            timesofLinks.append(int(info['time']))
         
                
         total_publications = len(informations)   

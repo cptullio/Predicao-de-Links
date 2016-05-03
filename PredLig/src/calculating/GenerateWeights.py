@@ -39,28 +39,23 @@ class GenerateWeigths(object):
         
         qtyFeatures = len(self.preparedParameter.WeightsChoiced)
         qtyNodesCalculated = 0
+        
         for lineofFile in fcontentAllNodes:
             item = VariableSelection.getItemFromLine(lineofFile)
-            newelement = 0
-            
-            for neighbor_node in item[1]:
-                newelement = newelement +1
-                qtyNodesCalculated = qtyNodesCalculated + 1
-                
-                item_result = []
-                #executing the calculation for each features chosen at parameter
-                for index_features in range(qtyFeatures):
-                    self.preparedParameter.WeightsChoiced[index_features][0].parameter = preparedParameter
-                    valueCalculated = self.preparedParameter.WeightsChoiced[index_features][0].execute(item[0],neighbor_node) * self.preparedParameter.WeightsChoiced[index_features][1]
+            item_result = []
+            #executing the calculation for each features chosen at parameter
+            for index_features in range(qtyFeatures):
+                self.preparedParameter.WeightsChoiced[index_features][0].parameter = preparedParameter
+                valueCalculated = self.preparedParameter.WeightsChoiced[index_features][0].execute(item[0],item[1]) * self.preparedParameter.WeightsChoiced[index_features][1]
                     
-                    if valueCalculated < self.minValueCalculated[index_features]:
-                        self.minValueCalculated[index_features] = valueCalculated
-                    if valueCalculated > self.maxValueCalculated[index_features]:
-                        self.maxValueCalculated[index_features] = valueCalculated
+                if valueCalculated < self.minValueCalculated[index_features]:
+                    self.minValueCalculated[index_features] = valueCalculated
+                if valueCalculated > self.maxValueCalculated[index_features]:
+                    self.maxValueCalculated[index_features] = valueCalculated
                         
-                    item_result.append(valueCalculated)
+                item_result.append(valueCalculated)
                 
-                self.preparedParameter.add_weight(item[0], neighbor_node, item_result)
+            self.preparedParameter.add_weight(item[0], item[1], item_result)
                 
                 
         

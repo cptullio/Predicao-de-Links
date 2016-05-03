@@ -14,11 +14,11 @@ class VariableSelection(object):
 
     @staticmethod
     def getItemFromLine(lineofFile):
-        cols = lineofFile.strip().replace('\n','').split(';')
+        cols = lineofFile.strip().replace('\n','').split(',')
         return [cols[0], cols[1]]
     
     
-    def get_all_pair_nodes(self, graph, file):
+    def get_all_pair_nodes(self, graph):
         result = []
         nodesinGraph =self.graph.nodes()
         nodesOrdered = sorted(nodesinGraph)
