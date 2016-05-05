@@ -28,10 +28,6 @@ class TimeScore(FeatureBase):
     def execute(self, node1, node2):
         
         
-        if node1=='1760' and node2 =='2003':
-            self.debugar = True
-        else:
-            self.debugar = False
         
         pair_common_neighbors  = self.get_common_neighbors(node1, node2)
         if len(pair_common_neighbors) == 0:
@@ -43,12 +39,9 @@ class TimeScore(FeatureBase):
             timesofLinks = []
             timesofLinksNode1 = list (d['time'] for d in self.get_ObjectsofLinks(self.graph, node1, pair_common_neighbor))
             timesofLinksNode2 = list (d['time'] for d in self.get_ObjectsofLinks(self.graph, node2, pair_common_neighbor))
-            print node1, pair_common_neighbor, timesofLinksNode1
-            print node2, pair_common_neighbor, timesofLinksNode2
             
             timesofLinks.append(timesofLinksNode1)
             timesofLinks.append(timesofLinksNode2)
-            
             
             #Harmonic Mean of Publications
             total = float(0)
@@ -58,14 +51,13 @@ class TimeScore(FeatureBase):
             if self.debugar:
                 print 'Harmonic meam:', hm
                 
-            k =  int(self.parameter.t1_)  - int(max(list(timesofLinks))[0])
+            k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1)
             ts = (hm * decayfunction) /control
             
             timescoreValue = timescoreValue + ts  
-            if self.debugar:
-                print 'TS parcial:', timescoreValue
+          
         return timescoreValue    
             
         

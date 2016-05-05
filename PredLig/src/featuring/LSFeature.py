@@ -25,12 +25,13 @@ class LSFeature(FeatureBase):
     
     
     def execute(self, node1, node2):
-        datainicio = datetime.today()
-        print "executando ls ", node1, node2, datainicio
+        #datainicio = datetime.today()
+        #print "executando ls ", node1, node2, datainicio
         if not networkx.has_path(self.graph, node1, node2):
             return 0
         total = float(0)
         AllPaths = self.getAllShortestPath(node1, node2)
+        print "Calculo sobre os paths: ", len(AllPaths)
         SomatorioTPI = float(0)
         pairofNodesAlreadyCalculated = []
         for path in AllPaths:
@@ -39,7 +40,7 @@ class LSFeature(FeatureBase):
                     nodesinPath.add(pairofNodes[0])
                     nodesinPath.add(pairofNodes[1])
                 
-            print nodesinPath
+            #print nodesinPath
             if len(path) <2:
                 continue
             
@@ -73,7 +74,7 @@ class LSFeature(FeatureBase):
             
         TPI_L = SomatorioTPI / float(len(AllPaths)) 
         LINKSCORE = TPI_L /  (len(self.getShortestPath(node1, node2)) -1)
-        print "fim da executando ls ", node1, node2, (datetime.today() - datainicio)
-        return LINKSCORE     
+        #print "fim da executando ls ", node1, node2, (datetime.today() - datainicio)
+        #return LINKSCORE     
             
         
