@@ -1,0 +1,4 @@
+TOTAL OF SUCESSS USING METRIC ts = 32
+
+Authors	Articles	Collaborations	Authors	Eold	Enew
+2122	3287		5722		409	414	307

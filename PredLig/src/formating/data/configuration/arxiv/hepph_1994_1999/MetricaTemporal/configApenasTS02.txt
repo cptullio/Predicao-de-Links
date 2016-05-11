@@ -15,6 +15,6 @@ t1	1997
 t1_	1999
 decay	0.2
 domain_decay	0.2
-min_edges	3
+min_edges	2
 scores	4:1,0
 linear_combination	False

@@ -14,7 +14,7 @@ import networkx
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.CORE03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.99CORE02.txt'), 'w')
     #READING THE CONFIG FILE
     util = ParameterUtil(parameter_file = configFile)
     #CREATING PARAMETRIZATION OBJECT WITH THE INFORMATIONS OF THE CONFIG FILE.
@@ -22,7 +22,7 @@ def execution(configFile):
                                 filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None, result_random_file=util.result_random_file)
     #GENERATING TRAINNING GRAPH BASED ON CONFIG FILE T0 AND T0_
     myparams.generating_Training_Graph()
-    #GENERATING TEST GRAPH BASED ON CONFIG FILE T1 AND T1_
+    #GENERATING TEST GRAPH BASED ON CONcvb FIG FILE T1 AND T1_
     myparams.generating_Test_Graph()
     #GET THE AUTHORS THAT PUBLISH AT TRAINNING AND TEST 
     #A NUMBER OF PAPERS DEFINED AT MIN_EDGES IN CONFIG FILE
