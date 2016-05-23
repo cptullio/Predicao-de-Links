@@ -41,7 +41,7 @@ class FormatingDataSets(object):
     @staticmethod
     def reading_graph(relativepath):
         abs_path = FormatingDataSets.get_abs_file_path(relativepath)
-        return networkx.read_graphml(abs_path)
+        return networkx.read_graphml(abs_path, unicode)
     
     def saveGraph(self):
         networkx.write_graphml(self.Graph, self.get_abs_file_path(self.GraphFile)) 

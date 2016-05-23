@@ -14,7 +14,7 @@ import networkx
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.99CORE02.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.15CORE03.txt'), 'w')
     #READING THE CONFIG FILE
     util = ParameterUtil(parameter_file = configFile)
     #CREATING PARAMETRIZATION OBJECT WITH THE INFORMATIONS OF THE CONFIG FILE.
@@ -99,15 +99,15 @@ def grqcTS05():
 
 
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
         
 def hepthTS05():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/configApenasTS05.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
 
 def hepthTS02():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/configApenasTS02.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
 def hepph():
@@ -126,18 +126,18 @@ def hepphTS05():
     
     
 if __name__ == '__main__':
-    grqc()
-    grqcTS02()
-    grqcTS05()
-    hepph()
-    hepphTS02()
-    hepphTS05()
-    condmat()
-    condmatTS02()
-    condmatTS05()
-    astroph()
-    astrophTS02()
-    astrophTS05()
+    #grqc()
+    #grqcTS02()
+    #grqcTS05()
+    #hepph()
+    #hepphTS02()
+    #hepphTS05()
+    #condmat()
+    #condmatTS02()
+    #condmatTS05()
+    #astroph()
+    #astrophTS02()
+    #astrophTS05()
     hepth()
     hepthTS05()
     hepthTS02()

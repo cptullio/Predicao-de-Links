@@ -7,8 +7,6 @@ First Step is the generation of the graph from the database informations.
 We will need the file of parameter to indicate the place where the graph will be saved
 
 '''
-from parametering.ParameterUtil import ParameterUtil
-
 from formating.arxiv.Formating import Formating
 
 def grqc(years):
@@ -46,9 +44,10 @@ def hepth(years):
 
 
 if __name__ == '__main__':
-    hepph([[2010,2011,2012,2013,2014,2015]])    
-    grqc([[2010,2011,2012,2013,2014,2015]])    
-    hepph([[2010,2011,2012,2013,2014,2015]])    
-    condmat([[2010,2011,2012,2013,2014,2015]])    
-    astroph([[2010,2011,2012,2013,2014,2015]])    
+    
+    #hepth([2010,2011,2012,2013,2014,2015])    
+    grqc([2013,2014,2015])    
+    #hepph([2010,2011,2012,2013,2014,2015])    
+    #condmat([2010,2011,2012,2013,2014,2015])    
+    #astroph([2010,2011,2012,2013,2014,2015])    
     

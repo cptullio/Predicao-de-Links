@@ -182,7 +182,7 @@ class Formating(FormatingDataSets):
             f.close()
             articles = None
             del articles
-        self.generating_graph()    
+        #self.generating_graph()    
                 
                 
         

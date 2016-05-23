@@ -7,7 +7,7 @@ from formating.FormatingDataSets import FormatingDataSets
 import networkx
 from datetime import datetime
 import formating
-
+import codecs
 
 class Analyse(object):
 
@@ -41,7 +41,7 @@ class Analyse(object):
     
     @staticmethod
     def saving_analyseResult(AnalysedNodesnotLinkedInFuture, filepath):
-        f = open(FormatingDataSets.get_abs_file_path(filepath), 'w')
+        f = codecs.open(FormatingDataSets.get_abs_file_path(filepath), 'w',encoding='utf-8')
         f.write('no1,no2,result\n')
         
         for item in AnalysedNodesnotLinkedInFuture:
