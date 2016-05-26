@@ -10,34 +10,34 @@ We will need the file of parameter to indicate the place where the graph will be
 from formating.arxiv.Formating import Formating
 
 def grqc(years):
-    astroPh = Formating('/home/cmuniz/grafos/grqc_data')
+    astroPh = Formating('/home/cmuniz/grafos/2010-2015/grqc_data')
     astroPh.subject = 'gr-qc'
     astroPh.yearstoRescue = years
     astroPh.readingOrginalDataset()
 
 
 def hepph(years):
-    astroPh = Formating('/home/cmuniz/grafos/hepph_data')
+    astroPh = Formating('/home/cmuniz/grafos/2010-2015/hepph_data')
     astroPh.subject = 'hep-ph'
     astroPh.yearstoRescue = years
     astroPh.readingOrginalDataset()
 
 
 def astroph(years):
-    astroPh = Formating('/home/cmuniz/grafos/astroph_data')
+    astroPh = Formating('/home/cmuniz/grafos/2010-2015/astroph_data')
     astroPh.subject = 'astro-ph'
     astroPh.yearstoRescue = years
     astroPh.readingOrginalDataset()
 
 
 def condmat(years):
-    astroPh = Formating('/home/cmuniz/grafos/condmat_data')
+    astroPh = Formating('/home/cmuniz/grafos/2010-2015/condmat_data')
     astroPh.subject = 'cond-mat'
     astroPh.yearstoRescue = years
     astroPh.readingOrginalDataset()
 
 def hepth(years):
-    astroPh = Formating('/home/cmuniz/grafos/hepth_data')
+    astroPh = Formating('/home/cmuniz/grafos/2010-2015/hepth_data')
     astroPh.subject = 'hep-th'
     astroPh.yearstoRescue = years
     astroPh.readingOrginalDataset()
