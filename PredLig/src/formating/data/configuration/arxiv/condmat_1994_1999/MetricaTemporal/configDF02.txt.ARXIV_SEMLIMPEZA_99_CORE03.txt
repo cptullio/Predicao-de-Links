@@ -1,0 +1,4 @@
+TOTAL OF SUCESSS USING METRIC DTS = 53
+
+Authors	Articles	Collaborations	Authors	Eold	Enew
+7161	6698		25042		1144	1370	723

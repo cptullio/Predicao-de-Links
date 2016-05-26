@@ -1,0 +1,4 @@
+TOTAL OF SUCESSS USING METRIC DTS = 15
+
+Authors	Articles	Collaborations	Authors	Eold	Enew
+2640	3291		6266		390	269	137

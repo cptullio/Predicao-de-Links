@@ -41,7 +41,7 @@ class ParameterUtil(object):
         #AllFeatures.append(LSFeature())
         
         AllFeatures.append(DomainTimeScore())
-        #AllFeatures.append(DomainJC())
+        AllFeatures.append(DomainJC())
         
         
         WeightedFeatures = []

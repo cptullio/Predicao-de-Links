@@ -12,6 +12,7 @@ import networkx
 import gc
 from datetime import datetime
 import hashlib
+import unicodedata
     
 class Formating(FormatingDataSets):
     '''
@@ -37,6 +38,20 @@ class Formating(FormatingDataSets):
         time.sleep(3)
         return [qtyRecordsMid,qtyRecordsMidFinal]
 
+    def converter(self, dado):
+        texto = dado.replace('.', '')
+        texto = texto.replace('-', '')
+        texto = texto.replace('\'' , '')
+        texto = texto.replace(',' , '')
+        texto = texto.replace('~', '')
+        texto = texto.replace('{', '')
+        texto = texto.replace('}', '')
+        texto = texto.replace('}', '')
+        texto = texto.replace('/', '')
+        texto = texto.replace('\\', '')
+        texto = texto.replace('"', '')
+        return texto.strip()
+     
     def get_articles(self,search_query, start, total_results,results_per_iteration):
         base_url = 'http://export.arxiv.org/api/query?'
         new_article = []
@@ -64,7 +79,8 @@ class Formating(FormatingDataSets):
                 
                 
                 for a  in entry.authors:
-                    authors.add(a.name.encode("utf-8").replace('\n', ''))
+                    authorname = a.name.replace('\n', '')
+                    authors.add( self.converter(str.upper(unicodedata.normalize('NFKD', authorname).encode('ascii','ignore') ) ) )
                 
                 data = [idpaper, title,  yearPublication, categories, authors ] 
                 new_article.append(data)
