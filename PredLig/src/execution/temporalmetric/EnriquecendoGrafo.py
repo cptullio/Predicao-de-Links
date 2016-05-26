@@ -18,13 +18,15 @@ def converter(texto):
     dado = dado.replace('/', '')
     dado = dado.replace('\\', '')
     dado = dado.replace('"', '')
+    dado = dado.replace('*', '')
     return dado.strip()
 
-def gerar_grafo(years, graph):
+def gerar_grafo(years, base, graph):
     
     for year in years:
+        basepath = '/home/cmuniz/execMen/grafos/'
         
-        arxivFile = '/grafos/condmat_data.'+ str(year)  + '.txt'
+        arxivFile = basepath + base + '_data.'+ str(year)  + '.txt'
         if os.path.isfile(arxivFile):
             arquivo = open(arxivFile, 'r')
             for line in arquivo:
@@ -66,8 +68,10 @@ def gerar_dados_grafo(graph, time, id_edge, autores, keywords):
         print "Unexpected error:"
         raise
 
-def save_nodes(nodes):
-    arxivFile = '/grafos/condmat-1994-1999-arxiv-nodes.txt'
+def save_nodes(nodes,base):
+    basepath = '/home/cmuniz/execMen/grafos/'
+        
+    arxivFile = basepath + base + '-2010-2015-arxiv-nodes.txt'
     file = codecs.open(arxivFile,'w', encoding='utf-8')
     for node in nodes:
         file.write(node)
@@ -76,17 +80,27 @@ def save_nodes(nodes):
         
         
 
+def gerar(base):
+    graph = networkx.MultiGraph()
+    gerar_grafo([2010,2011,2012,2013,2014,2015],base,graph)
+    save_nodes(sorted(graph.nodes()),base)
+    basepath = '/home/cmuniz/execMen/grafos/'
+    networkx.write_graphml(graph, basepath + base + '-new-graph.txt') 
+    
+
 
 if __name__ == '__main__':
+    gerar('grqc')
+    gerar('hepth')
+    gerar('hepph')
+    gerar('condmat')
+    gerar('astroph')
     
     
     
-    graph = networkx.MultiGraph()
     
-    gerar_grafo([1994,1995,1996,1997,1998,1999],graph)
-    save_nodes(sorted(graph.nodes()))
     
-    networkx.write_graphml(graph, '/grafos/condmat-1994-1999-arxiv-graph.txt') 
+    
     
     
         
