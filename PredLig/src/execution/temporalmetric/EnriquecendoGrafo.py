@@ -87,9 +87,16 @@ def gerar(base):
     basepath = '/home/cmuniz/execMen/grafos/'
     networkx.write_graphml(graph, basepath + base + '-new-graph.txt') 
     
+def gerarteste(base):
+    graph = networkx.MultiGraph()
+    gerar_grafo([1994],base,graph)
+    save_nodes(sorted(graph.nodes()),base)
+    basepath = '/home/cmuniz/execMen/grafos/'
+    networkx.write_graphml(graph, basepath + base + '-1994-new-graph.txt') 
 
 
 if __name__ == '__main__':
+    gerarteste('grqc')
     gerar('grqc')
     gerar('hepth')
     gerar('hepph')
