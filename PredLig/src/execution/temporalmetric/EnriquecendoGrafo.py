@@ -8,6 +8,7 @@ import matplotlib
 import os.path
 import codecs
 import unicodedata
+from datetime import datetime
 
 
 def converter(texto):
@@ -96,11 +97,17 @@ def gerarteste(base):
 
 
 if __name__ == '__main__':
+    print "gerando teste grafo grqc", datetime.now()
     gerarteste('grqc')
+    print "gerando grafo grqc", datetime.now()
     gerar('grqc')
+    print "gerando grafo hepth", datetime.now()
     gerar('hepth')
+    print "gerando grafo hepph", datetime.now()
     gerar('hepph')
+    print "gerando grafo condmat", datetime.now()
     gerar('condmat')
+    print "gerando grafo astroph", datetime.now()
     gerar('astroph')
     
     
