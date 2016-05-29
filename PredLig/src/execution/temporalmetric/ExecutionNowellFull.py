@@ -14,7 +14,7 @@ import networkx
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.ARXIV_SEMLIMPEZA_99_CORE03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.ARXIV_SEMLIMPEZA_2015_CORE03.txt'), 'w')
     #READING THE CONFIG FILE
     util = ParameterUtil(parameter_file = configFile)
     #CREATING PARAMETRIZATION OBJECT WITH THE INFORMATIONS OF THE CONFIG FILE.
