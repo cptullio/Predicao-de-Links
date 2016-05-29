@@ -60,81 +60,81 @@ def execution(configFile):
     resultFile.close()
 
 def astroph():
-    configFile = 'data/configuration/arxiv/astroph_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/astroph_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
 
 
 def astrophTS05():
-    configFile = 'data/configuration/arxiv/astroph_1994_1999/MetricaTemporal/configDF05.txt'
+    configFile = 'data/configuration/arxiv/astroph_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
 
 def astrophTS02():
-    configFile = 'data/configuration/arxiv/astroph_1994_1999/MetricaTemporal/configDF02.txt'
+    configFile = 'data/configuration/arxiv/astroph_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
 def condmat():
-    configFile = 'data/configuration/arxiv/condmat_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/condmat_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
     
 def condmatTS05():
-    configFile = 'data/configuration/arxiv/condmat_1994_1999/MetricaTemporal/configDF05.txt'
+    configFile = 'data/configuration/arxiv/condmat_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
 
 def condmatTS02():
-    configFile = 'data/configuration/arxiv/condmat_1994_1999/MetricaTemporal/configDF02.txt'
+    configFile = 'data/configuration/arxiv/condmat_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
 def grqc():
-    configFile = 'data/configuration/arxiv/grqc_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/grqc_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
 
     
 def grqcTS02():
-    configFile = 'data/configuration/arxiv/grqc_1994_1999/MetricaTemporal/configDF02.txt'
+    configFile = 'data/configuration/arxiv/grqc_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
 def grqcTS05():
-    configFile = 'data/configuration/arxiv/grqc_1994_1999/MetricaTemporal/configDF05.txt'
+    configFile = 'data/configuration/arxiv/grqc_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
 
 
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
         
 def hepthTS05():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/configDF05.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
 
 def hepthTS02():
-    configFile = 'data/configuration/arxiv/hepth_1994_1999/MetricaTemporal/configDF02.txt'
+    configFile = 'data/configuration/arxiv/hepth_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
 def hepph():
-    configFile = 'data/configuration/arxiv/hepph_1994_1999/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/hepph_2010_2015/MetricaTemporal/config.txt'
     execution(configFile)
 
 
 def hepphTS02():
-    configFile = 'data/configuration/arxiv/hepph_1994_1999/MetricaTemporal/configDF02.txt'
+    configFile = 'data/configuration/arxiv/hepph_2010_2015/MetricaTemporal/config02.txt'
     execution(configFile)
 
     
 def hepphTS05():
-    configFile = 'data/configuration/arxiv/hepph_1994_1999/MetricaTemporal/configDF05.txt'
+    configFile = 'data/configuration/arxiv/hepph_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
     
     
 if __name__ == '__main__':
-    grqc()
-    grqcTS02()
-    grqcTS05()
     hepth()
     hepthTS05()
     hepthTS02()
     condmat()
     condmatTS02()
     condmatTS05()
+    grqc()
+    grqcTS02()
+    grqcTS05()
     hepph()
     hepphTS02()
     hepphTS05()
