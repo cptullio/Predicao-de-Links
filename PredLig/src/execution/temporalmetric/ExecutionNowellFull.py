@@ -123,22 +123,26 @@ def hepphTS02():
 def hepphTS05():
     configFile = 'data/configuration/arxiv/hepph_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
+
+
+def mas():
+    configFile = 'data/configuration/arxiv/MAS_1994_1999/MetricaTemporal/config.txt'
+    execution(configFile)
+
+
+def mas02():
+    configFile = 'data/configuration/arxiv/MAS_1994_1999/MetricaTemporal/config2.txt'
+    execution(configFile)
+
+    
+def mas05():
+    configFile = 'data/configuration/arxiv/MAS_1994_1999/MetricaTemporal/config5.txt'
+    execution(configFile)
+
     
     
 if __name__ == '__main__':
-    hepth()
-    hepthTS05()
-    hepthTS02()
-    condmat()
-    condmatTS02()
-    condmatTS05()
-    grqc()
-    grqcTS02()
-    grqcTS05()
-    hepph()
-    hepphTS02()
-    hepphTS05()
-    astroph()
-    astrophTS02()
-    astrophTS05()
+    mas()
+    mas02()
+    mas05()
     
