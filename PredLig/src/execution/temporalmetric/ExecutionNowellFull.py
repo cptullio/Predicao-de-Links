@@ -10,18 +10,27 @@ from calculating.CalculateInMemory import CalculateInMemory
 from analysing.Analyse import Analyse
 from calculating.VariableSelection import VariableSelection
 import networkx
+import datetime
 
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.ARXIV_SEMLIMPEZA_2015_CORE03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.EXPERIMENTO_ATUAL_CORE03.txt'), 'w')
+    
+    resultFile.write("Inicio da operacao\n")
+    resultFile.write(str(datetime.datetime.now()))
+    resultFile.write("\n")
+
+    
     #READING THE CONFIG FILE
     util = ParameterUtil(parameter_file = configFile)
     #CREATING PARAMETRIZATION OBJECT WITH THE INFORMATIONS OF THE CONFIG FILE.
     myparams = Parameterization(t0 = util.t0, t0_ = util.t0_, t1 = util.t1, t1_ = util.t1_, linear_combination=util.linear_combination,
                                 filePathGraph = util.graph_file, filePathTrainingGraph = util.trainnig_graph_file, filePathTestGraph = util.test_graph_file, decay = util.decay, domain_decay = util.domain_decay, min_edges = util.min_edges, scoreChoiced = util.ScoresChoiced, weightsChoiced = util.WeightsChoiced, weightedScoresChoiced = util.WeightedScoresChoiced, FullGraph = None, result_random_file=util.result_random_file)
+
     #GENERATING TRAINNING GRAPH BASED ON CONFIG FILE T0 AND T0_
     myparams.generating_Training_Graph()
+      
     #GENERATING TEST GRAPH BASED ON CONcvb FIG FILE T1 AND T1_
     myparams.generating_Test_Graph()
     #GET THE AUTHORS THAT PUBLISH AT TRAINNING AND TEST 
@@ -36,6 +45,8 @@ def execution(configFile):
     eNew = myparams.get_NowellE2(nodes, eOld, myparams.testGraph)
     #GET THE NODES NOT LINKED OVER THE COMBINATION NODES.
     nodesNotLinked = myparams.get_PairsofNodesNotinEold(nodes)
+     
+     
     #CREATING CALCULATION OBJECT
     calc = CalculateInMemory(myparams,nodesNotLinked)
     #CALCULATING THE SCORES.
@@ -52,11 +63,15 @@ def execution(configFile):
         resultFile.write("TOTAL OF SUCESSS USING METRIC "  + str(myparams.ScoresChoiced[index][0])  + " = " +  str(Analyse.get_TotalSucess(ScoresResults[index]) ))
         resultFile.write("\n")
         resultFile.write("\n")
-        
+         
     resultFile.write("Authors\tArticles\tCollaborations\tAuthors\tEold\tEnew\n")
     resultFile.write( str(myparams.get_nodes(myparams.trainnigGraph))+ "\t" + str(myparams.get_edges(myparams.trainnigGraph)) + "\t\t" + str(len(collaborations)*2)+ "\t\t" + str(len(nodes)) + "\t" + str(len(eOld))+"\t" + str(len(eNew)))
-    
+     
     resultFile.write("\n")
+
+    resultFile.write("Fim da Operacao\n")
+    resultFile.write(str(datetime.datetime.now()))
+    
     resultFile.close()
 
 def astroph():
@@ -85,7 +100,7 @@ def condmatTS02():
     execution(configFile)
 
 def grqc():
-    configFile = 'data/configuration/arxiv/grqc_2010_2015/MetricaTemporal/config.txt'
+    configFile = 'data/configuration/arxiv/grqc_1994_1999/MetricaTemporal/config.txt'
     execution(configFile)
 
     
@@ -143,6 +158,7 @@ def mas05():
     
 if __name__ == '__main__':
     mas()
-    mas02()
-    mas05()
+    #mas02()
+    #mas05()
+    #grqc()
     

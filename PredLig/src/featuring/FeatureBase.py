@@ -58,13 +58,14 @@ class FeatureBase(object):
     '''
     
     def get_ObjectsofNode(self, graph, mynode):
-        return list(edge for n1,n2, edge in  graph.edges(data=True) if n1 == mynode or n2 == mynode )
-    
+        return list(edge for n1,n2, edge in  graph.edges([mynode], data=True) if n1 == mynode or n2 == mynode )
     
     
     def get_ObjectsofLinks(self, graph, node1, node2):
-        return list(edge for n1, n2, edge in graph.edges(data=True) if ((n1 == node1 and n2 == node2) or (n1 == node2 and n2 == node1)) )
-    
+        T3 = list(edge for n1, n2, edge in graph.edges([node1, node2], data=True) if ((n1 == node1 and n2 == node2) or (n1 == node2 and n2 == node1)) )
+        return  T3
+       
+        
         
     
     

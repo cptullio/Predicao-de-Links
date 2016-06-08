@@ -8,10 +8,12 @@ from formating.dblp.Formating import Formating
 import os.path
 from datetime import datetime
 import gc
-import mysql.connector
+from pydblite import Base
 
 
 class Parameterization(object):
+    
+    
     
     
     def generating_Test_Graph(self ):
@@ -195,49 +197,28 @@ class Parameterization(object):
         return total
     
     
-    
-    def clean_database(self):
-        
-        clear_Table = "truncate resultadopesos"
-        self.cursor.execute(clear_Table)
-        self.connection.commit()
-        
-    
-    def open_connection(self):
-        self.connection = mysql.connector.connect(user='root', password='1234',
-                              host='127.0.0.1',
-                              database='calculos')
-        
-        self.query_get_weight = ("select resultados from resultadopesos where (no1 = %s and no2 = %s) or (no1 = %s and no2 = %s) ")
-        
-        self.query_add_weight = ("INSERT INTO resultadopesos (no1, no2, resultados) VALUES (%s, %s, %s)")
-        self.cursor = self.connection.cursor()
-        
-
-    def add_weight(self, node1, node2, results):
-        data_result = (node1, node2, str(results))
-        self.cursor.execute(self.query_add_weight, data_result)
-
-
-    def get_weights(self, node1, node2):
-        
-        data = (node1, node2, node2, node1)
-        print data
-        self.cursor.execute(self.query_get_weight, data)
-        for resultado in self.cursor:
-            return eval(resultado[0]) 
-
     def getQtyofEdges(self,graph):
         if self.qtyofEdges == None:
             self.qtyofEdges =  self.get_edges(graph)
         return self.qtyofEdges
       
-
+    def generateDataForCalculate(self):
+        if self.trainnigGraph == None:
+            self.generating_Training_Graph()
+        
+        _nodes = sorted(self.trainnigGraph.nodes())
+        adb = Base(self.filePathTrainingGraph + ".calc.pdl")
+        adb.create('pairNodes', 'common', 'time', 'domain' )
+        
+        for node in sorted(_nodes):
+            othernodes = set(n for n in _nodes if n > node)
+            for other in othernodes:
+                common =  set(networkx.common_neighbors(self.trainnigGraph, node, other))
+                arestas = self.trainnigGraph.edges([node, other], True)
+                     
+        
+        
    
-    def close_connection(self):
-        self.connection.commit()
-        self.cursor.close()
-        self.connection.close()
     
     def __init__(self, 
                  t0, t0_, t1, t1_, 
