@@ -8,17 +8,21 @@ import matplotlib
 
 
 if __name__ == '__main__':
-    #arquivoPath = '/grafos/teste.txt'
-    arquivoPath = '/Users/Administrador/Downloads/higgs-social_network.edgelist/higgs-social_network.edgelist'
+    result = []
+    
+    result.append({'n1':'no1','n2': 'no2', 'aas': 10, 'cn': 1,'jc': 2})
+    result.append({'n1':'no1','n2': 'no2', 'aas': 50, 'cn': 5,'jc': 2})
+    result.append({'n1':'no1','n2': 'no2', 'aas': 30, 'cn': 56,'jc': 2})
+    
+    s = sorted(result, key = lambda x: (x['cn']))
+    
+    print s[len(s)-1]
+    print result
+    
+    
+    
     
         
-    arquivo = open(arquivoPath, 'r')
-    i = 0
-    for line in arquivo:
-        i = i+1
-        print line 
-        if i >100000:  
-            break
     
         
         

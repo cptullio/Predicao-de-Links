@@ -41,6 +41,7 @@ class CalculateInMemory(object):
     def ordering(self, topRank, resultNormalized):
         #print 'a ser ordenado ', resultNormalized
         orderedResults = []
+        
         for index in range(len(self.preparedParameter.ScoresChoiced)):
             scoreOrderedResult = []
             orderingByDesc = True

@@ -13,9 +13,6 @@ from pydblite import Base
 
 class Parameterization(object):
     
-    
-    
-    
     def generating_Test_Graph(self ):
         if not os.path.exists(Formating.get_abs_file_path(self.filePathTestGraph)):
             if self.graph == None:
@@ -88,91 +85,8 @@ class Parameterization(object):
     
     
     
-    def get_NowellAuthorsCore(self):
-        mynodestestGraph = set(self.testGraph.nodes())
-        mynodestranningGraph = set(self.trainnigGraph.nodes())
-        total = mynodestestGraph.intersection(mynodestranningGraph)
-        
-        result = set()
-        for node in total:
-            test = set(aresta['id_edge'] for no1,no2,aresta in self.testGraph.edges(node, data=True) if  1==1)
-            train = set(aresta['id_edge'] for no1,no2,aresta in self.trainnigGraph.edges(node, data=True) if  1==1)
-            
-            if len(test) >= self.min_edges and len(train) >=self.min_edges:
-                result.add(node)
-        
-        
-        del mynodestestGraph
-        del mynodestranningGraph
-        del total
-        total = None
-        mynodestestGraph = None
-        mynodestranningGraph = None
-        gc.collect()
-        return result
-    
-    def get_NowellColaboration(self):
-        result = []
-        mynodestranningGraph = sorted(set(self.trainnigGraph.nodes()))
-        for node in mynodestranningGraph:
-            othernodes = set(n for n in mynodestranningGraph if n > node)
-            for other in othernodes:
-                if self.trainnigGraph.has_edge(node, other):
-                    result.append({node, other})
-                    
-        return result
-    
-    def get_NowellColaboration_old(self):
-        result = set()
-        edges = self.trainnigGraph.edges()
-        for edge in edges:
-            result.add(edge[0])
-            result.add(edge[1])
-        return result  
-    
-    def get_PairsofNodesNotinEold(self,  nodes):
-        pares = []
-        total= 0
-        for pair in sorted(nodes):
-            others = set(n for n in nodes if n > pair)
-            for other in others:
-                if not self.trainnigGraph.has_edge(pair, other):
-                    pares.append([pair,other])
-                    total = total + 1
-                  
-        print total
-        return pares
-    
-    def get_NowellE(self, CoreAuthors, graph):
-        result = []
-        for node in sorted(CoreAuthors):
-            othernodes = set(n for n in CoreAuthors if n > node)
-            for other in othernodes:
-                if graph.has_edge(node, other):
-                    result.append({node, other})
-        return result
-    
-    
-    def existInTranning(self, node, other, trainningData):
-        for data in trainningData:
-            v = list(data)
-            if (node == v[0] and other == v[1]) or (node == v[1] and other == v[0]):
-                return True
-        return False
         
     
-    def get_NowellE2(self, CoreAuthors, trainningData, graph):
-        result = []
-        
-       
-        for node in sorted(CoreAuthors):
-            othernodes = set(n for n in CoreAuthors if n > node)
-            for other in othernodes:
-                if graph.has_edge(node, other):
-                    if not self.existInTranning(node, other, trainningData):
-                        result.append({node, other})
-                    
-        return result
     
     
     def get_nodes(self, graph):

@@ -33,7 +33,7 @@ class TimeScore(FeatureBase):
         if len(pair_common_neighbors) == 0:
             return 0
         
-        print node1, node2, pair_common_neighbors
+        #print node1, node2, pair_common_neighbors
         timescoreValue = float(0)
         for pair_common_neighbor in pair_common_neighbors:
             timesofLinks = []
@@ -48,8 +48,8 @@ class TimeScore(FeatureBase):
             for publications in timesofLinks:
                 total = total + 1/float(len(publications))
             hm = 2 / total
-            if self.debugar:
-                print 'Harmonic meam:', hm
+            #if self.debugar:
+            #    print 'Harmonic meam:', hm
                 
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
             decayfunction = (1 - self.parameter.decay) ** k

@@ -1,0 +1,8 @@
+Inicio da operacao
+2016-06-08 12:23:35.919000
+TOTAL OF SUCESSS USING METRIC DTS = 1228
+
+Authors	Articles	Collaborations	Authors	Eold	Enew
+17704	118188		74716		9616	21971	15232
+Fim da Operacao
+2016-06-08 13:33:45.068000
