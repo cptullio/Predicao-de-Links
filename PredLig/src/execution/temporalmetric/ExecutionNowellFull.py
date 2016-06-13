@@ -11,11 +11,12 @@ from analysing.Analyse import Analyse
 from calculating.VariableSelection import VariableSelection
 import networkx
 import datetime
+from calculating.NodeSelection import NodeSelection
 
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + '.EXPERIMENTO_ATUAL_CORE03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'T.EXPERIMENTO_ATUAL_CORE03.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -33,20 +34,19 @@ def execution(configFile):
       
     #GENERATING TEST GRAPH BASED ON CONcvb FIG FILE T1 AND T1_
     myparams.generating_Test_Graph()
+    nodesSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     #GET THE AUTHORS THAT PUBLISH AT TRAINNING AND TEST 
     #A NUMBER OF PAPERS DEFINED AT MIN_EDGES IN CONFIG FILE
-    nodes = myparams.get_NowellAuthorsCore()
+    nodes = nodesSelection.get_NowellAuthorsCore()
     #GET A PAIR OF AUTHORS THAT PUBLISH AT LEAST ONE ARTICLE AT TRAINNING AND TEST.
     #DID NOT SEE ANY NEED
-    collaborations = myparams.get_NowellColaboration()
+    collaborations = nodesSelection.get_NowellColaboration()
     #GET THE FIRST EDGES MADE BY THE COMBINATION OF NODES IN TRAINNING GRAPH
-    eOld = myparams.get_NowellE(nodes,myparams.trainnigGraph)
+    eOld = nodesSelection.get_NowellE(nodes,myparams.trainnigGraph)
     #GET THE FIRST EDGES MADE BY THE COMBINATION OF NODES IN TEST GRAPH THAT DO NOT HAVE EDGES IN TRAINNING
-    eNew = myparams.get_NowellE2(nodes, eOld, myparams.testGraph)
+    eNew = nodesSelection.get_NowellE2(nodes, eOld, myparams.testGraph)
     #GET THE NODES NOT LINKED OVER THE COMBINATION NODES.
-    nodesNotLinked = myparams.get_PairsofNodesNotinEold(nodes)
-     
-     
+    nodesNotLinked = nodesSelection.get_PairsofNodesNotinEold(nodes)
     #CREATING CALCULATION OBJECT
     calc = CalculateInMemory(myparams,nodesNotLinked)
     #CALCULATING THE SCORES.
@@ -157,8 +157,8 @@ def mas05():
     
     
 if __name__ == '__main__':
-    mas()
+    #mas()
     #mas02()
     #mas05()
-    #grqc()
+    grqc()
     
