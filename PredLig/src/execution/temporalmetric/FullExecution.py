@@ -43,23 +43,11 @@ def execution(configFile):
     ordering = calc.ordering(len(nodeSelection.eNeW))
     
     calc.AnalyseNodesInFuture(ordering, myparams.testGraph)
-    
+    resultFile.write("\n")
+
     resultFile.write(repr(calc.get_TotalSucess()))
     
-    
-    
-#     #ORDERNING THE RESULTS RETURNING THE TOP N 
-#     orderingResults = calc.ordering(len(nodeSelection.eNew), resultsofCalculation)
-#     #SAVING THE ORDERED RESULTS.
-#     calc.saving_orderedResult(util.ordered_file, orderingResults)
-#     #ANALISE THE ORDERED RESULTS AND CHECK THE FUTURE.
-#     ScoresResults = Analyse.AnalyseNodesWithScoresInFuture(orderingResults, myparams.testGraph)
-#     #SAVING THE RESULTS.  
-#     for index in range(len(ScoresResults)):
-#         Analyse.saving_analyseResult(ScoresResults[index], util.analysed_file + str(myparams.ScoresChoiced[index][0] ) + '.txt')
-#         resultFile.write("TOTAL OF SUCESSS USING METRIC "  + str(myparams.ScoresChoiced[index][0])  + " = " +  str(Analyse.get_TotalSucess(ScoresResults[index]) ))
-#         resultFile.write("\n")
-#         resultFile.write("\n")
+    resultFile.write("\n")
          
     resultFile.write("Authors\tArticles\tAuthors\tEold\tEnew\n")
     resultFile.write( str(myparams.get_nodes(myparams.trainnigGraph))+ "\t" + str(myparams.get_edges(myparams.trainnigGraph)) + "\t\t"  + str(len(nodeSelection.nodes)) + "\t" + str(len(nodeSelection.eOld))+"\t" + str(len(nodeSelection.eNeW)))
@@ -108,6 +96,7 @@ def grqcTS02():
 def grqcTS05():
     configFile = 'data/configuration/arxiv/grqc_2010_2015/MetricaTemporal/config05.txt'
     execution(configFile)
+
 
 
 def hepth():

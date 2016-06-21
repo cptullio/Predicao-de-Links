@@ -83,7 +83,7 @@ def save_nodes(nodes,base):
 
 def gerar(base):
     graph = networkx.MultiGraph()
-    gerar_grafo([2010,2011,2012,2013,2014,2015],base,graph)
+    gerar_grafo([2000,2001,2002,2003,2004,2005],base,graph)
     save_nodes(sorted(graph.nodes()),base)
     basepath = '/home/cmuniz/execMen/grafos/'
     networkx.write_graphml(graph, basepath + base + '-new-graph.txt') 
@@ -104,11 +104,11 @@ if __name__ == '__main__':
     print "gerando grafo hepth", datetime.now()
     gerar('hepth')
     print "gerando grafo hepph", datetime.now()
-   # gerar('hepph')
+    gerar('hepph')
     print "gerando grafo condmat", datetime.now()
-  #  gerar('condmat')
+    gerar('condmat')
     print "gerando grafo astroph", datetime.now()
- #   gerar('astroph')
+    gerar('astroph')
     
     
     

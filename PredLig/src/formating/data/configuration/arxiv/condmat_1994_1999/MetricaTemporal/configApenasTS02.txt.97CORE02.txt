@@ -1,4 +1,0 @@
-TOTAL OF SUCESSS USING METRIC ts = 48
-
-Authors	Articles	Collaborations	Authors	Eold	Enew
-5469	6700		19878		1117	1478	523

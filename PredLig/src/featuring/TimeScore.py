@@ -50,8 +50,10 @@ class TimeScore(FeatureBase):
             hm = 2 / total
             #if self.debugar:
             #    print 'Harmonic meam:', hm
-                
+            print "IMPRIMINDO O MAXIMO DO TIMEOFLINKS PARA ENTENDER", max(list(timesofLinks))    
             k =  int(self.parameter.t0_)  - int(max(list(timesofLinks))[0])
+            print "IMPRIMINDO O K", k    
+            
             decayfunction = (1 - self.parameter.decay) ** k
             control = (abs( max(timesofLinksNode1) - max(timesofLinksNode2) ) + 1)
             ts = (hm * decayfunction) /control

@@ -104,17 +104,12 @@ class CalculateInMemory(object):
         
         
     def saving_orderedResult(self, filepath, results):
-        f = open(Formating.get_abs_file_path(filepath), 'w')
         
         for index_score in range(len(results)):
-            f.write(repr(self.preparedParameter.ScoresChoiced[index_score]) + '\n')
+            f = open(Formating.get_abs_file_path(filepath + str(self.preparedParameter.ScoresChoiced[index_score][0]) + '.txt') , 'w')
             for item_result in results[index_score]:
-                f.write(repr(item_result ) + '\n')
-            f.write('-------------------------------------------------------------------------\n')
-                
-            
-            
-        f.close()   
+                f.write(repr(item_result[0]) + ";" + repr(item_result[1]) + ";" + repr(item_result[2][index_score]) + '\n')
+            f.close()   
     
     def save_Max_min_file(self, filepath, qtyCalculated, minValues, maxValues):
         

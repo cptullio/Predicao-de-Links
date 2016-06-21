@@ -1,6 +1,0 @@
-Inicio da operacao
-2016-06-13 08:15:53.910000
-{'cn': 14, 'ts': 13, 'pa': 7, 'aas': 14, 'dts': 15, 'jc': 14}Authors	Articles	Authors	Eold	Enew
-2640	3291		390	269	137
-Fim da Operacao
-2016-06-13 08:23:56.289000
