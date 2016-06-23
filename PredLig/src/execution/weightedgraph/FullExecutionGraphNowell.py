@@ -18,6 +18,8 @@ from pydblite import Base
 def generateWeights(graph, weightFile, param):
     pdb = Base(weightFile)
     pdb.create('pair', 'node1', 'node2','TS02','TS05','TS08')
+    pdb.create_index('pair')
+    
     sortedNodes = sorted(graph.nodes())
     for node in sortedNodes:
         others = sorted(set(n for n in sortedNodes if n > node))
@@ -37,9 +39,12 @@ def generateWeights(graph, weightFile, param):
             
                 pdb.insert(str(node) + ';' + str(other),node,other,(total_publications * decayfunction02) , (total_publications * decayfunction05) , (total_publications * decayfunction08) ) 
                  
-                
-                
-            
+    pdb.commit()            
+    return pdb
+
+def calculatingWeights(graph, nodesnotLinked, database):            
+    for pair in nodesnotLinked:
+        print database._pair[str(pair[0]) + ';' +str(pair[1])]
     
 
 
@@ -66,7 +71,10 @@ def execution(configFile):
     
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     
-    generateWeights(myparams.trainnigGraph, FormatingDataSets.get_abs_file_path(configFile + '.base.pdl') , myparams)
+    db = generateWeights(myparams.trainnigGraph, FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.base.pdl') , myparams)
+    
+    calculatingWeights(myparams.trainnigGraph, nodeSelection.nodesNotLinked, db)
+    
     
     #calc = CalculatingTogetherOnlyNowell(myparams, nodeSelection.nodesNotLinked)
     
