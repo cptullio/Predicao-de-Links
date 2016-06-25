@@ -83,10 +83,10 @@ def save_nodes(nodes,base):
 
 def gerar(base):
     graph = networkx.MultiGraph()
-    gerar_grafo([2000,2001,2002,2003,2004,2005],base,graph)
+    gerar_grafo([1994,1995,1996,1997,1998,1999],base,graph)
     save_nodes(sorted(graph.nodes()),base)
     basepath = '/home/cmuniz/execMen/grafos/'
-    networkx.write_graphml(graph, basepath + base + '-new-graph.txt') 
+    networkx.write_graphml(graph, basepath + base + '-1994-1999-arxiv-graph.txt') 
     
 def gerarteste(base):
     graph = networkx.MultiGraph()
@@ -97,18 +97,18 @@ def gerarteste(base):
 
 
 if __name__ == '__main__':
-    print "gerando teste grafo grqc", datetime.now()
+    #print "gerando teste grafo grqc", datetime.now()
     #gerarteste('grqc')
-    print "gerando grafo grqc", datetime.now()
-    gerar('grqc')
-    print "gerando grafo hepth", datetime.now()
-    gerar('hepth')
+    #print "gerando grafo grqc", datetime.now()
+    #gerar('grqc')
+    #print "gerando grafo hepth", datetime.now()
+    #gerar('hepth')
     print "gerando grafo hepph", datetime.now()
     gerar('hepph')
-    print "gerando grafo condmat", datetime.now()
-    gerar('condmat')
-    print "gerando grafo astroph", datetime.now()
-    gerar('astroph')
+    #print "gerando grafo condmat", datetime.now()
+    #gerar('condmat')
+    #print "gerando grafo astroph", datetime.now()
+    #gerar('astroph')
     
     
     

@@ -306,30 +306,45 @@ def execution(configFile):
     resultFile.close()
 
 def grqc():
-    configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def astroph():
-    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def condmat():
-    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
     
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def hepph():
-    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 if __name__ == '__main__':
     grqc()
-    #astroph()
-    #hepth()
-    #hepph()
-    #condmat()
+    astroph()
+    hepth()
+    hepph()
+    condmat()
     
     
