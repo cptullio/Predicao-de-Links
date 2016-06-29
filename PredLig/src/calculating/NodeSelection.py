@@ -116,13 +116,8 @@ class NodeSelection(object):
         self.eOld = self.get_NowellE(self.nodes, self.trainnigGraph)
         self.eNeW = self.get_NowellE2(self.nodes, self.eOld, self.testGraph)
         print "generating nodes not linked", datetime.now()
+        self.nodesNotLinked = self.get_PairsofNodesNotinEold(self.nodes)
         
-        if not os.path.exists(Formating.get_abs_file_path(paramsUtil.nodes_notlinked_file)):
-            self.nodesNotLinked = self.get_PairsofNodesNotinEold(self.nodes)
-            self.saveResults(paramsUtil.nodes_notlinked_file, self.nodesNotLinked)
-        else:
-            self.nodesNotLinked = self.readingResultsFile(paramsUtil.nodes_notlinked_file)
-    
         
         
         

@@ -32,16 +32,35 @@ class CalculatingTogetherOnlyNowell(object):
     
     def get_TotalSucess(self):
         
-        AAS =  len(  list([n1,n2] for n1,n2,result in self.AASresult if result ==1 ) )
-        CN =  len(  list([n1,n2] for n1,n2,result in self.CNresult if result ==1 ) )
-        JC =  len(  list([n1,n2] for n1,n2,result in self.JCresult if result ==1 ) )
-        PA =  len(  list([n1,n2] for n1,n2,result in self.PAresult if result ==1 ) )
-        TS08 =  len(  list([n1,n2] for n1,n2,result in self.TS08result if result ==1 ) )
-        TS05 =  len(  list([n1,n2] for n1,n2,result in self.TS05result if result ==1 ) )
-        TS02 =  len(  list([n1,n2] for n1,n2,result in self.TS02result if result ==1 ) )
+        AAS =  len(  list([item['node1'], item['node2']] for item in self.AASresult if item['result'] ==1 ) )
+        CN =  len(  list([item['node1'], item['node2']] for item in self.CNresult if item['result'] ==1 ) )
+        PA =  len(  list([item['node1'], item['node2']] for item in self.PAresult if item['result'] ==1 ) )
+        JC =  len(  list([item['node1'], item['node2']] for item in self.JCresult if item['result'] ==1 ) )
+        
+        TS08 =  len(  list([item['node1'], item['node2']] for item in self.TS08result if item['result'] ==1 ) )
+        TS05 =  len(  list([item['node1'], item['node2']] for item in self.TS05result if item['result'] ==1 ) )
+        TS02 =  len(  list([item['node1'], item['node2']] for item in self.TS02result if item['result'] ==1 ) )
+        
         
         DTS =  len(  list([n1,n2] for n1,n2,result in self.DTSresult if result ==1 ) )
         return {'aas': AAS, 'cn':CN, 'jc': JC, 'pa': PA, 'ts08': TS08,'ts05': TS05,'ts02': TS02, 'dts': DTS}
+    
+    def check(self, nodeToCheck, TestGraph, metric):
+        if (TestGraph.has_edge(nodeToCheck[metric]['node1'],nodeToCheck[metric]['node2'])):
+            return { 'node1': nodeToCheck[metric]['node1'], 'node2': nodeToCheck[metric]['node2'],  'cn' : nodeToCheck[metric]['cn'],'aas' : nodeToCheck[metric]['aas'], 'jc' : nodeToCheck[metric]['jc'], 'pa' : nodeToCheck[metric]['pa'], 'ts08' : nodeToCheck[metric]['ts08'], 'ts05' : nodeToCheck[metric]['ts05'], 'ts02' : nodeToCheck[metric]['ts02'], 'result':1 }
+        else:
+            return { 'node1': nodeToCheck[metric]['node1'], 'node2': nodeToCheck[metric]['node2'],  'cn' : nodeToCheck[metric]['cn'],'aas' : nodeToCheck[metric]['aas'], 'jc' : nodeToCheck[metric]['jc'], 'pa' : nodeToCheck[metric]['pa'], 'ts08' : nodeToCheck[metric]['ts08'], 'ts05' : nodeToCheck[metric]['ts05'], 'ts02' : nodeToCheck[metric]['ts02'], 'result':0 }
+            
+    
+    def AnalyseAllNodesNotLinkedInFuture(self, nodesNotLinked, TestGraph):
+        result = []
+        for pair in nodesNotLinked:
+            if (TestGraph.has_edge(pair[0],pair[1])):
+                result.append([pair[0],pair[1],1])
+            else:
+                result.append([pair[0],pair[1],0])
+        return result
+            
     
     
     def AnalyseNodesInFuture(self, ordering, TestGraph):
@@ -54,49 +73,20 @@ class CalculatingTogetherOnlyNowell(object):
         self.TS02result = []
         self.DTSresult = []
         for nodeToCheck in ordering:
-            if (TestGraph.has_edge(nodeToCheck['cn']['node1'],nodeToCheck['cn']['node2'])):
-                self.CNresult.append([  nodeToCheck['cn']['node1'],nodeToCheck['cn']['node2'], 1 ])
-            else:
-                self.CNresult.append([  nodeToCheck['cn']['node1'],nodeToCheck['cn']['node2'], 0 ])
+            self.CNresult.append(self.check(nodeToCheck, TestGraph, 'cn' ))
+            self.AASresult.append(self.check(nodeToCheck, TestGraph, 'aas' ))
+            self.JCresult.append(self.check(nodeToCheck, TestGraph, 'jc' ))
+            self.PAresult.append(self.check(nodeToCheck, TestGraph, 'pa' ))
+            self.TS08result.append(self.check(nodeToCheck, TestGraph, 'ts08' ))
+            self.TS05result.append(self.check(nodeToCheck, TestGraph, 'ts05' ))
+            self.TS02result.append(self.check(nodeToCheck, TestGraph, 'ts02' ))
             
-            if (TestGraph.has_edge(nodeToCheck['aas']['node1'],nodeToCheck['aas']['node2'])):
-                self.AASresult.append([  nodeToCheck['aas']['node1'],nodeToCheck['aas']['node2'], 1 ])
-            else:
-                self.AASresult.append([  nodeToCheck['aas']['node1'],nodeToCheck['aas']['node2'], 0 ])
-            
-            if (TestGraph.has_edge(nodeToCheck['jc']['node1'],nodeToCheck['jc']['node2'])):
-                self.JCresult.append([  nodeToCheck['jc']['node1'],nodeToCheck['jc']['node2'], 1 ])
-            else:
-                self.JCresult.append([  nodeToCheck['jc']['node1'],nodeToCheck['jc']['node2'], 0 ])
-            
-            if (TestGraph.has_edge(nodeToCheck['pa']['node1'],nodeToCheck['pa']['node2'])):
-                self.PAresult.append([  nodeToCheck['pa']['node1'],nodeToCheck['pa']['node2'], 1 ])
-            else:
-                self.PAresult.append([  nodeToCheck['pa']['node1'],nodeToCheck['pa']['node2'], 0 ])
-            
-            if (TestGraph.has_edge(nodeToCheck['ts08']['node1'],nodeToCheck['ts08']['node2'])):
-                self.TS08result.append([  nodeToCheck['ts08']['node1'],nodeToCheck['ts08']['node2'], 1 ])
-            else:
-                self.TS08result.append([  nodeToCheck['ts08']['node1'],nodeToCheck['ts08']['node2'], 0 ])
-            
-            
-            if (TestGraph.has_edge(nodeToCheck['ts05']['node1'],nodeToCheck['ts05']['node2'])):
-                self.TS05result.append([  nodeToCheck['ts05']['node1'],nodeToCheck['ts05']['node2'], 1 ])
-            else:
-                self.TS05result.append([  nodeToCheck['ts05']['node1'],nodeToCheck['ts05']['node2'], 0 ])
-            
-            if (TestGraph.has_edge(nodeToCheck['ts02']['node1'],nodeToCheck['ts02']['node2'])):
-                self.TS02result.append([  nodeToCheck['ts02']['node1'],nodeToCheck['ts02']['node2'], 1 ])
-            else:
-                self.TS02result.append([  nodeToCheck['ts02']['node1'],nodeToCheck['ts02']['node2'], 0 ])
-            
-            
-            
-            
-            if (TestGraph.has_edge(nodeToCheck['dts']['node1'],nodeToCheck['dts']['node2'])):
-                self.DTSresult.append([  nodeToCheck['dts']['node1'],nodeToCheck['dts']['node2'], 1 ])
-            else:
-                self.DTSresult.append([  nodeToCheck['dts']['node1'],nodeToCheck['dts']['node2'], 0 ])
+    
+             
+    def normalizeResults(self, data):
+        for item in data:
+            item['cn'] = self.normalize(item['cn'], self.maxCN, self.minCN )
+            item['cn'] = self.normalize(item['cn'], self.maxCN, self.minCN )
             
              
     def normalize(self, data, max, min):
@@ -109,38 +99,29 @@ class CalculatingTogetherOnlyNowell(object):
         orderedResults = []
         
         CN = sorted(self.results, key=lambda value: value['cn'], reverse=True)
-        maxCN = CN[0]
-        minCN = CN[len(CN)-1]
+        self.maxCN = CN[0]
+        self.minCN = CN[len(CN)-1]
         AAS = sorted(self.results, key=lambda value: value['aas'], reverse=True)
-        maxAAS = AAS[0]
-        minAAS = AAS[len(AAS)-1]
+        self.maxAAS = AAS[0]
+        self.minAAS = AAS[len(AAS)-1]
         PA = sorted(self.results, key=lambda value: value['pa'], reverse=True)
-        maxPA = PA[0]
-        minPA = PA[len(PA)-1]
+        self.maxPA = PA[0]
+        self.minPA = PA[len(PA)-1]
         JC = sorted(self.results, key=lambda value: value['jc'], reverse=True)
-        maxJC = JC[0]
-        minJC = JC[len(JC)-1]
+        self.maxJC = JC[0]
+        self.minJC = JC[len(JC)-1]
         TS08 = sorted(self.results, key=lambda value: value['ts08'], reverse=True)
-        maxTS08 = TS08[0]
-        minTS08 = TS08[len(TS08)-1]
+        self.maxTS08 = TS08[0]
+        self.minTS08 = TS08[len(TS08)-1]
         TS05 = sorted(self.results, key=lambda value: value['ts05'], reverse=True)
-        maxTS05 = TS05[0]
-        minTS05 = TS05[len(TS05)-1]
+        self.maxTS05 = TS05[0]
+        self.minTS05 = TS05[len(TS05)-1]
         TS02 = sorted(self.results, key=lambda value: value['ts02'], reverse=True)
-        maxTS02 = TS02[0]
-        minTS02 = TS02[len(TS02)-1]
-        
-        
-        DTS = sorted(self.results, key=lambda value: value['dts'], reverse=True)
-        maxDTS = DTS[0]
-        minDTS = DTS[len(DTS)-1]
+        self.maxTS02 = TS02[0]
+        self.minTS02 = TS02[len(TS02)-1]
         
         for item in range(topRank):
-            #if normaliza:
-            #    orderedResults.append({'cn' : self.normalize(CN[item],maxCN,minCN), 'aas':AAS[item], 'pa': PA[item], 'jc':JC[item], 'ts' : TS[item], 'dts' : DTS[item] })
-            
-           # else:
-            orderedResults.append({'cn' : CN[item], 'aas':AAS[item], 'pa': PA[item], 'jc':JC[item], 'ts08' : TS08[item],'ts05' : TS05[item],'ts02' : TS02[item], 'dts' : DTS[item] })
+            orderedResults.append({'cn' : CN[item], 'aas':AAS[item], 'pa': PA[item], 'jc':JC[item], 'ts08' : TS08[item],'ts05' : TS05[item],'ts02' : TS02[item] })
             
     
         return orderedResults

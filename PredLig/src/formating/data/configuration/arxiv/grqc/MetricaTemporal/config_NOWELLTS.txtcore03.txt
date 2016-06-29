@@ -1,7 +1,7 @@
 Inicio da operacao
-2016-06-18 14:42:25.067000
-{'ts02': 39, 'pa': 8, 'cn': 38, 'aas': 31, 'dts': 8, 'ts08': 43, 'ts05': 44, 'jc': 29}
+2016-06-29 13:15:43.252000
+{'ts02': 39, 'pa': 8, 'cn': 38, 'aas': 31, 'dts': 0, 'ts08': 43, 'ts05': 44, 'jc': 29}
 Authors	Articles	Collaborations	Authors	Eold	Enew
 2122	3287		5722		486	519	400
 Fim da Operacao
-2016-06-18 14:42:43.984000
+2016-06-29 13:15:56.253000
