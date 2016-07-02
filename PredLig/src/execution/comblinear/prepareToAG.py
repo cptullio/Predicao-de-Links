@@ -44,23 +44,7 @@ def execution(configFile):
     
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     
-#     FileNodeSelectionNew = open(FormatingDataSets.get_abs_file_path(util.nodes_notlinked_file)+'.eNew.txt', 'w')
-#     FileNodeSelectionNew.write(repr(nodeSelection.eNeW))
-#     FileNodeSelectionNew.close()
-#     
-#     FileNodeSelectionOld = open(FormatingDataSets.get_abs_file_path(util.nodes_notlinked_file)+'.eOld.txt', 'w')
-#     FileNodeSelectionOld.write(repr(nodeSelection.eOld))
-#     FileNodeSelectionOld.close()
-#     
-#     FileNodeNotLinked = open(FormatingDataSets.get_abs_file_path(util.nodes_notlinked_file), 'w')
-#     FileNodeNotLinked.write(repr(nodeSelection.nodesNotLinked))
-#     FileNodeNotLinked.close()
-#     
-#     FileNodeSelectionColaboration = open(FormatingDataSets.get_abs_file_path(util.nodes_notlinked_file)+'.Colaboration.txt', 'w')
-#     FileNodeSelectionColaboration.write(repr(nodeSelection.get_NowellColaboration()))
-#     FileNodeSelectionColaboration.close()
-#     
-    
+
     #CREATING CALCULATION OBJECT
     calc = CalculatingTogetherOnlyNowell(myparams, nodeSelection.nodesNotLinked)
 
