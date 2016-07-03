@@ -10,6 +10,16 @@ from datetime import datetime
 
 class NodeSelection(object):
 
+
+    def AnalyseAllNodesNotLinkedInFuture(self, nodesNotLinked, TestGraph):
+        result = []
+        for pair in nodesNotLinked:
+            if (TestGraph.has_edge(pair[0],pair[1])):
+                result.append([pair[0],pair[1],1])
+            else:
+                result.append([pair[0],pair[1],0])
+        return result
+
     def get_PairsofNodesNotinEold(self,  nodes):
         pares = []
         total= 0

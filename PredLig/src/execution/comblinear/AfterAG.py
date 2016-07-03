@@ -29,7 +29,7 @@ def execution(configFile, weights):
     
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     #CREATING CALCULATION OBJECT
-    calc = CalculatingCombinationOnlyNowell(myparams, nodeSelection.nodesNotLinked, weights)
+    calc = CalculatingCombinationOnlyNowell(myparams, nodeSelection.nodesNotLinked, weights, True)
         
     ordering = calc.ordering(len(nodeSelection.eNeW))
     
@@ -52,7 +52,19 @@ def execution(configFile, weights):
     
 def grqc():
     configFile = 'data/configuration/arxiv/grqc/CombinationLinear/config_NOWELLTS_FROMAG.txt'
-    weights = {'cn' : -0.3821841969356788, 'aas': 1, 'pa':0, 'jc': 1.6304718305015848, 'ts08':0,'ts05': 0.277940334690973, 'ts02':0}
+#    -- Generation 199 --
+#  Evaluated 342 individuals
+#  Min 0.025
+#  Max 0.0975
+#  Avg 0.097
+#  Std 0.0042573465915
+#-- End of (successful) evolution --
+#Best individual is  [0.9326878807977736, 1.8965511466935903, 0.3741280396498646, 0.6836480380718676, 0.19544808543562986, 0.05379661458863716, 0.027165769706664622], (0.09750000000000003,)
+
+    
+    weights = {'cn' : 0.9326878807977736, 'aas': 1.8965511466935903, 'pa':0.3741280396498646, 'jc': 0.6836480380718676, 'ts08':0.19544808543562986,'ts05': 0.05379661458863716, 'ts02':0.027165769706664622}
+    
+    
     execution(configFile, weights)
     
     

@@ -52,14 +52,7 @@ class CalculatingTogetherOnlyNowell(object):
             return { 'node1': nodeToCheck[metric]['node1'], 'node2': nodeToCheck[metric]['node2'],  'cn' : nodeToCheck[metric]['cn'],'aas' : nodeToCheck[metric]['aas'], 'jc' : nodeToCheck[metric]['jc'], 'pa' : nodeToCheck[metric]['pa'], 'ts08' : nodeToCheck[metric]['ts08'], 'ts05' : nodeToCheck[metric]['ts05'], 'ts02' : nodeToCheck[metric]['ts02'], 'result':0 }
             
     
-    def AnalyseAllNodesNotLinkedInFuture(self, nodesNotLinked, TestGraph):
-        result = []
-        for pair in nodesNotLinked:
-            if (TestGraph.has_edge(pair[0],pair[1])):
-                result.append([pair[0],pair[1],1])
-            else:
-                result.append([pair[0],pair[1],0])
-        return result
+    
             
     
     

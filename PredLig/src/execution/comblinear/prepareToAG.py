@@ -8,14 +8,60 @@ from parametering.Parameterization import Parameterization
 from formating.FormatingDataSets import FormatingDataSets
 import datetime
 from calculating.NodeSelection import NodeSelection
-from calculating.CalculatingTogetherOnlyNowell import CalculatingTogetherOnlyNowell
+from calculating.CalculatingCombinationTogetherOnlyNowell import CalculatingCombinationOnlyNowell
 
 
-def saving_files(filename, data):
-    file = open(filename  , 'w')
-    file.write(repr(data))
-    file.close()
+def saving_files_calculting(filename, data):
     
+    output = open(filename  , 'w')
+    output.write('no1,no2,cn,aas,pa,jc,ts08,ts05,ts02\n')
+    for item in data:
+        output.write(repr(item['node1']))
+        output.write(',')
+        output.write(repr(item['node2']))
+        output.write(',')
+        
+        output.write(repr(item['cn']))
+        output.write(',')
+        
+        output.write(repr(item['aas']))
+        output.write(',')
+        
+        output.write(repr(item['pa']))
+        output.write(',')
+        
+        output.write(repr(item['jc']))
+        output.write(',')
+        
+        output.write(repr(item['ts08']))
+        output.write(',')
+        
+        output.write(repr(item['ts05']))
+        output.write(',')
+        
+        output.write(repr(item['ts02']))
+        output.write('\n')
+        
+        
+    output.close()
+    output.close()
+
+def salvar_analise(filename, data):
+    
+    output = open(filename, 'w')
+    output.write('no1,no2,result\n')
+    for item in data:
+        output.write(repr(item[0]))
+        output.write(',')
+        output.write(repr(item[1]))
+        output.write(',')
+        output.write(repr(item[2]))
+        output.write('\n')
+                
+        
+    output.close()
+    
+        
 def reading_files(filename):
     file = open(filename  , 'r')
     data = eval(file.read())
@@ -44,14 +90,15 @@ def execution(configFile):
     
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     
-
     #CREATING CALCULATION OBJECT
-    calc = CalculatingTogetherOnlyNowell(myparams, nodeSelection.nodesNotLinked)
-
-    saving_files(FormatingDataSets.get_abs_file_path(util.calculated_file), calc.results)
+    weights = {'cn' : 1, 'aas': 1, 'pa':1, 'jc': 1, 'ts08':1,'ts05': 1, 'ts02':1}
     
-    Analise = calc.AnalyseAllNodesNotLinkedInFuture(nodeSelection.nodesNotLinked, myparams.testGraph)
-    saving_files(FormatingDataSets.get_abs_file_path(util.analysed_file) + '.allNodes.txt', Analise)
+    calc = CalculatingCombinationOnlyNowell(myparams, nodeSelection.nodesNotLinked,weights,False )
+
+    saving_files_calculting(FormatingDataSets.get_abs_file_path(util.calculated_file), calc.results)
+    
+    Analise = nodeSelection.AnalyseAllNodesNotLinkedInFuture(nodeSelection.nodesNotLinked, myparams.testGraph)
+    salvar_analise(FormatingDataSets.get_abs_file_path(util.analysed_file) + '.allNodes.csv', Analise)
     
     resultFile.write("Fim da Operacao\n")
     resultFile.write(str(datetime.datetime.now()))

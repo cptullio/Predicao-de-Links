@@ -87,13 +87,17 @@ class CalculatingCombinationOnlyNowell(object):
                 valueTS08 = item['ts08'] * self.weights['ts08']
                 valueTS05 = item['ts05'] * self.weights['ts05']
                 valueTS02 = item['ts02'] * self.weights['ts02']
-            self.results.append({'node1': item['node1'], 'node2': item['node2'], 'combination': (valueAAS+valueCN+valueJC+valuePA+valueTS02+valueTS05+valueTS08) })
+            if self.WillCombinate:
+                self.results.append({'node1': item['node1'], 'node2': item['node2'], 'combination': (valueAAS+valueCN+valueJC+valuePA+valueTS02+valueTS05+valueTS08) })
+            else:
+                self.results.append({'node1': item['node1'], 'node2': item['node2'], 'cn' : valueCN, 'aas' : valueAAS, 'jc' : valueJC, 'pa' : valuePA, 'ts08' : valueTS08,'ts05' : valueTS05,'ts02' : valueTS08 })
+      
     
     
-    
-    def __init__(self, myparams, nodesnotlinked, weights):
+    def __init__(self, myparams, nodesnotlinked, weights, WillCombinate):
         self.myparams = myparams
         self.weights = weights
+        self.WillCombinate = WillCombinate
         qtyofNodesToProcess = len(nodesnotlinked)
         element = 0
         calcutations = []

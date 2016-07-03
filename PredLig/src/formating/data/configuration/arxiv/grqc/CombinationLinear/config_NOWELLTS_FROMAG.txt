@@ -10,9 +10,9 @@ ordered_file	/results/grafos_nowell/grqc_1994_1999/CombinationLinear/FromAG/orde
 analysed_file	/results/grafos_nowell/grqc_1994_1999/CombinationLinear/FromAG/analysed.txt
 result_random_file	/results/grafos_nowell/grqc_1994_1999/CombinationLinear/FromAG/result.csv
 t0	1994
-t0_	1995
-t1	1996
-t1_	1996
+t0_	1996
+t1	1997
+t1_	1999
 decay	0.8
 domain_decay	0.8
 min_edges	3
