@@ -2,9 +2,21 @@ import sframe
 
 class Hop:
     
+    metrics = sframe.SFrame.read_csv('/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/data.csv')
+    results = sframe.SFrame.read_csv('/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
     
-    metrics = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/data.csv')
-    results = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
+    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/data.csv')
+    #results = sframe.SFrame.read_csv('/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
+    
+    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/data.csv')
+    #results = sframe.SFrame.read_csv('/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
+    
+    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/data.csv')
+    #results = sframe.SFrame.read_csv('/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
+    
+    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/data.csv')
+    #results = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
+    
     metrics = metrics.join(results)
     top = 400
 

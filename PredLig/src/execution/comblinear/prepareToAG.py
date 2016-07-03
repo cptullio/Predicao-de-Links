@@ -110,26 +110,26 @@ def grqc():
     execution(configFile)
 
 def astroph():
-    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_NOWELLTS_BEFOREAG.txt'
+    configFile = 'data/configuration/arxiv/astroph/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
     execution(configFile)
 
 def condmat():
-    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_NOWELLTS_BEFOREAG.txt'
+    configFile = 'data/configuration/arxiv/condmat/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
     execution(configFile)
     
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_NOWELLTS_BEFOREAG.txt'
+    configFile = 'data/configuration/arxiv/hepth/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
     execution(configFile)
 
 def hepph():
-    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_NOWELLTS_BEFOREAG.txt'
+    configFile = 'data/configuration/arxiv/hepph/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
     execution(configFile)
 
 if __name__ == '__main__':
     grqc()
-    #astroph()
-    #hepth()
-    #hepph()
-    #condmat()
+    astroph()
+    hepth()
+    hepph()
+    condmat()
     
     
