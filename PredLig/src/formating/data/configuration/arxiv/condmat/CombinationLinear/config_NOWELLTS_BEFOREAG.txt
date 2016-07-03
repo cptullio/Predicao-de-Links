@@ -1,5 +1,5 @@
 original_file	None
-graph_file	grafos/grafos_nowell/condmat-1994-1999-arxiv-graph.txt
+graph_file	grafos/grafos_nowell/condmat-graph.txt
 trainnig_graph_file	results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/TrainingGraph.txt
 test_graph_file	results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/TestingGraph.txt
 nodes_file	results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/AllNodes.txt
