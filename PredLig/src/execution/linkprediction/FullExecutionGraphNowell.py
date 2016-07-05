@@ -6,12 +6,17 @@ Created on 19 de abr de 2016
 from parametering.ParameterUtil import ParameterUtil
 from parametering.Parameterization import Parameterization
 from formating.FormatingDataSets import FormatingDataSets
+from calculating.CalculateInMemory import CalculateInMemory
+from analysing.Analyse import Analyse
+from calculating.VariableSelection import VariableSelection
 import networkx
 import datetime
 from calculating.NodeSelection import NodeSelection
+from calculating.CalculatingTogetherOnlyNowell import CalculatingTogetherOnlyNowell
 from pydblite import Base
 import numpy
 import os
+from calculating.FuzzyCalculation import FuzzyCalculation
 
 
 def saving_files_calculting_input(filename, data):
@@ -81,11 +86,14 @@ def get_jacard_domain(bagofWordsNode1, bagofWordsNode2):
         return 0
     return f/x
 
-    
 
 def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
     
     result = []
+    #pdb = Base(calculatingFile)
+    #pdb.create('node1', 'node2', 'IntensityNode1', 'IntencityNode2' ,'Similarity','AgesNode1', 'AgesNode2')
+    #pdb.create_index('node1', 'node2')
+                
     element = 0
     qtyofNodesToProcess = len(nodesnotLinked)
     for pair in nodesnotLinked:
@@ -114,7 +122,7 @@ def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
             MaxTimeNode2 =  max(info['time'] for info in infoNode2 if 1==1)
 
             AgesNode1 = max(AgesNode1,MaxTimeNode1)
-            AgesNode2 = max(AgesNode2,MaxTimeNode2)
+            AgesNode2 = max(AgesNode2,MaxTimeNode1)
             
             bagofWordsNode1 =  list(info['keywords'] for info in infoNode1 if 1==1)
             bagofWordsNode2 =  list(info['keywords'] for info in infoNode2 if 1==1)
@@ -125,20 +133,13 @@ def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
         AgesNode1 = abs(params.t0_ - AgesNode1)    
         AgesNode2 = abs(params.t0_ - AgesNode2)
         if len(CommonNeigbors) > 0:
-            Similarity = Similarities / len(CommonNeigbors)
+            Similarity = (Similarities / len(CommonNeigbors)) *100
             result.append({ 'no1':  str(pair[0]), 'no2' :str(pair[1]), 'intensityno1' : IntensityNode1,'intensityno2' : IntensityNode2, 'similarity' : Similarity, 'ageno1' :  AgesNode1, 'ageno2' :AgesNode2 })
     return result   
         
 
 
-
-
-
-
-    
-
 def execution(configFile):
-   
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
     resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03.txt'), 'w')
@@ -163,11 +164,12 @@ def execution(configFile):
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     #if not os.path.exists(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.fuzzyinputy.txt')):
     data = calculatingInputToFuzzy(myparams.trainnigGraph,nodeSelection.nodesNotLinked,  myparams)
-    #save_file(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.inputFuzzy.txt'), data)
     saving_files_calculting_input(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.inputFuzzy.txt'), data)
-    #else:
-    #    db = reading_Database(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.base.pdl'))
     
+    for item in data:
+        calc = FuzzyCalculation(item['intensityno1'], item['intensityno2'], item['similarity'], item['ageno1'], item['ageno2'])
+        print item['no1'], item['no2'], calc.potencial_ligacao, calc.grau_potencial_ligacao
+        
         
        
     
