@@ -282,9 +282,9 @@ def execution(configFile):
         db = reading_Database(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.base.pdl'))
     calcDb = None
     if not os.path.exists(util.calculated_file + '.base.pdl'):
-        calcDb = calculatingWeights(myparams.trainnigGraph, nodeSelection.nodesNotLinked, db, util.calculated_file + '.base.pdl')
+        calcDb = calculatingWeights(myparams.trainnigGraph, nodeSelection.nodesNotLinked, db, FormatingDataSets.get_abs_file_path(util.calculated_file) + '.base.pdl')
     else:
-        calcDb = reading_Database(util.calculated_file + '.base.pdl')
+        calcDb = reading_Database(FormatingDataSets.get_abs_file_path(util.calculated_file + '.base.pdl'))
         
     ordering = get_ordering(calcDb, len(nodeSelection.eNeW))
     
