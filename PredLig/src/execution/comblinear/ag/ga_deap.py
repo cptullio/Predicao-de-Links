@@ -10,8 +10,11 @@ creator.create("Individual", list, fitness=creator.FitnessMax)
 
 IND_SIZE=7
 
+def my_random():
+    return random.uniform(-1, 1)
+
 toolbox = base.Toolbox()
-toolbox.register("attr_float", random.random)
+toolbox.register("attr_float", my_random)
 toolbox.register("individual", tools.initRepeat, creator.Individual,
                  toolbox.attr_float, n=IND_SIZE)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
