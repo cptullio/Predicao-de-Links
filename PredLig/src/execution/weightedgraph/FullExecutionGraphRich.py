@@ -225,9 +225,9 @@ def get_analyseNodesInFuture(ordering, TestGraph):
             cnWJC.append([  nodeToCheck['cnWJC']['node1'],nodeToCheck['cnWJC']['node2'], 0 ])
         
         if (TestGraph.has_edge(nodeToCheck['aaWJC']['node1'],nodeToCheck['aaWJC']['node2'])):
-            aaWTS08.append([  nodeToCheck['aaWJC']['node1'],nodeToCheck['aaWJC']['node2'], 1 ])
+            aaWJC.append([  nodeToCheck['aaWJC']['node1'],nodeToCheck['aaWJC']['node2'], 1 ])
         else:
-            aaWTS08.append([  nodeToCheck['aaWJC']['node1'],nodeToCheck['aaWJC']['node2'], 0 ])
+            aaWJC.append([  nodeToCheck['aaWJC']['node1'],nodeToCheck['aaWJC']['node2'], 0 ])
     
     
     return {'cnWTS02' : len([result for n1,n2,result in cnWTS02 if result == 1]), 

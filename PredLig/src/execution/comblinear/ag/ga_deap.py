@@ -4,6 +4,7 @@ from deap import base
 from deap import creator
 from deap import tools
 import pred_link_eval
+from scoop import futures
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))
 creator.create("Individual", list, fitness=creator.FitnessMax)
