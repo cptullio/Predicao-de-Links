@@ -54,7 +54,19 @@ def save_file(filename, data):
     output.write(repr(data))
     output.close()
     
-
+def get_TotalSucess(analise):
+    Sucess =  len(  list([n1,n2] for n1,n2,result in analise if result ==1 ) )
+    return {'sucess':Sucess}
+    
+    
+def AnalyseNodesInFuture(ordering, TestGraph):
+    Analise = []
+    for nodeToCheck in ordering:
+        if (TestGraph.has_edge(nodeToCheck['no1'],nodeToCheck['no2'])):
+            Analise.append([  nodeToCheck['no1'],nodeToCheck['no2'], 1 ])
+        else:
+            Analise.append([  nodeToCheck['no1'],nodeToCheck['no2'], 0 ])
+    return Analise
 
 def all_neighbors(graph, node):
     return set(networkx.all_neighbors(graph, node))
@@ -90,53 +102,42 @@ def get_jacard_domain(bagofWordsNode1, bagofWordsNode2):
 def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
     
     result = []
-    #pdb = Base(calculatingFile)
-    #pdb.create('node1', 'node2', 'IntensityNode1', 'IntencityNode2' ,'Similarity','AgesNode1', 'AgesNode2')
-    #pdb.create_index('node1', 'node2')
                 
     element = 0
     qtyofNodesToProcess = len(nodesnotLinked)
     for pair in nodesnotLinked:
-        element = element+1
-        FormatingDataSets.printProgressofEvents(element, qtyofNodesToProcess, "Calculating features for nodes not liked: ")
+        #element = element+1
+        #FormatingDataSets.printProgressofEvents(element, qtyofNodesToProcess, "Calculating features for nodes not liked: ")
         neighbors_node1 = all_neighbors(graph, pair[0])
         neighbors_node2 = all_neighbors(graph, pair[1])
         len_neihbors_node1 = len(neighbors_node1)
         len_neihbors_node2 = len(neighbors_node2)
         CommonNeigbors = neighbors_node1.intersection(neighbors_node2)
-        IntensityNode1 = 0;
-        IntensityNode2 = 0;
-        Similarities = 0;
-        Similarity = 0;
-        AgesNode1 = 0;
-        AgesNode2 = 0;
+        resultValue = 0
         
         for cn in CommonNeigbors:
+            
             infoNode1 = list(edge for n1, n2, edge in graph.edges([ pair[0], cn], data=True) if ((n1 ==  pair[0] and n2 == cn) or (n1 == cn and n2 == pair[0])) )
             infoNode2 = list(edge for n1, n2, edge in graph.edges([pair[1], cn], data=True) if ((n1 ==  pair[1] and n2 == cn) or (n1 == cn and n2 == pair[1])) )
-
-            IntensityNode1 = IntensityNode1 + len(infoNode1)
-            IntensityNode2 = IntensityNode2 + len(infoNode2)
             
-            MaxTimeNode1 =  max(info['time'] for info in infoNode1 if 1==1)
-            MaxTimeNode2 =  max(info['time'] for info in infoNode2 if 1==1)
-
-            AgesNode1 = max(AgesNode1,MaxTimeNode1)
-            AgesNode2 = max(AgesNode2,MaxTimeNode1)
+            IntensityNodeAC = len(infoNode1)
+            IntensityNodeBC = len(infoNode2)
+            
+            MaxTimeNodeAC =  max(info['time'] for info in infoNode1 if 1==1)
+            MaxTimeNodeBC =  max(info['time'] for info in infoNode2 if 1==1)
             
             bagofWordsNode1 =  list(info['keywords'] for info in infoNode1 if 1==1)
             bagofWordsNode2 =  list(info['keywords'] for info in infoNode2 if 1==1)
             
+            Similarities = get_jacard_domain(bagofWordsNode1, bagofWordsNode2)*100
             
+            data = FuzzyCalculation(IntensityNodeAC, IntensityNodeBC, Similarities, abs(params.t0_ - MaxTimeNodeAC),  abs(params.t0_ - MaxTimeNodeAC))
             
-            Similarities = Similarities + get_jacard_domain(bagofWordsNode1, bagofWordsNode2)
-        AgesNode1 = abs(params.t0_ - AgesNode1)    
-        AgesNode2 = abs(params.t0_ - AgesNode2)
-        if len(CommonNeigbors) > 0:
-            Similarity = (Similarities / len(CommonNeigbors)) *100
-            result.append({ 'no1':  str(pair[0]), 'no2' :str(pair[1]), 'intensityno1' : IntensityNode1,'intensityno2' : IntensityNode2, 'similarity' : Similarity, 'ageno1' :  AgesNode1, 'ageno2' :AgesNode2 })
-    return result   
+            if (resultValue < data.grau_potencial_ligacao):
+                resultValue = data.grau_potencial_ligacao
         
+        result.append({'no1': pair[0], 'no2': pair[1], 'result': resultValue  })
+    return result
 
 
 def execution(configFile):
@@ -164,14 +165,22 @@ def execution(configFile):
     nodeSelection = NodeSelection(myparams.trainnigGraph, myparams.testGraph, util)
     #if not os.path.exists(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.fuzzyinputy.txt')):
     data = calculatingInputToFuzzy(myparams.trainnigGraph,nodeSelection.nodesNotLinked,  myparams)
-    saving_files_calculting_input(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.inputFuzzy.txt'), data)
+    dataSorted = sorted(data, key=lambda value: value['result'], reverse=True)
     
-    for item in data:
-        calc = FuzzyCalculation(item['intensityno1'], item['intensityno2'], item['similarity'], item['ageno1'], item['ageno2'])
-        print item['no1'], item['no2'], calc.potencial_ligacao, calc.grau_potencial_ligacao
-        
-        
-       
+    topRank = len(nodeSelection.eNeW)
+    totalCalculated = len(dataSorted)
+    dataToAnalysed = []
+    if (topRank >= totalCalculated):
+        for item in range(totalCalculated):
+            dataToAnalysed.append({'no1':  dataSorted[item]['no1'], 'no2': dataSorted[item]['no2'], 'result':  dataSorted[item]['result'] })
+    else:
+        for item in range(topRank):
+            dataToAnalysed.append({'no1':  dataSorted[item]['no1'], 'no2': dataSorted[item]['no2'], 'result':  dataSorted[item]['result'] })
+            
+    
+    analise = AnalyseNodesInFuture(dataToAnalysed, myparams.testGraph)
+    
+    resultFile.write( repr(get_TotalSucess(analise)) )   
     
     resultFile.write("\n")
 #        
@@ -194,38 +203,38 @@ def grqc():
     execution(configFile)
 
 def astroph():
-    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def condmat():
-    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
     
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def hepph():
-    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
 if __name__ == '__main__':
     grqc()
-    #astroph()
-    #hepth()
-    #hepph()
-    #condmat()
+    astroph()
+    hepth()
+    hepph()
+    condmat()
     
     
