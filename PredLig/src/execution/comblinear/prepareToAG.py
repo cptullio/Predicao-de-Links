@@ -89,6 +89,12 @@ def execution(configFile, metricas):
     Analise = nodeSelection.AnalyseAllNodesNotLinkedInFuture(nodeSelection.nodesNotLinked, myparams.testGraph)
     salvar_analise(FormatingDataSets.get_abs_file_path(util.analysed_file) + '.allNodes.csv', Analise)
     
+    resultFile.write("Authors\tArticles\tCollaborations\tAuthors\tEold\tEnew\n")
+    resultFile.write( str(myparams.get_nodes(myparams.trainnigGraph))+ "\t" + str(myparams.get_edges(myparams.trainnigGraph)) + "\t\t" + str(len(nodeSelection.get_NowellColaboration())*2)+ "\t\t" + str(len(nodeSelection.nodes)) + "\t" + str(len(nodeSelection.eOld))+"\t" + str(len(nodeSelection.eNeW)))
+     
+ 
+    resultFile.write("\n")
+
     resultFile.write("Fim da Operacao\n")
     resultFile.write(str(datetime.datetime.now()))
     
@@ -96,29 +102,29 @@ def execution(configFile, metricas):
 
 def grqc():
     configFile = 'data/configuration/arxiv/grqc/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile, ['cn', 'aas', 'ts08'])
+    execution(configFile, ['cn', 'aas', 'ts05'])
 
 def astroph():
     configFile = 'data/configuration/arxiv/astroph/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile)
+    execution(configFile, ['cn', 'aas', 'ts02'])
 
 def condmat():
     configFile = 'data/configuration/arxiv/condmat/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile)
+    execution(configFile, ['jc', 'aas', 'ts02'])
     
 def hepth():
     configFile = 'data/configuration/arxiv/hepth/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile)
+    execution(configFile, ['jc', 'aas', 'ts02'])
 
 def hepph():
     configFile = 'data/configuration/arxiv/hepph/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile)
+    execution(configFile, ['jc', 'aas', 'ts02'])
 
 if __name__ == '__main__':
     grqc()
-    #astroph()
-    #hepth()
-    #hepph()
-    #condmat()
+    astroph()
+    hepth()
+    hepph()
+    condmat()
     
     

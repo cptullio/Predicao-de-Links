@@ -20,7 +20,6 @@ def my_random():
     return random.uniform(-1, 1)
 
 
-arquivo_de_resultados = open('pesos.txt', 'a')
 def eval(individual):
     return pred_link_eval.Hop.evaluate(individual)
     
@@ -38,6 +37,7 @@ def cross(individual1, individual2):
 class GA(object):
     def __init__(self, quantity_of_metrics, metricas, resultados, top, name_of_metrics):
         self.quantity_of_metrics = quantity_of_metrics
+        self.metrica_path = metricas
         pred_link_eval.Hop.open_files(metricas, resultados, top, name_of_metrics )
         creator.create("FitnessMax", base.Fitness, weights=(1.0,))
         creator.create("Individual", list, fitness=creator.FitnessMax)
@@ -52,6 +52,8 @@ class GA(object):
         self.toolbox.register("select", tools.selTournament, tournsize=3)
     
     def execucao(self):
+        arquivo_de_resultados = open( self.metrica_path + '.pesos.txt', 'a')
+
         random.seed(128)
 
         pop = self.toolbox.population(n=100)
@@ -134,8 +136,30 @@ class GA(object):
 
 
 if __name__ == "__main__":
+    #gr-qc
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 400, ['cn', 'aas', 'ts08'])
+    ag = GA(3, metricas, resultados, 205, ['cn', 'aas', 'ts05'])
     ag.execucao()
+    #hep-th
+    metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/data.csv'
+    resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
+    ag = GA(3, metricas, resultados, 930, ['jc', 'aas', 'ts02'])
+    ag.execucao()
+    #hep-ph
+    metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/data.csv'
+    resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
+    ag = GA(3, metricas, resultados, 4848, ['jc', 'aas', 'ts02'])
+    ag.execucao()
+    #cond-mat
+    metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/data.csv'
+    resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
+    ag = GA(3, metricas, resultados, 651, ['jc', 'aas', 'ts02'])
+    ag.execucao()
+    #astro-ph
+    metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/data.csv'
+    resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
+    ag = GA(3, metricas, resultados, 1975, ['cn', 'aas', 'ts02'])
+    ag.execucao()
+    
     
