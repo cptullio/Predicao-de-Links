@@ -231,10 +231,10 @@ def hepph():
     execution(configFile)
 
 if __name__ == '__main__':
-    grqc()
+    #grqc()
     astroph()
-    hepth()
-    hepph()
-    condmat()
+    #hepth()
+    #hepph()
+    #condmat()
     
     

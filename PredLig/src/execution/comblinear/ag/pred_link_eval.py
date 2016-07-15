@@ -1,33 +1,29 @@
 import sframe
 
 class Hop:
+    metrics = None
+    results = None
+    top = None
+    name_of_metrics = None
     
-    metrics = sframe.SFrame.read_csv('/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/data.csv')
-    results = sframe.SFrame.read_csv('/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
     
-    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/data.csv')
-    #results = sframe.SFrame.read_csv('/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
-    
-    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/data.csv')
-    #results = sframe.SFrame.read_csv('/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
-    
-    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/data.csv')
-    #results = sframe.SFrame.read_csv('/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
-    
-    #metrics = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/data.csv')
-    #results = sframe.SFrame.read_csv('/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv')
-    
-    metrics = metrics.join(results)
-    top = 400
+    @classmethod
+    def open_files(cls, arquivo1, arquivo2, top, name_of_metrics):
+        cls.metrics = sframe.SFrame.read_csv(arquivo1)
+        cls.results = sframe.SFrame.read_csv(arquivo2)
+        cls.metrics = cls.metrics.join(cls.results)
+        cls.top = top
+        cls.name_of_metrics = name_of_metrics
 
     def __init__(self):
         pass
 
     @classmethod
     def evaluate(cls, individual):
-        new_metric = cls.metrics['cn'] * individual[0] + cls.metrics['aas'] * individual[1] + cls.metrics['pa'] * individual[2] \
-               + cls.metrics['jc'] * individual[3] + cls.metrics['ts08'] * individual[4] + cls.metrics['ts05'] * individual[5]\
-               + cls.metrics['ts02'] * individual[6]
+        new_metric = 0
+        for index in range(len(cls.name_of_metrics)):
+            new_metric = new_metric + (cls.metrics[cls.name_of_metrics[index]] * individual[index]) 
+        
         cls.metrics.add_column(new_metric, name='new_metric')
         top_metrics = cls.metrics.topk('new_metric', k=cls.top)
         aux = [0]

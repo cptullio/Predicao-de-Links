@@ -9,8 +9,6 @@ import matplotlib.pyplot as plt
 
 class FuzzyCalculation(object):
     
-        
-    
     def __init__(self, intensidade_interacoes_AC, intensidade_interacoes_BC, similaridade_entre_vertices, idade_interacoes_AC, idade_interacoes_BC, ShowGraphics = False):
         print intensidade_interacoes_AC, intensidade_interacoes_BC, similaridade_entre_vertices, idade_interacoes_AC,idade_interacoes_BC
         self.intensidade_interacoes_AC = intensidade_interacoes_AC
@@ -153,12 +151,12 @@ class FuzzyCalculation(object):
 
 
 if __name__ == '__main__':
-    intensidadeAC = 1
+    intensidadeAC = 20
     intensidadeBC = 1
     Similaridade = 70.0
-    IdadeAC = 0
-    IdadeBC = 0
-    data = FuzzyCalculation(intensidadeAC, intensidadeBC, Similaridade, IdadeAC, IdadeBC, False)
+    IdadeAC = 2
+    IdadeBC = 2
+    data = FuzzyCalculation(intensidadeAC, intensidadeBC, Similaridade, IdadeAC, IdadeBC, True)
     print "Grau Potencial de Ligacao: ", data.grau_potencial_ligacao
     print "Potencial de Ligacao: ", data.potencial_ligacao
     

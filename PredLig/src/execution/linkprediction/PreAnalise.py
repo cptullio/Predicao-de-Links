@@ -111,38 +111,38 @@ def execution(configFile):
  
     
 def grqc():
-    configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def astroph():
-    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def condmat():
-    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_NOWELLTSRich.txt'
     execution(configFile)
     
 def hepth():
-    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def hepph():
-    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv99.txt'
     
-    #configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_NOWELLTSRich.txt'
     execution(configFile)
 
 if __name__ == '__main__':

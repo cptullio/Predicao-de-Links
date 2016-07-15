@@ -1,7 +1,7 @@
 Inicio da operacao
-2016-07-11 10:44:24.507000
+2016-07-12 23:48:28.754000
 {'sucess': 17}
 Authors	Articles	Collaborations	Authors	Eold	Enew
 2090	3240		5616		479	504	260
 Fim da Operacao
-2016-07-11 10:44:29.686000
+2016-07-12 23:48:35.239000

@@ -11,35 +11,24 @@ from calculating.NodeSelection import NodeSelection
 from calculating.CalculatingCombinationTogetherOnlyNowell import CalculatingCombinationOnlyNowell
 
 
-def saving_files_calculting(filename, data):
+def saving_files_calculting(filename, data, metricas):
     
     output = open(filename  , 'w')
-    output.write('no1,no2,cn,aas,pa,jc,ts08,ts05,ts02\n')
+    output.write('no1,no2,')
+    output.write(",".join(metricas))
+    output.write('\n')
+        
     for item in data:
         output.write(repr(item['node1']))
         output.write(',')
         output.write(repr(item['node2']))
         output.write(',')
-        
-        output.write(repr(item['cn']))
-        output.write(',')
-        
-        output.write(repr(item['aas']))
-        output.write(',')
-        
-        output.write(repr(item['pa']))
-        output.write(',')
-        
-        output.write(repr(item['jc']))
-        output.write(',')
-        
-        output.write(repr(item['ts08']))
-        output.write(',')
-        
-        output.write(repr(item['ts05']))
-        output.write(',')
-        
-        output.write(repr(item['ts02']))
+        element = 0
+        for metrica in metricas:
+            element = element + 1
+            output.write(repr(item[metrica]))
+            if element < len(metricas):
+                output.write(',')
         output.write('\n')
         
         
@@ -68,7 +57,7 @@ def reading_files(filename):
     return data
 
 
-def execution(configFile):
+def execution(configFile, metricas):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
     resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03.txt'), 'w')
     
@@ -95,7 +84,7 @@ def execution(configFile):
     
     calc = CalculatingCombinationOnlyNowell(myparams, nodeSelection.nodesNotLinked,weights,False )
 
-    saving_files_calculting(FormatingDataSets.get_abs_file_path(util.calculated_file), calc.results)
+    saving_files_calculting(FormatingDataSets.get_abs_file_path(util.calculated_file), calc.results, metricas)
     
     Analise = nodeSelection.AnalyseAllNodesNotLinkedInFuture(nodeSelection.nodesNotLinked, myparams.testGraph)
     salvar_analise(FormatingDataSets.get_abs_file_path(util.analysed_file) + '.allNodes.csv', Analise)
@@ -107,7 +96,7 @@ def execution(configFile):
 
 def grqc():
     configFile = 'data/configuration/arxiv/grqc/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
-    execution(configFile)
+    execution(configFile, ['cn', 'aas', 'ts08'])
 
 def astroph():
     configFile = 'data/configuration/arxiv/astroph/CombinationLinear/config_NOWELLTS_BEFOREAG.txt'
@@ -127,9 +116,9 @@ def hepph():
 
 if __name__ == '__main__':
     grqc()
-    astroph()
-    hepth()
-    hepph()
-    condmat()
+    #astroph()
+    #hepth()
+    #hepph()
+    #condmat()
     
     
