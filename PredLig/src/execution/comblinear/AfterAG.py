@@ -52,23 +52,56 @@ def execution(configFile, weights):
     
 def grqc():
     configFile = 'data/configuration/arxiv/grqc/CombinationLinear/config_NOWELLTS_FROMAG.txt'
-#    -- Generation 199 --
-#  Evaluated 342 individuals
-#  Min 0.025
-#  Max 0.0975
-#  Avg 0.097
-#  Std 0.0042573465915
-#-- End of (successful) evolution --
-#Best individual is  [0.9326878807977736, 1.8965511466935903, 0.3741280396498646, 0.6836480380718676, 0.19544808543562986, 0.05379661458863716, 0.027165769706664622], (0.09750000000000003,)
+    
+    #execution(configFile, ['cn', 'aas', 'ts05'])
 
-    
-    weights = {'cn' : 0.9326878807977736, 'aas': 1.8965511466935903, 'pa':0.3741280396498646, 'jc': 0.6836480380718676, 'ts08':0.19544808543562986,'ts05': 0.05379661458863716, 'ts02':0.027165769706664622}
-    
+    weights = {'cn' : 0.300955064105, 'aas': 0.783119689943, 'pa':0, 'jc': 0, 'ts08':0,'ts05': 0.298981048518, 'ts02':0}
     
     execution(configFile, weights)
     
+def hepth():
+    configFile = 'data/configuration/arxiv/hepth/CombinationLinear/config_NOWELLTS_FROMAG.txt'
     
+    #execution(configFile, ['jc', 'aas', 'ts02'])
+
+    weights = {'cn' : 0, 'aas': 0.783119689943, 'pa':0, 'jc': 0.300955064105, 'ts08':0,'ts05': 0, 'ts02':0.298981048518}
+    
+    execution(configFile, weights)
+
+    
+def hepph():
+    configFile = 'data/configuration/arxiv/hepph/CombinationLinear/config_NOWELLTS_FROMAG.txt'
+    
+    #execution(configFile, ['jc', 'aas', 'ts02'])
+
+    weights = {'cn' : 0, 'aas': 0.624674557702, 'pa':0, 'jc': -0.12279209072, 'ts08':0,'ts05': 0, 'ts02':0.234818778333}
+    
+    execution(configFile, weights)
         
+def condmat():
+    configFile = 'data/configuration/arxiv/condmat/CombinationLinear/config_NOWELLTS_FROMAG.txt'
+    
+    #execution(configFile, ['jc', 'aas', 'ts02'])
+
+    weights = {'cn' : 0, 'aas': 0.912812143425, 'pa':0, 'jc': 5.52219292056, 'ts08':0,'ts05': 0, 'ts02':2.27572876652}
+    
+    execution(configFile, weights)
+
+
+def astroph():
+    configFile = 'data/configuration/arxiv/astroph/CombinationLinear/config_NOWELLTS_FROMAG.txt'
+    
+  #execution(configFile, ['cn', 'aas', 'ts02'])
+
+    weights = {'cn' : -0.510981548519, 'aas': 0.608979986963, 'pa':0, 'jc': 0, 'ts08':0,'ts05': 0, 'ts02':0.359358925465}
+    
+    execution(configFile, weights)
+
+
 
 if __name__ == '__main__':
     grqc()
+    hepph()
+    hepth()
+    astroph()
+    condmat()
