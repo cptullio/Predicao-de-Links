@@ -85,12 +85,23 @@ def exemplo():
     execution(configFile)
 
 
+def duarte99():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+
+def duarte05():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv05.txt'
+    execution(configFile)
+
+
+
 if __name__ == '__main__':
     #exemplo()
-    hepth()
-    grqc()
-    astroph()
-    hepph()
-    condmat()
-    
+    #hepth()
+    #grqc()
+    #astroph()
+    #hepph()
+    #condmat()
+    duarte05()
+    duarte99() 
     
