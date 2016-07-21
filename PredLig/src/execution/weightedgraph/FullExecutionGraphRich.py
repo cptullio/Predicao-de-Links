@@ -281,7 +281,7 @@ def execution(configFile):
     else:
         db = reading_Database(FormatingDataSets.get_abs_file_path(util.trainnig_graph_file + '.base.pdl'))
     calcDb = None
-    if not os.path.exists(util.calculated_file + '.base.pdl'):
+    if not os.path.exists(FormatingDataSets.get_abs_file_path(util.calculated_file + '.base.pdl')):
         calcDb = calculatingWeights(myparams.trainnigGraph, nodeSelection.nodesNotLinked, db, FormatingDataSets.get_abs_file_path(util.calculated_file) + '.base.pdl')
     else:
         calcDb = reading_Database(FormatingDataSets.get_abs_file_path(util.calculated_file + '.base.pdl'))
@@ -350,7 +350,7 @@ def mas05():
 
 
 def mas99():
-    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv05.txt'
+    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv99.txt'
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
     
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
