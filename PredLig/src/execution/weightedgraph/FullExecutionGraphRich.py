@@ -340,11 +340,30 @@ def hepph():
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
+
+def mas05():
+    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+
+def mas99():
+    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+
 if __name__ == '__main__':
-    grqc()
-    astroph()
-    hepth()
-    hepph()
-    condmat()
+    #grqc()
+    #astroph()
+    #hepth()
+    #hepph()
+    #condmat()
+    mas99()
+    mas05()
     
     
