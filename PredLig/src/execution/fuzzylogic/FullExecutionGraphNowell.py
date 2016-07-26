@@ -19,6 +19,7 @@ import os
 from calculating.FuzzyCalculation import FuzzyCalculation
 
 
+
 def saving_files_calculting_input(filename, data):
     
     output = open(filename  , 'w')
@@ -199,40 +200,40 @@ def grqc():
     #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv99.txt'
     
-    configFile = 'data/configuration/arxiv/grqc/LinkPrediction/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/grqc/fuzzylogic/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def astroph():
     #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
     
-    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/astroph/fuzzylogic/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def condmat():
     #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
     
-    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/condmat/fuzzylogic/config_NOWELLTSRich.txt'
     execution(configFile)
     
 def hepth():
     #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
     
-    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepth/fuzzylogic/config_NOWELLTSRich.txt'
     execution(configFile)
 
 def hepph():
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
     
-    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepph/fuzzylogic/config_NOWELLTSRich.txt'
     execution(configFile)
 
 if __name__ == '__main__':
-    #grqc()
-    astroph()
+    grqc()
+    #astroph()
     #hepth()
     #hepph()
     #condmat()
