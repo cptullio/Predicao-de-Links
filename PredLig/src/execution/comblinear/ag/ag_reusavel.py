@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 '''
 Created on 6 de jul de 2016
 
@@ -11,6 +13,7 @@ from deap import creator
 from deap import tools
 import pred_link_eval
 from scoop import futures
+from pickle import POP
 
 
 IND_SIZE = 7
@@ -35,9 +38,10 @@ def cross(individual1, individual2):
 
 
 class GA(object):
-    def __init__(self, quantity_of_metrics, metricas, resultados, top, name_of_metrics):
+    def __init__(self, quantity_of_metrics, metricas, resultados, top, name_of_metrics, melhoresMetricas):
         self.quantity_of_metrics = quantity_of_metrics
         self.metrica_path = metricas
+        self.name_of_metrics = name_of_metrics;
         pred_link_eval.Hop.open_files(metricas, resultados, top, name_of_metrics )
         creator.create("FitnessMax", base.Fitness, weights=(1.0,))
         creator.create("Individual", list, fitness=creator.FitnessMax)
@@ -51,11 +55,16 @@ class GA(object):
         self.toolbox.register("mate", cross)
         self.toolbox.register("select", tools.selTournament, tournsize=3)
     
-    def execucao(self):
-        arquivo_de_resultados = open( self.metrica_path + '.pesos.txt', 'a')
-
-        random.seed(128)
-
+    #Alterado Anderson
+    def inicializarPopulacao(self, melhoresMetricas):
+        
+        #Convertendo a lista de métricas em uma lista de índices 
+        melhoresMetricasPorIndice = []
+        for metrica in melhoresMetricas:
+            melhoresMetricasPorIndice.append(self.name_of_metrics.index(metrica))  
+         
+        solucoesInicializadas = 0
+        #Sementes iniciais - melhores resultados individuais
         pop = self.toolbox.population(n=100)
         for j in range(self.quantity_of_metrics):
             for i in range(self.quantity_of_metrics):
@@ -63,8 +72,38 @@ class GA(object):
                     pop[j][i] = 0
                 else:
                     pop[j][i] = 1
-        CXPB, MUTPB, NGEN = 0.65, 0.08, 100
+            solucoesInicializadas += 1
+        
+        #Combinações 2 a 2 das 3 metricas com melhor desempenho individual
+        for i in range(len(melhoresMetricasPorIndice) - 1):
+            for j in range(i+1, len(melhoresMetricasPorIndice)):
+                parDeMelhoresMetricas = [melhoresMetricasPorIndice[i], melhoresMetricasPorIndice[j]] 
+                for k in range(self.quantity_of_metrics):
+                    if k in parDeMelhoresMetricas:
+                        pop[solucoesInicializadas][k] = 1
+                    else:
+                        pop[solucoesInicializadas][k] = 0
+                solucoesInicializadas += 1    
+        
+        #Inicializando uma solucao com as 3 melhores métricas
+        for i in range(self.quantity_of_metrics):
+            if i in melhoresMetricasPorIndice:
+                pop[solucoesInicializadas][i] = 1
+            else:
+                pop[solucoesInicializadas][i] = 0
+        solucoesInicializadas += 1    
+        
+        return pop
+    
+    def execucao(self):
+        arquivo_de_resultados = open( self.metrica_path + '.pesos.txt', 'a')
 
+        random.seed(128)
+
+        pop = self.inicializarPopulacao(melhoresMetricas) 
+        
+        CXPB, MUTPB, NGEN = 0.65, 0.08, 100
+        
         print("Start of evolution")
         # Evaluate the entire population
         fitnesses = list(map(self.toolbox.evaluate, pop ))
@@ -139,27 +178,41 @@ if __name__ == "__main__":
     #gr-qc
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/grqc_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 205, ['cn', 'aas', 'ts05'])
+
+    melhoresMetricas = ['cn', 'ts05', 'ts02']
+    ag = GA(7, metricas, resultados, 205, ['cn', 'aas', 'pa', 'jc', 'ts08', 'ts05', 'ts02'], melhoresMetricas)
     ag.execucao()
+
     #hep-th
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepth_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 930, ['jc', 'aas', 'ts02'])
+    
+    melhoresMetricas = ['jc', 'cn', 'ts05']
+    ag = GA(7, metricas, resultados, 930, ['cn', 'aas', 'pa', 'jc', 'ts08', 'ts05', 'ts02'], melhoresMetricas)
     ag.execucao()
+
     #hep-ph
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/hepph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 4848, ['jc', 'aas', 'ts02'])
+
+    melhoresMetricas = ['aas', 'jc', 'ts02']
+    ag = GA(7, metricas, resultados, 4848, ['cn', 'aas', 'pa', 'jc', 'ts08', 'ts05', 'ts02'], melhoresMetricas)
     ag.execucao()
+
     #cond-mat
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/condmat_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 651, ['jc', 'aas', 'ts02'])
+
+    melhoresMetricas = ['ts02', 'ts05', 'jc']
+    ag = GA(7, metricas, resultados, 651, ['cn', 'aas', 'pa', 'jc', 'ts08', 'ts05', 'ts02'], melhoresMetricas)
     ag.execucao()
+
     #astro-ph
     metricas = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/data.csv'
     resultados = '/Mestrado-2016/git/Predicao-de-Links/PredLig/src/formating/results/grafos_nowell/astroph_1994_1999/CombinationLinear/ToAG/analysed.txt.allNodes.csv'
-    ag = GA(3, metricas, resultados, 1975, ['cn', 'aas', 'ts02'])
+
+    melhoresMetricas = ['aas', 'cn', 'ts02']
+    ag = GA(7, metricas, resultados, 1975, ['cn', 'aas', 'pa', 'jc', 'ts08', 'ts05', 'ts02'], melhoresMetricas)
     ag.execucao()
     
     
