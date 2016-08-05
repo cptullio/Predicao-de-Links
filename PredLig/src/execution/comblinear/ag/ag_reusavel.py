@@ -55,7 +55,6 @@ class GA(object):
         self.toolbox.register("mate", cross)
         self.toolbox.register("select", tools.selTournament, tournsize=3)
     
-    #Alterado Anderson
     def inicializarPopulacao(self, melhoresMetricas):
         
         #Convertendo a lista de métricas em uma lista de índices 
