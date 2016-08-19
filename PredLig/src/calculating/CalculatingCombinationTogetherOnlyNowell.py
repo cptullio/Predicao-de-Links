@@ -90,7 +90,7 @@ class CalculatingCombinationOnlyNowell(object):
             if self.WillCombinate:
                 self.results.append({'node1': item['node1'], 'node2': item['node2'], 'combination': (valueAAS+valueCN+valueJC+valuePA+valueTS02+valueTS05+valueTS08) })
             else:
-                self.results.append({'node1': item['node1'], 'node2': item['node2'], 'cn' : valueCN, 'aas' : valueAAS, 'jc' : valueJC, 'pa' : valuePA, 'ts08' : valueTS08,'ts05' : valueTS05,'ts02' : valueTS08 })
+                self.results.append({'node1': item['node1'], 'node2': item['node2'], 'cn' : valueCN, 'aas' : valueAAS, 'jc' : valueJC, 'pa' : valuePA, 'ts08' : valueTS08,'ts05' : valueTS05,'ts02' : valueTS02 })
       
     
     
