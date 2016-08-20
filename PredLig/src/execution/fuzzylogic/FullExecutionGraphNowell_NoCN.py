@@ -120,7 +120,7 @@ def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
         #for cn in CommonNeigbors:
         #rescue infoOfNode1
         infoNode1 = list(edge for n1, n2, edge in graph.edges([pair[0]], data=True) if ((n1 ==  pair[0] or n2 == pair[0])) )
-        infoNode2 = list(edge for n1, n2, edge in graph.edges([pair[1]], data=True) if ((n1 ==  pair[0] or n2 == pair[0])) )
+        infoNode2 = list(edge for n1, n2, edge in graph.edges([pair[1]], data=True) if ((n1 ==  pair[1] or n2 == pair[1])) )
         
             
         IntensityNodeAC = len(infoNode1)
