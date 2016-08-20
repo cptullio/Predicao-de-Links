@@ -114,7 +114,7 @@ def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
         len_neihbors_node1 = len(neighbors_node1)
         len_neihbors_node2 = len(neighbors_node2)
         #CommonNeigbors = neighbors_node1.intersection(neighbors_node2)
-        resultValue = 0
+        #resultValue = 0
         
         
         #for cn in CommonNeigbors:
@@ -136,10 +136,10 @@ def calculatingInputToFuzzy(graph, nodesnotLinked,  params):
             
         data = FuzzyCalculation(IntensityNodeAC, IntensityNodeBC, Similarities, abs(params.t0_ - MaxTimeNodeAC),  abs(params.t0_ - MaxTimeNodeAC))
             
-        if (resultValue < data.grau_potencial_ligacao):
-            resultValue = data.grau_potencial_ligacao
+        #if (resultValue < data.grau_potencial_ligacao):
+        #    resultValue = data.grau_potencial_ligacao
         
-        result.append({'no1': pair[0], 'no2': pair[1], 'result': resultValue  })
+        result.append({'no1': pair[0], 'no2': pair[1], 'result':  data.grau_potencial_ligacao  })
     return result
 
 
