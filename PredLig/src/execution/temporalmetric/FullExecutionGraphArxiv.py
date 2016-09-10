@@ -17,7 +17,7 @@ from calculating.CalculatingTogether import CalculatingTogether
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_execucaoFinal.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -80,9 +80,33 @@ def hepph():
     configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
 
+
+def grqc99():
+    configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+
+def astroph99():
+    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+
+def condmat99():
+    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+    
+def hepth99():
+    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+
+def hepph99():
+    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv99.txt'
+    execution(configFile)
+
+
 def exemplo():
     configFile = 'data/configuration/arxiv/exemplo/MetricaTemporal/config_Arxiv99.txt'
     execution(configFile)
+
+
 
 
 def duarte99():
@@ -97,11 +121,17 @@ def duarte05():
 
 if __name__ == '__main__':
     #exemplo()
+    #hepth99()
+    #grqc99()
+    #astroph99()
+    #hepph99()
+    #condmat99()
     #hepth()
     #grqc()
-    #astroph()
-    #hepph()
-    #condmat()
-    duarte05()
-    duarte99() 
+    astroph()
+    hepph()
+    condmat()
+    
+    #duarte05()
+    #duarte99() 
     

@@ -157,12 +157,15 @@ class CalculatingTogether(object):
         JC = sorted(self.results, key=lambda value: value['jc'], reverse=True)
         maxJC = JC[0]
         minJC = JC[len(JC)-1]
+        
         TS08 = sorted(self.results, key=lambda value: value['ts08'], reverse=True)
         maxTS08 = TS08[0]
         minTS08 = TS08[len(TS08)-1]
+        
         TS05 = sorted(self.results, key=lambda value: value['ts05'], reverse=True)
         maxTS05 = TS05[0]
         minTS05 = TS05[len(TS05)-1]
+        
         TS02 = sorted(self.results, key=lambda value: value['ts02'], reverse=True)
         maxTS02 = TS02[0]
         minTS02 = TS02[len(TS02)-1]
@@ -178,7 +181,7 @@ class CalculatingTogether(object):
         
         DTS02 = sorted(self.results, key=lambda value: value['dts02'], reverse=True)
         maxDTS02 = DTS02[0]
-        minDTS02 = DTS02[len(DTS08)-1]
+        minDTS02 = DTS02[len(DTS02)-1]
         
         
         for item in range(topRank):
@@ -256,9 +259,9 @@ class CalculatingTogether(object):
                     
                     #print  pair_common_neighbor, "K ", k 
                     
-                    decayfunction08 = (1 - 0.8) ** k
-                    decayfunction05 = (1 - 0.5) ** k
-                    decayfunction02 = (1 - 0.2) ** k
+                    decayfunction08 = (0.8) ** k
+                    decayfunction05 = (0.5) ** k
+                    decayfunction02 = (0.2) ** k
                     
                     #print  pair_common_neighbor, "funcao de decaimento 0.5 ", decayfunction05 
                     
@@ -283,9 +286,9 @@ class CalculatingTogether(object):
                     
                     #print  pair_common_neighbor, "JC ", jcDomain 
                     
-                    dts02 = (hm * decayfunction05) /  (control * ((1 - 0.2) ** jcDomain))
-                    dts05 = (hm * decayfunction05) /  (control * ((1 - 0.5) ** jcDomain))
-                    dts08 = (hm * decayfunction05) /  (control * ((1 - 0.8) ** jcDomain))
+                    dts02 = (hm * decayfunction08) /  (control * ((0.2) ** jcDomain))
+                    dts05 = (hm * decayfunction08) /  (control * ((0.5) ** jcDomain))
+                    dts08 = (hm * decayfunction08) /  (control * ((0.8) ** jcDomain))
                     
                     #print  pair_common_neighbor, "DTS ", dts05 
                     
