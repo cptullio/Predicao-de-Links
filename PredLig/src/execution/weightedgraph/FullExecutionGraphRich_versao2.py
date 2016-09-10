@@ -111,14 +111,17 @@ def generateWeights(graph, weightFile, param):
                 
                 total_publications = len(informations)   
                 k =  int(param.t0_)  - max(timesofLinks)
-                decayfunction02 = (1 - 0.2) ** k
-                decayfunction05 = (1 - 0.5) ** k
-                decayfunction08 = (1 - 0.8) ** k
                 
                 jc = get_jacard_domain(bagNode1, bagNode2)
-                CTS02 = total_publications * (decayfunction02*(1/1+jc))
-                CTS05 = total_publications * (decayfunction05*(1/1+jc))
-                CTS08 = total_publications * (decayfunction08*(1/1+jc))
+                decayfunction = (0.5) ** k
+                decayfunction02 = (0.2) ** jc
+                decayfunction05 = (0.5) ** jc
+                decayfunction08 = (0.8) ** jc
+                
+                
+                CTS02 = total_publications * (decayfunction*(1/decayfunction02))
+                CTS05 = total_publications * (decayfunction*(1/decayfunction05))
+                CTS08 = total_publications * (decayfunction*(1/decayfunction08))
                 
                 
                 pdb.insert(str(node) + ';' + str(other),node,other,CTS02 , CTS05 , CTS08 ) 
@@ -249,7 +252,7 @@ def execution(configFile):
    
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_ctsv2_dfT05.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -350,13 +353,54 @@ def mas99():
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
+def grqc05():
+    configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+def astroph05():
+    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+def condmat05():
+    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+    
+def hepth05():
+    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+def hepph05():
+    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
+    
+    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    execution(configFile)
+
+
 
 if __name__ == '__main__':
     grqc()
-    #astroph()
-    #hepth()
-    #hepph()
-    #condmat()
+    astroph()
+    hepth()
+    hepph()
+    condmat()
+    grqc05()
+    astroph05()
+    hepth05()
+    hepph05()
+    condmat05()
     #mas99()
     #mas05()
     
