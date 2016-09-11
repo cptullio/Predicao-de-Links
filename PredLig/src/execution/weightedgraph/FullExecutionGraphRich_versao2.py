@@ -113,15 +113,17 @@ def generateWeights(graph, weightFile, param):
                 k =  int(param.t0_)  - max(timesofLinks)
                 
                 jc = get_jacard_domain(bagNode1, bagNode2)
-                decayfunction = (0.5) ** k
-                decayfunction02 = (0.2) ** jc
-                decayfunction05 = (0.5) ** jc
-                decayfunction08 = (0.8) ** jc
+                decayfunctionT05 = (0.5) ** k
+                decayfunctionT02 = (0.2) ** k
+                decayfunctionT08 = (0.8) ** k
+                #decayfunction02 = (0.2) ** jc
+                #decayfunction05 = (0.5) ** jc
+                #decayfunction08 = (0.8) ** jc
                 
                 
-                CTS02 = total_publications * (decayfunction*(1/decayfunction02))
-                CTS05 = total_publications * (decayfunction*(1/decayfunction05))
-                CTS08 = total_publications * (decayfunction*(1/decayfunction08))
+                CTS02 = total_publications * (decayfunctionT02*((jc*100)+1))
+                CTS05 = total_publications * (decayfunctionT05*((jc*100)+1))
+                CTS08 = total_publications * (decayfunctionT08*((jc*100)+1))
                 
                 
                 pdb.insert(str(node) + ';' + str(other),node,other,CTS02 , CTS05 , CTS08 ) 
