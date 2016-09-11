@@ -1,5 +1,5 @@
 original_file	None
-graph_file	/home/cmuniz/grafos/hepph-2000-2005-arxiv-graph.txt
+graph_file	/home/cmuniz/grafos2/hepph-2000-2005-arxiv-graph.txt
 trainnig_graph_file	/home/cmuniz/results/grafos_arxiv/hepph_2000_2005/MetricaTemporal/TrainingGraph.txt
 test_graph_file	/home/cmuniz/results/grafos_arxiv/hepph_2000_2005/MetricaTemporal/TestingGraph.txt
 nodes_file	/home/cmuniz/results/grafos_arxiv/hepph_2000_2005/MetricaTemporal/AllNodes.txt
