@@ -17,7 +17,7 @@ from calculating.CalculatingTogether import CalculatingTogether
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_execucaoFinal.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_execucaoFinal_cstT02.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -121,16 +121,16 @@ def duarte05():
 
 if __name__ == '__main__':
     #exemplo()
-    #hepth99()
-    #grqc99()
-    #astroph99()
-    #hepph99()
-    #condmat99()
-    #hepth()
-    #grqc()
-    astroph()
-    hepph()
-    condmat()
+    hepth99()
+    grqc99()
+    astroph99()
+    hepph99()
+    condmat99()
+    hepth()
+    grqc()
+    #astroph()
+    #hepph()
+    #condmat()
     
     #duarte05()
     #duarte99() 

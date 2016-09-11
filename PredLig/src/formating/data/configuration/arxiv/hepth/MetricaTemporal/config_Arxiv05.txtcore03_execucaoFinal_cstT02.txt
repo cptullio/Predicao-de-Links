@@ -1,0 +1,7 @@
+Inicio da operacao
+2016-09-11 07:04:27.916000
+{'ts02': 82, 'dts05': 80, 'pa': 10, 'dts02': 78, 'cn': 72, 'aas': 71, 'ts08': 87, 'dts08': 81, 'ts05': 87, 'jc': 55}
+Authors	Articles	Collaborations	Authors	Eold	Enew
+9098	13367		27970		1893	2639	1293
+Fim da Operacao
+2016-09-11 07:07:07.380000

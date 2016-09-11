@@ -286,9 +286,9 @@ class CalculatingTogether(object):
                     
                     #print  pair_common_neighbor, "JC ", jcDomain 
                     
-                    dts02 = (hm * decayfunction08) /  (control * ((0.2) ** jcDomain))
-                    dts05 = (hm * decayfunction08) /  (control * ((0.5) ** jcDomain))
-                    dts08 = (hm * decayfunction08) /  (control * ((0.8) ** jcDomain))
+                    dts02 = (hm * decayfunction02) /  (control * ((0.2) ** jcDomain))
+                    dts05 = (hm * decayfunction02) /  (control * ((0.5) ** jcDomain))
+                    dts08 = (hm * decayfunction02) /  (control * ((0.8) ** jcDomain))
                     
                     #print  pair_common_neighbor, "DTS ", dts05 
                     
