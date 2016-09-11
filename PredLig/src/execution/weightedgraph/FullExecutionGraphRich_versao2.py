@@ -113,17 +113,15 @@ def generateWeights(graph, weightFile, param):
                 k =  int(param.t0_)  - max(timesofLinks)
                 
                 jc = get_jacard_domain(bagNode1, bagNode2)
-                decayfunctionT05 = (0.5) ** k
-                decayfunctionT02 = (0.2) ** k
-                decayfunctionT08 = (0.8) ** k
-                #decayfunction02 = (0.2) ** jc
-                #decayfunction05 = (0.5) ** jc
-                #decayfunction08 = (0.8) ** jc
+                decayfunction = (0.2) ** k
+                decayfunction02 = (1 - 0.2) ** jc
+                decayfunction05 = (1 - 0.5) ** jc
+                decayfunction08 = (1 - 0.8) ** jc
                 
                 
-                CTS02 = total_publications * (decayfunctionT02*((jc*100)+1))
-                CTS05 = total_publications * (decayfunctionT05*((jc*100)+1))
-                CTS08 = total_publications * (decayfunctionT08*((jc*100)+1))
+                CTS02 = total_publications * (decayfunction*(1/decayfunction02))
+                CTS05 = total_publications * (decayfunction*(1/decayfunction05))
+                CTS08 = total_publications * (decayfunction*(1/decayfunction08))
                 
                 
                 pdb.insert(str(node) + ';' + str(other),node,other,CTS02 , CTS05 , CTS08 ) 
@@ -254,7 +252,7 @@ def execution(configFile):
    
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_ctsv2_dfT05.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_ctsv2_dfT02.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
