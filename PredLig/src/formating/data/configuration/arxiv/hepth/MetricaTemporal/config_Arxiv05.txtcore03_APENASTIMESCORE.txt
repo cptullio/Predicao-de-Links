@@ -1,5 +1,5 @@
 Inicio da operacao
-2016-09-30 14:13:54.941000
+2016-09-30 16:48:40.360000
  TS01 = 81
  TS02 = 82
  TS03 = 83
@@ -13,4 +13,4 @@ TS08 = 87
 Authors	Articles	Collaborations	Authors	Eold	Enew
 9098	13367		27970		1893	2639	1293
 Fim da Operacao
-2016-09-30 14:16:29.304000
+2016-09-30 16:51:24.559000
