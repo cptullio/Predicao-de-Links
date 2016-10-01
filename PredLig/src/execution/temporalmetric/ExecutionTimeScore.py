@@ -119,7 +119,7 @@ def duarte05():
 
 if __name__ == '__main__':
     #exemplo()
-    #hepth99()
+    hepth99()
     grqc99()
     astroph99()
     hepph99()
