@@ -113,10 +113,10 @@ def generateWeights(graph, weightFile, param):
                 k =  int(param.t0_)  - max(timesofLinks)
                 
                 jc = get_jacard_domain(bagNode1, bagNode2)
-                decayfunction = (0.2) ** k
-                decayfunction02 = (1 - 0.2) ** jc
-                decayfunction05 = (1 - 0.5) ** jc
-                decayfunction08 = (1 - 0.8) ** jc
+                decayfunction = (0.6) ** k
+                decayfunction02 = (1 - 0.1) ** jc
+                decayfunction05 = (1 - 0.2) ** jc
+                decayfunction08 = (1 - 0.3) ** jc
                 
                 
                 CTS02 = total_publications * (decayfunction*(1/decayfunction02))
@@ -252,7 +252,7 @@ def execution(configFile):
    
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_ctsv2_dfT02.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_cwts_dfT06.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -303,104 +303,74 @@ def execution(configFile):
     resultFile.close()
 
 def grqc():
-    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv05.txt'
-    configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
 
 def astroph():
-    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
-    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
 
 def condmat():
-    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
-    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
     
 def hepth():
-    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
-    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
 
 def hepph():
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
-    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
 
 
-def mas05():
-    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
+def grqc99():
+    configFile = 'data/configuration/arxiv/grqc/MetricaTemporal/config_Arxiv99v2.txt'
+    execution(configFile)
+
+def astroph99():
+    configFile = 'data/configuration/arxiv/astroph/MetricaTemporal/config_Arxiv99v2.txt'
+    execution(configFile)
+
+def condmat99():
+    configFile = 'data/configuration/arxiv/condmat/MetricaTemporal/config_Arxiv99v2.txt'
+    execution(configFile)
     
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+def hepth99():
+    configFile = 'data/configuration/arxiv/hepth/MetricaTemporal/config_Arxiv99v2.txt'
+    execution(configFile)
+
+def hepph99():
+    configFile = 'data/configuration/arxiv/hepph/MetricaTemporal/config_Arxiv99v2.txt'
     execution(configFile)
 
 
-def mas99():
-    configFile = 'data/configuration/arxiv/duarte/WeightedGraph/config_Arxiv99.txt'
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
+def exemplo():
+    configFile = 'data/configuration/arxiv/exemplo/MetricaTemporal/config_Arxiv99v2.txt'
     execution(configFile)
 
-def grqc05():
-    configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/grqc/WeightedGraph/config_NOWELLTSRich.txt'
+
+
+
+def duarte99():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv99v2.txt'
     execution(configFile)
 
-def astroph05():
-    configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/astroph/WeightedGraph/config_NOWELLTSRich.txt'
+def duarte05():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv05.txt'
     execution(configFile)
-
-def condmat05():
-    configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/condmat/WeightedGraph/config_NOWELLTSRich.txt'
-    execution(configFile)
-    
-def hepth05():
-    configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/hepth/WeightedGraph/config_NOWELLTSRich.txt'
-    execution(configFile)
-
-def hepph05():
-    configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv05.txt'
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_Arxiv99.txt'
-    
-    #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
-    execution(configFile)
-
 
 
 if __name__ == '__main__':
-    grqc()
-    astroph()
-    hepth()
-    hepph()
-    condmat()
-    grqc05()
-    astroph05()
-    hepth05()
-    hepph05()
-    condmat05()
+    grqc99()
+    hepth99()
+    hepph99()
+    condmat99()
+    astroph99()
+    #grqc05()
+    #astroph05()
+    #hepth05()
+    #hepph05()
+    #condmat05()
     #mas99()
     #mas05()
     
