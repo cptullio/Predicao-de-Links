@@ -114,9 +114,9 @@ def generateWeights(graph, weightFile, param):
                 
                 jc = get_jacard_domain(bagNode1, bagNode2)
                 decayfunction = (0.6) ** k
-                decayfunction02 = (1 - 0.1) ** jc
-                decayfunction05 = (1 - 0.2) ** jc
-                decayfunction08 = (1 - 0.3) ** jc
+                decayfunction02 = (1 - 0.7) ** jc
+                decayfunction05 = (1 - 0.8) ** jc
+                decayfunction08 = (1 - 0.9) ** jc
                 
                 
                 CTS02 = total_publications * (decayfunction*(1/decayfunction02))
@@ -252,7 +252,7 @@ def execution(configFile):
    
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_cwts_dfT06.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_cwts_dfT06_070809.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -361,11 +361,11 @@ def duarte05():
 
 
 if __name__ == '__main__':
-    grqc99()
-    hepth99()
-    hepph99()
-    condmat99()
-    astroph99()
+    grqc()
+    hepth()
+    hepph()
+    condmat()
+    astroph()
     #grqc05()
     #astroph05()
     #hepth05()
