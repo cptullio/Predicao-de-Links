@@ -252,7 +252,7 @@ def execution(configFile):
    
     
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_020508.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'wTScore03_020508.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -388,20 +388,25 @@ def hepph05():
     #configFile = 'data/configuration/arxiv/hepph/WeightedGraph/config_NOWELLTSRich.txt'
     execution(configFile)
 
+def duarte99():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv99v2.txt'
+    execution(configFile)
+
+def duarte05():
+    configFile = 'data/configuration/arxiv/duarte/MetricaTemporal/config_Arxiv05.txt'
+    execution(configFile)
 
 
 if __name__ == '__main__':
-    grqc()
-    astroph()
-    hepth()
-    hepph()
-    condmat()
-    grqc05()
-    astroph05()
-    hepth05()
-    hepph05()
-    condmat05()
-    #mas99()
-    #mas05()
-    
-    
+    #grqc()
+    #astroph()
+    #hepth()
+    #hepph()
+    #condmat()
+    #grqc05()
+    #astroph05()
+    #hepth05()
+    #hepph05()
+    #condmat05()
+    duarte05()
+    duarte99() 
