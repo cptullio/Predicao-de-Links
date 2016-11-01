@@ -17,7 +17,7 @@ from calculating.CalculatingTogetherCTimeScore import CalculatingTogetherCTimeSc
 
 def execution(configFile):
     #DEFINE THE FILE THAT WILL KEEP THE RESULT DATA
-    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_APENASCTIMESCORE_beta04.txt'), 'w')
+    resultFile = open(FormatingDataSets.get_abs_file_path(configFile + 'core03_APENASCTIMESCORE_beta09.txt'), 'w')
     
     resultFile.write("Inicio da operacao\n")
     resultFile.write(str(datetime.datetime.now()))
@@ -124,12 +124,12 @@ if __name__ == '__main__':
     #astroph99()
     #hepph99()
     #condmat99()
-    hepth()
-    grqc()
-    astroph()
-    hepph()
-    condmat()
+    #hepth()
+    #grqc()
+    #astroph()
+    #hepph()
+    #condmat()
     
-    #duarte05()
-    #duarte99() 
+    duarte05()
+    duarte99() 
     

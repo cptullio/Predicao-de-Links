@@ -241,7 +241,7 @@ class CalculatingTogetherCTimeScore(object):
                     #decayfunction07 = (0.7) ** k
                     #decayfunction06 = (0.6) ** k
                     #decayfunction05 = (0.5) ** k
-                    decayfunction04 = (0.4) ** k
+                    decayfunction04 = (0.9) ** k
                     #decayfunction03 = (0.3) ** k
                     #decayfunction02 = (0.2) ** k
                     #decayfunction01 = (0.1) ** k
